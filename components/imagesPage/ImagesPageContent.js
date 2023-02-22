@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../styles/ImagesPage.module.css';
 
-export default function ImagePageContent() {
+export default function ImagesPageContent() {
   return (
     <div id="gallery" className={styles.ImagesContentDivContainer}>
       <div className={styles.ImagesContentContainer}>
