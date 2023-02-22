@@ -1,4 +1,4 @@
-import ImageForm from '../components/ImageForm';
+import ImageForm from '../components/forms/ImageForm';
 
 /* eslint-disable @next/next/no-img-element */
 function Home() {

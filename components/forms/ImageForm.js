@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
-import { useAuth } from '../utils/context/authContext';
-import { storage } from '../utils/client';
-import { createImage, updateImage } from '../API/imageData';
+import { useAuth } from '../../utils/context/authContext';
+import { storage } from '../../utils/client';
+import { createImage, updateImage } from '../../API/imageData';
 
 const initialState = {
   firebaseKey: '',
