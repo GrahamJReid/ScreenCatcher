@@ -1,25 +1,35 @@
-import { signOut } from '../utils/auth';
-import { useAuth } from '../utils/context/authContext';
-
+/* eslint-disable @next/next/no-img-element */
 function Home() {
-  const { user } = useAuth();
-
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
-      <button className="btn btn-danger btn-lg copy-btn" type="button" onClick={signOut}>
-        Sign Out
-      </button>
-    </div>
+    <>
+      <div className="parallax_wrapper">
+        <div className="parallax_group intro_screen" id="intro">
+          Welcome user!
+        </div>
+
+        <div className="parallax_group" id="group-1">
+          <div className="parallax_layer base_layer">
+            base layer page
+          </div>
+          <div className="parallax_layer mid_layer">
+            Gallery
+          </div>
+        </div>
+
+        <div className="parallax_group" id="group-2">
+          <div className="parallax_layer mid_layer">
+            <div>mid Layer</div>
+          </div>
+          <div className="parallax_layer top_layer">
+            Image Form
+          </div>
+        </div>
+
+        <div className="parallax_group outro_screen" id="outro">
+          outro screen
+        </div>
+      </div>
+    </>
   );
 }
 
