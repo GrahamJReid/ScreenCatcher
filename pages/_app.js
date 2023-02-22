@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/home.scss';
 import { useEffect } from 'react';
 import '../styles/globals.css';
 import { AuthProvider } from '../utils/context/authContext';
