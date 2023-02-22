@@ -22,7 +22,7 @@
   z-index: 2;
   margin-top: 20rem;
 }
-.ImagesContentDivContainer{
+.PageContentDivContainer{
   scroll-snap-align:top;
   display:flex;
   justify-content:center;
@@ -32,7 +32,7 @@
   background-image:linear-gradient(silver, grey);
  background-size:cover; 
 }
-.ImagesContentContainer{
+.PageContentContainer{
   height:100vh;
   text-align:center;
   padding:2%;
