@@ -1,3 +1,11 @@
 .ContentTitle{
     color:white;
 }
+.FormContainer{
+    border:solid orange 3px;
+background-color:grey;
+height:85%;
+margin-top:10%;
+position:relative;
+
+}

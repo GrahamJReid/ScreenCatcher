@@ -1,3 +1,4 @@
+
 .HeroDivContainer{
   display:flex;
   justify-content:center;
@@ -6,6 +7,7 @@
   width:100%;
   background: url('https://cdn.dribbble.com/users/77121/screenshots/11895861/media/9de8b0b35afe9836ee7572c4213edc9a.gif') no-repeat center center fixed; 
  background-size:cover;
+ border:orange solid 3px;
 }
 .HeroOverlay{
   position:absolute;
@@ -19,8 +21,8 @@
 }
 .HeroContentContainer{
   padding:5px;
-  z-index: 2;
-  margin-top: 20rem;
+  z-index: -2;
+  margin-top: 5rem;
 }
 .PageContentDivContainer{
   scroll-snap-align:top;
@@ -31,9 +33,11 @@
   width:100%;
   background-image:linear-gradient(silver, grey);
  background-size:cover; 
+ 
 }
 .PageContentContainer{
   height:100vh;
   text-align:center;
   padding:2%;
+  z-index:9;
 }

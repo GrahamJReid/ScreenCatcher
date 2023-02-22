@@ -79,7 +79,7 @@ export default function ImageForm({ obj }) {
     <Form onSubmit={handleSubmit}>
       <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Image</h1>
 
-      {/* VIDEO URL */}
+      {/* IMAGE FILE */}
       {obj.firebaseKey ? '' : (
         <FloatingLabel controlId="floatingInput1" label="" className="mb-3 text-black background-file-input">
           <Form.Control
@@ -90,7 +90,7 @@ export default function ImageForm({ obj }) {
         </FloatingLabel>
       )}
 
-      {/* VIDEO TITLE */}
+      {/* IMAGE TITLE */}
       <FloatingLabel controlId="floatingInput2" label="Image Title" className="mb-3 text-black">
         <Form.Control
           type="text"
@@ -101,7 +101,7 @@ export default function ImageForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* VIDEO DESCRIPTION TEXTAREA */}
+      {/* IMAGE DESCRIPTION TEXTAREA */}
       <FloatingLabel controlId="floatingTextArea" label="Image Description" className="mb-3 text-black">
         <Form.Control
           type="textarea"
@@ -109,7 +109,6 @@ export default function ImageForm({ obj }) {
           name="description"
           value={formInput.description}
           onChange={handleChange}
-          // onInput={dummyFunction}
           required
         />
       </FloatingLabel>
@@ -123,7 +122,7 @@ export default function ImageForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* VIDEO DESCRIPTION TEXTAREA */}
+      {/* IMAGE DESCRIPTION TEXTAREA */}
       <Form.Check
         className="mb-3"
         type="switch"
