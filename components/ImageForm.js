@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -33,7 +34,6 @@ export default function ImageForm({ obj }) {
     if (didMount.current) {
       const uploadTask = async () => storage.ref(`images/${image.name}`).put(image);
       const delayFunction = async () => {
-        // eslint-disable-next-line no-unused-vars
         const delayingUploadTask = await uploadTask();
         storage.ref('images').child(image.name).getDownloadURL().then((url) => {
           setImageUrl(url);
@@ -97,8 +97,6 @@ export default function ImageForm({ obj }) {
           name="image_title"
           value={formInput.image_title}
           onChange={handleChange}
-          // onInput={dummyFunction}
-          // onInput={dummyFunction2}
           required
         />
       </FloatingLabel>
