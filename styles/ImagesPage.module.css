@@ -7,3 +7,33 @@
   background: url('https://cdn.dribbble.com/users/2084349/screenshots/15048613/media/85c574253b7e9ec265fb5a315d16fd2d.gif') no-repeat center center fixed; 
  background-size:cover;
 }
+.HeroOverlay{
+  position:absolute;
+  background-color:black;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  opacity:.1;
+  z-index:2;
+}
+.HeroContentContainer{
+  padding:5px;
+  z-index: 2;
+  margin-top: 20rem;
+}
+.ImagesContentDivContainer{
+  scroll-snap-align:top;
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  height:100%;
+  width:100%;
+  background-image:linear-gradient(silver, grey);
+ background-size:cover; 
+}
+.ImagesContentContainer{
+  height:100vh;
+  text-align:center;
+  padding:2%;
+}
