@@ -1,5 +1,3 @@
-import ImageForm from '../components/forms/ImageForm';
-
 /* eslint-disable @next/next/no-img-element */
 function Home() {
   return (
@@ -23,7 +21,7 @@ function Home() {
             <div>mid Layer</div>
           </div>
           <div className="parallax_layer top_layer">
-            <ImageForm />
+            top layer
           </div>
         </div>
 
