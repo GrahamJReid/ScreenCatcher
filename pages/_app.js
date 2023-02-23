@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/home.scss';
+import '../styles/folders.scss';
 import '../styles/images.scss';
 import { useEffect } from 'react';
 import '../styles/globals.css';
