@@ -36,3 +36,7 @@ z-index: 10;
 animation:ease-in;
 transition-duration:300ms;
 }
+.testCakeImage{
+  display:flex;
+  flex-direction:column;
+}
