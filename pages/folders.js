@@ -1,15 +1,23 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import FoldersPageHero from '../components/foldersPage/FolderPageHero';
-import FoldersPageContent from '../components/foldersPage/FoldersPageContent';
+import ImageForm from '../components/forms/ImageForm';
 
-export default function Images() {
+export default function Folders() {
   return (
     <>
-      <div className="images-div-container">
-        <FoldersPageHero />
-        <FoldersPageContent />
+
+      <div className="foldersparallax_wrapper">
+
+        <div className="foldersparallax_group" id="group-1">
+          <div className="foldersparallax_layer base_layer">
+            <ImageForm />
+          </div>
+        </div>
+
+        <div className="foldersparallax_group outro_screen" id="outro">
+          outro screen
+        </div>
       </div>
     </>
   );
