@@ -17,6 +17,7 @@ const initialState = {
   username: '',
   gallery: false,
   category: '',
+  image_file: '',
 };
 
 export default function ImageForm({ obj }) {
@@ -45,6 +46,11 @@ export default function ImageForm({ obj }) {
 
   const handleImage = (e) => {
     setImage(e.target.files[0]);
+    const { name, value } = e.target;
+    setFormInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,6 +92,8 @@ export default function ImageForm({ obj }) {
             type="file"
             onInput={handleImage}
             required
+            name="image_file"
+            value={formInput.image_file}
           />
         </FloatingLabel>
       )}
@@ -171,6 +179,7 @@ ImageForm.propTypes = {
     username: PropTypes.string,
     gallery: PropTypes.bool,
     category: PropTypes.string,
+    image_file: PropTypes.string,
   }),
 };
 
