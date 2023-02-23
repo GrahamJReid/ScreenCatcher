@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import ImageForm from '../components/forms/ImageForm';
+import FolderForm from '../components/forms/FolderForm';
 
 export default function Folders() {
   return (
@@ -11,7 +11,7 @@ export default function Folders() {
 
         <div className="foldersparallax_group" id="group-1">
           <div className="foldersparallax_layer base_layer">
-            <ImageForm />
+            <FolderForm />
           </div>
         </div>
 
