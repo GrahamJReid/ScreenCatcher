@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import FoldersPageContent from '../components/foldersPage/FoldersPageContent';
 import FolderForm from '../components/forms/FolderForm';
 
 export default function Folders() {
@@ -16,7 +17,7 @@ export default function Folders() {
         </div>
 
         <div className="foldersparallax_group outro_screen" id="outro">
-          outro screen
+          <FoldersPageContent />
         </div>
       </div>
     </>

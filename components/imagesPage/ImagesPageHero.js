@@ -12,7 +12,9 @@ export default function ImagesPageHero() {
       <div className={styles.HeroContentContainer} />
       <div className={imagepagestyles.FormContainer}>
         <p className="hero-message"> Images Page</p>
-        <ImageForm />
+        <div>
+          <ImageForm />
+        </div>
       </div>
 
     </div>

@@ -44,7 +44,7 @@ const updateFolder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const getUserFolders = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/Folders.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/folders.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
