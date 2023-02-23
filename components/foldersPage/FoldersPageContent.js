@@ -27,16 +27,18 @@ export default function FoldersPageContent() {
       <Head>
         <title>Folders</title>
       </Head>
-      <input type="input" />
-      <div className="folder-page-container">{order.map((folder) => (
+      <div>
+        <input type="input" />
+        <div className="folder-page-container">{order.map((folder) => (
 
-        <div key={folder.firebaseKey}>
-          <Link passHref href={`/viewFolder.js/${folder.firebaseKey}`}>
-            <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
-          </Link>
-          <h1>{folder.folder_title}</h1>
+          <div key={folder.firebaseKey}>
+            <Link passHref href={`/viewFolder.js/${folder.firebaseKey}`}>
+              <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
+            </Link>
+            <h1>{folder.folder_title}</h1>
+          </div>
+        ))}
         </div>
-      ))}
       </div>
     </>
   );
