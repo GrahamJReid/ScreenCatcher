@@ -40,6 +40,8 @@ transition-duration:300ms;
   display:flex;
   flex-direction:column;
   background-image:linear-gradient(grey,black);
+  margin-top:525%;
+  border:solid purple 7px;
 }
 .public-image-page-container{
   width:80%;
