@@ -74,6 +74,20 @@ const getUserGalleryImages = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getPublicImages = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/images.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const homeFilterVideos = Object.values(data).filter((item) => item.public === true);
+      resolve(homeFilterVideos);
+    })
+    .catch(reject);
+});
 const getSingleImage = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/images/${firebaseKey}.json`, {
     method: 'GET',
@@ -105,5 +119,6 @@ export {
   getUserGalleryImages,
   getSingleImage,
   deleteImage,
+  getPublicImages,
 
 };

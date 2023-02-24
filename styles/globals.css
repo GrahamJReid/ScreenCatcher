@@ -41,3 +41,8 @@ transition-duration:300ms;
   flex-direction:column;
   background-image:linear-gradient(grey,black);
 }
+.public-image-page-container{
+  width:80%;
+  height:80%;
+  overflow-y: auto;
+}
