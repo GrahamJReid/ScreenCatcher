@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
 import Head from 'next/head';
+import styles from '../../styles/ViewImagePage.module.css';
 
 import { useAuth } from '../../utils/context/authContext';
 import { deleteImage, getSingleImage } from '../../API/imageData';
@@ -30,9 +31,9 @@ export default function ViewImage() {
       <Head>
         <title>{imageDetails.image_title}</title>
       </Head>
-      <div className="view-image-container">
+      <div className={styles.ViewImageContainer}>
 
-        <img className="view-image-image" src={imageDetails.image_url} />
+        <img className={styles.ViewImageImage} src={imageDetails.image_url} />
 
         <h2>{imageDetails.image_title}</h2>
         <h6>Added by: {imageDetails.username} <br />
