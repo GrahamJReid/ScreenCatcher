@@ -21,7 +21,7 @@ a {
 }
 
 body {
-  background-image:linear-gradient(grey,black);
+  background-color:#FF8811;
 }
 .container{
   max-width:none;
@@ -39,9 +39,8 @@ transition-duration:300ms;
 .testCakeImage{
   display:flex;
   flex-direction:column;
-  background-image:linear-gradient(grey,black);
+  background-color:#9DD9D2; 
   margin-top:525%;
-  border:solid purple 7px;
 }
 .public-image-page-container{
   width:80%;

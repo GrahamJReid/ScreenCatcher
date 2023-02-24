@@ -15,7 +15,7 @@
     perspective:300px;
       .intro_screen{
         height:100vh;
-        background-color:orange;
+        background-color:#FF8811;
         @include align-center;
        }
       .outro_screen{
@@ -52,7 +52,7 @@
        }
   
        #group-1 >.base_layer{
-        background-image: linear-gradient(grey,black) no-repeat center center fixed; 
+        background-color:#F4D06F;
         background-size:cover;
        }
   
@@ -61,7 +61,7 @@
        }
   
        #group-2 >.mid_layer{
-        background-image:linear-gradient(black,grey);
+        background-color:#9DD9D2; 
        }
   
        #outro{
