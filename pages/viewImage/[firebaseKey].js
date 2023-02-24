@@ -40,6 +40,9 @@ export default function ViewImage() {
           {imageDetails.date_added}
         </h6>
         <p>{imageDetails.description}</p>
+        {imageDetails.public === false ? (
+          <h5> Private</h5>
+        ) : <h5> Public</h5>}
         <div>
           {imageDetails.uid === user.uid ? (
             <Button
@@ -55,9 +58,6 @@ export default function ViewImage() {
               Delete
             </Button>
           ) : ''}
-          {imageDetails.public === false ? (
-            <h5>&#128274; Private</h5>
-          ) : <h5>&#127758; Public</h5>}
         </div>
         <div>
           {/* <CommentForm></CommentForm> */}

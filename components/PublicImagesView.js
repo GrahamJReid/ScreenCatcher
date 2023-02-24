@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getPublicImages } from '../API/imageData';
 
@@ -16,7 +17,9 @@ export default function PublicImagesView() {
   return (
     <>
       <div className="public-image-page-container">{order.map((image) => (
-        <img src={`${image.image_url}`} height="25%" width="25%" className="image-page-image" />
+        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+          <img src={`${image.image_url}`} height="25%" width="25%" className="image-page-image" />
+        </Link>
       ))}
       </div>
     </>
