@@ -88,7 +88,7 @@ transition-duration:1000ms;
  .gallery-image{
   object-fit: contain;
   max-width:auto;
-  max-height:60rem;
+  max-height:50rem;
   width:100%;
   height:100%;
 }
