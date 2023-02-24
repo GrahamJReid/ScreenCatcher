@@ -22,12 +22,12 @@ background-size:cover;
   perspective:300px;
     .intro_screen{
       height:100vh;
-      background-image: url(https://cdn.dribbble.com/users/77121/screenshots/11506035/media/44094ecfb9ec6e75f1a3a7bdd24bd990.gif);
+      background-color:#F4D06F;
       @include align-center;
      }
     .outro_screen{
     height:100vh;
-    background-color:teal;
+    background-color:#F4D06F;
     @include align-center;
      }
     .parallax_group{
@@ -58,7 +58,7 @@ background-size:cover;
      }
 
      #group-1 >.base_layer{
-      background: url('https://wp-mktg.prod.getty1.net/istockcontentredesign/wp-content/uploads/sites/5/bfi_thumb/2021_iStock_LatestBGTrends_Hero.jpg-37hacs394rfnlye6q17b1otbsizghpa9fhni65z6lb6gploak.jpeg') no-repeat center center fixed; 
+      background-color:#9DD9D2; 
       background-size:cover;
      }
 
@@ -67,7 +67,7 @@ background-size:cover;
      }
 
      #group-2 >.mid_layer{
-      background-image:linear-gradient(black,grey);
+      background-color:#F4D06F;
      }
 
      #outro{
