@@ -1,3 +1,4 @@
+import Gallery from '../components/Gallery';
 import PublicImagesView from '../components/PublicImagesView';
 
 /* eslint-disable @next/next/no-img-element */
@@ -14,7 +15,7 @@ function Home() {
             base layer page
           </div>
           <div className="parallax_layer mid_layer">
-            Gallery
+            <Gallery />
           </div>
         </div>
 
