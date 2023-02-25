@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { getSingleImage } from '../../../API/imageData';
 import ImageForm from '../../../components/forms/ImageForm';
 
-export default function EditPlaylistPage() {
+export default function EditImagePage() {
   const [editItem, setEditItem] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
@@ -16,7 +16,7 @@ export default function EditPlaylistPage() {
   return (
     <>
       <Head>
-        <title>Edit Playlist</title>
+        <title>Edit Image</title>
       </Head>
       <div>
         <div className="edit-Image-container">
