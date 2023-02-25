@@ -34,12 +34,14 @@ export default function ViewFolderPage() {
       <Head>
         <title>Folder</title>
       </Head>
-      <h1>{folder.folder_title} Folder</h1>
-      <div className="image-page-container">{images.map((image) => (
-        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-          <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
-        </Link>
-      ))}
+      <div className="view-folder-page-container">
+        <h1>{folder.folder_title} Folder</h1>
+        <div className="image-page-container">{images.map((image) => (
+          <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+            <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
+          </Link>
+        ))}
+        </div>
       </div>
     </>
   );
