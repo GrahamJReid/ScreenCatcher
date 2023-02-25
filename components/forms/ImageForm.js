@@ -83,11 +83,6 @@ export default function ImageForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      const folderPayload = {
-        ...folderImageInput, folder_id: obj.firebaseKey,
-      };
-      updateFolderImageObj(folderImageInput);
-
       updateImage(formInput)
         .then(() => router.push(`/viewImage/${obj.firebaseKey}`));
     } else {

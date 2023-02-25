@@ -9,6 +9,7 @@ import styles from '../../styles/ViewImagePage.module.css';
 
 import { useAuth } from '../../utils/context/authContext';
 import { deleteImage, getSingleImage } from '../../API/imageData';
+import FolderSelect from '../../components/FolderSelect';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -57,6 +58,9 @@ export default function ViewImage() {
             >
               Delete
             </Button>
+          ) : ''}
+          {imageDetails.uid === user.uid ? (
+            <FolderSelect imageObj={imageDetails} />
           ) : ''}
         </div>
         <div>
