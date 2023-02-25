@@ -6,6 +6,8 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { storage } from '../../utils/client';
 import { createImage, updateImage } from '../../API/imageData';
+import { getFolders } from '../../API/folderData';
+import { createFolderImageObj, updateFolderImageObj } from '../../API/folderImageData';
 
 const initialState = {
   firebaseKey: '',
@@ -19,17 +21,28 @@ const initialState = {
   category: '',
   image_file: '',
 };
+const folderImageInitialState = {
+  firebaseKey: '',
+  folder_id: '',
+  image_id: '',
+  folder_select: '',
+};
 
 export default function ImageForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
+  const [folderImageInput, setFolderImageInput] = useState(folderImageInitialState);
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
+  const [folders, setFolders] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
   const didMount = React.useRef(false);
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
+  }, [obj, user]);
+  useEffect(() => {
+    getFolders(user.uid).then(setFolders);
   }, [obj, user]);
   useEffect(() => {
     if (didMount.current) {
@@ -59,6 +72,13 @@ export default function ImageForm({ obj }) {
       [name]: value,
     }));
   };
+  const handleFolderImageChange = (e) => {
+    const { name, value } = e.target;
+    setFolderImageInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,7 +94,17 @@ export default function ImageForm({ obj }) {
           const patchPayload = { firebaseKey: name };
           updateImage(patchPayload)
             .then(() => {
+              const folderPayload = {
+                ...folderImageInput, image_id: name,
+              };
+              // eslint-disable-next-line no-shadow
+              createFolderImageObj(folderPayload).then(({ name }) => {
+                const patchFolderPayload = { firebaseKey: name };
+                updateFolderImageObj(patchFolderPayload);
+              });
+
               setFormInput(initialState);
+              setFolderImageInput(folderImageInitialState);
               router.push('/images');
             });
         });
@@ -159,6 +189,27 @@ export default function ImageForm({ obj }) {
           }));
         }}
       />
+      <FloatingLabel controlId="floatingSelect">
+        <Form.Select
+          aria-label="Folder"
+          name="folder_id"
+          onChange={handleFolderImageChange}
+          value={folderImageInput.folder_id}
+          className="mb-3"
+        >
+          <option value="">Select a Folder</option>
+          {
+                  folders.map((folder) => (
+                    <option
+                      key={folder.firebaseKey}
+                      value={folder.firebaseKey}
+                    >
+                      {folder.folder_title}
+                    </option>
+                  ))
+                }
+        </Form.Select>
+      </FloatingLabel>
 
       {/* SUBMIT BUTTON  */}
 

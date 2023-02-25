@@ -32,7 +32,7 @@ export default function FoldersPageContent() {
         <div className="folder-page-container">{order.map((folder) => (
 
           <div key={folder.firebaseKey}>
-            <Link passHref href={`/viewFolder.js/${folder.firebaseKey}`}>
+            <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
               <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
             </Link>
             <h1>{folder.folder_title}</h1>
