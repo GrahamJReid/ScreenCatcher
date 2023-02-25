@@ -25,6 +25,7 @@ const folderImageInitialState = {
   firebaseKey: '',
   folder_id: '',
   image_id: '',
+  folder_select: '',
 };
 
 export default function ImageForm({ obj }) {
@@ -99,10 +100,11 @@ export default function ImageForm({ obj }) {
               // eslint-disable-next-line no-shadow
               createFolderImageObj(folderPayload).then(({ name }) => {
                 const patchFolderPayload = { firebaseKey: name };
-                updateFolderImageObj(patchFolderPayload).then(router.push(`/viewFolder/${formInput.folder_id}`));
+                updateFolderImageObj(patchFolderPayload);
               });
 
               setFormInput(initialState);
+              setFolderImageInput(folderImageInitialState);
               router.push('/images');
             });
         });
@@ -190,7 +192,8 @@ export default function ImageForm({ obj }) {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           aria-label="Folder"
-          name="folder_id"
+          name="folder_select"
+          value={folderImageInput.folder_select}
           onChange={handleFolderImageChange}
           className="mb-3"
         >
