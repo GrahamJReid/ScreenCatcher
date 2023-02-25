@@ -192,9 +192,9 @@ export default function ImageForm({ obj }) {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           aria-label="Folder"
-          name="folder_select"
-          value={folderImageInput.folder_select}
+          name="folder_id"
           onChange={handleFolderImageChange}
+          value={folderImageInput.folder_id}
           className="mb-3"
         >
           <option value="">Select a Folder</option>
