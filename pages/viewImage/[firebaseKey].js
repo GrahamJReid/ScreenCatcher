@@ -46,7 +46,7 @@ export default function ViewImage() {
         <div>
           {imageDetails.uid === user.uid ? (
             <Button
-              href={`/viewImage.js/edit/${imageDetails.firebaseKey}`}
+              href={`/viewImage/edit/${imageDetails.firebaseKey}`}
             >
               Edit
             </Button>

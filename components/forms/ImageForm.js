@@ -84,7 +84,7 @@ export default function ImageForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateImage(formInput)
-        .then(() => router.push(`/viewImage.js/${obj.firebaseKey}`));
+        .then(() => router.push(`/viewImage/${obj.firebaseKey}`));
     } else {
       const payload = {
         ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`,
