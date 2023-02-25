@@ -85,14 +85,6 @@ export default function ImageForm({ obj }) {
       updateImage(formInput)
         .then(() => router.push(`/viewImage.js/${obj.firebaseKey}`));
     } else {
-      const folderPayload = {
-        ...folderImageInput, image_id: obj.firebaseKey,
-      };
-      createFolderImageObj(folderPayload).then(({ name }) => {
-        const patchFolderPayload = { firebaseKey: name };
-        updateFolderImageObj(patchFolderPayload).then(router.push(`/viewFolder/${formInput.folder_id}`));
-      });
-
       const payload = {
         ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`,
       };
@@ -101,6 +93,15 @@ export default function ImageForm({ obj }) {
           const patchPayload = { firebaseKey: name };
           updateImage(patchPayload)
             .then(() => {
+              const folderPayload = {
+                ...folderImageInput, image_id: name,
+              };
+              // eslint-disable-next-line no-shadow
+              createFolderImageObj(folderPayload).then(({ name }) => {
+                const patchFolderPayload = { firebaseKey: name };
+                updateFolderImageObj(patchFolderPayload).then(router.push(`/viewFolder/${formInput.folder_id}`));
+              });
+
               setFormInput(initialState);
               router.push('/images');
             });
