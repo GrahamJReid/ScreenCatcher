@@ -1,13 +1,17 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Gallery from '../components/Gallery';
 import PublicImagesView from '../components/PublicImagesView';
+import { useAuth } from '../utils/context/authContext';
 
 /* eslint-disable @next/next/no-img-element */
 function Home() {
+  const { user } = useAuth();
   return (
     <>
       <div className="parallax_wrapper">
         <div className="parallax_group intro_screen" id="intro">
-          Welcome user!
+          <img src={user.photoURL} height="200" width="200" />
+          <h1>{user.displayName}</h1>
         </div>
 
         <div className="parallax_group" id="group-1">

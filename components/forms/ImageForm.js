@@ -84,7 +84,7 @@ export default function ImageForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateImage(formInput)
-        .then(() => router.push(`/viewImage.js/${obj.firebaseKey}`));
+        .then(() => router.push(`/viewImage/${obj.firebaseKey}`));
     } else {
       const payload = {
         ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`,
@@ -189,16 +189,17 @@ export default function ImageForm({ obj }) {
           }));
         }}
       />
-      <FloatingLabel controlId="floatingSelect">
-        <Form.Select
-          aria-label="Folder"
-          name="folder_id"
-          onChange={handleFolderImageChange}
-          value={folderImageInput.folder_id}
-          className="mb-3"
-        >
-          <option value="">Select a Folder</option>
-          {
+      {obj.firebaseKey ? '' : (
+        <FloatingLabel controlId="floatingSelect">
+          <Form.Select
+            aria-label="Folder"
+            name="folder_id"
+            onChange={handleFolderImageChange}
+            value={folderImageInput.folder_id}
+            className="mb-3"
+          >
+            <option value="">Select a Folder</option>
+            {
                   folders.map((folder) => (
                     <option
                       key={folder.firebaseKey}
@@ -208,8 +209,9 @@ export default function ImageForm({ obj }) {
                     </option>
                   ))
                 }
-        </Form.Select>
-      </FloatingLabel>
+          </Form.Select>
+        </FloatingLabel>
+      )}
 
       {/* SUBMIT BUTTON  */}
 

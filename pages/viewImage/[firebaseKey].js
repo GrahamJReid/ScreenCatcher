@@ -9,6 +9,7 @@ import styles from '../../styles/ViewImagePage.module.css';
 
 import { useAuth } from '../../utils/context/authContext';
 import { deleteImage, getSingleImage } from '../../API/imageData';
+import FolderSelect from '../../components/FolderSelect';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -39,14 +40,14 @@ export default function ViewImage() {
         <h6>Added by: {imageDetails.username} <br />
           {imageDetails.date_added}
         </h6>
-        <p>{imageDetails.description}</p>
+        <p>Description: {imageDetails.description}</p>
         {imageDetails.public === false ? (
           <h5> Private</h5>
         ) : <h5> Public</h5>}
         <div>
           {imageDetails.uid === user.uid ? (
             <Button
-              href={`/viewImage.js/edit/${imageDetails.firebaseKey}`}
+              href={`/viewImage/edit/${imageDetails.firebaseKey}`}
             >
               Edit
             </Button>
@@ -57,6 +58,9 @@ export default function ViewImage() {
             >
               Delete
             </Button>
+          ) : ''}
+          {imageDetails.uid === user.uid ? (
+            <FolderSelect imageObj={imageDetails} />
           ) : ''}
         </div>
         <div>
