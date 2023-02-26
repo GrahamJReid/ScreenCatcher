@@ -31,6 +31,7 @@ export default function FolderSelect({ imageObj }) {
         const patchFolderPayload = { firebaseKey: name };
         updateFolderImageObj(patchFolderPayload);
       });
+      setFormInput(initialState);
     } else {
       window.alert('You must select a valid folder');
     }
@@ -52,6 +53,7 @@ export default function FolderSelect({ imageObj }) {
             name="folder_id"
             onChange={handleChange}
             className="mb-3"
+            value={formInput.folder_id}
             required
           >
             <option value="">Select a Folder</option>
