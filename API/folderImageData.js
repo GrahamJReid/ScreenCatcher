@@ -14,7 +14,7 @@ const getFolderImageObjectsByFolderId = (folderFirebaseKey) => new Promise((reso
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
-// Get SIngle FolderImage Object By FolderID and VideoID
+// Get Single FolderImage Object By FolderID and VideoID
 const getSingleFolderImageObj = (folderFirebaseKey, imageFirebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/folderimage.json?orderBy="folder_id"&equalTo="${folderFirebaseKey}"`, {
     method: 'GET',

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { getSingleFolder } from '../../API/folderData';
-import { getFolderImageObjectsByFolderId } from '../../API/folderImageData';
+import { deleteFolderImageObj, getFolderImageObjectsByFolderId, getSingleFolderImageObj } from '../../API/folderImageData';
 import { getImages } from '../../API/imageData';
 import { useAuth } from '../../utils/context/authContext';
 
@@ -53,11 +53,23 @@ export default function ViewFolderPage() {
             Delete
           </Button>
         ) : ''}
-        <div className="image-page-container">{images.map((image) => (
-          <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-            <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
-          </Link>
-        ))}
+        <div>
+          <div className="image-page-container">{images.map((image) => (
+            <div>
+              <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+                <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
+              </Link>
+              <Button onClick={() => {
+                getSingleFolderImageObj(folder.firebaseKey, image.firebaseKey).then((obj) => {
+                  deleteFolderImageObj(obj.firebaseKey).then(getFolderImages);
+                });
+              }}
+              >Remove
+              </Button>
+            </div>
+          ))}
+
+          </div>
         </div>
       </div>
     </>
