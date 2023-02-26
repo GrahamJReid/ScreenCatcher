@@ -38,7 +38,7 @@ export default function FolderForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateFolder(formInput)
-        .then(() => router.push(`/folders.js/${obj.firebaseKey}`));
+        .then(() => router.push(`/viewFolder/${obj.firebaseKey}`));
     } else {
       const payload = {
         ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName,
