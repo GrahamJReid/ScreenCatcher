@@ -7,7 +7,9 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { getSingleFolder } from '../../API/folderData';
-import { deleteFolderImageObj, getFolderImageObjectsByFolderId, getSingleFolderImageObj } from '../../API/folderImageData';
+import {
+  deleteFolderData, deleteFolderImageObj, getFolderImageObjectsByFolderId, getSingleFolderImageObj,
+} from '../../API/folderImageData';
 import { getImages } from '../../API/imageData';
 import { useAuth } from '../../utils/context/authContext';
 
@@ -32,6 +34,14 @@ export default function ViewFolderPage() {
   useEffect(() => {
     getFolderImages();
   }, [firebaseKey]);
+
+  const deleteFolder = () => {
+    if (window.confirm(`Delete ${folder.folder_title}?`)) {
+      deleteFolderData(folder.firebaseKey).then(() => {
+        router.push('/folders');
+      });
+    }
+  };
   return (
     <>
       <Head>
@@ -49,7 +59,7 @@ export default function ViewFolderPage() {
           </Button>
         ) : ''}
         {folder.uid === user.uid ? (
-          <Button>
+          <Button onClick={deleteFolder}>
             Delete
           </Button>
         ) : ''}
