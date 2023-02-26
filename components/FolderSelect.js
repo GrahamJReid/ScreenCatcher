@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { getFolders } from '../API/folderData';
+import { getUserFolders } from '../API/folderData';
 import { createFolderImageObj, updateFolderImageObj } from '../API/folderImageData';
 import { useAuth } from '../utils/context/authContext';
 
@@ -17,7 +17,7 @@ export default function FolderSelect({ imageObj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getFolders(user.uid).then(setFolders);
+    getUserFolders(user.uid).then(setFolders);
   }, [user]);
 
   const handleSubmit = (e) => {

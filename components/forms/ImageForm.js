@@ -6,7 +6,7 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { storage } from '../../utils/client';
 import { createImage, updateImage } from '../../API/imageData';
-import { getFolders } from '../../API/folderData';
+import { getFolders, getUserFolders } from '../../API/folderData';
 import { createFolderImageObj, updateFolderImageObj } from '../../API/folderImageData';
 
 const initialState = {
@@ -42,7 +42,7 @@ export default function ImageForm({ obj }) {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
   useEffect(() => {
-    getFolders(user.uid).then(setFolders);
+    getUserFolders(user.uid).then(setFolders);
   }, [obj, user]);
   useEffect(() => {
     if (didMount.current) {
