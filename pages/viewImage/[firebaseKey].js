@@ -8,7 +8,9 @@ import Head from 'next/head';
 import styles from '../../styles/ViewImagePage.module.css';
 
 import { useAuth } from '../../utils/context/authContext';
-import { deleteImage, getSingleImage } from '../../API/imageData';
+import {
+  createImage, deleteImage, getSingleImage, updateImage,
+} from '../../API/imageData';
 import FolderSelect from '../../components/FolderSelect';
 
 export default function ViewImage() {
@@ -26,6 +28,25 @@ export default function ViewImage() {
   useEffect(() => {
     getSingleImage(firebaseKey).then(setImageDetails);
   }, [firebaseKey]);
+  const payload = {
+    date_added: new Date().toLocaleString(),
+    username: user.displayName,
+    image_url: imageDetails.image_url,
+    category: imageDetails.category,
+    description: imageDetails.description,
+    gallery: false,
+    public: false,
+    image_title: imageDetails.image_title,
+    uid: user.uid,
+    image_file: imageDetails.image_file,
+  };
+
+  const handleAdd = () => {
+    createImage(payload).then(({ name }) => {
+      const patchPayload = { firebaseKey: name };
+      updateImage(patchPayload);
+    });
+  };
 
   return (
     <>
@@ -61,7 +82,7 @@ export default function ViewImage() {
           ) : ''}
           {imageDetails.uid === user.uid ? (
             <FolderSelect imageObj={imageDetails} />
-          ) : ''}
+          ) : <Button onClick={handleAdd}> Add To Your Images</Button>}
         </div>
         <div>
           {/* <CommentForm></CommentForm> */}
