@@ -40,7 +40,7 @@ export default function ViewImage() {
         <h6>Added by: {imageDetails.username} <br />
           {imageDetails.date_added}
         </h6>
-        <p>{imageDetails.description}</p>
+        <p>Description: {imageDetails.description}</p>
         {imageDetails.public === false ? (
           <h5> Private</h5>
         ) : <h5> Public</h5>}

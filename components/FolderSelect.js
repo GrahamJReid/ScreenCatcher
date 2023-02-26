@@ -30,6 +30,7 @@ export default function FolderSelect({ imageObj }) {
       createFolderImageObj(folderPayload).then(({ name }) => {
         const patchFolderPayload = { firebaseKey: name };
         updateFolderImageObj(patchFolderPayload);
+        window.alert('Image Added to Folder');
       });
       setFormInput(initialState);
     } else {
