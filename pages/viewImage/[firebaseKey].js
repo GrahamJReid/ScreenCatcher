@@ -19,7 +19,7 @@ export default function ViewImage() {
   const { firebaseKey } = router.query;
   const { user } = useAuth();
 
-  const deleteThisVideo = () => {
+  const deleteThisImage = () => {
     if (window.confirm(`Delete ${imageDetails.image_title}?`)) {
       deleteImage(imageDetails.firebaseKey).then(() => router.push('/images'));
     }
@@ -75,7 +75,7 @@ export default function ViewImage() {
           ) : ''}
           {imageDetails.uid === user.uid ? (
             <Button
-              onClick={deleteThisVideo}
+              onClick={deleteThisImage}
             >
               Delete
             </Button>
