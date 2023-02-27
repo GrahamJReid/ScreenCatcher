@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleImage } from '../../../API/imageData';
 import ImageForm from '../../../components/forms/ImageForm';
+import viewimagepagestyle from '../../../styles/ViewImagePage.module.css';
 
 export default function EditImagePage() {
   const [editItem, setEditItem] = useState({});
@@ -19,7 +20,7 @@ export default function EditImagePage() {
         <title>Edit Image</title>
       </Head>
       <div>
-        <div className="edit-Image-container">
+        <div className={viewimagepagestyle.EditFormContainer}>
           <ImageForm obj={editItem} />
         </div>
       </div>

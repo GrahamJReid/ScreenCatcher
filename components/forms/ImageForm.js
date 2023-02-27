@@ -105,7 +105,7 @@ export default function ImageForm({ obj }) {
 
               setFormInput(initialState);
               setFolderImageInput(folderImageInitialState);
-              router.push('/images');
+              window.location.reload(true);
             });
         });
     }

@@ -5,8 +5,8 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from 'react';
-import { getUserGalleryImages } from '../API/imageData';
-import { useAuth } from '../utils/context/authContext';
+import { getUserGalleryImages } from '../../API/imageData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function Gallery() {
   const [images, setImages] = useState([]);

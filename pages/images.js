@@ -3,6 +3,7 @@
 import React from 'react';
 import ImageForm from '../components/forms/ImageForm';
 import ImagesPageContent from '../components/imagesPage/ImagesPageContent';
+import imagepagestyles from '../styles/ImagesPage.module.css';
 
 export default function Images() {
   return (
@@ -11,15 +12,11 @@ export default function Images() {
       <div className="imagesparallax_group intro_screen" id="intro">
         <ImageForm />
       </div>
-
-      <div className="imagesparallax_group" id="group-1">
-        <div className="imagesparallax_layer base_layer">
-          <div className="testCakeImage">
-            <ImagesPageContent />
-          </div>
+      <div className={imagepagestyles.ContainImagePageContent}>
+        <div className="testCakeImage">
+          <ImagesPageContent />
         </div>
       </div>
-
     </div>
 
   );

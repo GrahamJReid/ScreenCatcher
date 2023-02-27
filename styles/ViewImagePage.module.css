@@ -3,9 +3,13 @@
     height:50%;
 }
 .ViewImageContainer{
-    margin-top:20%;
+    margin-top:6%;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    margin-bottom:5%;
+}
+.EditFormContainer{
+    margin-top:10%;
 }

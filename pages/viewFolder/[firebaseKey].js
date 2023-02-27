@@ -12,6 +12,7 @@ import {
 } from '../../API/folderImageData';
 import { getImages } from '../../API/imageData';
 import { useAuth } from '../../utils/context/authContext';
+import viewfolderpagestyles from '../../styles/ViewFolderPage.module.css';
 
 export default function ViewFolderPage() {
   const [folder, setFolder] = useState({});
@@ -47,7 +48,7 @@ export default function ViewFolderPage() {
       <Head>
         <title>Folder</title>
       </Head>
-      <div className="view-folder-page-container">
+      <div className={viewfolderpagestyles.ViewFolderPageContainer}>
         <h1>{folder.folder_title} Folder</h1>
         <h2>Description:{folder.description}</h2>
         <h3>Category:{folder.category}</h3>

@@ -24,7 +24,7 @@
       @include align-center;
        }
       .imagesparallax_group{
-      position:relative;
+      position:absolute;
       height:100vh;
       transform-style:preserve-3d; 
         .imagesparallax_layer{
@@ -61,7 +61,7 @@
        }
   
        #group-2 >.mid_layer{
-        background-color:#9DD9D2; 
+        background-color:#FF8811; 
        }
   
        #outro{

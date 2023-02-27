@@ -49,6 +49,7 @@ export default function FolderForm({ obj }) {
           updateFolder(patchPayload)
             .then(() => {
               setFormInput(initialState);
+              window.location.reload(true);
               router.push('/folders');
             });
         });
