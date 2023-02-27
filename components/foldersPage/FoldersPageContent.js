@@ -6,7 +6,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getUserFolders } from '../../API/folderData';
 
-import styles from '../../styles/ImagesFoldersPageLayout.module.css';
 import imagepagestyles from '../../styles/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 

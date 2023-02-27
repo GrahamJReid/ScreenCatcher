@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
-import Gallery from '../components/Gallery';
-import PublicImagesView from '../components/PublicImagesView';
+import Gallery from '../components/homePage/Gallery';
+import PublicImagesView from '../components/homePage/PublicImagesView';
 import { useAuth } from '../utils/context/authContext';
 
 /* eslint-disable @next/next/no-img-element */

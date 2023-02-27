@@ -37,16 +37,6 @@ animation:ease-in;
 transition-duration:300ms;
 }
 
-.contain-imagepagecontent{
-  display:flex;
-  flex-direction:column;
-  background-color:#9DD9D2; 
-  width:70%;
-  height:auto;
-  margin-left:25%;
-  overflow-y: auto; 
-  height:99%;
-}
 .public-image-page-container{
   width:80%;
   height:80%;
@@ -62,8 +52,7 @@ transition-duration:300ms;
 }
 .gallery-current{
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-transition-duration:1000ms;
-  
+transition-duration:1000ms; 
 }
 .gallery-container{
   height:100vh;
@@ -74,7 +63,6 @@ transition-duration:1000ms;
   height:100%;
   width:100%;
   object-fit: contain;
-
 }
 .gallery-button-l{
   position:absolute;
@@ -96,8 +84,4 @@ transition-duration:1000ms;
   max-height:50rem;
   width:100%;
   height:100%;
-}
-.view-folder-page-container{
-  margin-top:30%;
-  border:solid purple 5px;
 }

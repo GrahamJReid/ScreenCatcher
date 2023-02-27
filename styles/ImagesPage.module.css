@@ -3,8 +3,20 @@
 }
 .FormContainer{
     border:solid orange 3px;
-    background-color:#9DD9D2; 
+    background-color:#FF8811; 
 height:85%;
 margin-top:10%;
 position:relative;
+}
+.ContainImagePageContent{
+  display:flex;
+  flex-direction:column;
+  background-color:#FF8811; 
+  width:70%;
+  height:auto;
+  margin-left:25%;
+  overflow-y: auto; 
+  height:99%;
+  margin-top:7%;
+  position:sticky;
 }

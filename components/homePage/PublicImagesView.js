@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { getPublicImages } from '../API/imageData';
+import { getPublicImages } from '../../API/imageData';
 
 export default function PublicImagesView() {
   const [order, setOrder] = useState([]);

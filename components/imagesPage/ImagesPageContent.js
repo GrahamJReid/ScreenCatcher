@@ -6,7 +6,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getUserImages } from '../../API/imageData';
 
-import styles from '../../styles/ImagesFoldersPageLayout.module.css';
 import imagepagestyles from '../../styles/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
@@ -26,7 +25,6 @@ export default function ImagesPageContent() {
       <Head>
         <title>Images</title>
       </Head>
-      <input type="input" />
       <div className="image-page-container">{order.map((image) => (
         <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
           <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
