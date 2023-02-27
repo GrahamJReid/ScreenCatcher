@@ -44,7 +44,9 @@ export default function ViewImage() {
   const handleAdd = () => {
     createImage(payload).then(({ name }) => {
       const patchPayload = { firebaseKey: name };
-      updateImage(patchPayload);
+      updateImage(patchPayload).then(() => {
+        router.push('/images');
+      });
     });
   };
 
