@@ -36,11 +36,16 @@ z-index: 10;
 animation:ease-in;
 transition-duration:300ms;
 }
-.testCakeImage{
+
+.contain-imagepagecontent{
   display:flex;
   flex-direction:column;
   background-color:#9DD9D2; 
-  margin-top:1700%;
+  width:70%;
+  height:auto;
+  margin-left:25%;
+  overflow-y: auto; 
+  height:99%;
 }
 .public-image-page-container{
   width:80%;

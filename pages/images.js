@@ -11,15 +11,11 @@ export default function Images() {
       <div className="imagesparallax_group intro_screen" id="intro">
         <ImageForm />
       </div>
-
-      <div className="imagesparallax_group" id="group-1">
-        <div className="imagesparallax_layer base_layer">
-          <div className="testCakeImage">
-            <ImagesPageContent />
-          </div>
+      <div className="contain-imagepagecontent">
+        <div className="testCakeImage">
+          <ImagesPageContent />
         </div>
       </div>
-
     </div>
 
   );
