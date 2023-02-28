@@ -12,11 +12,11 @@ export default function Images() {
       <div className={imagepagestyles.ImageFormContainer}>
         <ImageForm />
       </div>
-      <div>
-        <div className={imagepagestyles.ImagesPageContentContainer}>
-          <ImagesPageContent />
-        </div>
+
+      <div className={imagepagestyles.ImagesPageContentContainer}>
+        <ImagesPageContent />
       </div>
+
     </div>
 
   );

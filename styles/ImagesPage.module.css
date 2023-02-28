@@ -1,3 +1,19 @@
+
+.ImagePageWrapper{
+  display:flex;
+  flex-direction:row;
+  margin-top:10%;
+  height:100vh;
+  position:fixed;
+  
+}
+.ImageFormContainer{
+  width:20%;
+}
+.ImagesPageContentContainer{
+  width:80%;
+}
+
 .ContentTitle{
     color:white;
 }
@@ -16,7 +32,13 @@ position:relative;
   height:auto;
   margin-left:25%;
   overflow-y: auto; 
-  height:25%;
-  margin-top:7%;
+  height:100vh;
   position:sticky;
+}
+.ImagesPageImage{
+  height:auto;
+}
+.SearchBarDiv{
+  margin-left:25%;
+  
 }
