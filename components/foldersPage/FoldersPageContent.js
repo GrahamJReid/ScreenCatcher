@@ -10,8 +10,15 @@ import imagepagestyles from '../../styles/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
 export default function FoldersPageContent() {
+  const getFilteredItems = (query, order) => {
+    if (!query) {
+      return order;
+    }
+    return order.filter((folder) => folder.folder_title.toLowerCase().includes(query.toLowerCase()) || folder.category.toLowerCase().includes(query.toLowerCase()) || folder.date_added.includes(query.toLowerCase()) || folder.description.toLowerCase().includes(query.toLowerCase()));
+  };
   const { user } = useAuth();
   const [order, setOrder] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     getUserFolders(user.uid).then((item) => {
@@ -21,14 +28,16 @@ export default function FoldersPageContent() {
     });
   }, [user.uid]);
 
+  const filteredItems = getFilteredItems(query, order);
+
   return (
     <>
       <Head>
         <title>Folders</title>
       </Head>
       <div>
-        <input type="input" />
-        <div className="folder-page-container">{order.map((folder) => (
+        <input className="team-view-searchbar" type="text" placeholder="Search Folders" onChange={(e) => setQuery(e.target.value)} />
+        <div className="folder-page-container">{filteredItems.map((folder) => (
 
           <div key={folder.firebaseKey}>
             <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
