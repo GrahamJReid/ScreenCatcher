@@ -29,6 +29,25 @@ const getSingleFolderImageObj = (folderFirebaseKey, imageFirebaseKey) => new Pro
     })
     .catch(reject);
 });
+const getFolderImageObjBasedOnImageId = (imageFirebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/folderimage.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data) {
+        console.warn('not in folder yet');
+      } else {
+        const arr = Object.values(data).filter((item) => item.image_id === imageFirebaseKey);
+        resolve(arr);
+      }
+    })
+    .catch(reject);
+});
+
 // Create FolderImage Object
 const createFolderImageObj = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/folderimage.json`, {
@@ -86,4 +105,5 @@ export {
   deleteFolderImageObj,
   deleteFolderData,
   getSingleFolderImageObj,
+  getFolderImageObjBasedOnImageId,
 };

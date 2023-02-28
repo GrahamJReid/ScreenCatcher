@@ -12,21 +12,26 @@ import {
   createImage, deleteImage, getSingleImage, updateImage,
 } from '../../API/imageData';
 import FolderSelect from '../../components/FolderSelect';
+import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
+  const [folderImage, setFolderImage] = useState([]);
   const router = useRouter();
   const { firebaseKey } = router.query;
   const { user } = useAuth();
 
   const deleteThisImage = () => {
-    if (window.confirm(`Delete ${imageDetails.image_title}?`)) {
-      deleteImage(imageDetails.firebaseKey).then(() => router.push('/images'));
-    }
+    console.warn(folderImage);
+    folderImage.map((item) => (
+      deleteFolderImageObj(item.firebaseKey)
+    ));
+    deleteImage(imageDetails.firebaseKey).then(() => router.push('/images'));
   };
 
   useEffect(() => {
     getSingleImage(firebaseKey).then(setImageDetails);
+    getFolderImageObjBasedOnImageId(firebaseKey).then(setFolderImage);
   }, [firebaseKey]);
   const payload = {
     date_added: new Date().toLocaleString(),
