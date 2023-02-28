@@ -8,15 +8,15 @@ import imagepagestyles from '../styles/ImagesPage.module.css';
 export default function Images() {
   return (
 
-    <div className="imagesparallax_wrapper">
-      <div className="imagesparallax_group intro_screen" id="intro">
+    <div className={imagepagestyles.ImagePageWrapper}>
+      <div className={imagepagestyles.ImageFormContainer}>
         <ImageForm />
       </div>
-      <div className={imagepagestyles.ContainImagePageContent}>
-        <div className="testCakeImage">
-          <ImagesPageContent />
-        </div>
+
+      <div className={imagepagestyles.ImagesPageContentContainer}>
+        <ImagesPageContent />
       </div>
+
     </div>
 
   );

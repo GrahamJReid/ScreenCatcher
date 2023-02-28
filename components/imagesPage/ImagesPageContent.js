@@ -10,8 +10,16 @@ import imagepagestyles from '../../styles/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
 export default function ImagesPageContent() {
+  const getFilteredItems = (query, order) => {
+    if (!query) {
+      return order;
+    }
+    return order.filter((image) => image.image_title.toLowerCase().includes(query.toLowerCase()) || image.category.toLowerCase().includes(query.toLowerCase()) || image.date_added.includes(query.toLowerCase()) || image.description.toLowerCase().includes(query.toLowerCase()));
+  };
+
   const { user } = useAuth();
   const [order, setOrder] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     getUserImages(user.uid).then((item) => {
@@ -20,16 +28,24 @@ export default function ImagesPageContent() {
     });
   }, [user.uid]);
 
+  const filteredItems = getFilteredItems(query, order);
+
   return (
     <>
       <Head>
         <title>Images</title>
       </Head>
-      <div className="image-page-container">{order.map((image) => (
-        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-          <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
-        </Link>
-      ))}
+      <div className={imagepagestyles.SearchBarDiv}>
+        <input className={imagepagestyles.SearchBar} type="text" placeholder="Search Your Images" onChange={(e) => setQuery(e.target.value)} />
+      </div>
+      <div className={imagepagestyles.ContainImagePageContent}>
+        <div>
+          {filteredItems.map((image) => (
+            <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+              <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );
