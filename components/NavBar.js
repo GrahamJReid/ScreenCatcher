@@ -5,7 +5,7 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-md ">
       <div className="container-fluid">
         <Link passHref href="/">
           <a className="navbar-brand" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">

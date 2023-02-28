@@ -74,7 +74,7 @@ const getUserGalleryImages = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-const getPublicImages = () => new Promise((resolve, reject) => {
+const getPublicImages = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/images.json`, {
     method: 'GET',
     headers: {
@@ -83,7 +83,7 @@ const getPublicImages = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const homeFilterVideos = Object.values(data).filter((item) => item.public === true);
+      const homeFilterVideos = Object.values(data).filter((item) => item.public === true && item.uid !== uid);
       resolve(homeFilterVideos);
     })
     .catch(reject);

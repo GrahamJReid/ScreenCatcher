@@ -3,16 +3,18 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getPublicImages } from '../../API/imageData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function PublicImagesView() {
   const [order, setOrder] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
-    getPublicImages().then((item) => {
+    getPublicImages(user.uid).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
       setOrder(sortedImageOrder);
     });
-  }, []);
+  }, [user.uid]);
 
   return (
     <>
