@@ -20,6 +20,7 @@ export default function ImagesPageContent() {
   const { user } = useAuth();
   const [order, setOrder] = useState([]);
   const [query, setQuery] = useState('');
+  const filteredItems = getFilteredItems(query, order);
 
   useEffect(() => {
     getUserImages(user.uid).then((item) => {
@@ -27,8 +28,6 @@ export default function ImagesPageContent() {
       setOrder(sortedImageOrder);
     });
   }, [user.uid]);
-
-  const filteredItems = getFilteredItems(query, order);
 
   return (
     <>
