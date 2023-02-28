@@ -25,11 +25,17 @@ export default function ImagesPageContent() {
       <Head>
         <title>Images</title>
       </Head>
-      <div className="image-page-container">{order.map((image) => (
-        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-          <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
-        </Link>
-      ))}
+      <div>
+        <h1>hello?</h1>
+      </div>
+      <div className={imagepagestyles.ContainImagePageContent}>
+        <div>
+          {order.map((image) => (
+            <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+              <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );
