@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -5,9 +6,10 @@ import { useRouter } from 'next/router';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { storage } from '../../utils/client';
-import { createImage, updateImage } from '../../API/imageData';
+import { createImage, getUserImages, updateImage } from '../../API/imageData';
 import { getFolders, getUserFolders } from '../../API/folderData';
 import { createFolderImageObj, updateFolderImageObj } from '../../API/folderImageData';
+import ImagesPageContent from '../imagesPage/ImagesPageContent';
 
 const initialState = {
   firebaseKey: '',
@@ -34,15 +36,24 @@ export default function ImageForm({ obj }) {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const [folders, setFolders] = useState([]);
+  const [updateImages, setUpdateImages] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
   const didMount = React.useRef(false);
+
+  const handleUpdateArr = () => {
+    getUserImages(user.uid).then((item) => {
+      const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
+      setUpdateImages(sortedImageOrder);
+    });
+  };
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
   useEffect(() => {
     getUserFolders(user.uid).then(setFolders);
+    handleUpdateArr();
   }, [obj, user]);
   useEffect(() => {
     if (didMount.current) {
@@ -105,7 +116,9 @@ export default function ImageForm({ obj }) {
 
               setFormInput(initialState);
               setFolderImageInput(folderImageInitialState);
-              window.location.reload(true);
+              console.warn(updateImages);
+                <ImagesPageContent arr={updateImages} />;
+              // window.location.reload(true);
             });
         });
     }
