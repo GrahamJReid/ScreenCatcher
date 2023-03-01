@@ -4,12 +4,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { getUserImages } from '../../API/imageData';
-
 import imagepagestyles from '../../styles/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
-export default function ImagesPageContent() {
+export default function ImagesPageContent({ arr }) {
   const getFilteredItems = (query, order) => {
     if (!query) {
       return order;
@@ -27,7 +27,7 @@ export default function ImagesPageContent() {
       const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
       setOrder(sortedImageOrder);
     });
-  }, [user.uid]);
+  }, [user.uid, arr]);
 
   return (
     <>
@@ -49,3 +49,18 @@ export default function ImagesPageContent() {
     </>
   );
 }
+
+ImagesPageContent.propTypes = {
+  arr: PropTypes.arrayOf(PropTypes.shape({
+    firebaseKey: PropTypes.string,
+    image_title: PropTypes.string,
+    date_added: PropTypes.string,
+    description: PropTypes.string,
+    uid: PropTypes.string,
+    public: PropTypes.bool,
+    username: PropTypes.string,
+    gallery: PropTypes.bool,
+    category: PropTypes.string,
+    image_file: PropTypes.string,
+  })).isRequired,
+};
