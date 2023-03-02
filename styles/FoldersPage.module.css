@@ -6,3 +6,15 @@
     flex-direction:row;
     justify-content:center;
 }
+.SearchBarContainer{
+    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:2%;
+}
+.SearchBar{
+    width:50%;
+    border-radius:25px;
+    padding:1%;
+}

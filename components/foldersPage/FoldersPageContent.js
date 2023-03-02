@@ -35,8 +35,10 @@ export default function FoldersPageContent() {
       <Head>
         <title>Folders</title>
       </Head>
-      <div>
-        <input className="team-view-searchbar" type="text" placeholder="Search Folders" onChange={(e) => setQuery(e.target.value)} />
+      <div className={folderspagestyles.FoldersPageContainer}>
+        <div className={folderspagestyles.SearchBarContainer}>
+          <input className={folderspagestyles.SearchBar} type="text" placeholder="Search Folders" onChange={(e) => setQuery(e.target.value)} />
+        </div>
         <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
 
           <div key={folder.firebaseKey}>

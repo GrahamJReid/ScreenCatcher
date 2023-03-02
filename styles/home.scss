@@ -22,7 +22,11 @@ background-size:cover;
   perspective:300px;
     .intro_screen{
       height:100vh;
-      background-image:linear-gradient(blue,purple);
+      background:linear-gradient(
+        217deg,
+        blue,
+       purple 70.71%
+      );
       @include align-center;
      }
     .outro_screen{
@@ -58,7 +62,7 @@ background-size:cover;
      }
 
      #group-1 >.base_layer{
-      background-image:url(https://media.istockphoto.com/id/1193545939/photo/abstract-defocused-striped-background.jpg?b=1&s=170667a&w=0&k=20&c=mRXmPFgnuDMRQhSPEyclFEQqMZqhbJabZ2Xc3YwY5jE=); 
+      background-image:url(https://c4.wallpaperflare.com/wallpaper/246/739/689/digital-digital-art-artwork-illustration-abstract-hd-wallpaper-preview.jpg); 
       background-size:cover;
      }
 
