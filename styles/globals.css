@@ -45,9 +45,8 @@ color:white;
 }
 
 .public-image-page-container{
-  width:80%;
-  height:80%;
-  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .gallery-div-container{
   display:flex;
