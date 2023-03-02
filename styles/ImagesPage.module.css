@@ -37,7 +37,8 @@ position:relative;
 }
 .ImagesPageImage{
   height:auto;
-  border-radius:2%;
+  border-radius:25px;
+  padding:2%;
 }
 .SearchBarDiv{
   margin-left:25%;
