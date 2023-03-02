@@ -22,12 +22,12 @@ background-size:cover;
   perspective:300px;
     .intro_screen{
       height:100vh;
-      background-color:#F4D06F;
+      background-image:linear-gradient(blue,purple);
       @include align-center;
      }
     .outro_screen{
     height:100vh;
-    background-color:#F4D06F;
+    background-image:linear-gradient(blue,purple);
     @include align-center;
      }
     .parallax_group{
@@ -58,7 +58,7 @@ background-size:cover;
      }
 
      #group-1 >.base_layer{
-      background-image:url(https://cdn.dribbble.com/users/1112972/screenshots/16564739/media/82665a142a0d8f11b07c40d8b65ce875.png?compress=1&resize=700x525&vertical=top); 
+      background-image:url(https://media.istockphoto.com/id/1193545939/photo/abstract-defocused-striped-background.jpg?b=1&s=170667a&w=0&k=20&c=mRXmPFgnuDMRQhSPEyclFEQqMZqhbJabZ2Xc3YwY5jE=); 
       background-size:cover;
      }
 
@@ -67,7 +67,7 @@ background-size:cover;
      }
 
      #group-2 >.mid_layer{
-      background-color:#F4D06F;
+      background-image:linear-gradient(purple,blue);
      }
 
      #outro{

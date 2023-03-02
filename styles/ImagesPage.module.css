@@ -27,7 +27,7 @@ position:relative;
 .ContainImagePageContent{
   display:flex;
   flex-direction:column;
-  background-color:#FF8811; 
+  background-color:transparent; 
   width:70%;
   height:auto;
   margin-left:25%;
