@@ -40,5 +40,12 @@ position:relative;
 }
 .SearchBarDiv{
   margin-left:25%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:2%;
   
+}
+.SearchBar{
+    width:50%;
 }

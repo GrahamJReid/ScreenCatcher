@@ -1,3 +1,8 @@
 .ContentTitle{
     color:orange;
 }
+.FoldersPageContentContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}

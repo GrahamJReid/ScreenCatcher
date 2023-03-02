@@ -39,6 +39,10 @@ transition-duration:300ms;
 background-color:transparent;
 color:white;
 }
+.NavLinkList{
+  display:flex;
+  flex-direction:row;
+}
 
 .public-image-page-container{
   width:80%;
