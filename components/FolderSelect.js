@@ -31,7 +31,7 @@ export default function FolderSelect({ imageObj }) {
         const patchFolderPayload = { firebaseKey: name };
         updateFolderImageObj(patchFolderPayload);
         window.alert('Image Added to Folder');
-        // window.location.reload(true);
+        window.location.reload(true);
       });
       setFormInput(initialState);
     } else {
