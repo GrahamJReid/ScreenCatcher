@@ -3,6 +3,7 @@
 import React from 'react';
 import FoldersPageContent from '../components/foldersPage/FoldersPageContent';
 import FolderForm from '../components/forms/FolderForm';
+import folderspagestyles from '../styles/FoldersPage.module.css';
 
 export default function Folders() {
   return (
@@ -17,7 +18,9 @@ export default function Folders() {
         </div>
 
         <div className="foldersparallax_group outro_screen" id="outro">
-          <FoldersPageContent />
+          <div className={folderspagestyles.FoldersPageContentContainer}>
+            <FoldersPageContent />
+          </div>
         </div>
       </div>
     </>

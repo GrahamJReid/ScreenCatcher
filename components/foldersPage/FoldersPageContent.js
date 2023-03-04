@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getUserFolders } from '../../API/folderData';
 
-import imagepagestyles from '../../styles/ImagesPage.module.css';
+import folderspagestyles from '../../styles/FoldersPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
 export default function FoldersPageContent() {
@@ -35,9 +35,11 @@ export default function FoldersPageContent() {
       <Head>
         <title>Folders</title>
       </Head>
-      <div>
-        <input className="team-view-searchbar" type="text" placeholder="Search Folders" onChange={(e) => setQuery(e.target.value)} />
-        <div className="folder-page-container">{filteredItems.map((folder) => (
+      <div className={folderspagestyles.FoldersPageContainer}>
+        <div className={folderspagestyles.SearchBarContainer}>
+          <input className={folderspagestyles.SearchBar} type="text" placeholder="Search Folders" onChange={(e) => setQuery(e.target.value)} />
+        </div>
+        <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
 
           <div key={folder.firebaseKey}>
             <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
