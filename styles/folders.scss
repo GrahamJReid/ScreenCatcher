@@ -18,7 +18,11 @@
        }
       .outro_screen{
       height:100vh;
-      background-image:linear-gradient(purple,blue);
+      background:linear-gradient(
+        217deg,
+        blue,
+       purple 70.71%
+      );
       @include align-center;
        }
       .foldersparallax_group{
