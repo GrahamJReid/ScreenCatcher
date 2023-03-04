@@ -62,9 +62,10 @@ export default function ViewImage() {
       </Head>
       <div className={styles.ViewImageContainer}>
 
+        <h2>{imageDetails.image_title}</h2>
+
         <img className={styles.ViewImageImage} src={imageDetails.image_url} />
 
-        <h2>{imageDetails.image_title}</h2>
         <h6>Added by: {imageDetails.username} <br />
           {imageDetails.date_added}
         </h6>
