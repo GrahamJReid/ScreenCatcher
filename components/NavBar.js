@@ -7,16 +7,17 @@ export default function NavBar() {
   return (
     <nav className="navbar navbar-expand-md">
       <div className="container-fluid">
-        <div className="NavLinkList">
-          <Link passHref href="/">
-            <a className="navbar-title" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-              ScreenCatcher
-            </a>
-          </Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
-          </button>
 
+        <Link passHref href="/">
+          <a className="navbar-title" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+            ScreenCatcher
+          </a>
+        </Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon" />
+        </button>
+
+        <div className="NavLinkList">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav me-auto">
               <li className="NavLink">
@@ -35,12 +36,13 @@ export default function NavBar() {
               </li>
               <li className="NavLink">
                 <Link passHref href="/folders">
+
                   <a className="NavLink">
                     Folders
                   </a>
                 </Link>
               </li>
-              <button type="button" className="btn btn-danger" onClick={signOut}>
+              <button type="button" className="btn btn-danger navbar-signout-btn" onClick={signOut}>
                 Sign Out
               </button>
             </ul>

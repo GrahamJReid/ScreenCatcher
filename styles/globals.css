@@ -42,6 +42,18 @@ color:white;
 .NavLinkList{
   display:flex;
   flex-direction:row;
+  margin-right:5%;
+}
+.navbar-title{
+ font-size:3rem;
+}
+.NavLink{
+  margin-left:5%;
+  font-size:2rem;
+}
+.navbar-signout-btn{
+  margin-left:5%;
+  font-size:1.1rem
 }
 
 .public-image-page-container{
