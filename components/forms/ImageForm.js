@@ -21,7 +21,7 @@ const initialState = {
   username: '',
   gallery: false,
   category: '',
-  image_file: '',
+  image_placeholder: '',
 };
 const folderImageInitialState = {
   firebaseKey: '',
@@ -35,6 +35,7 @@ export default function ImageForm({ obj }) {
   const [folderImageInput, setFolderImageInput] = useState(folderImageInitialState);
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
+  const [imagefile, setImageFile] = useState(null);
   const [folders, setFolders] = useState([]);
   const [updateImages, setUpdateImages] = useState([]);
   const router = useRouter();
@@ -61,6 +62,7 @@ export default function ImageForm({ obj }) {
       const delayFunction = async () => {
         const delayingUploadTask = await uploadTask();
         storage.ref('images').child(image.name).getDownloadURL().then((url) => {
+          setImageFile(image.name);
           setImageUrl(url);
         });
       };
@@ -98,7 +100,7 @@ export default function ImageForm({ obj }) {
         .then(() => router.push(`/viewImage/${obj.firebaseKey}`));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`,
+        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`, image_file: `${imagefile}`,
       };
       createImage(payload)
         .then(({ name }) => {
@@ -108,11 +110,15 @@ export default function ImageForm({ obj }) {
               const folderPayload = {
                 ...folderImageInput, image_id: name,
               };
+              if (folderImageInput.folder_id === '') {
+                console.warn('no folder selected');
+              } else {
               // eslint-disable-next-line no-shadow
-              createFolderImageObj(folderPayload).then(({ name }) => {
-                const patchFolderPayload = { firebaseKey: name };
-                updateFolderImageObj(patchFolderPayload);
-              });
+                createFolderImageObj(folderPayload).then(({ name }) => {
+                  const patchFolderPayload = { firebaseKey: name };
+                  updateFolderImageObj(patchFolderPayload);
+                });
+              }
 
               setFormInput(initialState);
               setFolderImageInput(folderImageInitialState);
@@ -135,8 +141,8 @@ export default function ImageForm({ obj }) {
             type="file"
             onInput={handleImage}
             required
-            name="image_file"
-            value={formInput.image_file}
+            name="image_placeholder"
+            value={formInput.image_placeholder}
           />
         </FloatingLabel>
       )}
