@@ -13,6 +13,7 @@ import {
 } from '../../API/imageData';
 import FolderSelect from '../../components/FolderSelect';
 import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
+import { storage } from '../../utils/client';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -26,6 +27,12 @@ export default function ViewImage() {
     folderImage.map((item) => (
       deleteFolderImageObj(item.firebaseKey)
     ));
+    const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
+    deleteImgFile.delete().then(() => {
+
+    }).catch(() => {
+
+    });
     deleteImage(imageDetails.firebaseKey).then(() => router.push('/images'));
   };
 
