@@ -69,8 +69,8 @@ const getUserGalleryImages = (uid) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const homeFilterVideos = Object.values(data).filter((item) => item.gallery === true);
-      resolve(homeFilterVideos);
+      const galleryFilterImages = Object.values(data).filter((item) => item.gallery === true);
+      resolve(galleryFilterImages);
     })
     .catch(reject);
 });
@@ -83,8 +83,12 @@ const getPublicImages = (uid) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const homeFilterVideos = Object.values(data).filter((item) => item.public === true && item.uid !== uid);
-      resolve(homeFilterVideos);
+      if (!data) {
+        console.warn('no public images');
+      } else {
+        const publicfilterImages = Object.values(data).filter((item) => item.public === true && item.uid !== uid);
+        resolve(publicfilterImages);
+      }
     })
     .catch(reject);
 });

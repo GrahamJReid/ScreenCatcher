@@ -110,11 +110,15 @@ export default function ImageForm({ obj }) {
               const folderPayload = {
                 ...folderImageInput, image_id: name,
               };
+              if (folderImageInput.folder_id === '') {
+                console.warn('no folder selected');
+              } else {
               // eslint-disable-next-line no-shadow
-              createFolderImageObj(folderPayload).then(({ name }) => {
-                const patchFolderPayload = { firebaseKey: name };
-                updateFolderImageObj(patchFolderPayload);
-              });
+                createFolderImageObj(folderPayload).then(({ name }) => {
+                  const patchFolderPayload = { firebaseKey: name };
+                  updateFolderImageObj(patchFolderPayload);
+                });
+              }
 
               setFormInput(initialState);
               setFolderImageInput(folderImageInitialState);
