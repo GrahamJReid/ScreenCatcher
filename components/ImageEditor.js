@@ -15,7 +15,7 @@ export default function ImageEditor() {
   const rotateOptions = document.querySelectorAll('.rotate button');
   const previewImg = document.querySelector('.preview-img img');
   const resetFilterBtn = document.querySelector('.reset-filter');
-  const chooseImgBtn = document.querySelector('.choose-img');
+  // const chooseImgBtn = document.querySelector('.choose-img');
   // const saveImgBtn = document.querySelector('.save-img');
   let brightness = '100'; let saturation = '100'; let inversion = '0'; let
     grayscale = '0';
@@ -115,7 +115,7 @@ export default function ImageEditor() {
   // resetFilterBtn.addEventListener('click', resetFilter);
   // saveImgBtn.addEventListener('click', saveImage);
   // fileInput.addEventListener('change', loadImage);
-  chooseImgBtn.addEventListener('click', () => fileInput.click());
+  // chooseImgBtn.addEventListener('click', () => fileInput.click());
   return (
     <div className="container disable">
       <h2>Easy Image Editor</h2>
@@ -154,8 +154,8 @@ export default function ImageEditor() {
       <div className="controls">
         <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
         <div className="row">
-          <input type="file" className="file-input" accept="image/*" hidden />
-          <button className="choose-img" onClick={loadImage}>Choose Image</button>
+          <input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} />
+          <button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button>
           <button className="save-img" onClick={saveImage}>Save Image</button>
         </div>
       </div>
