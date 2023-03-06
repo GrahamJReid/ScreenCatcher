@@ -55,7 +55,16 @@ color:white;
   margin-left:5%;
   font-size:1.1rem
 }
-
+.intro-div-container{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.intro-title{
+  font-size:10rem;
+  font-weight:900;
+}
 .public-image-page-container{
   overflow-x: auto;
   white-space: nowrap;

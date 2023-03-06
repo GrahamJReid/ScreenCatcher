@@ -10,8 +10,11 @@ function Home() {
     <>
       <div className="parallax_wrapper">
         <div className="parallax_group intro_screen" id="intro">
-          <img src={user.photoURL} height="200" width="200" />
-          <h1>{user.displayName}</h1>
+          <div className="intro-div-container">
+            <h1 className="intro-title">SCREEN CATCHER</h1>
+            <img src={user.photoURL} height="200" width="200" />
+            <h1>{user.displayName}</h1>
+          </div>
         </div>
 
         <div className="parallax_group" id="group-1">
