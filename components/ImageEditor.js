@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 /* eslint-disable no-mixed-operators */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable @next/next/no-img-element */
@@ -134,16 +135,16 @@ export default function ImageEditor() {
                 <p className="name">Brighteness</p>
                 <p className="value">100%</p>
               </div>
-              <input type="range" value="100" min="0" max="200" onChange={updateFilter} />
+              <input type="range" defaultValue="100" min="0" max="200" onChange={updateFilter} />
             </div>
           </div>
           <div className="rotate">
             <label className="title">Rotate & Flip</label>
             <div className="options">
-              <button id="left"><i className="fa-solid fa-rotate-left" /></button>
-              <button id="right"><i className="fa-solid fa-rotate-right" /></button>
-              <button id="horizontal"><i className="bx bx-reflect-vertical" /></button>
-              <button id="vertical"><i className="bx bx-reflect-horizontal" /></button>
+              <button id="left"><i className="fa-solid fa-rotate-left" />flip left</button>
+              <button id="right"><i className="fa-solid fa-rotate-right" />flip right</button>
+              <button id="horizontal"><i className="bx bx-reflect-vertical" />flip horizontal</button>
+              <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
             </div>
           </div>
         </div>
