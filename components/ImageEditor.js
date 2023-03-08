@@ -19,12 +19,18 @@ export default function ImageEditor() {
   const rotateOptions = document.querySelectorAll('.rotate button');
   const previewImg = document.querySelector('.preview-img img');
   const resetFilterBtn = document.querySelector('.reset-filter');
-  const [fileName, setFileName] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const didMount = React.useRef(false);
   const { user } = useAuth();
+  const [randomInt, setRandomInt] = useState(0);
   // const chooseImgBtn = document.querySelector('.choose-img');
   // const saveImgBtn = document.querySelector('.save-img');
+  function getRandomInt() {
+    return setRandomInt(Math.floor(Math.random() * 10000));
+  }
+  useEffect(() => {
+    getRandomInt();
+  }, [imageUrl, user.displayName, user.uid]);
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
@@ -43,7 +49,6 @@ export default function ImageEditor() {
     flipVertical = 1;
   const loadImage = () => {
     const file = fileInput.files[0];
-    setFileName(file);
     if (!file) return;
     previewImg.src = URL.createObjectURL(file);
     previewImg.addEventListener('load', () => {
@@ -133,7 +138,7 @@ export default function ImageEditor() {
     fetch(link.href)
       .then((res) => res.blob())
       .then((blob) => {
-        const file = new File([blob], `${fileName.name}`, { type: 'image/jpeg' });
+        const file = new File([blob], `${randomInt}`, { type: 'image/jpeg' });
         const uploadTask = async () => storage.ref(`images/${file.name}`).put(file);
         const delayFunction = async () => {
           // eslint-disable-next-line no-unused-vars
