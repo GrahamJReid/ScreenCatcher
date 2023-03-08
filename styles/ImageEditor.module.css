@@ -1,0 +1,15 @@
+.EditorContainer{
+    background:grey;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border-radius:25px;
+    margin-bottom:2%;
+    border:solid 2px orange;
+    height:100vh;
+}
+.EditorImage{
+    width:50%;
+    margin-left:25%;
+}

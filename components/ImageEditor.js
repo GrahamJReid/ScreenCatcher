@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { createImage, updateImage } from '../API/imageData';
 import { storage } from '../utils/client';
 import { useAuth } from '../utils/context/authContext';
+import imageEditorStyles from '../styles/ImageEditor.module.css';
 
 export default function ImageEditor() {
   const fileInput = document.querySelector('.file-input');
@@ -158,7 +159,7 @@ export default function ImageEditor() {
   // fileInput.addEventListener('change', loadImage);
   // chooseImgBtn.addEventListener('click', () => fileInput.click());
   return (
-    <div className="container disable">
+    <div className={imageEditorStyles.EditorContainer}>
       <h2>Image Editor</h2>
       <div className="wrapper">
         <div className="editor-panel">
@@ -189,7 +190,7 @@ export default function ImageEditor() {
           </div>
         </div>
         <div className="preview-img">
-          <img src="image-placeholder.svg" alt="preview-img" />
+          <img className={imageEditorStyles.EditorImage} src="https://static.thenounproject.com/png/52005-200.png" alt="preview-img" />
         </div>
       </div>
       <div className="controls">
