@@ -6,8 +6,9 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
-import { createImage } from '../API/imageData';
+import { createImage, updateImage } from '../API/imageData';
 import { storage } from '../utils/client';
+import { useAuth } from '../utils/context/authContext';
 
 export default function ImageEditor() {
   const fileInput = document.querySelector('.file-input');
@@ -21,16 +22,20 @@ export default function ImageEditor() {
   const [fileName, setFileName] = useState(null);
   const [imageUrl, setImageUrl] = useState('');
   const didMount = React.useRef(false);
+  const { user } = useAuth();
   // const chooseImgBtn = document.querySelector('.choose-img');
   // const saveImgBtn = document.querySelector('.save-img');
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
-        image_url: `${imageUrl}`,
+        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName,
       };
-      createImage(Payload);
+      createImage(Payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateImage(patchPayload);
+      });
     } else { didMount.current = true; }
-  }, [imageUrl]);
+  }, [imageUrl, user.displayName, user.uid]);
 
   let brightness = '100'; let saturation = '100'; let inversion = '0'; let
     grayscale = '0';
