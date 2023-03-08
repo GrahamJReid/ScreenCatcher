@@ -28,7 +28,7 @@ export default function ImageEditor() {
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
-        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName,
+        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_title: 'title', category: 'category', description: 'description',
       };
       createImage(Payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
