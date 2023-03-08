@@ -14,6 +14,7 @@ function Home() {
             <h1 className="intro-title">SCREEN CATCHER</h1>
             <img src={user.photoURL} height="200" width="200" />
             <h1>{user.displayName}</h1>
+            <p>welcome</p>
           </div>
         </div>
 
