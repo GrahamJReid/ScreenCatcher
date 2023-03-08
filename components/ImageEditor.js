@@ -5,7 +5,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable react/button-has-type */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { createImage } from '../API/imageData';
+import { storage } from '../utils/client';
 
 export default function ImageEditor() {
   const fileInput = document.querySelector('.file-input');
@@ -16,14 +18,27 @@ export default function ImageEditor() {
   const rotateOptions = document.querySelectorAll('.rotate button');
   const previewImg = document.querySelector('.preview-img img');
   const resetFilterBtn = document.querySelector('.reset-filter');
+  const [fileName, setFileName] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
+  const didMount = React.useRef(false);
   // const chooseImgBtn = document.querySelector('.choose-img');
   // const saveImgBtn = document.querySelector('.save-img');
+  useEffect(() => {
+    if (didMount.current) {
+      const Payload = {
+        image_url: `${imageUrl}`,
+      };
+      createImage(Payload);
+    } else { didMount.current = true; }
+  }, [imageUrl]);
+
   let brightness = '100'; let saturation = '100'; let inversion = '0'; let
     grayscale = '0';
   let rotate = 0; let flipHorizontal = 1; let
     flipVertical = 1;
   const loadImage = () => {
     const file = fileInput.files[0];
+    setFileName(file);
     if (!file) return;
     previewImg.src = URL.createObjectURL(file);
     previewImg.addEventListener('load', () => {
@@ -110,7 +125,22 @@ export default function ImageEditor() {
     const link = document.createElement('a');
     link.download = 'image.jpg';
     link.href = canvas.toDataURL();
+    fetch(link.href)
+      .then((res) => res.blob())
+      .then((blob) => {
+        const file = new File([blob], `${fileName.name}`, { type: 'image/jpeg' });
+        const uploadTask = async () => storage.ref(`images/${file.name}`).put(file);
+        const delayFunction = async () => {
+          // eslint-disable-next-line no-unused-vars
+          const delayingUploadTask = await uploadTask();
+          storage.ref('images').child(file.name).getDownloadURL().then((url) => {
+            setImageUrl(url);
+          });
+        };
+        delayFunction();
+      });
     link.click();
+    console.warn(imageUrl);
   };
   // filterSlider.addEventListener('input', updateFilter);
   // resetFilterBtn.addEventListener('click', resetFilter);
@@ -119,7 +149,7 @@ export default function ImageEditor() {
   // chooseImgBtn.addEventListener('click', () => fileInput.click());
   return (
     <div className="container disable">
-      <h2>Easy Image Editor</h2>
+      <h2>Image Editor</h2>
       <div className="wrapper">
         <div className="editor-panel">
           <div className="filter">
