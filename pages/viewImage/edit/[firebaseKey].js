@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleImage } from '../../../API/imageData';
 import ImageForm from '../../../components/forms/ImageForm';
-import ImageEditor from '../../../components/ImageEditor';
 import viewimagepagestyle from '../../../styles/ViewImagePage.module.css';
 
 export default function EditImagePage() {
@@ -22,7 +23,7 @@ export default function EditImagePage() {
       </Head>
       <div>
         <div className={viewimagepagestyle.EditFormContainer}>
-          <ImageEditor />
+          <img src={editItem.image_url} />
           <ImageForm obj={editItem} />
         </div>
       </div>
