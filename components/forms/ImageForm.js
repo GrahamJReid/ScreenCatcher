@@ -94,6 +94,7 @@ export default function ImageForm({ obj }) {
   };
 
   const handleSubmit = (e) => {
+    console.warn(image);
     e.preventDefault();
     if (obj.firebaseKey) {
       updateImage(formInput)

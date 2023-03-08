@@ -42,6 +42,14 @@ export default function NavBar() {
                   </a>
                 </Link>
               </li>
+              <li className="NavLink">
+                <Link passHref href="/ImageEditorPage">
+
+                  <a className="NavLink">
+                    ImageEditor
+                  </a>
+                </Link>
+              </li>
               <button type="button" className="btn btn-danger navbar-signout-btn" onClick={signOut}>
                 Sign Out
               </button>
