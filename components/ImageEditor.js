@@ -193,10 +193,7 @@ export default function ImageEditor() {
       <div className="controls">
         <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
         <div className="row">
-          {loader === 0 ? '' : <Loading />}
-          <input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} />
-          <button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button>
-          <button className="save-img" onClick={saveImage}>Save Image</button>
+          {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
         </div>
       </div>
     </div>
