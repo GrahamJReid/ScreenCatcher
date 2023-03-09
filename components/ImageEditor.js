@@ -10,6 +10,7 @@ import { createImage, updateImage } from '../API/imageData';
 import { storage } from '../utils/client';
 import { useAuth } from '../utils/context/authContext';
 import imageEditorStyles from '../styles/ImageEditor.module.css';
+import Loading from './Loading';
 
 export default function ImageEditor() {
   const fileInput = document.querySelector('.file-input');
@@ -24,6 +25,7 @@ export default function ImageEditor() {
   const didMount = React.useRef(false);
   const { user } = useAuth();
   const [randomInt, setRandomInt] = useState(0);
+  const [loader, setLoader] = useState(0);
   // const chooseImgBtn = document.querySelector('.choose-img');
   // const saveImgBtn = document.querySelector('.save-img');
   function getRandomInt() {
@@ -41,6 +43,7 @@ export default function ImageEditor() {
         const patchPayload = { firebaseKey: name };
         updateImage(patchPayload);
       });
+      setLoader(0);
     } else { didMount.current = true; }
   }, [imageUrl, user.displayName, user.uid]);
 
@@ -120,6 +123,7 @@ export default function ImageEditor() {
     applyFilter();
   };
   const saveImage = () => {
+    setLoader(1);
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = previewImg.naturalWidth;
@@ -134,7 +138,6 @@ export default function ImageEditor() {
     ctx.drawImage(previewImg, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
 
     const link = document.createElement('a');
-    link.download = 'image.jpg';
     link.href = canvas.toDataURL();
     fetch(link.href)
       .then((res) => res.blob())
@@ -150,7 +153,6 @@ export default function ImageEditor() {
         };
         delayFunction();
       });
-    link.click();
     console.warn(imageUrl);
   };
   // filterSlider.addEventListener('input', updateFilter);
@@ -196,6 +198,7 @@ export default function ImageEditor() {
       <div className="controls">
         <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
         <div className="row">
+          {loader === 0 ? '' : <Loading />}
           <input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} />
           <button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button>
           <button className="save-img" onClick={saveImage}>Save Image</button>
