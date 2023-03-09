@@ -14,7 +14,7 @@ import Loading from './Loading';
 
 export default function ImageEditor() {
   const fileInput = document.querySelector('.file-input');
-  const filterOptions = document.querySelectorAll('.filter button');
+  const filterOptions = document.querySelectorAll('#filter button');
   const filterName = document.querySelector('.filter-info .name');
   const filterValue = document.querySelector('.filter-info .value');
   const filterSlider = document.querySelector('.slider input');
@@ -26,8 +26,6 @@ export default function ImageEditor() {
   const { user } = useAuth();
   const [randomInt, setRandomInt] = useState(0);
   const [loader, setLoader] = useState(0);
-  // const chooseImgBtn = document.querySelector('.choose-img');
-  // const saveImgBtn = document.querySelector('.save-img');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
@@ -90,7 +88,7 @@ export default function ImageEditor() {
   });
   const updateFilter = () => {
     filterValue.innerText = `${filterSlider.value}%`;
-    const selectedFilter = document.querySelector('.filter .active');
+    const selectedFilter = document.querySelector('#filter .active');
     if (selectedFilter.id === 'brightness') {
       brightness = filterSlider.value;
     } else if (selectedFilter.id === 'saturation') {
@@ -158,11 +156,11 @@ export default function ImageEditor() {
   return (
     <div className={imageEditorStyles.EditorContainer}>
       <h2>Image Editor</h2>
-      <div className="wrapper">
+      <div className={imageEditorStyles.Wrapper}>
         <div className="editor-panel">
-          <div className="filter">
+          <div id="filter" className={imageEditorStyles.FilterDiv}>
             <label className="title">Filters</label>
-            <div className="options">
+            <div className={imageEditorStyles.OptionsDiv}>
               <button id="brightness" className="active">Brightness</button>
               <button id="saturation">Saturation</button>
               <button id="inversion">Inversion</button>
@@ -175,25 +173,25 @@ export default function ImageEditor() {
               </div>
               <input type="range" defaultValue="100" min="0" max="200" onChange={updateFilter} />
             </div>
-          </div>
-          <div className="rotate">
-            <label className="title">Rotate & Flip</label>
-            <div className="options">
-              <button id="left"><i className="fa-solid fa-rotate-left" />flip left</button>
-              <button id="right"><i className="fa-solid fa-rotate-right" />flip right</button>
-              <button id="horizontal"><i className="bx bx-reflect-vertical" />flip horizontal</button>
-              <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
+            <div className="rotate">
+              <label className="title">Rotate & Flip</label>
+              <div className="options">
+                <button id="left"><i className="fa-solid fa-rotate-left" />flip left</button>
+                <button id="right"><i className="fa-solid fa-rotate-right" />flip right</button>
+                <button id="horizontal"><i className="bx bx-reflect-vertical" />flip horizontal</button>
+                <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
+              </div>
+              <div className="controls">
+                <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
+                <div className="row">
+                  {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div className="preview-img">
           <img className={imageEditorStyles.EditorImage} src="https://static.thenounproject.com/png/52005-200.png" alt="preview-img" />
-        </div>
-      </div>
-      <div className="controls">
-        <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
-        <div className="row">
-          {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
         </div>
       </div>
     </div>

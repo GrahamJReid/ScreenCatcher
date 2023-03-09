@@ -1,15 +1,26 @@
 .EditorContainer{
     background:grey;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
     border-radius:25px;
     margin-bottom:2%;
     border:solid 2px orange;
     height:100vh;
 }
+.Wrapper{
+    display:flex;
+    flex-direction:row;
+}
 .EditorImage{
-    width:50%;
+    width:70%;
     margin-left:25%;
+}
+.FilterDiv{
+    display:flex;
+    flex-direction:column;
+    border:white solid 7px;
+    justify-content:left;
+}
+.OptionsDiv{
+    display:flex;
+    flex-direction:column;
+    justify-content: left;
 }
