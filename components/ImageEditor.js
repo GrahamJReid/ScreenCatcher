@@ -155,11 +155,6 @@ export default function ImageEditor() {
       });
     console.warn(imageUrl);
   };
-  // filterSlider.addEventListener('input', updateFilter);
-  // resetFilterBtn.addEventListener('click', resetFilter);
-  // saveImgBtn.addEventListener('click', saveImage);
-  // fileInput.addEventListener('change', loadImage);
-  // chooseImgBtn.addEventListener('click', () => fileInput.click());
   return (
     <div className={imageEditorStyles.EditorContainer}>
       <h2>Image Editor</h2>
