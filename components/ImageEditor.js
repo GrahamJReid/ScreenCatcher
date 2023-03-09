@@ -173,25 +173,25 @@ export default function ImageEditor() {
               </div>
               <input type="range" defaultValue="100" min="0" max="200" onChange={updateFilter} />
             </div>
-            <div className="rotate">
-              <label className="title">Rotate & Flip</label>
-              <div className="options">
-                <button id="left"><i className="fa-solid fa-rotate-left" />flip left</button>
-                <button id="right"><i className="fa-solid fa-rotate-right" />flip right</button>
-                <button id="horizontal"><i className="bx bx-reflect-vertical" />flip horizontal</button>
-                <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
-              </div>
-              <div className="controls">
-                <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
-                <div className="row">
-                  {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
-                </div>
-              </div>
+          </div>
+          <div className="rotate">
+            <label className="title">Rotate & Flip</label>
+            <div className="options">
+              <button id="left"><i className="fa-solid fa-rotate-left" />flip left</button>
+              <button id="right"><i className="fa-solid fa-rotate-right" />flip right</button>
+              <button id="horizontal"><i className="bx bx-reflect-vertical" />flip horizontal</button>
+              <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
             </div>
           </div>
         </div>
         <div className="preview-img">
           <img className={imageEditorStyles.EditorImage} src="https://static.thenounproject.com/png/52005-200.png" alt="preview-img" />
+        </div>
+        <div className={imageEditorStyles.Controls}>
+          <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
+          <div className="row">
+            {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
+          </div>
         </div>
       </div>
     </div>

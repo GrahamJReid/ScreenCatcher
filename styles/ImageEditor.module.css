@@ -24,3 +24,7 @@
     flex-direction:column;
     justify-content: left;
 }
+.Controls{
+    width:20%;
+    margin-right:5%;
+}
