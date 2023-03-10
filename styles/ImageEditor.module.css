@@ -18,6 +18,7 @@
     flex-direction:column;
     border:white solid 7px;
     justify-content:left;
+    background-color:red;
 }
 .OptionsDiv{
     display:flex;
@@ -25,6 +26,9 @@
     justify-content: left;
 }
 .Controls{
-    width:20%;
-    margin-right:5%;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    margin-top:5%;
 }
