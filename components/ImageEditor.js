@@ -27,7 +27,7 @@ export default function ImageEditor() {
   const { user } = useAuth();
   const [randomInt, setRandomInt] = useState(0);
   const [loader, setLoader] = useState(0);
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
@@ -37,7 +37,7 @@ export default function ImageEditor() {
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
-        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_title: `${query}`, category: 'category', description: 'description',
+        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_title: 'create a title', category: 'category', description: 'description',
       };
       createImage(Payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
@@ -187,7 +187,7 @@ export default function ImageEditor() {
           </div>
           <div className={imageEditorStyles.Controls}>
             <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
-            <input type="text" placeholder="Title your Image" onChange={(e) => setQuery(e.target.value)} />
+            {/* <input type="text" placeholder="Title your Image" onChange={(e) => setQuery(e.target.value)} /> */}
             <div className="row">
               {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
             </div>
