@@ -42,7 +42,7 @@ color:white;
 .NavLinkList{
   display:flex;
   flex-direction:row;
-  margin-right:5%;
+  margin-right:10%;
 }
 .navbar-title{
  font-size:3rem;
@@ -53,6 +53,7 @@ color:white;
 }
 .navbar-signout-btn{
   margin-left:5%;
+  margin-right:5%;
   font-size:1.1rem
 }
 .intro-div-container{

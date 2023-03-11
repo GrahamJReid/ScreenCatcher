@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-sequences */
 /* eslint-disable no-mixed-operators */
 /* eslint-disable jsx-a11y/control-has-associated-label */
@@ -9,10 +10,12 @@ import React, { useEffect, useState } from 'react';
 import { createImage, updateImage } from '../API/imageData';
 import { storage } from '../utils/client';
 import { useAuth } from '../utils/context/authContext';
+import imageEditorStyles from '../styles/ImageEditor.module.css';
+import Loading from './Loading';
 
 export default function ImageEditor() {
   const fileInput = document.querySelector('.file-input');
-  const filterOptions = document.querySelectorAll('.filter button');
+  const filterOptions = document.querySelectorAll('#filter button');
   const filterName = document.querySelector('.filter-info .name');
   const filterValue = document.querySelector('.filter-info .value');
   const filterSlider = document.querySelector('.slider input');
@@ -23,8 +26,8 @@ export default function ImageEditor() {
   const didMount = React.useRef(false);
   const { user } = useAuth();
   const [randomInt, setRandomInt] = useState(0);
-  // const chooseImgBtn = document.querySelector('.choose-img');
-  // const saveImgBtn = document.querySelector('.save-img');
+  const [loader, setLoader] = useState(0);
+  const [query, setQuery] = useState('');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
@@ -34,12 +37,13 @@ export default function ImageEditor() {
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
-        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_title: 'title', category: 'category', description: 'description',
+        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_title: `${query}`, category: 'category', description: 'description',
       };
       createImage(Payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateImage(patchPayload);
       });
+      setLoader(0);
     } else { didMount.current = true; }
   }, [imageUrl, user.displayName, user.uid]);
 
@@ -86,7 +90,7 @@ export default function ImageEditor() {
   });
   const updateFilter = () => {
     filterValue.innerText = `${filterSlider.value}%`;
-    const selectedFilter = document.querySelector('.filter .active');
+    const selectedFilter = document.querySelector('#filter .active');
     if (selectedFilter.id === 'brightness') {
       brightness = filterSlider.value;
     } else if (selectedFilter.id === 'saturation') {
@@ -119,6 +123,7 @@ export default function ImageEditor() {
     applyFilter();
   };
   const saveImage = () => {
+    setLoader(1);
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = previewImg.naturalWidth;
@@ -133,7 +138,6 @@ export default function ImageEditor() {
     ctx.drawImage(previewImg, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
 
     const link = document.createElement('a');
-    link.download = 'image.jpg';
     link.href = canvas.toDataURL();
     fetch(link.href)
       .then((res) => res.blob())
@@ -149,22 +153,16 @@ export default function ImageEditor() {
         };
         delayFunction();
       });
-    link.click();
     console.warn(imageUrl);
   };
-  // filterSlider.addEventListener('input', updateFilter);
-  // resetFilterBtn.addEventListener('click', resetFilter);
-  // saveImgBtn.addEventListener('click', saveImage);
-  // fileInput.addEventListener('change', loadImage);
-  // chooseImgBtn.addEventListener('click', () => fileInput.click());
   return (
-    <div className="container disable">
+    <div className={imageEditorStyles.EditorContainer}>
       <h2>Image Editor</h2>
-      <div className="wrapper">
+      <div className={imageEditorStyles.Wrapper}>
         <div className="editor-panel">
-          <div className="filter">
+          <div id="filter" className={imageEditorStyles.FilterDiv}>
             <label className="title">Filters</label>
-            <div className="options">
+            <div className={imageEditorStyles.OptionsDiv}>
               <button id="brightness" className="active">Brightness</button>
               <button id="saturation">Saturation</button>
               <button id="inversion">Inversion</button>
@@ -187,17 +185,16 @@ export default function ImageEditor() {
               <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
             </div>
           </div>
+          <div className={imageEditorStyles.Controls}>
+            <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
+            <input type="text" placeholder="Title your Image" onChange={(e) => setQuery(e.target.value)} />
+            <div className="row">
+              {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
+            </div>
+          </div>
         </div>
         <div className="preview-img">
-          <img src="image-placeholder.svg" alt="preview-img" />
-        </div>
-      </div>
-      <div className="controls">
-        <button className="reset-filter" onClick={resetFilter}>Reset Filters</button>
-        <div className="row">
-          <input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} />
-          <button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button>
-          <button className="save-img" onClick={saveImage}>Save Image</button>
+          <img className={imageEditorStyles.EditorImage} src="https://static.thenounproject.com/png/52005-200.png" alt="preview-img" />
         </div>
       </div>
     </div>
