@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Head from 'next/head';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { getAllUsers } from '../../API/userData';
@@ -36,13 +37,16 @@ export default function UsersPageContent() {
       <div>
         <div>
           {filteredItems.map((user) => (
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem', color: 'black' }} key={user.uid}>
               <Card.Img variant="top" src={user.photoURL} />
               <Card.Body>
                 <Card.Title>{user.displayName}</Card.Title>
                 <Card.Text>
                   other user info go here
                 </Card.Text>
+                <Link href={`/viewUser/${user.uid}`} passHref>
+                  <h2>View Profile</h2>
+                </Link>
               </Card.Body>
             </Card>
 
