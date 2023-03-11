@@ -60,6 +60,24 @@ const getUserFolders = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getUserPublicFolders = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/folders.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data) {
+        console.warn('no public Folders');
+      } else {
+        const publicfilterFolders = Object.values(data).filter((item) => item.public === true);
+        resolve(publicfilterFolders);
+      }
+    })
+    .catch(reject);
+});
 const getSingleFolder = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/folders/${firebaseKey}.json`, {
     method: 'GET',
@@ -90,5 +108,6 @@ export {
   getUserFolders,
   getSingleFolder,
   deleteFolder,
+  getUserPublicFolders,
 
 };
