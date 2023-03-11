@@ -19,6 +19,23 @@ const getUser = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getAllUsers = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/users.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data) {
+        console.warn('no user detected');
+      } else {
+        resolve(Object.values(data));
+      }
+    })
+    .catch(reject);
+});
 
 const createUser = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/users.json`, {
@@ -35,4 +52,5 @@ const createUser = (payload) => new Promise((resolve, reject) => {
 export {
   createUser,
   getUser,
+  getAllUsers,
 };

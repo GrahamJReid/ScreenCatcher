@@ -50,6 +50,14 @@ export default function NavBar() {
                   </a>
                 </Link>
               </li>
+              <li className="NavLink">
+                <Link passHref href="/UsersPage">
+
+                  <a className="NavLink">
+                    Users
+                  </a>
+                </Link>
+              </li>
               <button type="button" className="btn btn-danger navbar-signout-btn" onClick={signOut}>
                 Sign Out
               </button>
