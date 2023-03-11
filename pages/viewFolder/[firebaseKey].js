@@ -27,7 +27,12 @@ export default function ViewFolderPage() {
       const imageKeys = arr.map((item) => item.image_id);
       getImages().then((imagesArr) => {
         const imagesArray = imagesArr.filter((image) => imageKeys.includes(image.firebaseKey));
-        setImages(imagesArray);
+        const imagesPublicArray = imagesArr.filter((image) => imageKeys.includes(image.firebaseKey) && image.public === true);
+        if (user.uid === imagesArray[0].uid) {
+          setImages(imagesArray);
+        } else {
+          setImages(imagesPublicArray);
+        }
       });
     });
   };
