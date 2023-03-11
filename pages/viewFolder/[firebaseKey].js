@@ -70,13 +70,17 @@ export default function ViewFolderPage() {
               <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
                 <img src={`${image.image_url}`} height="50%" width="50%" className="image-page-image" />
               </Link>
-              <Button onClick={() => {
-                getSingleFolderImageObj(folder.firebaseKey, image.firebaseKey).then((obj) => {
-                  deleteFolderImageObj(obj.firebaseKey).then(getFolderImages);
-                });
-              }}
-              >Remove
-              </Button>
+
+              {folder.uid === user.uid ? (
+                <Button onClick={() => {
+                  getSingleFolderImageObj(folder.firebaseKey, image.firebaseKey).then((obj) => {
+                    deleteFolderImageObj(obj.firebaseKey).then(getFolderImages);
+                  });
+                }}
+                >Remove
+                </Button>
+              ) : ''}
+
             </div>
           ))}
 

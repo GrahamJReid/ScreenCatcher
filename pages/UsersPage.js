@@ -4,7 +4,9 @@ import UsersPageContent from '../components/UserPage/UserPageContent';
 export default function UsersPage() {
   return (
     <>
-      <UsersPageContent />
+      <div className="UsersPage-container">
+        <UsersPageContent />
+      </div>
     </>
   );
 }
