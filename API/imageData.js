@@ -92,6 +92,24 @@ const getPublicImages = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getUserPublicImages = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/images.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data) {
+        console.warn('no public images');
+      } else {
+        const publicfilterImages = Object.values(data).filter((item) => item.public === true);
+        resolve(publicfilterImages);
+      }
+    })
+    .catch(reject);
+});
 const getSingleImage = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/images/${firebaseKey}.json`, {
     method: 'GET',
@@ -124,5 +142,6 @@ export {
   getSingleImage,
   deleteImage,
   getPublicImages,
+  getUserPublicImages,
 
 };

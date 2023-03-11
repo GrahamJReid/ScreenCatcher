@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getUserFolders } from '../../API/folderData';
-import { getUserImages } from '../../API/imageData';
+import { getUserPublicImages } from '../../API/imageData';
 import { getUser } from '../../API/userData';
 
 export default function ViewUser() {
@@ -21,7 +21,7 @@ export default function ViewUser() {
     });
   }, [uid]);
   useEffect(() => {
-    getUserImages(uid).then((userImages) => {
+    getUserPublicImages(uid).then((userImages) => {
       setImages(userImages);
     });
   }, [uid]);
