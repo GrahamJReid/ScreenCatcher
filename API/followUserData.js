@@ -37,10 +37,37 @@ const getFollowUserObjectsByCurrentUserUid = (uid) => new Promise((resolve, reje
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
+const deleteFollowUserObj = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/followUser/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
+const getSingleFollowUserObj = (currentUser, followedUser) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/followUser.json?orderBy="followed_user"&equalTo="${followedUser}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const arr = Object.values(data).filter((item) => item.current_user === currentUser);
+      resolve(arr[0]);
+    })
+    .catch(reject);
+});
 
 export {
   createFollowUserObj,
   updateFollowUserObj,
   getFollowUserObjectsByCurrentUserUid,
+  deleteFollowUserObj,
+  getSingleFollowUserObj,
 
 };
