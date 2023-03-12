@@ -28,7 +28,9 @@ export default function ViewFolderPage() {
       getImages().then((imagesArr) => {
         const imagesArray = imagesArr.filter((image) => imageKeys.includes(image.firebaseKey));
         const imagesPublicArray = imagesArr.filter((image) => imageKeys.includes(image.firebaseKey) && image.public === true);
-        if (user.uid === imagesArray[0].uid) {
+        if (imagesArray.length === 0) {
+          console.warn('no images in folder');
+        } else if (user.uid === imagesArray[0].uid) {
           setImages(imagesArray);
         } else {
           setImages(imagesPublicArray);
