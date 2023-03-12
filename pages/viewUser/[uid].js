@@ -4,20 +4,36 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { getUserPublicFolders } from '../../API/folderData';
+import { createFollowUserObj, updateFollowUserObj } from '../../API/followUserData';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser } from '../../API/userData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ViewUser() {
   const router = useRouter();
   const { uid } = router.query;
-  const [user, setUser] = useState({});
+  const [followableUser, setFollowableUser] = useState({});
   const [images, setImages] = useState([]);
   const [folders, setFolders] = useState([]);
+  const { user } = useAuth();
+
+  const handleFollow = () => {
+    const userFollowPayload = {
+      current_user: user.uid,
+      followed_user: uid,
+    };
+    // eslint-disable-next-line no-shadow
+    createFollowUserObj(userFollowPayload).then(({ name }) => {
+      const patchFollowUserPayload = { firebaseKey: name };
+      updateFollowUserObj(patchFollowUserPayload);
+    });
+  };
 
   useEffect(() => {
     getUser(uid).then((userDetails) => {
-      setUser(userDetails);
+      setFollowableUser(userDetails);
     });
   }, [uid]);
   useEffect(() => {
@@ -34,8 +50,9 @@ export default function ViewUser() {
   return (
     <div>
       <div className="view-single-user-page-container">
-        <img src={user.photoURL} alt="user photo" />
-        <h1>{user.displayName}</h1>
+        <img src={followableUser.photoURL} alt="user photo" />
+        <h1>{followableUser.displayName}</h1>
+        <Button onClick={handleFollow}>Follow</Button>
         <div className="user-images">
           {images.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
