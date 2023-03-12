@@ -4,20 +4,55 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { getUserPublicFolders } from '../../API/folderData';
+import {
+  createFollowUserObj, deleteFollowUserObj, getSingleFollowUserObj, updateFollowUserObj,
+} from '../../API/followUserData';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser } from '../../API/userData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ViewUser() {
   const router = useRouter();
   const { uid } = router.query;
-  const [user, setUser] = useState({});
+  const [followableUser, setFollowableUser] = useState({});
   const [images, setImages] = useState([]);
   const [folders, setFolders] = useState([]);
+  const { user } = useAuth();
+  const [btnToggle, setBtnToggle] = useState(0);
+
+  const handleFollow = () => {
+    setBtnToggle(1);
+    const userFollowPayload = {
+      current_user: user.uid,
+      followed_user: uid,
+    };
+    // eslint-disable-next-line no-shadow
+    createFollowUserObj(userFollowPayload).then(({ name }) => {
+      const patchFollowUserPayload = { firebaseKey: name };
+      updateFollowUserObj(patchFollowUserPayload);
+    });
+  };
+  const handleUnfollow = () => {
+    setBtnToggle(0);
+    getSingleFollowUserObj(user.uid, uid).then((followUserObj) => {
+      deleteFollowUserObj(followUserObj.firebaseKey);
+    });
+  };
+  useEffect(() => {
+    getSingleFollowUserObj(user.uid, uid).then((item) => {
+      if (item) {
+        setBtnToggle(1);
+      } else {
+        setBtnToggle(0);
+      }
+    });
+  }, [uid, user.uid]);
 
   useEffect(() => {
     getUser(uid).then((userDetails) => {
-      setUser(userDetails);
+      setFollowableUser(userDetails);
     });
   }, [uid]);
   useEffect(() => {
@@ -34,8 +69,9 @@ export default function ViewUser() {
   return (
     <div>
       <div className="view-single-user-page-container">
-        <img src={user.photoURL} alt="user photo" />
-        <h1>{user.displayName}</h1>
+        <img src={followableUser.photoURL} alt="user photo" />
+        <h1>{followableUser.displayName}</h1>
+        {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
         <div className="user-images">
           {images.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
