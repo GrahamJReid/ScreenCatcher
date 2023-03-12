@@ -26,8 +26,21 @@ const updateFollowUserObj = (payload) => new Promise((resolve, reject) => {
     .then(resolve)
     .catch(reject);
 });
+const getFollowUserObjectsByCurrentUserUid = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/followUser.json?orderBy="current_user"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
 
 export {
   createFollowUserObj,
   updateFollowUserObj,
+  getFollowUserObjectsByCurrentUserUid,
+
 };
