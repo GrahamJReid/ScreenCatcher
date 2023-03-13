@@ -43,8 +43,27 @@ const getUserThreads = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getThreads = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/threads.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data) {
+        console.warn('no non user threads');
+      } else {
+        const threads = Object.values(data).filter((item) => item.uid !== uid);
+        resolve(threads);
+      }
+    })
+    .catch(reject);
+});
 export {
   createThread,
   updateThread,
   getUserThreads,
+  getThreads,
 };
