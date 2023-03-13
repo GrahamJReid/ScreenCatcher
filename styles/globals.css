@@ -125,3 +125,6 @@ transition-duration:1000ms;
 .create-thread-image{
   width:40%;
 }
+.threads-page-container{
+  margin-top:20%;
+}
