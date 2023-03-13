@@ -21,7 +21,7 @@ function CommentCard({ commentObj, onUpdate }) {
 
   return (
     <>
-      <Card className="comment-card">
+      <Card className="comment-card" style={{ color: 'black' }}>
         <div className="comment-container">
           <Card.Header>{commentObj.date_added}</Card.Header>
           <Card.Body>

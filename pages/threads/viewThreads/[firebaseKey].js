@@ -3,7 +3,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { getCommentsByThreadId } from '../../../API/commentsData';
+import { deleteVideoComments, getCommentsByThreadId } from '../../../API/commentsData';
 import {
   createFollowThreadObj, deleteFollowThreadObj, getSingleFollowThreadObj, updateFollowThreadObj,
 } from '../../../API/followThreadData';
@@ -23,6 +23,15 @@ export default function ViewThread() {
 
   const displayComments = () => {
     getCommentsByThreadId(firebaseKey).then(setComments);
+  };
+  useEffect(() => {
+    getCommentsByThreadId(firebaseKey).then(setComments);
+  }, [firebaseKey]);
+
+  const handleDeleteThread = () => {
+    if (window.confirm(`Delete ${thread.thread_title}?`)) {
+      deleteVideoComments(thread.firebaseKey).then(() => router.push('/ThreadsPage'));
+    }
   };
 
   const handleFollow = () => {
@@ -61,6 +70,7 @@ export default function ViewThread() {
   return (
     <div className={viewthreadstyle.ViewThreadContainer}>
       <h1>{thread.thread_title}</h1>
+      {user.uid === thread.uid ? <Button onClick={handleDeleteThread}>Delete Thread</Button> : ''}
       {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
       <img src={thread.thread_image} className="create-thread-image" />
       <h2>Category: {thread.category}</h2>
