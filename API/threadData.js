@@ -90,6 +90,17 @@ const getSingleThread = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve((data)))
     .catch(reject);
 });
+const deleteThread = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/threads/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
 export {
   createThread,
   updateThread,
@@ -97,4 +108,5 @@ export {
   getThreads,
   getSingleThread,
   getAllThreads,
+  deleteThread,
 };
