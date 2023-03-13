@@ -122,3 +122,11 @@ transition-duration:1000ms;
 .UsersPage-container{
   margin-top:20%;
 }
+.create-thread-image{
+  width:40%;
+  height:50rem;
+  object-fit:contain;
+}
+.threads-page-container{
+  margin-top:20%;
+}
