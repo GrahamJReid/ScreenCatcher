@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import ThreadForm from '../components/forms/ThreadForm';
 import Gallery from '../components/homePage/Gallery';
 import UserFollowedImages from '../components/homePage/UserFollowedImages';
 import { useAuth } from '../utils/context/authContext';
@@ -33,7 +32,7 @@ function Home() {
             <div>mid Layer</div>
           </div>
           <div className="parallax_layer top_layer">
-            <ThreadForm />
+            <div>this is where the followed threads will go</div>
           </div>
         </div>
 

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
@@ -25,10 +27,13 @@ export default function ThreadsPage() {
             <Card.Body>
               <Card.Title>{threads.thread_title}</Card.Title>
               <Card.Text>
+                Posted by:<img src={threads.user_image} />  {threads.username}
+              </Card.Text>
+              <Card.Text>
                 {threads.description}
               </Card.Text>
               <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
-                <h2>View Thread</h2>
+                <button type="button">View Thread</button>
               </Link>
             </Card.Body>
           </Card>
@@ -43,10 +48,13 @@ export default function ThreadsPage() {
               <Card.Body>
                 <Card.Title>{threads.thread_title}</Card.Title>
                 <Card.Text>
+                  Posted by:<img src={threads.user_image} /> {threads.username}
+                </Card.Text>
+                <Card.Text>
                   {threads.description}
                 </Card.Text>
                 <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
-                  <h2>View Thread</h2>
+                  <button type="button">View Thread</button>
                 </Link>
               </Card.Body>
             </Card>
