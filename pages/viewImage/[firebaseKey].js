@@ -96,6 +96,13 @@ export default function ViewImage() {
             </Button>
           ) : ''}
           {imageDetails.uid === user.uid ? (
+            <Button
+              href={`/threads/${imageDetails.firebaseKey}`}
+            >
+              Create Thread
+            </Button>
+          ) : ''}
+          {imageDetails.uid === user.uid ? (
             <FolderSelect imageObj={imageDetails} />
           ) : <Button onClick={handleAdd}> Add To Your Images</Button>}
         </div>

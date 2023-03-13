@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
+import ThreadForm from '../components/forms/ThreadForm';
 import Gallery from '../components/homePage/Gallery';
-import PublicImagesView from '../components/homePage/PublicImagesView';
 import UserFollowedImages from '../components/homePage/UserFollowedImages';
 import { useAuth } from '../utils/context/authContext';
 
@@ -33,7 +33,7 @@ function Home() {
             <div>mid Layer</div>
           </div>
           <div className="parallax_layer top_layer">
-            <PublicImagesView />
+            <ThreadForm />
           </div>
         </div>
 
