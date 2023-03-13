@@ -27,7 +27,7 @@ export default function ThreadsPage() {
               <Card.Text>
                 {threads.description}
               </Card.Text>
-              <Link href={`/viewUser/${user.uid}`} passHref>
+              <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
                 <h2>View Thread</h2>
               </Link>
             </Card.Body>
@@ -45,7 +45,7 @@ export default function ThreadsPage() {
                 <Card.Text>
                   {threads.description}
                 </Card.Text>
-                <Link href={`/viewUser/${user.uid}`} passHref>
+                <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
                   <h2>View Thread</h2>
                 </Link>
               </Card.Body>

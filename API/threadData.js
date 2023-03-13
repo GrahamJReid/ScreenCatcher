@@ -61,9 +61,21 @@ const getThreads = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getSingleThread = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/threads/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
 export {
   createThread,
   updateThread,
   getUserThreads,
   getThreads,
+  getSingleThread,
 };

@@ -1,0 +1,11 @@
+.ViewThreadContainer{
+  margin-top:10%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+.PostContainer{
+  height:40rem;
+  overflow-y: auto;
+}
