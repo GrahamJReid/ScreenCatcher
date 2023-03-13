@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Gallery from '../components/homePage/Gallery';
 import UserFollowedImages from '../components/homePage/UserFollowedImages';
+import UserFollowedThreads from '../components/homePage/UserFollowedThreads';
 import { useAuth } from '../utils/context/authContext';
 
 /* eslint-disable @next/next/no-img-element */
@@ -32,7 +33,8 @@ function Home() {
             <div>mid Layer</div>
           </div>
           <div className="parallax_layer top_layer">
-            <div>this is where the followed threads will go</div>
+            <UserFollowedThreads />
+            hello
           </div>
         </div>
 
