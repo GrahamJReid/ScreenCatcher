@@ -20,6 +20,7 @@ export default function ViewThread() {
       <img src={thread.thread_image} className="create-thread-image" />
       <h2>Category: {thread.category}</h2>
       <h3>Description: {thread.description}</h3>
+      <input type="text" />
       <div className={viewthreadstyle.PostContainer}>
         <h1>this is where the posts go</h1>
         <h1>this is where the posts go</h1>
@@ -37,7 +38,6 @@ export default function ViewThread() {
         <h1>this is where the posts go</h1>
         <h1>this is where the posts go</h1>
       </div>
-      <input type="text" />
     </div>
   );
 }
