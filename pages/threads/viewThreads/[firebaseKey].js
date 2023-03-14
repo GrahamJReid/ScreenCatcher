@@ -7,6 +7,7 @@ import { deleteVideoComments, getCommentsByThreadId } from '../../../API/comment
 import {
   createFollowThreadObj, deleteFollowThreadObj, getSingleFollowThreadObj, updateFollowThreadObj,
 } from '../../../API/followThreadData';
+import { createLike, getLikesByThreadId, updateLike } from '../../../API/likeData';
 import { getSingleThread } from '../../../API/threadData';
 import CommentCard from '../../../components/CommentCard';
 import AddAComment from '../../../components/forms/CommentForm';
@@ -20,14 +21,41 @@ export default function ViewThread() {
   const [btnToggle, setBtnToggle] = useState(0);
   const { user } = useAuth();
   const [comments, setComments] = useState([]);
+  const [likes, setLikes] = useState(0);
 
   const displayComments = () => {
     getCommentsByThreadId(firebaseKey).then(setComments);
   };
   useEffect(() => {
     getCommentsByThreadId(firebaseKey).then(setComments);
-  }, [firebaseKey]);
+  }, [firebaseKey, likes]);
 
+  useEffect(() => {
+    getLikesByThreadId(firebaseKey).then((likesArr) => {
+      setLikes(likesArr.length);
+      console.warn('it updated agina via useEffect');
+    });
+  }, [firebaseKey, likes]);
+
+  const handleLike = () => {
+    const payload = {
+      uid: user.uid,
+      thread_id: firebaseKey,
+    };
+
+    const createLikeFunc = async () => {
+      createLike(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateLike(patchPayload);
+      });
+      // eslint-disable-next-line no-unused-vars
+      const updateLikes = await getLikesByThreadId(firebaseKey).then((likesArr) => {
+        const setting = setLikes(likesArr.length);
+        setLikes(setting);
+      });
+    };
+    createLikeFunc();
+  };
   const handleDeleteThread = () => {
     if (window.confirm(`Delete ${thread.thread_title}?`)) {
       deleteVideoComments(thread.firebaseKey).then(() => router.push('/ThreadsPage'));
@@ -72,6 +100,8 @@ export default function ViewThread() {
       <h1>{thread.thread_title}</h1>
       {user.uid === thread.uid ? <Button onClick={handleDeleteThread}>Delete Thread</Button> : ''}
       {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
+      <h2>{likes}</h2>
+      <Button onClick={handleLike}>LIKE</Button>
       <img src={thread.thread_image} className="create-thread-image" />
       <h2>Category: {thread.category}</h2>
       <h3>Description: {thread.description}</h3>
