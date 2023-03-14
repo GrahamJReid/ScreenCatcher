@@ -60,10 +60,16 @@ export default function ViewThread() {
     };
     createLikeFunc();
   };
-  const handleUnlike = () => {
+  const handleUnlike = async () => {
     getLikesByThreadIdandUid(firebaseKey, user.uid).then((deleteItem) => {
       console.warn(deleteItem);
       deleteLike(deleteItem[0].firebaseKey);
+      setButtonCount(0);
+    });
+    // eslint-disable-next-line no-unused-vars
+    const updateLikes = await getLikesByThreadId(firebaseKey).then((likesArr) => {
+      const setting = setLikes(likesArr.length);
+      setLikes(setting);
     });
   };
   const handleDeleteThread = () => {
