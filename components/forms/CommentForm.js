@@ -15,12 +15,16 @@ const initialState = {
   date_added: '',
   author: '',
 };
+const commentImageInitialState = {
+  comment_url: '',
+};
 
 export default function AddAComment({ threadFbKey, onUpdate }) {
   const [formInput, setFormInput] = useState(initialState);
   const { user } = useAuth();
   const [userImages, setUserImages] = useState([]);
   const [commentImage, setCommentImage] = useState('');
+  const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
 
   useEffect(() => {
     getUserPublicImages(user.uid).then(setUserImages);
@@ -36,6 +40,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
   const handleCommentImage = (e) => {
     const { name, value } = e.target;
     setCommentImage(value);
+    setCommentImageFormInput(name);
     setFormInput((prevState) => ({
       ...prevState,
       [name]: value,
@@ -50,6 +55,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       date_added: new Date().toLocaleString(),
       author: user.displayName,
       thread_id: threadFbKey,
+      thread_image: commentImageFormInput.comment_url,
     };
     createComment(payload)
       .then(({ name }) => {
@@ -57,6 +63,8 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
         updateComment(patchPayload)
           .then(() => onUpdate());
         setFormInput(initialState);
+        setCommentImage('');
+        setCommentImageFormInput(commentImageInitialState);
       });
   };
 
@@ -69,7 +77,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
           aria-label="Folder"
           name="comment_image"
           onChange={handleCommentImage}
-          value={formInput.image_url}
+          value={commentImageFormInput.comment_url}
           className="mb-3"
         >
           <option value="">Select an Image</option>
