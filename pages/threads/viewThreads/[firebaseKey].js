@@ -7,6 +7,9 @@ import { deleteVideoComments, getCommentsByThreadId } from '../../../API/comment
 import {
   createFollowThreadObj, deleteFollowThreadObj, getSingleFollowThreadObj, updateFollowThreadObj,
 } from '../../../API/followThreadData';
+import {
+  createLike, deleteLike, getLikesByThreadId, getLikesByThreadIdandUid, updateLike,
+} from '../../../API/likeData';
 import { getSingleThread } from '../../../API/threadData';
 import CommentCard from '../../../components/CommentCard';
 import AddAComment from '../../../components/forms/CommentForm';
@@ -20,14 +23,62 @@ export default function ViewThread() {
   const [btnToggle, setBtnToggle] = useState(0);
   const { user } = useAuth();
   const [comments, setComments] = useState([]);
+  const [likes, setLikes] = useState(0);
+  const [buttonCount, setButtonCount] = useState(0);
 
   const displayComments = () => {
     getCommentsByThreadId(firebaseKey).then(setComments);
   };
   useEffect(() => {
     getCommentsByThreadId(firebaseKey).then(setComments);
-  }, [firebaseKey]);
+    getLikesByThreadIdandUid(firebaseKey, user.uid).then((item) => {
+      if (item.length === 0) {
+        console.warn('user hasnt liked thread before');
+      } else {
+        setButtonCount(1);
+      }
+    });
+  }, [firebaseKey, user.uid]);
 
+  useEffect(() => {
+    getLikesByThreadId(firebaseKey).then((likesArr) => {
+      setLikes(likesArr.length);
+      console.warn('it updated agina via useEffect');
+    });
+  }, [firebaseKey, likes]);
+
+  const handleLike = () => {
+    const payload = {
+      uid: user.uid,
+      thread_id: firebaseKey,
+    };
+
+    const createLikeFunc = async () => {
+      createLike(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateLike(patchPayload);
+      });
+      // eslint-disable-next-line no-unused-vars
+      const updateLikes = await getLikesByThreadId(firebaseKey).then((likesArr) => {
+        const setting = setLikes(likesArr.length);
+        setLikes(setting);
+        setButtonCount(1);
+      });
+    };
+    createLikeFunc();
+  };
+  const handleUnlike = async () => {
+    getLikesByThreadIdandUid(firebaseKey, user.uid).then((deleteItem) => {
+      console.warn(deleteItem);
+      deleteLike(deleteItem[0].firebaseKey);
+      setButtonCount(0);
+    });
+    // eslint-disable-next-line no-unused-vars
+    const updateLikes = await getLikesByThreadId(firebaseKey).then((likesArr) => {
+      const setting = setLikes(likesArr.length);
+      setLikes(setting);
+    });
+  };
   const handleDeleteThread = () => {
     if (window.confirm(`Delete ${thread.thread_title}?`)) {
       deleteVideoComments(thread.firebaseKey).then(() => router.push('/ThreadsPage'));
@@ -72,6 +123,8 @@ export default function ViewThread() {
       <h1>{thread.thread_title}</h1>
       {user.uid === thread.uid ? <Button onClick={handleDeleteThread}>Delete Thread</Button> : ''}
       {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
+      <h2>{likes}</h2>
+      {buttonCount === 0 ? <Button onClick={handleLike}>LIKE</Button> : <Button onClick={handleUnlike}>UNLIKE</Button> }
       <img src={thread.thread_image} className="create-thread-image" />
       <h2>Category: {thread.category}</h2>
       <h3>Description: {thread.description}</h3>
