@@ -53,8 +53,9 @@ export default function UserProfileForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
-      photoURL: commentImageFormInput.comment_url,
+      photoURL: commentImage,
       displayName: formInput.text,
+      firebaseKey: userDetails.firebaseKey,
 
     };
     getUser(user.uid).then(updateUser(payload));
