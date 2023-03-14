@@ -43,9 +43,39 @@ const getLikesByThreadId = (firebaseKey) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getLikesByThreadIdandUid = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/likes.json?orderBy="thread_id"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data).filter((item) => item.uid === uid));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+const deleteLike = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/likes/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
 
 export {
   updateLike,
   createLike,
   getLikesByThreadId,
+  deleteLike,
+  getLikesByThreadIdandUid,
 };
