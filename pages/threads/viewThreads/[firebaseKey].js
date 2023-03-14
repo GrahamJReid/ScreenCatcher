@@ -31,7 +31,14 @@ export default function ViewThread() {
   };
   useEffect(() => {
     getCommentsByThreadId(firebaseKey).then(setComments);
-  }, [firebaseKey]);
+    getLikesByThreadIdandUid(firebaseKey, user.uid).then((item) => {
+      if (item.length === 0) {
+        console.warn('user hasnt liked thread before');
+      } else {
+        setButtonCount(1);
+      }
+    });
+  }, [firebaseKey, user.uid]);
 
   useEffect(() => {
     getLikesByThreadId(firebaseKey).then((likesArr) => {
