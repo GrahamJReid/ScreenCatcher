@@ -7,7 +7,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { createUser, getUser } from '../../API/userData';
+import { createUser, getUser, updateUser } from '../../API/userData';
 import { firebase } from '../client';
 
 const AuthContext = createContext();
@@ -33,9 +33,13 @@ const AuthProvider = (props) => {
           if (item) {
             setUser(item);
           } else {
-            createUser(fbUser).then(setUser);
+            createUser(fbUser).then(({ name }) => {
+              const patchPayload = { firebaseKey: name };
+              updateUser(patchPayload);
+            });
           }
         });
+
         setUser(fbUser);
       } else {
         setUser(false);
