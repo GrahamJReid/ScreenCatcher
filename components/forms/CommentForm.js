@@ -55,8 +55,8 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       .then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateComment(patchPayload)
-          .then(() => onUpdate())
-          .then(setFormInput(initialState));
+          .then(() => onUpdate());
+        setFormInput(initialState);
       });
   };
 

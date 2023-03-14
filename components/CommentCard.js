@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
@@ -25,6 +27,7 @@ function CommentCard({ commentObj, onUpdate }) {
         <div className="comment-container">
           <Card.Header>{commentObj.date_added}</Card.Header>
           <Card.Body>
+            <img src={commentObj.comment_image} width="200px" />
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
@@ -60,6 +63,7 @@ CommentCard.propTypes = {
     uid: PropTypes.string,
     firebaseKey: PropTypes.string,
     author: PropTypes.string,
+    comment_image: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
