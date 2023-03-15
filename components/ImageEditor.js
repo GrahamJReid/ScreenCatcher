@@ -7,6 +7,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable react/button-has-type */
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { createImage, updateImage } from '../API/imageData';
 import { storage } from '../utils/client';
 import { useAuth } from '../utils/context/authContext';
@@ -27,6 +28,9 @@ export default function ImageEditor() {
   const { user } = useAuth();
   const [randomInt, setRandomInt] = useState(0);
   const [loader, setLoader] = useState(0);
+  const router = useRouter();
+  const [push, setPush] = useState(0);
+  const [editFbKey, setEditFbKey] = useState('');
   // const [query, setQuery] = useState('');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
@@ -41,9 +45,10 @@ export default function ImageEditor() {
       };
       createImage(Payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        updateImage(patchPayload);
+        updateImage(patchPayload).then(setEditFbKey(name));
       });
       setLoader(0);
+      setPush(1);
     } else { didMount.current = true; }
   }, [imageUrl, user.displayName, user.uid]);
 
@@ -190,6 +195,18 @@ export default function ImageEditor() {
             {/* <input type="text" placeholder="Title your Image" onChange={(e) => setQuery(e.target.value)} /> */}
             <div className="row">
               {loader === 0 ? <><input type="file" className="file-input" accept="image/*" hidden onChange={loadImage} /><button className="choose-img" onClick={() => fileInput.click()}>Choose Image</button><button className="save-img" onClick={saveImage}>Save Image</button></> : <Loading />}
+            </div>
+            <div>
+              {push === 0 ? '' : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    console.warn(editFbKey);
+                    router.push(`/viewImage/edit/${editFbKey}`);
+                  }}
+                >Edit Image Details
+                </button>
+              )}
             </div>
           </div>
         </div>
