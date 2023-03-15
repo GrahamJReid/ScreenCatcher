@@ -74,6 +74,14 @@ export default function NavBar() {
                   </a>
                 </Link>
               </li>
+              <li className="NavLink">
+                <Link passHref href="/messages">
+
+                  <a className="NavLink">
+                    Messages
+                  </a>
+                </Link>
+              </li>
               <button type="button" className="btn btn-danger navbar-signout-btn" onClick={signOut}>
                 Sign Out
               </button>
