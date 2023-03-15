@@ -12,7 +12,7 @@ export default function PostMessagesPageContent() {
       const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
       setPostMessages(sortedImageOrder);
     });
-  }, [firebaseKey]);
+  }, [firebaseKey, postMessages]);
   const displayPostMessages = () => {
     getPostMessagesByMessagesId(firebaseKey).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
