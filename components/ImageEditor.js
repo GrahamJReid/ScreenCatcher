@@ -35,6 +35,11 @@ export default function ImageEditor() {
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
+  // const changeRoute = () => {
+  //   if (push === 1) {
+  //     router.push(`/viewImage/edit/${editFbKey}`);
+  //   }
+  // };
   useEffect(() => {
     getRandomInt();
   }, [imageUrl, user.displayName, user.uid]);
