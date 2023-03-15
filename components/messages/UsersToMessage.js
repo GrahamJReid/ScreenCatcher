@@ -31,7 +31,7 @@ export default function UsersToMessage() {
 
   useEffect(() => {
     getUserMessages(user.uid).then(setMessagesArr);
-  }, [messagesArr, user.uid]);
+  }, [user.uid]);
 
   return (
     <>
@@ -40,12 +40,13 @@ export default function UsersToMessage() {
       </Head>
       <div>
         {messagesArr.map((otherUser) => (
-          <Card style={{ width: '18rem', color: 'black' }} key={otherUser.uid}>
+          <Card style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
             <Card.Img variant="top" src={otherUser.photoURL} />
             <Card.Body>
               <Card.Title>{otherUser.displayName}</Card.Title>
               <Card.Text>
-                other user info go here
+                {otherUser.user_1name}&
+                {otherUser.user_2name}
               </Card.Text>
 
               <button
@@ -53,7 +54,8 @@ export default function UsersToMessage() {
                 onClick={() => {
                   const payload = {
                     user_1: user.uid,
-                    user_2: otherUser.uid,
+                    user_1name: user.displayName,
+                    user_2name: otherUser.displayName,
                     date_added: new Date().toLocaleString(),
                     author: user.displayName,
                   };
@@ -73,13 +75,14 @@ export default function UsersToMessage() {
 
         ))}
       </div>
+
       <div>
         <input type="text" placeholder="Search Your Images" onChange={(e) => setQuery(e.target.value)} />
       </div>
       <div>
         <div>
           {filteredItems.map((otherUser) => (
-            <Card style={{ width: '18rem', color: 'black' }} key={otherUser.uid}>
+            <Card style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
               <Card.Img variant="top" src={otherUser.photoURL} />
               <Card.Body>
                 <Card.Title>{otherUser.displayName}</Card.Title>
@@ -93,6 +96,8 @@ export default function UsersToMessage() {
                     const payload = {
                       user_1: user.uid,
                       user_2: otherUser.uid,
+                      user_1name: user.displayName,
+                      user_2name: otherUser.displayName,
                       date_added: new Date().toLocaleString(),
                       author: user.displayName,
                     };
