@@ -3,7 +3,7 @@
 
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { createMessages, getUserMessages, updateMessages } from '../../API/messagesData';
 import { getAllUsers } from '../../API/userData';
 import { useAuth } from '../../utils/context/authContext';
@@ -49,26 +49,11 @@ export default function UsersToMessage() {
                 {otherUser.user_2name}
               </Card.Text>
 
-              <button
-                type="button"
-                onClick={() => {
-                  const payload = {
-                    user_1: user.uid,
-                    user_1name: user.displayName,
-                    user_2name: otherUser.displayName,
-                    date_added: new Date().toLocaleString(),
-                    author: user.displayName,
-                  };
-                  createMessages(payload).then(({ name }) => {
-                    const patchPayload = { firebaseKey: name };
-                    updateMessages(patchPayload)
-                      .then(() => {
-                        getUserMessages(user.uid).then(setMessagesArr);
-                      });
-                  });
-                }}
-              >View Messages
-              </button>
+              <Button
+                href={`/messages/${otherUser.firebaseKey}`}
+              >
+                View Messages
+              </Button>
 
             </Card.Body>
           </Card>
