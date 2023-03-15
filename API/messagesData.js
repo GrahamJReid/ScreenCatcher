@@ -43,9 +43,27 @@ const getUserMessages = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getUserSecondaryMessages = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/messages.json?orderBy="user_2"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 
 export {
   updateMessages,
   createMessages,
   getUserMessages,
+  getUserSecondaryMessages,
 };

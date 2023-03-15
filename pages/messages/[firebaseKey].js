@@ -2,6 +2,14 @@ import React from 'react';
 
 export default function viewMessages() {
   return (
-    <div>[firebaseKey]</div>
+    <>
+      <div>
+        messages between users
+      </div>
+
+      <div>
+        message form
+      </div>
+    </>
   );
 }
