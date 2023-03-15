@@ -1,14 +1,16 @@
 import React from 'react';
+import PostMessageForm from '../../components/forms/MessageForm';
+import PostMessagesPageContent from '../../components/messages/PostMessagesPageContent';
 
 export default function viewMessages() {
   return (
     <>
       <div>
-        messages between users
+        <PostMessagesPageContent />
       </div>
 
       <div>
-        message form
+        <PostMessageForm />
       </div>
     </>
   );

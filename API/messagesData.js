@@ -60,10 +60,22 @@ const getUserSecondaryMessages = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getSingleMessages = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/messages/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
 
 export {
   updateMessages,
   createMessages,
   getUserMessages,
   getUserSecondaryMessages,
+  getSingleMessages,
 };
