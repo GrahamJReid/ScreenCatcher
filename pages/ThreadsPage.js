@@ -48,7 +48,7 @@ export default function ThreadsPage() {
               <Card.Body>
                 <Card.Title>{threads.thread_title}</Card.Title>
                 <Card.Text>
-                  Posted by:<img src={threads.user_image} /> {threads.username}
+                  Posted by:<img src={threads.user_image} width="50%" /> {threads.username}
                 </Card.Text>
                 <Card.Text>
                   {threads.description}

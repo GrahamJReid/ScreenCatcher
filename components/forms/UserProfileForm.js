@@ -32,6 +32,12 @@ export default function UserProfileForm() {
   useEffect(() => {
     getUser(user.uid).then(setUserDetails);
   }, [user]);
+  useEffect(() => {
+    const userObj = {
+      text: `${user.displayName}`,
+    };
+    setFormInput(userObj);
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

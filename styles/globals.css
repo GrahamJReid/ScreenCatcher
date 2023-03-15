@@ -133,3 +133,6 @@ transition-duration:1000ms;
 .user-profile-page-container{
   margin-top:20%;
 }
+.threadProfilePicture{
+  width:20%;
+}
