@@ -42,7 +42,7 @@ color:white;
 .NavLinkList{
   display:flex;
   flex-direction:row;
-  margin-right:10%;
+  margin-right:20%;
 }
 .navbar-title{
  font-size:3rem;
@@ -129,4 +129,10 @@ transition-duration:1000ms;
 }
 .threads-page-container{
   margin-top:20%;
+}
+.user-profile-page-container{
+  margin-top:20%;
+}
+.threadProfilePicture{
+  width:20%;
 }
