@@ -6,22 +6,14 @@ import { useAuth } from '../../utils/context/authContext';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser, updateUser } from '../../API/userData';
 
-const initialState = {
-  firebaseKey: '',
-  uid: '',
-  text: '',
-  thread_id: '',
-  date_added: '',
-  author: '',
-};
 const commentImageInitialState = {
   comment_url: '',
 };
 
 export default function UserProfileForm() {
-  const [formInput, setFormInput] = useState(initialState);
   const { user } = useAuth();
   const [userImages, setUserImages] = useState([]);
+  const [pageReload, setPageReload] = useState(0);
   const [userDetails, setUserDetails] = useState([]);
   const [commentImage, setCommentImage] = useState('');
   const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
@@ -31,43 +23,32 @@ export default function UserProfileForm() {
   }, [user]);
   useEffect(() => {
     getUser(user.uid).then(setUserDetails);
-  }, [user]);
+  }, [user, pageReload]);
+
   useEffect(() => {
     const userObj = {
-      text: `${user.displayName}`,
+      photoURL: `${user.photoUrl}`,
     };
-    setFormInput(userObj);
+    setCommentImageFormInput(userObj);
   }, [user]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
   const handleCommentImage = (e) => {
     const { name, value } = e.target;
     setCommentImage(value);
     setCommentImageFormInput(name);
-    setFormInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
       photoURL: commentImage,
-      displayName: formInput.text,
       firebaseKey: userDetails.firebaseKey,
 
     };
     getUser(user.uid).then(updateUser(payload));
-    setFormInput(initialState);
     setCommentImage('');
     setCommentImageFormInput(commentImageInitialState);
+    setPageReload(1);
   };
 
   return (
@@ -96,18 +77,6 @@ export default function UserProfileForm() {
             ))}
           </Form.Select>
         </FloatingLabel>
-
-        <FloatingLabel controlId="floatingTextArea" label="Change Profile Name" className="mb-3 text-black">
-          <Form.Control
-            type="textarea"
-            style={{ height: '100px' }}
-            name="text"
-            value={formInput.text}
-            onChange={handleChange}
-            required
-          />
-        </FloatingLabel>
-
         <Button type="submit" className="blue-btn">Submit Changes</Button>
       </Form>
     </>
