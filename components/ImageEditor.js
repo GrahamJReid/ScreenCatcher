@@ -62,6 +62,7 @@ export default function ImageEditor() {
   let rotate = 0; let flipHorizontal = 1; let
     flipVertical = 1;
   const loadImage = () => {
+    setPush(0);
     const file = fileInput.files[0];
     if (!file) return;
     previewImg.src = URL.createObjectURL(file);
