@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { deleteThreadComments, getCommentsByThreadId } from '../../../API/commentsData';
 import {
-  createFollowThreadObj, deleteFollowThreadObj, getSingleFollowThreadObj, updateFollowThreadObj,
+  createFollowThreadObj, deleteFollowThreadObj, getAllFollowThreadObjbyThreadID, getSingleFollowThreadObj, updateFollowThreadObj,
 } from '../../../API/followThreadData';
 import {
   createLike, deleteLike, getLikesByThreadId, getLikesByThreadIdandUid, updateLike,
@@ -85,7 +85,11 @@ export default function ViewThread() {
         itemarr.forEach((like) => {
           deleteLike(like.firebaseKey);
         });
-      }).then(
+      }).then(getAllFollowThreadObjbyThreadID(thread.firebaseKey).then((itemarr) => {
+        itemarr.forEach((followThread) => {
+          deleteFollowThreadObj(followThread.firebaseKey);
+        });
+      })).then(
         deleteThreadComments(thread.firebaseKey).then(() => router.push('/ThreadsPage')),
       );
     }
