@@ -93,6 +93,7 @@ export default function UserProfileForm() {
     });
     setCommentImageFormInput(commentImageInitialState);
     setPageReload(1);
+    window.location.reload(true);
   };
 
   return (
