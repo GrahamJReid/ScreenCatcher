@@ -5,6 +5,7 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser, updateUser } from '../../API/userData';
+import { getUserThreads, updateThread } from '../../API/threadData';
 
 const commentImageInitialState = {
   comment_url: '',
@@ -47,6 +48,16 @@ export default function UserProfileForm() {
     };
     getUser(user.uid).then(updateUser(payload));
     setCommentImage('');
+    getUserThreads(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userThreadPayload = {
+          user_image: commentImage,
+          firebaseKey: item.firebaseKey,
+        };
+
+        updateThread(userThreadPayload);
+      });
+    });
     setCommentImageFormInput(commentImageInitialState);
     setPageReload(1);
   };
