@@ -31,7 +31,6 @@ export default function ImageEditor() {
   const router = useRouter();
   const [push, setPush] = useState(0);
   const [editFbKey, setEditFbKey] = useState('');
-  // const [query, setQuery] = useState('');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
@@ -62,6 +61,7 @@ export default function ImageEditor() {
   let rotate = 0; let flipHorizontal = 1; let
     flipVertical = 1;
   const loadImage = () => {
+    setPush(0);
     const file = fileInput.files[0];
     if (!file) return;
     previewImg.src = URL.createObjectURL(file);
