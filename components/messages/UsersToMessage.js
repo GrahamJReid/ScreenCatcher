@@ -50,7 +50,7 @@ export default function UsersToMessage() {
             <Card.Body>
               <Card.Title>{otherUser.displayName}</Card.Title>
               <Card.Text>
-                {otherUser.user_1name}&
+                {user.displayName}&
                 {otherUser.user_2name}
               </Card.Text>
 
@@ -73,7 +73,7 @@ export default function UsersToMessage() {
               <Card.Title>{otherUser.displayName}</Card.Title>
               <Card.Text>
                 {otherUser.user_1name}&
-                {otherUser.user_2name}
+                {user.displayName}
               </Card.Text>
 
               <Button

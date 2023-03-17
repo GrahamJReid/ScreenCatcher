@@ -26,6 +26,18 @@ const updateThread = (payload) => new Promise((resolve, reject) => {
     .then(resolve)
     .catch(reject);
 });
+const updateUserThreads = (uid, payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/threads.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
 const getUserThreads = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/threads.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
@@ -109,4 +121,5 @@ export {
   getSingleThread,
   getAllThreads,
   deleteThread,
+  updateUserThreads,
 };

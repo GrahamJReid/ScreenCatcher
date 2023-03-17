@@ -5,13 +5,23 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser, updateUser } from '../../API/userData';
+import { getUserThreads, updateThread } from '../../API/threadData';
 
 const commentImageInitialState = {
   comment_url: '',
 };
+const initialState = {
+  firebaseKey: '',
+  uid: '',
+  text: '',
+  thread_id: '',
+  date_added: '',
+  author: '',
+};
 
 export default function UserProfileForm() {
   const { user } = useAuth();
+  const [formInput, setFormInput] = useState(initialState);
   const [userImages, setUserImages] = useState([]);
   const [pageReload, setPageReload] = useState(0);
   const [userDetails, setUserDetails] = useState([]);
@@ -24,7 +34,12 @@ export default function UserProfileForm() {
   useEffect(() => {
     getUser(user.uid).then(setUserDetails);
   }, [user, pageReload]);
-
+  useEffect(() => {
+    const userObj = {
+      text: `${user.displayName}`,
+    };
+    setFormInput(userObj);
+  }, [user]);
   useEffect(() => {
     const userObj = {
       photoURL: `${user.photoUrl}`,
@@ -37,16 +52,34 @@ export default function UserProfileForm() {
     setCommentImage(value);
     setCommentImageFormInput(name);
   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
       photoURL: commentImage,
       firebaseKey: userDetails.firebaseKey,
-
+      displayName: formInput.text,
     };
     getUser(user.uid).then(updateUser(payload));
     setCommentImage('');
+    getUserThreads(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userThreadPayload = {
+          user_image: commentImage,
+          firebaseKey: item.firebaseKey,
+          username: formInput.text,
+        };
+
+        updateThread(userThreadPayload);
+      });
+    });
     setCommentImageFormInput(commentImageInitialState);
     setPageReload(1);
   };
@@ -76,6 +109,16 @@ export default function UserProfileForm() {
               </option>
             ))}
           </Form.Select>
+        </FloatingLabel>
+        <FloatingLabel controlId="floatingTextArea" label="Change UserName" className="mb-3 text-black">
+          <Form.Control
+            type="textarea"
+            style={{ height: '100px' }}
+            name="text"
+            value={formInput.text}
+            onChange={handleChange}
+            required
+          />
         </FloatingLabel>
         <Button type="submit" className="blue-btn">Submit Changes</Button>
       </Form>
