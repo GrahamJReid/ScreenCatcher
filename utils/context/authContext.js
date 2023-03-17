@@ -39,8 +39,6 @@ const AuthProvider = (props) => {
             });
           }
         });
-
-        setUser(fbUser);
       } else {
         setUser(false);
       }

@@ -31,7 +31,6 @@ export default function ImageEditor() {
   const router = useRouter();
   const [push, setPush] = useState(0);
   const [editFbKey, setEditFbKey] = useState('');
-  // const [query, setQuery] = useState('');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
