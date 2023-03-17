@@ -3,7 +3,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { deleteVideoComments, getCommentsByThreadId } from '../../../API/commentsData';
+import { deleteThreadComments, getCommentsByThreadId } from '../../../API/commentsData';
 import {
   createFollowThreadObj, deleteFollowThreadObj, getSingleFollowThreadObj, updateFollowThreadObj,
 } from '../../../API/followThreadData';
@@ -81,7 +81,13 @@ export default function ViewThread() {
   };
   const handleDeleteThread = () => {
     if (window.confirm(`Delete ${thread.thread_title}?`)) {
-      deleteVideoComments(thread.firebaseKey).then(() => router.push('/ThreadsPage'));
+      getLikesByThreadId(thread.firebaseKey).then((itemarr) => {
+        itemarr.forEach((like) => {
+          deleteLike(like.firebaseKey);
+        });
+      }).then(
+        deleteThreadComments(thread.firebaseKey).then(() => router.push('/ThreadsPage')),
+      );
     }
   };
 

@@ -57,7 +57,7 @@ const deleteComment = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve((data)))
     .catch(reject);
 });
-const deleteVideoComments = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteThreadComments = (firebaseKey) => new Promise((resolve, reject) => {
   getCommentsByThreadId(firebaseKey).then((commentsArr) => {
     const deleteCommentsPromises = commentsArr.map((comment) => deleteComment(comment.firebaseKey));
 
@@ -73,5 +73,5 @@ export {
   createComment,
   updateComment,
   deleteComment,
-  deleteVideoComments,
+  deleteThreadComments,
 };

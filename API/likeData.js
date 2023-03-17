@@ -71,6 +71,17 @@ const deleteLike = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve((data)))
     .catch(reject);
 });
+const deleteLikeByThreadID = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/likes.json?orderBy="thread_id"&equalTo="${firebaseKey}"`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
 
 export {
   updateLike,
@@ -78,4 +89,5 @@ export {
   getLikesByThreadId,
   deleteLike,
   getLikesByThreadIdandUid,
+  deleteLikeByThreadID,
 };
