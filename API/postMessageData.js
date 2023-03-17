@@ -54,9 +54,27 @@ const getPostMessagesByMessagesId = (firebaseKey) => new Promise((resolve, rejec
     })
     .catch(reject);
 });
+const getPostMessagesByUID = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/postMessages.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 export {
   updatePostMessage,
   createPostMessage,
   deletePostMessage,
   getPostMessagesByMessagesId,
+  getPostMessagesByUID,
 };
