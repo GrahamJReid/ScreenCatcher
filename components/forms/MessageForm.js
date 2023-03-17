@@ -55,6 +55,7 @@ export default function PostMessageForm() {
       ...formInput,
       uid: user.uid,
       date_added: new Date().toLocaleString(),
+      sort_date: Date.now(),
       author: user.displayName,
       post_image: commentImageFormInput.comment_url,
       messages_id: firebaseKey,
