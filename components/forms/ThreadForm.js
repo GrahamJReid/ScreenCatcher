@@ -34,7 +34,7 @@ export default function ThreadForm({ img }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
-      ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, user_image: user.photoURL, thread_image: `${img.image_url}`,
+      ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, user_image: user.photoURL, thread_image: `${img.image_url}`, sort_date: Date.now(),
     };
     createThread(payload)
       .then(({ name }) => {

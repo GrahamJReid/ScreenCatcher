@@ -24,7 +24,7 @@ export default function ImagesPageContent({ arr }) {
 
   useEffect(() => {
     getUserImages(user.uid).then((item) => {
-      const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
+      const sortedImageOrder = item.sort((a, b) => b.sort_date - (a.sort_date));
       setOrder(sortedImageOrder);
     });
   }, [user.uid, arr]);

@@ -41,7 +41,7 @@ export default function FolderForm({ obj }) {
         .then(() => router.push(`/viewFolder/${obj.firebaseKey}`));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName,
+        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, sort_date: Date.now(),
       };
       createFolder(payload)
         .then(({ name }) => {

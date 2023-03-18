@@ -53,6 +53,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       ...formInput,
       uid: user.uid,
       date_added: new Date().toLocaleString(),
+      sort_date: Date.now(),
       author: user.displayName,
       thread_id: threadFbKey,
       thread_image: commentImageFormInput.comment_url,

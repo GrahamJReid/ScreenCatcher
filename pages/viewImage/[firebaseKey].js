@@ -42,6 +42,7 @@ export default function ViewImage() {
   }, [firebaseKey]);
   const payload = {
     date_added: new Date().toLocaleString(),
+    sort_date: Date.now(),
     username: user.displayName,
     image_url: imageDetails.image_url,
     category: imageDetails.category,
