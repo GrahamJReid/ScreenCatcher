@@ -39,6 +39,9 @@ transition-duration:300ms;
 background-color:transparent;
 color:white;
 }
+.off-canvas-on-navbar{
+  margin-left:5%;
+}
 .NavLinkList{
   display:flex;
   flex-direction:row;
@@ -62,6 +65,9 @@ color:white;
   justify-content:center;
   align-items:center;
 }
+.home-logo{
+  border-radius:100%;
+}
 .intro-title{
   font-size:10rem;
   font-weight:900;
@@ -69,6 +75,13 @@ color:white;
 .public-image-page-container{
   overflow-x: auto;
   white-space: nowrap;
+}
+#myVideo{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 .gallery-div-container{
   display:flex;
@@ -139,3 +152,99 @@ transition-duration:1000ms;
 .off-canvas-container{
   background-color:black;
 }
+/* .carousel-container{
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto;
+  perspective: 1000px;
+}
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; 
+  animation: rotate360 20s infinite forwards linear;
+}
+.carousel__face { 
+  position: absolute;
+  width: 270px;
+  height: 187px;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  background-size: cover;
+  display: flex;
+
+}
+
+span {
+  margin:auto;
+  font-size: 10rem;
+  
+  
+}
+
+
+.carousel__face:nth-child(1) {
+  background-color:orange;
+  border-radius:25%;
+  box-shadow: 25px,25px,25px;
+  transform: rotateY(  0deg) translateZ(600px); }
+.carousel__face:nth-child(2) { 
+  background-color:orange;
+  border-radius:25%;
+    transform: rotateY( 27.7deg) translateZ(600px); }
+.carousel__face:nth-child(3) {
+  background-color:orange;
+  border-radius:25%;
+  transform: rotateY( 55.4deg) translateZ(600px); }
+.carousel__face:nth-child(4) {
+  background-color:orange;
+  border-radius:25%;
+  transform: rotateY(83.1deg) translateZ(600px); }
+.carousel__face:nth-child(5) { 
+  background-color:orange;
+  border-radius:25%;
+ transform: rotateY(110.8deg) translateZ(600px); }
+.carousel__face:nth-child(6) { 
+  background-color:orange;
+  border-radius:25%;
+ transform: rotateY(138.5deg) translateZ(600px); }
+.carousel__face:nth-child(7) { 
+  background-color:orange;
+  border-radius:25%;
+ transform: rotateY(166.2deg) translateZ(600px); }
+.carousel__face:nth-child(8) {
+  background-color:orange;
+  border-radius:25%;
+  transform: rotateY(193.9deg) translateZ(600px); }
+.carousel__face:nth-child(9) {
+  background-color:orange;
+  border-radius:25%;
+  transform: rotateY(221.6deg) translateZ(600px); }
+  .carousel__face:nth-child(10) {
+    background-color:orange;
+    border-radius:25%;
+    transform: rotateY(249.3deg) translateZ(600px); }
+    .carousel__face:nth-child(11) {
+      background-color:orange;
+      border-radius:25%;
+      transform: rotateY(277deg) translateZ(600px); }
+      .carousel__face:nth-child(12) {
+        background-color:orange;
+        border-radius:25%;
+        transform: rotateY(304.7deg) translateZ(600px); }
+        .carousel__face:nth-child(13) {
+          background-color:orange;
+          border-radius:25%;
+          transform: rotateY(332.4deg) translateZ(600px); }
+
+
+@keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+} */
