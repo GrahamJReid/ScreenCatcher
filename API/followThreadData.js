@@ -62,6 +62,20 @@ const getSingleFollowThreadObj = (currentUser, followedThread) => new Promise((r
     })
     .catch(reject);
 });
+const getAllFollowThreadObjbyThreadID = (threadId) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/followThread.json?orderBy="followed_thread"&equalTo="${threadId}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const arr = Object.values(data);
+      resolve(arr);
+    })
+    .catch(reject);
+});
 
 export {
   createFollowThreadObj,
@@ -69,5 +83,6 @@ export {
   getFollowThreadObjectsByCurrentUserUid,
   deleteFollowThreadObj,
   getSingleFollowThreadObj,
+  getAllFollowThreadObjbyThreadID,
 
 };

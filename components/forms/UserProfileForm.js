@@ -6,6 +6,7 @@ import { useAuth } from '../../utils/context/authContext';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser, updateUser } from '../../API/userData';
 import { getUserThreads, updateThread } from '../../API/threadData';
+import { getPostMessagesByUID, updatePostMessage } from '../../API/postMessageData';
 
 const commentImageInitialState = {
   comment_url: '',
@@ -80,8 +81,19 @@ export default function UserProfileForm() {
         updateThread(userThreadPayload);
       });
     });
+    getPostMessagesByUID(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userPostMessagePayload = {
+          author: formInput.text,
+          firebaseKey: item.firebaseKey,
+        };
+
+        updatePostMessage(userPostMessagePayload);
+      });
+    });
     setCommentImageFormInput(commentImageInitialState);
     setPageReload(1);
+    window.location.reload(true);
   };
 
   return (
