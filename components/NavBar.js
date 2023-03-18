@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { signOut } from '../utils/auth';
+import OffCanvas from './OffCanvas';
 
 export default function NavBar() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function NavBar() {
         <div className="NavLinkList">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav me-auto">
+              <OffCanvas placement="end" name="end" />
               <li className="NavLink">
                 <Link passHref href="/">
                   <a className="NavLink">

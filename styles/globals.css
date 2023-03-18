@@ -136,3 +136,6 @@ transition-duration:1000ms;
 .threadProfilePicture{
   width:20%;
 }
+.off-canvas-container{
+  background-color:black;
+}
