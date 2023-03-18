@@ -19,12 +19,14 @@ export default function UserActivityCarousel() {
   }, [user]);
 
   return (
-    <Carousel interval={null}>
+
+    <Carousel interval={null} className="gallery-carousel-container">
       {images.map((image) => (
-        <Carousel.Item className="activityCarouselItem">
-          <img src={`${image.image_url}`} height="50%" width="50%" />
+        <Carousel.Item>
+          <img src={`${image.image_url}`} className="carousel-image" />
         </Carousel.Item>
       ))}
+
     </Carousel>
   );
 }

@@ -22,9 +22,9 @@ function Home() {
             base layer page
           </div>
           <div className="parallax_layer mid_layer">
-            <div>
-              <Gallery />
-            </div>
+
+            <Gallery />
+
           </div>
         </div>
 
