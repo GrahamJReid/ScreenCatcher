@@ -101,7 +101,7 @@ export default function ImageForm({ obj }) {
         .then(() => router.push(`/viewImage/${obj.firebaseKey}`));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`, image_file: `${imagefile}`,
+        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`, image_file: `${imagefile}`, sort_date: Date.now(),
       };
       createImage(payload)
         .then(({ name }) => {

@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getSingleMessages } from '../../API/messagesData';
 import { deletePostMessage } from '../../API/postMessageData';
+import { getUser } from '../../API/userData';
 
 function PostMessageCard({ postMessageObj, onUpdate }) {
   const deleteThisPostMessage = () => {
@@ -16,10 +17,14 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
   };
   const { user } = useAuth();
   const [video, setVideo] = useState({});
+  const [authorObj, setAuthorObj] = useState({});
 
   useEffect(() => {
     getSingleMessages(postMessageObj.messages_id).then(setVideo);
   }, [postMessageObj.messages_id]);
+  useEffect(() => {
+    getUser(postMessageObj.uid).then(setAuthorObj);
+  }, [postMessageObj.uid]);
 
   return (
     <>
@@ -35,7 +40,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
                 {' '}
               </p>
               <footer className="blockquote-footer">
-                {postMessageObj.author}
+                {postMessageObj.uid === user.uid ? user.displayName : authorObj.displayName}
                 {postMessageObj.uid === user.uid || user.displayName === video.username
                   ? (
                     <Button

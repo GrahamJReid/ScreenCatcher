@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { signOut } from '../utils/auth';
+import OffCanvas from './OffCanvas';
 
 export default function NavBar() {
+  const router = useRouter();
   return (
     <nav className="navbar navbar-expand-md">
       <div className="container-fluid">
@@ -20,6 +23,7 @@ export default function NavBar() {
         <div className="NavLinkList">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav me-auto">
+              <OffCanvas placement="end" name="end" />
               <li className="NavLink">
                 <Link passHref href="/">
                   <a className="NavLink">
@@ -82,7 +86,14 @@ export default function NavBar() {
                   </a>
                 </Link>
               </li>
-              <button type="button" className="btn btn-danger navbar-signout-btn" onClick={signOut}>
+              <button
+                type="button"
+                className="btn btn-danger navbar-signout-btn"
+                onClick={() => {
+                  router.push('/');
+                  signOut();
+                }}
+              >
                 Sign Out
               </button>
             </ul>

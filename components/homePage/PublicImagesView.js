@@ -11,7 +11,7 @@ export default function PublicImagesView() {
 
   useEffect(() => {
     getPublicImages(user.uid).then((item) => {
-      const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
+      const sortedImageOrder = item.sort((a, b) => a.sort_date - (b.sort_date));
       setOrder(sortedImageOrder);
     });
   }, [user.uid]);
