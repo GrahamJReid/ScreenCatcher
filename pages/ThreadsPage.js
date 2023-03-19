@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { getThreads, getUserThreads } from '../API/threadData';
 import ThreadCard from '../components/cards/ThreadCard';
 import { useAuth } from '../utils/context/authContext';
+import threadspagestyles from '../styles/Threads/ThreadsPage.module.css';
 
 export default function ThreadsPage() {
   const { user } = useAuth();
@@ -18,22 +19,26 @@ export default function ThreadsPage() {
   }, [user.uid]);
 
   return (
-    <div className="threads-page-container">
-      <div>
-        {userThreads.map((thread) => (
-          <ThreadCard threadObj={thread} key={thread.firebaseKey} />
-        ))}
-      </div>
-      <div>
-        <div>
+    <>
+      <div className={threadspagestyles.PageWrapper}>
+        <div className={threadspagestyles.UsersThreadsDiv}>
+
+          {userThreads.map((thread) => (
+            <div className={threadspagestyles.InnerUsersThreadsDiv}>
+              <ThreadCard threadObj={thread} key={thread.firebaseKey} />
+            </div>
+          ))}
+        </div>
+        <div className={threadspagestyles.UsersThreadsDiv}>
           {nonUserThreads.map((thread) => (
-            <ThreadCard threadObj={thread} key={thread.firebaseKey} />
+            <div className={threadspagestyles.InnerUsersThreadsDiv}>
+              <ThreadCard threadObj={thread} key={thread.firebaseKey} />
+            </div>
 
           ))}
         </div>
-
       </div>
+    </>
 
-    </div>
   );
 }

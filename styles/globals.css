@@ -168,9 +168,8 @@ transition-duration:1000ms;
   border:transparent;
 }
 .off-canvas-container{
-  background-color:blue;
+  background-image:linear-gradient(purple,blue);
   margin-left:25%;
-  border:solid orange 2px;
 }
 .gallery-carousel-container{
 display:flex;

@@ -10,8 +10,17 @@
 border-radius:25px;
 position:relative;
 }
+.ThreadCardImage:hover{
+  transform: scale(1.02); 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+  box-shadow:black 0px 0px 15px 2px;
+}
 .ThreadCardAuthorImage{
-  border-radius:100px;
+  border-radius:25px;
+  max-height:65px;
   width:20%;
   height:20%;
   position:absolute;
