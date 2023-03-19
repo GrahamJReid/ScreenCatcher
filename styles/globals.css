@@ -156,7 +156,6 @@ transition-duration:1000ms;
 display:flex;
 justify-content:center;
 align-items:center;
-border:solid 2px orange;
 object-fit:contain;
 
 }

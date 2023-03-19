@@ -1,15 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
 import { getThreads, getUserThreads } from '../API/threadData';
+import ThreadCard from '../components/cards/ThreadCard';
 import { useAuth } from '../utils/context/authContext';
 
 export default function ThreadsPage() {
   const { user } = useAuth();
   const [userThreads, setUserThreads] = useState([]);
-  const [nonUserthreads, setNonUserThreads] = useState([]);
+  const [nonUserThreads, setNonUserThreads] = useState([]);
 
   useEffect(() => {
     getUserThreads(user.uid).then(setUserThreads);
@@ -21,43 +20,14 @@ export default function ThreadsPage() {
   return (
     <div className="threads-page-container">
       <div>
-        {userThreads.map((threads) => (
-          <Card style={{ width: '18rem', color: 'black' }} key={threads.firebaseKey}>
-            <Card.Img variant="top" src={threads.thread_image} />
-            <Card.Body>
-              <Card.Title>{threads.thread_title}</Card.Title>
-              <Card.Text>
-                Posted by:<img src={user.photoURL} width="50%" />  {threads.username}
-              </Card.Text>
-              <Card.Text>
-                {threads.description}
-              </Card.Text>
-              <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
-                <button type="button">View Thread</button>
-              </Link>
-            </Card.Body>
-          </Card>
-
+        {userThreads.map((thread) => (
+          <ThreadCard threadObj={thread} key={thread.firebaseKey} />
         ))}
       </div>
       <div>
         <div>
-          {nonUserthreads.map((threads) => (
-            <Card style={{ width: '18rem', color: 'black' }} key={threads.firebaseKey}>
-              <Card.Img variant="top" src={threads.thread_image} />
-              <Card.Body>
-                <Card.Title>{threads.thread_title}</Card.Title>
-                <Card.Text>
-                  Posted by:<img src={threads.user_image} width="50%" /> {threads.username}
-                </Card.Text>
-                <Card.Text>
-                  {threads.description}
-                </Card.Text>
-                <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
-                  <button type="button">View Thread</button>
-                </Link>
-              </Card.Body>
-            </Card>
+          {nonUserThreads.map((thread) => (
+            <ThreadCard threadObj={thread} key={thread.firebaseKey} />
 
           ))}
         </div>
