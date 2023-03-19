@@ -10,19 +10,16 @@ import threadcardstyle from '../../styles/Threads/ThreadCard.module.css';
 export default function ThreadCard({ threadObj }) {
   const { user } = useAuth();
   return (
-    <Card style={{ width: '18rem', color: 'black' }} key={threadObj.firebaseKey} className={threadcardstyle.ThreadCardContainer}>
+    <Card style={{ width: '25rem', color: 'black' }} key={threadObj.firebaseKey} className={threadcardstyle.ThreadCardContainer}>
       <Card.Title className={threadcardstyle.ThreadTitle}>{threadObj.thread_title}</Card.Title>
-      <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} />
+      <Link href={`/threads/viewThreads/${threadObj.firebaseKey}`} passHref>
+        <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} />
+      </Link>
       <Card.Body className={threadcardstyle.ThreadCardBody}>
         <Card.Text className={threadcardstyle.AuthorInfoContainer}>
           <img src={user.photoURL} width="50%" className={threadcardstyle.ThreadCardAuthorImage} />  <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
         </Card.Text>
-        <Card.Text>
-          {threadObj.description}
-        </Card.Text>
-        <Link href={`/threads/viewThreads/${threadObj.firebaseKey}`} passHref>
-          <button type="button">View Thread</button>
-        </Link>
+
       </Card.Body>
     </Card>
   );

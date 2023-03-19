@@ -19,9 +19,8 @@ function Home() {
         <div className="parallax_group" id="group-1">
           <div className="parallax_layer base_layer">
             <video autoPlay muted loop id="myVideo">
-              <source src="https://cdn.dribbble.com/users/32512/screenshots/17066462/media/a1b8991f197da384b56f9b17c7a47c51.mp4" type="video/mp4" />
+              <source src="https://cdn.dribbble.com/users/707385/screenshots/16066794/media/4b61d36214f8e64912721e79e2f48f8c.mp4" type="video/mp4" />
             </video>
-            base layer page
           </div>
           <div className="parallax_layer mid_layer">
 
@@ -32,11 +31,10 @@ function Home() {
 
         <div className="parallax_group" id="group-2">
           <div className="parallax_layer mid_layer">
-            <div>mid Layer</div>
+            <></>
           </div>
           <div className="parallax_layer top_layer">
             <UserFollowedThreads />
-            hello
           </div>
         </div>
 

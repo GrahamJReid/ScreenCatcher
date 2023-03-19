@@ -28,6 +28,11 @@ position:relative;
   right:10px;
   font-size:1rem;
 }
+.ThreadCardDescription{
+  position:absolute;
+  top:170px;
+  color:white;
+}
 .AuthorInfoContainer{
   margin-bottom:1%
 }
