@@ -24,9 +24,11 @@ export default function UserFollowedThreads() {
   return (
     <div>
 
-      <div>
+      <div className="followed-threads-outer-div">
         {followedThreads.map((thread) => (
-          <ThreadCard threadObj={thread} />
+          <div className="followed-threads-inner-div">
+            <ThreadCard threadObj={thread} />
+          </div>
 
         ))}
       </div>
