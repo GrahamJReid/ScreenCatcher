@@ -58,7 +58,7 @@ color:white;
 }
 .NavLink{
   margin-left:5%;
-  font-size:1.1rem;
+  font-size:4rem;
 }
 .navbar-signout-btn{
   margin-left:5%;
@@ -77,6 +77,32 @@ color:white;
   width:40%;
   height:40%;
 }
+
+.OffCanvas-title{
+  font-size:3rem;
+}
+
+.OffCanvas-user-image{
+  border-radius:25px;
+  width:100%;
+  
+}
+.OffCanvas-username{
+  font-size:2rem;
+  margin-bottom:5%;
+  text-align:center;
+
+}
+.SignOutButton{
+  font-size:2rem;
+  background-color:orange;
+}
+.SignOutButton:hover{
+  font-size:2rem;
+  background-color:white;
+  color:blue;
+}
+
 
 
 
@@ -151,7 +177,8 @@ width: 24.5%;
   margin-left:15%;
 }
 .followed-image-div-container{
-  margin-top:50%;
+  margin-top:100%;
+  object-fit: contain;
 }
 
 .public-image-page-container{
@@ -161,7 +188,7 @@ width: 24.5%;
   justify-content:space-around;
 }
 .followed-images-title{
-  text-align:center;
+   text-align:center;
   align-items:center;
   margin-bottom:5%;
   font-size:7rem;

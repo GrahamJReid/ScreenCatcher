@@ -29,12 +29,12 @@ function OffCanvas({ name, ...props }) {
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props} className="off-canvas-container">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>ScreenCatcher</Offcanvas.Title>
+          <Offcanvas.Title className="OffCanvas-title">ScreenCatcher</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
 
-          <img src={user.photoURL} width="200px" />
-          <h1>{user.displayName}</h1>
+          <img src={user.photoURL} width="200px" className="OffCanvas-user-image" />
+          <h1 className="OffCanvas-username">{user.displayName}</h1>
 
           <nav onClick={handleClose}>
             <ul className="navbar-nav me-auto">
@@ -102,7 +102,7 @@ function OffCanvas({ name, ...props }) {
               </li>
               <button
                 type="button"
-                className="btn btn-danger navbar-signout-btn"
+                className="btn navbar-signout-btn SignOutButton"
                 onClick={() => {
                   router.push('/');
                   signOut();
