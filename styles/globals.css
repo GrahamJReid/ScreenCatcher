@@ -42,6 +42,11 @@ color:white;
 .off-canvas-on-navbar{
   margin-left:5%;
 }
+.Navbar-logo{
+  width:10%;
+  height:10%;
+  margin-top:5%;
+}
 .NavLinkList{
   display:flex;
   flex-direction:row;
@@ -49,6 +54,7 @@ color:white;
 }
 .navbar-title{
  font-size:3rem;
+ border:solid orange 2px;
 }
 .NavLink{
   margin-left:5%;
@@ -67,7 +73,12 @@ color:white;
 }
 .home-logo{
   border-radius:100%;
+  width:35%;
+  height:35%;
 }
+
+
+
 .intro-title{
   font-size:10rem;
   font-weight:900;

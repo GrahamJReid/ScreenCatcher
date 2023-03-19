@@ -5,16 +5,17 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../utils/context/authContext';
+import threadcardstyle from '../../styles/Threads/ThreadCard.module.css';
 
 export default function ThreadCard({ threadObj }) {
   const { user } = useAuth();
   return (
-    <Card style={{ width: '18rem', color: 'black' }} key={threadObj.firebaseKey}>
-      <Card.Img variant="top" src={threadObj.thread_image} />
-      <Card.Body>
-        <Card.Title>{threadObj.thread_title}</Card.Title>
-        <Card.Text>
-          Posted by:<img src={user.photoURL} width="50%" />  {threadObj.username}
+    <Card style={{ width: '18rem', color: 'black' }} key={threadObj.firebaseKey} className={threadcardstyle.ThreadCardContainer}>
+      <Card.Title className={threadcardstyle.ThreadTitle}>{threadObj.thread_title}</Card.Title>
+      <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} />
+      <Card.Body className={threadcardstyle.ThreadCardBody}>
+        <Card.Text className={threadcardstyle.AuthorInfoContainer}>
+          <img src={user.photoURL} width="50%" className={threadcardstyle.ThreadCardAuthorImage} />  <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
         </Card.Text>
         <Card.Text>
           {threadObj.description}

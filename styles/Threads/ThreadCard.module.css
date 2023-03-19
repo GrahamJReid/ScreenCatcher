@@ -1,0 +1,33 @@
+.ThreadCardContainer{
+  background-color:transparent;
+  color:white;
+  border:transparent;
+}
+.ThreadCardBody{
+  color:white;
+}
+.ThreadCardImage{
+border-radius:25px;
+position:relative;
+}
+.ThreadCardAuthorImage{
+  border-radius:100px;
+  width:20%;
+  height:20%;
+  position:absolute;
+  top:35px;
+  left:10px;
+}
+.ThreadTitle{
+  color:white;
+  text-align:center;
+}
+.ThreadAuthorUsername{
+  position:absolute;
+  top:40px;
+  right:10px;
+  font-size:1rem;
+}
+.AuthorInfoContainer{
+  margin-bottom:1%
+}
