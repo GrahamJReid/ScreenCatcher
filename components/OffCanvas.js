@@ -22,8 +22,10 @@ function OffCanvas({ name, ...props }) {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow} className="me-2 ">
-        {name}
+      <Button variant="dark" onClick={handleShow} className="off-canvas-show-button">
+        <div>_____</div>
+        <div>_____</div>
+        <div>_____</div>
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props} className="off-canvas-container">
         <Offcanvas.Header closeButton>

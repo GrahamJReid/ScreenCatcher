@@ -50,7 +50,7 @@ color:white;
 .NavLinkList{
   display:flex;
   flex-direction:row;
-  margin-right:20%;
+  margin-right:5%;
 }
 .navbar-title{
  font-size:3rem;
@@ -161,8 +161,16 @@ transition-duration:1000ms;
 .threadProfilePicture{
   width:20%;
 }
+.off-canvas-show-button{
+ margin-left:25%;
+ font-weight:900;
+  background-color:transparent;
+  border:transparent;
+}
 .off-canvas-container{
-  background-color:black;
+  background-color:blue;
+  margin-left:25%;
+  border:solid orange 2px;
 }
 .gallery-carousel-container{
 display:flex;
