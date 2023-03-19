@@ -4,11 +4,9 @@ import Link from 'next/link';
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { useAuth } from '../../utils/context/authContext';
 import threadcardstyle from '../../styles/Threads/ThreadCard.module.css';
 
 export default function ThreadCard({ threadObj }) {
-  const { user } = useAuth();
   return (
     <Card style={{ width: '25rem', color: 'black' }} key={threadObj.firebaseKey} className={threadcardstyle.ThreadCardContainer}>
       <Card.Title className={threadcardstyle.ThreadTitle}>{threadObj.thread_title}</Card.Title>
@@ -17,7 +15,7 @@ export default function ThreadCard({ threadObj }) {
       </Link>
       <Card.Body className={threadcardstyle.ThreadCardBody}>
         <Card.Text className={threadcardstyle.AuthorInfoContainer}>
-          <img src={user.photoURL} width="50%" className={threadcardstyle.ThreadCardAuthorImage} />  <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
+          <img src={threadObj.user_image} width="50%" className={threadcardstyle.ThreadCardAuthorImage} />  <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
         </Card.Text>
 
       </Card.Body>
@@ -35,5 +33,6 @@ ThreadCard.propTypes = {
     username: PropTypes.string,
     thread_title: PropTypes.string,
     thread_image: PropTypes.string,
+    user_image: PropTypes.string,
   }).isRequired,
 };
