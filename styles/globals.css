@@ -85,8 +85,10 @@ color:white;
   font-weight:900;
 }
 .public-image-page-container{
-  overflow-x: auto;
-  white-space: nowrap;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:space-around;
 }
 #myVideo{
   position: fixed;
@@ -122,10 +124,17 @@ color:white;
   height:100%;
 }
 
+.followed-threads-title{
+  text-align:center;
+  align-items:center;
+  margin-bottom:5%;
+  font-size:7rem;
+}
+
 .followed-threads-outer-div{
   display:flex;
   flex-direction:row;
-  justify-content:space-around;
+  justify-content:space-between;
   white-space: nowrap;
   position: relative;
   overflow-x:scroll;
@@ -141,6 +150,36 @@ width: 24.5%;
   zoom: 1;
   margin-left:15%;
 }
+.followed-image-div-container{
+  margin-top:50%;
+}
+
+.public-image-page-container{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:space-around;
+}
+.followed-images-title{
+  text-align:center;
+  align-items:center;
+  margin-bottom:5%;
+  font-size:7rem;
+}
+.user-followed-image{
+  margin:2%;
+  width:30%;
+  border-radius:25px;
+}
+.user-followed-image:hover{
+  transform: scale(1.02); 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+  box-shadow:black 0px 0px 15px 2px;
+}
+
 
 
 

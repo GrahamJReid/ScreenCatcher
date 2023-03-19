@@ -34,12 +34,18 @@ function Home() {
             <></>
           </div>
           <div className="parallax_layer top_layer">
-            <UserFollowedThreads />
+            <div>
+              <h1 className="followed-threads-title">Followed Threads</h1>
+              <UserFollowedThreads />
+            </div>
           </div>
         </div>
 
         <div className="parallax_group outro_screen" id="outro">
-          <UserFollowedImages />
+          <div className="followed-image-div-container">
+            <h1 className="followed-images-title">Followed User Images</h1>
+            <UserFollowedImages />
+          </div>
         </div>
       </div>
     </>
