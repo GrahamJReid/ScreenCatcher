@@ -22,6 +22,7 @@ export default function ViewUser() {
   const [folders, setFolders] = useState([]);
   const { user } = useAuth();
   const [btnToggle, setBtnToggle] = useState(0);
+  const [contentToggle, setContentToggle] = useState(0);
 
   const handleFollow = () => {
     setBtnToggle(1);
@@ -40,6 +41,12 @@ export default function ViewUser() {
     getSingleFollowUserObj(user.uid, uid).then((followUserObj) => {
       deleteFollowUserObj(followUserObj.firebaseKey);
     });
+  };
+  const handleContentImages = () => {
+    setContentToggle(0);
+  };
+  const handleContentFolders = () => {
+    setContentToggle(1);
   };
   useEffect(() => {
     getSingleFollowUserObj(user.uid, uid).then((item) => {
@@ -71,27 +78,33 @@ export default function ViewUser() {
     <div>
       <div className={userpagestyle.UserPageContainer}>
         <div className={userpagestyle.UserPageUserInfoDiv}>
-          <img src={followableUser.photoURL} alt="user photo" />
-          <h1>{followableUser.displayName}</h1>
-          {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
+          <img className={userpagestyle.UserImage} src={followableUser.photoURL} alt="user photo" />
+          <h1 className={userpagestyle.UserName}>{followableUser.displayName}</h1>
+          {btnToggle === 0 ? <Button className={userpagestyle.FollowButton} onClick={handleFollow}>Follow</Button> : <Button className={userpagestyle.FollowButton} onClick={handleUnfollow}>Unfollow</Button>}
+          <Button className={userpagestyle.FollowButton} onClick={handleContentImages}>Images</Button>
+          <Button className={userpagestyle.FollowButton} onClick={handleContentFolders}>Folders</Button>
         </div>
-        <div className="user-images">
-          {images.map((image) => (
-            <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-              <img src={`${image.image_url}`} height="50%" width="50%" />
-            </Link>
-          ))}
-        </div>
-        <div>{folders.map((folder) => (
-
-          <div key={folder.firebaseKey}>
-            <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
-              <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
-            </Link>
-            <h1>{folder.folder_title}</h1>
+        {contentToggle === 0 ? (
+          <div className="user-images">
+            {images.map((image) => (
+              <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+                <img src={`${image.image_url}`} height="50%" width="50%" />
+              </Link>
+            ))}
           </div>
-        ))}
-        </div>
+        ) : (
+          <div>{folders.map((folder) => (
+
+            <div key={folder.firebaseKey}>
+              <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
+                <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
+              </Link>
+              <h1>{folder.folder_title}</h1>
+            </div>
+          ))}
+          </div>
+        ) }
+
       </div>
     </div>
   );
