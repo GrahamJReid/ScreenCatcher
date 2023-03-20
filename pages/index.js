@@ -42,12 +42,14 @@ function Home() {
         </div>
 
         <div className="parallax_group outro_screen" id="outro">
+
           <div className="followed-image-div-container">
             <h1 className="followed-images-title">Followed User Images</h1>
             <UserFollowedImages />
           </div>
         </div>
       </div>
+
     </>
   );
 }

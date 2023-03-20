@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getPostMessagesByMessagesId } from '../../API/postMessageData';
+import { getSingleMessages } from '../../API/messagesData';
 import PostMessageCard from './PostMessageCard';
+import viewmessagesstyle from '../../styles/messages/ViewMessages.module.css';
 
 export default function PostMessagesPageContent() {
   const [postMessages, setPostMessages] = useState([]);
+  const [messages, setMessages] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
   useEffect(() => {
@@ -19,10 +22,16 @@ export default function PostMessagesPageContent() {
       setPostMessages(sortedImageOrder);
     });
   };
+  useEffect(() => {
+    getSingleMessages(firebaseKey).then((item) => {
+      setMessages(item);
+    });
+  }, [firebaseKey, postMessages]);
 
   return (
     <div>
-      <div className="comment-cards-container">{postMessages.map((comment) => (
+      <h1> {`${messages.user_1name}`} & {`${messages.user_2name}`}</h1>
+      <div className={viewmessagesstyle.PostsDiv}>{postMessages.map((comment) => (
         <PostMessageCard key={comment.firebaseKey} postMessageObj={comment} onUpdate={displayPostMessages} />
       ))}
       </div>

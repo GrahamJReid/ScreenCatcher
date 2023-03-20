@@ -1,0 +1,27 @@
+.ViewMessagesPageWrapper{
+  margin-top:10%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  position:fixed;
+  margin-left:40%;
+  margin-right:60%;
+  padding-bottom:10%;
+  
+}
+.PostsDiv{
+  margin:4px, 4px;
+  padding:4px;
+  background-color: transparent;
+  width: 500px;
+  height: 700px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+}
+.PostCard{
+  background:transparent;
+  border:transparent;
+}

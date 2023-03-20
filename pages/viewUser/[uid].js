@@ -81,23 +81,25 @@ export default function ViewUser() {
           <img className={userpagestyle.UserImage} src={followableUser.photoURL} alt="user photo" />
           <h1 className={userpagestyle.UserName}>{followableUser.displayName}</h1>
           {btnToggle === 0 ? <Button className={userpagestyle.FollowButton} onClick={handleFollow}>Follow</Button> : <Button className={userpagestyle.FollowButton} onClick={handleUnfollow}>Unfollow</Button>}
-          <Button className={userpagestyle.FollowButton} onClick={handleContentImages}>Images</Button>
-          <Button className={userpagestyle.FollowButton} onClick={handleContentFolders}>Folders</Button>
+          <div className={userpagestyle.ContentButtonDiv}>
+            <Button className={userpagestyle.ContentButton} onClick={handleContentImages}>Images</Button>
+            <Button className={userpagestyle.ContentButton} onClick={handleContentFolders}>Folders</Button>
+          </div>
         </div>
         {contentToggle === 0 ? (
           <div className="user-images">
             {images.map((image) => (
               <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-                <img src={`${image.image_url}`} height="50%" width="50%" />
+                <img className={userpagestyle.UserPageImages} src={`${image.image_url}`} height="50%" width="50%" />
               </Link>
             ))}
           </div>
         ) : (
-          <div>{folders.map((folder) => (
+          <div className={userpagestyle.FoldersDiv}>{folders.map((folder) => (
 
             <div key={folder.firebaseKey}>
               <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
-                <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
+                <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className={userpagestyle.FolderPlaceholder} />
               </Link>
               <h1>{folder.folder_title}</h1>
             </div>
