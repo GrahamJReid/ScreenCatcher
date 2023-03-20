@@ -41,6 +41,7 @@ position:relative;
   height:auto;
   border-radius:50px;
   padding:1%;
+  border:transparent solid 1px;
 }
 .ImagesPageImage:hover{
   transform: scale(1.02); 
@@ -49,6 +50,7 @@ position:relative;
   transition-duration: 0.3s; 
   transition-timing-function: ease; 
   box-shadow:black 0px 0px 15px 2px;
+  border:transparent;
 }
 .SearchBarDiv{
   margin-left:25%;

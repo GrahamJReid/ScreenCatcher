@@ -58,12 +58,13 @@ color:white;
 }
 .NavLink{
   margin-left:5%;
-  font-size:4rem;
+  font-size:3rem;
 }
 .navbar-signout-btn{
   margin-left:5%;
   margin-right:5%;
-  font-size:1.1rem
+  font-size:1rem;
+  margin-top:10%;
 }
 .intro-div-container{
   display:flex;
@@ -110,12 +111,7 @@ color:white;
   font-size:10rem;
   font-weight:900;
 }
-.public-image-page-container{
-  display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:space-around;
-}
+
 #myVideo{
   position: fixed;
   right: 0;
@@ -177,15 +173,17 @@ width: 24.5%;
   margin-left:15%;
 }
 .followed-image-div-container{
-  margin-top:100%;
-  object-fit: contain;
+ margin-top:0;
 }
-
 .public-image-page-container{
   display:flex;
-  flex-direction:row;
   flex-wrap:wrap;
-  justify-content:space-around;
+  justify-content:center;
+  align-items:flex-start;
+  flex-grow:1;
+  gap:0px;
+  object-fit:cover;
+  
 }
 .followed-images-title{
    text-align:center;
@@ -194,9 +192,10 @@ width: 24.5%;
   font-size:7rem;
 }
 .user-followed-image{
-  margin:2%;
-  width:30%;
+  margin:1%;
+  width:25%;
   border-radius:25px;
+  object-fit:cover;
 }
 .user-followed-image:hover{
   transform: scale(1.02); 

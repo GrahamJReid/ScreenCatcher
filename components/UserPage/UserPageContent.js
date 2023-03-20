@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { getAllUsers } from '../../API/userData';
+import userspagestyle from '../../styles/users/UsersPage.module.css';
 
 export default function UsersPageContent() {
   const getFilteredItems = (query, order) => {
@@ -31,26 +32,26 @@ export default function UsersPageContent() {
       <Head>
         <title>Users</title>
       </Head>
-      <div>
-        <input type="text" placeholder="Search Your Images" onChange={(e) => setQuery(e.target.value)} />
-      </div>
-      <div>
+      <div className={userspagestyle.UsersPageContainer}>
+        <h1 className={userspagestyle.Title}>Users</h1>
+        <div className={userspagestyle.SearchBarDiv}>
+          <input type="text" placeholder="Search Users" onChange={(e) => setQuery(e.target.value)} className={userspagestyle.UsersPageSearchBar} />
+        </div>
         <div>
-          {filteredItems.map((user) => (
-            <Card style={{ width: '18rem', color: 'black' }} key={user.uid}>
-              <Card.Img variant="top" src={user.photoURL} />
-              <Card.Body>
-                <Card.Title>{user.displayName}</Card.Title>
-                <Card.Text>
-                  other user info go here
-                </Card.Text>
-                <Link href={`/viewUser/${user.uid}`} passHref>
-                  <h2>View Profile</h2>
-                </Link>
-              </Card.Body>
-            </Card>
+          <div className={userspagestyle.UsersPageUserCardContainer}>
+            {filteredItems.map((user) => (
+              <Card className={userspagestyle.UsersPageUserCard} style={{ width: '12rem', color: 'black' }} key={user.uid}>
+                <Card.Img variant="top" src={user.photoURL} />
+                <Card.Body className={userspagestyle.UsersPageUserCardBody}>
+                  <Card.Title>{user.displayName}</Card.Title>
+                  <Link href={`/viewUser/${user.uid}`} passHref>
+                    <button type="button" className={userspagestyle.ViewProfileButton}>View Profile</button>
+                  </Link>
+                </Card.Body>
+              </Card>
 
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

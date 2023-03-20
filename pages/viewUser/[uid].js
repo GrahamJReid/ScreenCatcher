@@ -12,6 +12,7 @@ import {
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser } from '../../API/userData';
 import { useAuth } from '../../utils/context/authContext';
+import userpagestyle from '../../styles/users/ViewUserPage.module.css';
 
 export default function ViewUser() {
   const router = useRouter();
@@ -68,10 +69,12 @@ export default function ViewUser() {
 
   return (
     <div>
-      <div className="view-single-user-page-container">
-        <img src={followableUser.photoURL} alt="user photo" />
-        <h1>{followableUser.displayName}</h1>
-        {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
+      <div className={userpagestyle.UserPageContainer}>
+        <div className={userpagestyle.UserPageUserInfoDiv}>
+          <img src={followableUser.photoURL} alt="user photo" />
+          <h1>{followableUser.displayName}</h1>
+          {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
+        </div>
         <div className="user-images">
           {images.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
