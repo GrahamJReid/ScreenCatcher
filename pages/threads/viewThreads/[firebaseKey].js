@@ -137,6 +137,7 @@ export default function ViewThread() {
       {buttonCount === 0 ? <Button onClick={handleLike}>LIKE</Button> : <Button onClick={handleUnlike}>UNLIKE</Button> }
       <img src={thread.thread_image} className="create-thread-image" />
       <h2>Category: {thread.category}</h2>
+      <h3> Author: {thread.username}</h3>
       <h3>Description: {thread.description}</h3>
       <div className="comment-form">
         <AddAComment threadFbKey={firebaseKey} onUpdate={displayComments} />

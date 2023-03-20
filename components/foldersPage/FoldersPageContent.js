@@ -41,9 +41,9 @@ export default function FoldersPageContent() {
         </div>
         <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
 
-          <div key={folder.firebaseKey}>
+          <div key={folder.firebaseKey} className={folderspagestyles.FolderAndTitleDiv}>
             <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
-              <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className="image-page-image" />
+              <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className={folderspagestyles.FolderPlaceholder} />
             </Link>
             <h1>{folder.folder_title}</h1>
           </div>

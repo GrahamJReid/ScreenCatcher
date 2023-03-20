@@ -1,0 +1,26 @@
+.UserPageContainer{
+  margin-top:15%;
+}
+.UserPageUserInfoDiv{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  margin-bottom:5%;
+}
+.UserImage{
+  border-radius:100px;
+  width:40%;
+}
+.UserName{
+  font-size:3rem;
+  margin:2%;
+}
+.FollowButton{
+  background-color:orange;
+  border:transparent;
+}
+.FollowButton:hover{
+  background-color:purple;
+
+}

@@ -61,7 +61,7 @@ export default function UserProfileForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       photoURL: commentImage,
@@ -70,7 +70,7 @@ export default function UserProfileForm() {
     };
     getUser(user.uid).then(updateUser(payload));
     setCommentImage('');
-    getUserThreads(user.uid).then((threadArr) => {
+    await getUserThreads(user.uid).then((threadArr) => {
       threadArr.forEach((item) => {
         const userThreadPayload = {
           user_image: commentImage,
@@ -78,10 +78,10 @@ export default function UserProfileForm() {
           username: formInput.text,
         };
 
-        updateThread(userThreadPayload);
+        updateThread(userThreadPayload).then((itemzzz) => console.warn(itemzzz));
       });
     });
-    getPostMessagesByUID(user.uid).then((threadArr) => {
+    await getPostMessagesByUID(user.uid).then((threadArr) => {
       threadArr.forEach((item) => {
         const userPostMessagePayload = {
           author: formInput.text,

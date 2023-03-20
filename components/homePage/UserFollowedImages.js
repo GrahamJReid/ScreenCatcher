@@ -24,8 +24,8 @@ export default function UserFollowedImages() {
     <div>
 
       <div className="public-image-page-container">{images.map((image) => (
-        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-          <img src={`${image.image_url}`} height="25%" width="25%" className="image-page-image" />
+        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`} className="follow-user-image-link">
+          <img src={`${image.image_url}`} height="25%" width="25%" className="user-followed-image" />
         </Link>
       ))}
       </div>

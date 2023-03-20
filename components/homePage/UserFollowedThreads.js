@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
+
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
 import { getFollowThreadObjectsByCurrentUserUid } from '../../API/followThreadData';
 import { getAllThreads } from '../../API/threadData';
 import { useAuth } from '../../utils/context/authContext';
+import ThreadCard from '../cards/ThreadCard';
 
 export default function UserFollowedThreads() {
   const [followedThreads, setFollowedThreads] = useState([]);
@@ -24,23 +24,11 @@ export default function UserFollowedThreads() {
   return (
     <div>
 
-      <div>
-        {followedThreads.map((threads) => (
-          <Card style={{ width: '18rem', color: 'black' }} key={threads.firebaseKey}>
-            <Card.Img variant="top" src={threads.thread_image} />
-            <Card.Body>
-              <Card.Title>{threads.thread_title}</Card.Title>
-              <Card.Text>
-                Posted by:<img src={threads.user_image} width="100px" /> {threads.username}
-              </Card.Text>
-              <Card.Text>
-                {threads.description}
-              </Card.Text>
-              <Link href={`/threads/viewThreads/${threads.firebaseKey}`} passHref>
-                <button type="button">View Thread</button>
-              </Link>
-            </Card.Body>
-          </Card>
+      <div className="followed-threads-outer-div">
+        {followedThreads.map((thread) => (
+          <div className="followed-threads-inner-div">
+            <ThreadCard threadObj={thread} />
+          </div>
 
         ))}
       </div>

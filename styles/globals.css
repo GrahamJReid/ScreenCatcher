@@ -39,22 +39,32 @@ transition-duration:300ms;
 background-color:transparent;
 color:white;
 }
+.off-canvas-on-navbar{
+  margin-left:5%;
+}
+.Navbar-logo{
+  width:10%;
+  height:10%;
+  margin-top:5%;
+}
 .NavLinkList{
   display:flex;
   flex-direction:row;
-  margin-right:20%;
+  margin-right:5%;
 }
 .navbar-title{
  font-size:3rem;
+ border:solid orange 2px;
 }
 .NavLink{
   margin-left:5%;
-  font-size:1.1rem;
+  font-size:3rem;
 }
 .navbar-signout-btn{
   margin-left:5%;
   margin-right:5%;
-  font-size:1.1rem
+  font-size:1rem;
+  margin-top:10%;
 }
 .intro-div-container{
   display:flex;
@@ -62,13 +72,52 @@ color:white;
   justify-content:center;
   align-items:center;
 }
+.home-logo{
+  border-radius:25%;
+  padding:1%;
+  width:40%;
+  height:40%;
+}
+
+.OffCanvas-title{
+  font-size:3rem;
+}
+
+.OffCanvas-user-image{
+  border-radius:25px;
+  width:100%;
+  
+}
+.OffCanvas-username{
+  font-size:2rem;
+  margin-bottom:5%;
+  text-align:center;
+
+}
+.SignOutButton{
+  font-size:2rem;
+  background-color:orange;
+}
+.SignOutButton:hover{
+  font-size:2rem;
+  background-color:white;
+  color:blue;
+}
+
+
+
+
 .intro-title{
   font-size:10rem;
   font-weight:900;
 }
-.public-image-page-container{
-  overflow-x: auto;
-  white-space: nowrap;
+
+#myVideo{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 .gallery-div-container{
   display:flex;
@@ -78,10 +127,7 @@ color:white;
   width:100%;
 
 }
-.gallery-current{
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-transition-duration:1000ms; 
-}
+
 .gallery-container{
   height:100vh;
  text-align:center;
@@ -92,20 +138,6 @@ transition-duration:1000ms;
   width:100%;
   object-fit: contain;
 }
-.gallery-button-l{
-  position:absolute;
-   left:30px;
-   color:black;
-   opacity:.5;
-   z-index: 2;
- }
- .gallery-button-r{
-   position:absolute;
-  right:30px;
-   color:black;
-   opacity:.5;
-   z-index: 2;
- }
  .gallery-image{
   object-fit: contain;
   max-width:auto;
@@ -113,6 +145,75 @@ transition-duration:1000ms;
   width:100%;
   height:100%;
 }
+
+.followed-threads-title{
+  text-align:center;
+  align-items:center;
+  margin-bottom:5%;
+  font-size:7rem;
+}
+
+.followed-threads-outer-div{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  white-space: nowrap;
+  position: relative;
+  overflow-x:scroll;
+  overflow-y:hidden;
+}
+.followed-threads-inner-div{
+width: 24.5%;
+  background-color: transparent;
+  float: none;
+  height: 90%;
+  margin: 0 0.25%;
+  display: inline-block;
+  zoom: 1;
+  margin-left:15%;
+}
+.followed-image-div-container{
+ margin-top:0;
+}
+.public-image-page-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:flex-start;
+  flex-grow:1;
+  gap:0px;
+  object-fit:cover;
+  
+}
+.followed-images-title{
+   text-align:center;
+  align-items:center;
+  margin-bottom:5%;
+  font-size:7rem;
+}
+.user-followed-image{
+  margin:1%;
+  width:25%;
+  border-radius:25px;
+  object-fit:cover;
+}
+.user-followed-image:hover{
+  transform: scale(1.02); 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+  box-shadow:black 0px 0px 15px 2px;
+}
+
+
+
+
+
+
+
+
+
 .image-editor-page{
   margin-top:10%;
 }
@@ -136,6 +237,33 @@ transition-duration:1000ms;
 .threadProfilePicture{
   width:20%;
 }
+.off-canvas-show-button{
+ margin-left:25%;
+ font-weight:900;
+  background-color:transparent;
+  border:transparent;
+}
 .off-canvas-container{
-  background-color:black;
+  background-image:linear-gradient(purple,blue);
+  margin-left:25%;
+}
+.gallery-carousel-container{
+display:flex;
+justify-content:center;
+align-items:center;
+object-fit:contain;
+
+}
+.carousel-image{
+  object-fit: contain;
+  max-width:auto;
+  max-height:50rem;
+  width:100%;
+  height:100%;
+}
+.carousel-control-prev, .carousel-control-next {
+  margin: -150px;
+}
+.carousel-indicators {
+  margin: -30px;
 }

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -8,9 +10,11 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { signOut } from '../utils/auth';
+import { useAuth } from '../utils/context/authContext';
 
 function OffCanvas({ name, ...props }) {
   const [show, setShow] = useState(false);
+  const { user } = useAuth();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -18,14 +22,20 @@ function OffCanvas({ name, ...props }) {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow} className="me-2">
-        {name}
+      <Button variant="dark" onClick={handleShow} className="off-canvas-show-button">
+        <div>_____</div>
+        <div>_____</div>
+        <div>_____</div>
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props} className="off-canvas-container">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title className="OffCanvas-title">ScreenCatcher</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+
+          <img src={user.photoURL} width="200px" className="OffCanvas-user-image" />
+          <h1 className="OffCanvas-username">{user.displayName}</h1>
+
           <nav onClick={handleClose}>
             <ul className="navbar-nav me-auto">
               <li className="NavLink">
@@ -92,7 +102,7 @@ function OffCanvas({ name, ...props }) {
               </li>
               <button
                 type="button"
-                className="btn btn-danger navbar-signout-btn"
+                className="btn navbar-signout-btn SignOutButton"
                 onClick={() => {
                   router.push('/');
                   signOut();
