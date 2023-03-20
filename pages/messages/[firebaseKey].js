@@ -11,7 +11,7 @@ export default function viewMessages() {
           <PostMessagesPageContent />
         </div>
 
-        <div className={viewmessagesstyle.PostsDiv}>
+        <div className={viewmessagesstyle.PostFormDiv}>
           <PostMessageForm />
         </div>
       </div>
