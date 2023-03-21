@@ -8,6 +8,7 @@ import { useAuth } from '../../utils/context/authContext';
 import { getSingleMessages } from '../../API/messagesData';
 import { deletePostMessage } from '../../API/postMessageData';
 import { getUser } from '../../API/userData';
+import viewmessagesstyle from '../../styles/messages/ViewMessages.module.css';
 
 function PostMessageCard({ postMessageObj, onUpdate }) {
   const deleteThisPostMessage = () => {
@@ -28,7 +29,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
 
   return (
     <>
-      <Card className="comment-card" style={{ color: 'black' }}>
+      <Card className={viewmessagesstyle.PostCard}>
         <div className="comment-container">
           <Card.Header>{postMessageObj.date_added}</Card.Header>
           <Card.Body>

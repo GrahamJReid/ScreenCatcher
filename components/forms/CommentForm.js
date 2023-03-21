@@ -6,6 +6,7 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createComment, updateComment } from '../../API/commentsData';
 import { getUserPublicImages } from '../../API/imageData';
+import viewthreadstyle from '../../styles/Threads/viewThread.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -97,6 +98,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
 
       <FloatingLabel controlId="floatingTextArea" label="Type your comment here..." className="mb-3 text-black">
         <Form.Control
+          className={viewthreadstyle.CommentFormCommentTextWindow}
           type="textarea"
           style={{ height: '100px' }}
           name="text"

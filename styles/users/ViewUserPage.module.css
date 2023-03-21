@@ -8,6 +8,12 @@
   flex-direction:column;
   margin-bottom:5%;
 }
+.UserImageDiv{
+  display:flex;
+  flex-direction:column;
+ justify-content: center;
+align-items:center;
+}
 .UserImage{
   border-radius:100px;
   width:40%;
@@ -22,5 +28,44 @@
 }
 .FollowButton:hover{
   background-color:purple;
-
+}
+.ContentButtonDiv{
+  margin:1%;
+  
+}
+.ContentButton{
+  background-color:orange;
+  border:transparent;
+}
+.ContentButton:hover{
+  background-color:purple;
+}
+.ContentButton:focus{
+  background-color:purple;
+}
+.UserPageImages{
+  border-radius:25px;
+  width:50%;
+  margin-bottom:2%;
+}
+.UserPageImages:hover{
+  transform: scale(1.02); 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+  box-shadow:black 0px 0px 15px 2px;
+  border:transparent;
+}
+.FoldersDiv{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  margin-left:15%;
+}
+.FolderPlaceholder{
+  width:30%;
+  height:80%;
 }

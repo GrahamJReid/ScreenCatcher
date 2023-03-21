@@ -12,8 +12,10 @@ align-items: center;
 body{
 font-size:4em;
 color:white;
-background:grey center center fixed; 
+background: center center fixed; 
 background-size:cover;
+margin:0;
+
 
   .parallax_wrapper{
   height:100vh;
@@ -22,17 +24,22 @@ background-size:cover;
   perspective:300px;
     .intro_screen{
       height:100vh;
-      background:linear-gradient(
-        217deg,
-        blue,
-       purple 70.71%
-      );
+      // background:linear-gradient(
+      //   217deg,
+      //   blue,
+      //  purple 70.71%
+      // );
+      background-image:url(/geobackground.jpg);
+      background-position: center;
       @include align-center;
      }
     .outro_screen{
     height:100vh;
-    background-image:linear-gradient(blue,purple);
+    background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+    // background:transparent;
     @include align-center;
+    border:solid 3px rgb(233,105,57);
+    border-radius:25px;
      }
     .parallax_group{
     position:relative;
@@ -47,7 +54,7 @@ background-size:cover;
         transform:translateZ(-300px)scale(2);
       }
       .mid_layer{
-      transform:translateZ(210px)scale(.3);
+      transform:translateZ(210px)scale(.22);
       }
       .top_layer{
         transform: translateZ(210px)scale(.3);
@@ -62,8 +69,9 @@ background-size:cover;
      }
 
      #group-1 >.base_layer{
-      background-image:linear-gradient(purple,orange); 
+      background-image:url(/geobackground.jpg); 
       background-size:cover;
+      background-position:center;
      }
 
      #group-2{
@@ -71,11 +79,14 @@ background-size:cover;
      }
 
      #group-2 >.mid_layer{
-      background-image:linear-gradient(purple,blue);
+      background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+      border:solid 3px rgb(233,105,57);
+      border-radius:25px;
      }
 
      #outro{
       color:white;
+      transform:translateZ(0)scale(.8);
      }
 
   }

@@ -19,9 +19,8 @@
       .outro_screen{
       height:100vh;
       background:linear-gradient(
-        217deg,
-        blue,
-       purple 70.71%
+        rgb(149,69,178),
+       rgb(5,1,26)
       );
       @include align-center;
        }

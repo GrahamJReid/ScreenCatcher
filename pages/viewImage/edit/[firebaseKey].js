@@ -23,8 +23,8 @@ export default function EditImagePage() {
       </Head>
       <div>
         <div className={viewimagepagestyle.EditFormContainer}>
-          <img src={editItem.image_url} />
-          <ImageForm obj={editItem} />
+          <img className={viewimagepagestyle.EditImageImage} src={editItem.image_url} />
+          <ImageForm className={viewimagepagestyle.EditImageForm} obj={editItem} />
         </div>
       </div>
     </>

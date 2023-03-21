@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 
@@ -5,8 +6,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { getAllUsers } from '../../API/userData';
+import { getAllUsersExcludeCurrentUser } from '../../API/userData';
 import userspagestyle from '../../styles/users/UsersPage.module.css';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function UsersPageContent() {
   const getFilteredItems = (query, order) => {
@@ -19,9 +21,10 @@ export default function UsersPageContent() {
   const [order, setOrder] = useState([]);
   const [query, setQuery] = useState('');
   const filteredItems = getFilteredItems(query, order);
+  const { user } = useAuth();
 
   useEffect(() => {
-    getAllUsers().then((item) => {
+    getAllUsersExcludeCurrentUser(user.uid).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.displayName.localeCompare(b.displayName));
       setOrder(sortedImageOrder);
     });
@@ -40,7 +43,7 @@ export default function UsersPageContent() {
         <div>
           <div className={userspagestyle.UsersPageUserCardContainer}>
             {filteredItems.map((user) => (
-              <Card className={userspagestyle.UsersPageUserCard} style={{ width: '12rem', color: 'black' }} key={user.uid}>
+              <Card className={userspagestyle.UsersPageUserCard} style={{ width: '18rem', color: 'black' }} key={user.uid}>
                 <Card.Img variant="top" src={user.photoURL} />
                 <Card.Body className={userspagestyle.UsersPageUserCardBody}>
                   <Card.Title>{user.displayName}</Card.Title>

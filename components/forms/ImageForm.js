@@ -10,6 +10,7 @@ import { createImage, getUserImages, updateImage } from '../../API/imageData';
 import { getFolders, getUserFolders } from '../../API/folderData';
 import { createFolderImageObj, updateFolderImageObj } from '../../API/folderImageData';
 import ImagesPageContent from '../imagesPage/ImagesPageContent';
+import imagepagestyles from '../../styles/ImagesPage.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -132,7 +133,7 @@ export default function ImageForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className={imagepagestyles.ImagesForm}>
       <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Image</h1>
 
       {/* IMAGE FILE */}

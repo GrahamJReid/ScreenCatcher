@@ -6,6 +6,7 @@
   height:100vh;
   width:100%;
   position:fixed;
+  background:transparent;
   
 }
 .ImageFormContainer{
@@ -37,11 +38,18 @@ position:relative;
   position:sticky;
   padding:2%;
 }
+.ImagesForm{
+  background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+  border-radius:25px;
+  border:solid 3px rgb(233,105,57);
+  padding:5%;
+  margin-left:2%;
+}
 .ImagesPageImage{
   height:auto;
   border-radius:50px;
-  padding:1%;
-  border:transparent solid 1px;
+  padding:.2%;
+  border:transparent;
 }
 .ImagesPageImage:hover{
   transform: scale(1.02); 
