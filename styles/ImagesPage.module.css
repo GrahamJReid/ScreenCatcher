@@ -6,6 +6,7 @@
   height:100vh;
   width:100%;
   position:fixed;
+  background-image:linear-gradient(purple,blue);
   
 }
 .ImageFormContainer{
