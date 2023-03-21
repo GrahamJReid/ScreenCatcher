@@ -46,6 +46,7 @@ export default function UsersToMessage() {
       </Head>
       <div className={userstomessagesstyle.MessagesPageWrapper}>
         <div className={userstomessagesstyle.MessagesPageMessagesCardsDiv}>
+          <h1 className={userstomessagesstyle.MessagesPageMessagesTitle}>Messages</h1>
           <div>
             {messagesArr.map((otherUser) => (
               <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
@@ -58,6 +59,7 @@ export default function UsersToMessage() {
                   </Card.Text>
 
                   <Button
+                    className={userstomessagesstyle.MessagesPageMessagesCardsButton}
                     href={`/messages/${otherUser.firebaseKey}`}
                   >
                     View Messages
@@ -80,6 +82,7 @@ export default function UsersToMessage() {
                   </Card.Text>
 
                   <Button
+                    className={userstomessagesstyle.MessagesPageMessagesCardsButton}
                     href={`/messages/${otherUser.firebaseKey}`}
                   >
                     View Messages
@@ -98,8 +101,8 @@ export default function UsersToMessage() {
           </div>
           <div className={userstomessagesstyle.MessagesPageInnerCardDiv}>
             {filteredItems.map((otherUser) => (
-              <Card className={userstomessagesstyle.MessagesPageUserCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
-                <Card.Img variant="top" src={otherUser.photoURL} />
+              <Card className={userstomessagesstyle.MessagesPageUserCards} style={{ width: '30rem', color: 'black' }} key={otherUser.firebaseKey}>
+                <Card.Img className={userstomessagesstyle.MessagesPageMessagesCardsImage} variant="top" src={otherUser.photoURL} />
                 <Card.Body className={userstomessagesstyle.MessagesPageUserCardsBody}>
                   <Card.Title>{otherUser.displayName}</Card.Title>
 
