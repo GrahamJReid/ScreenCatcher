@@ -22,6 +22,8 @@
   overflow-x: hidden;
   overflow-y: auto;
   text-align:justify;
+  position:relative ;
+  overflow-anchor:none;
 }
 .PostFormDiv{
  margin-bottom:15%;
@@ -30,4 +32,5 @@
 .PostCard{
   background:transparent;
   border:transparent;
+
 }

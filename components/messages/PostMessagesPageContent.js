@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-inner-declarations */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getPostMessagesByMessagesId } from '../../API/postMessageData';
@@ -31,7 +33,7 @@ export default function PostMessagesPageContent() {
   return (
     <div>
       <h1> {`${messages.user_1name}`} & {`${messages.user_2name}`}</h1>
-      <div className={viewmessagesstyle.PostsDiv}>{postMessages.map((comment) => (
+      <div id="messages" className={viewmessagesstyle.PostsDiv}>{postMessages.map((comment) => (
         <PostMessageCard key={comment.firebaseKey} postMessageObj={comment} onUpdate={displayPostMessages} />
       ))}
       </div>

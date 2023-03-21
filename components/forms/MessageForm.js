@@ -68,6 +68,11 @@ export default function PostMessageForm() {
         setCommentImage('');
         setCommentImageFormInput(commentImageInitialState);
       });
+    function updateScroll() {
+      const element = document.getElementById('messages');
+      element.scrollTop = element.scrollHeight;
+    }
+    updateScroll();
   };
 
   return (
