@@ -112,13 +112,13 @@ color:white;
   font-weight:900;
 }
 
-#myVideo{
+/* #myVideo{
   position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-}
+} */
 .gallery-div-container{
   display:flex;
   justify-content:center;

@@ -47,7 +47,7 @@ background-size:cover;
         transform:translateZ(-300px)scale(2);
       }
       .mid_layer{
-      transform:translateZ(210px)scale(.3);
+      transform:translateZ(210px)scale(.22);
       }
       .top_layer{
         transform: translateZ(210px)scale(.3);
@@ -62,7 +62,7 @@ background-size:cover;
      }
 
      #group-1 >.base_layer{
-      background-image:linear-gradient(purple,orange); 
+      background-image:url(/geobackground.jpg); 
       background-size:cover;
      }
 

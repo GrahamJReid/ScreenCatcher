@@ -18,9 +18,9 @@ function Home() {
 
         <div className="parallax_group" id="group-1">
           <div className="parallax_layer base_layer">
-            <video autoPlay muted loop id="myVideo">
-              <source src="https://cdn.dribbble.com/users/707385/screenshots/16066794/media/4b61d36214f8e64912721e79e2f48f8c.mp4" type="video/mp4" />
-            </video>
+            {/* <video autoPlay muted loop id="myVideo">
+              <source src="/background.mp4" type="video/mp4" />
+            </video> */}
           </div>
           <div className="parallax_layer mid_layer">
 
