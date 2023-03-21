@@ -33,13 +33,6 @@ position:relative;
   border-radius:25px;
 
 }
-
-.CommentFormCommentTextWindow{
-  background-color:rgb(5,1,26);
-  color:white;
-  border:solid 2px rgb(233,105,57);
-  border-radius:25px;
-}
 .ImageFormInput:focus{
   background-color:rgb(5,1,26);
   color:white;
@@ -116,4 +109,20 @@ position:relative;
     width:50%;
     border-radius:25px;
     padding:1%;
+}
+.SearchBar{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+
+}
+.SearchBar:focus{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+}
+.SearchBar::placeholder{
+  color:white;
 }

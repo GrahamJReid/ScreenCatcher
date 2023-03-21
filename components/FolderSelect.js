@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getUserFolders } from '../API/folderData';
 import { createFolderImageObj, updateFolderImageObj } from '../API/folderImageData';
 import { useAuth } from '../utils/context/authContext';
+import viewimagepagestyles from '../styles/ViewImagePage.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -51,10 +52,10 @@ export default function FolderSelect({ imageObj }) {
       <Form>
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
+            className={viewimagepagestyles.FolderSelect}
             aria-label="Folder"
             name="folder_id"
             onChange={handleChange}
-            className="mb-3"
             value={formInput.folder_id}
             required
           >
@@ -72,7 +73,7 @@ export default function FolderSelect({ imageObj }) {
           </Form.Select>
         </FloatingLabel>
       </Form>
-      <Button variant="light" onClick={handleSubmit}>
+      <Button className={viewimagepagestyles.FolderSelectAddButton} variant="light" onClick={handleSubmit}>
         Add
       </Button>
     </div>

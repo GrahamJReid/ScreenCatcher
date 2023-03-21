@@ -81,9 +81,10 @@ export default function ViewImage() {
         {imageDetails.public === false ? (
           <h5> Private</h5>
         ) : <h5> Public</h5>}
-        <div>
+        <div className={styles.ViewImageButtonDiv}>
           {imageDetails.uid === user.uid ? (
             <Button
+              className={styles.ViewImageButton}
               href={`/viewImage/edit/${imageDetails.firebaseKey}`}
             >
               Edit
@@ -92,6 +93,7 @@ export default function ViewImage() {
           {imageDetails.uid === user.uid ? (
             <Button
               onClick={deleteThisImage}
+              className={styles.ViewImageButton}
             >
               Delete
             </Button>
@@ -99,6 +101,7 @@ export default function ViewImage() {
           {imageDetails.uid === user.uid ? (
             <Button
               href={`/threads/${imageDetails.firebaseKey}`}
+              className={styles.ViewImageButton}
             >
               Create Thread
             </Button>
