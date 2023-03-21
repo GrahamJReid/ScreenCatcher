@@ -1,4 +1,16 @@
 .ViewFolderPageContainer{
   margin-top:10%;
-  border:solid purple 5px;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items:center;
+}
+.RemoveButton{
+  left:20px;
+  z-index:5;
+  position:absolute;
+}
+.FolderImage{
+  position:relative;
+
 }

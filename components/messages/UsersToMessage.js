@@ -7,7 +7,7 @@ import { Button, Card } from 'react-bootstrap';
 import {
   createMessages, getUserMessages, getUserSecondaryMessages, updateMessages,
 } from '../../API/messagesData';
-import { getAllUsers } from '../../API/userData';
+import { getAllUsersExcludeCurrentUser } from '../../API/userData';
 import { useAuth } from '../../utils/context/authContext';
 import userstomessagesstyle from '../../styles/messages/UsersToMessagePage.module.css';
 
@@ -27,7 +27,7 @@ export default function UsersToMessage() {
   const [secondaryMessagesArr, setSecondaryMessagesArr] = useState([]);
 
   useEffect(() => {
-    getAllUsers().then((item) => {
+    getAllUsersExcludeCurrentUser(user.uid).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.displayName.localeCompare(b.displayName));
       setOrder(sortedImageOrder);
     });
