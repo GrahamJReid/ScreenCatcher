@@ -43,7 +43,7 @@ export default function UsersPageContent() {
         <div>
           <div className={userspagestyle.UsersPageUserCardContainer}>
             {filteredItems.map((user) => (
-              <Card className={userspagestyle.UsersPageUserCard} style={{ width: '12rem', color: 'black' }} key={user.uid}>
+              <Card className={userspagestyle.UsersPageUserCard} style={{ width: '18rem', color: 'black' }} key={user.uid}>
                 <Card.Img variant="top" src={user.photoURL} />
                 <Card.Body className={userspagestyle.UsersPageUserCardBody}>
                   <Card.Title>{user.displayName}</Card.Title>

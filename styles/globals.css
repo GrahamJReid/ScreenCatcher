@@ -64,6 +64,9 @@ color:white;
   margin-left:5%;
   font-size:3rem;
 }
+.NavLink:hover{
+  color:rgb(233,105,57);
+}
 .navbar-signout-btn{
   margin-left:5%;
   margin-right:5%;
@@ -90,22 +93,25 @@ color:white;
 .OffCanvas-user-image{
   border-radius:25px;
   width:100%;
+  border:solid 2px rgb(233,105,57);
   
 }
 .OffCanvas-username{
-  font-size:2rem;
+  font-size:2.5rem;
   margin-bottom:5%;
   text-align:center;
 
 }
 .SignOutButton{
   font-size:2rem;
-  background-color:orange;
+  border:solid 4px rgb(233,105,57);
+  background:transparent;
+  color:white;
 }
 .SignOutButton:hover{
   font-size:2rem;
-  background-color:white;
-  color:blue;
+   background-color:rgb(233,105,57);
+
 }
 
 
@@ -145,7 +151,7 @@ color:white;
  .gallery-image{
   object-fit: contain;
   max-width:auto;
-  max-height:50rem;
+  max-height:40rem;
   width:100%;
   height:100%;
 }
@@ -237,9 +243,6 @@ width: 24.5%;
 .view-single-user-page-container{
   margin-top:10%;
 }
-.UsersPage-container{
-  margin-top:20%;
-}
 .create-thread-image{
   width:40%;
   height:50rem;
@@ -261,9 +264,11 @@ width: 24.5%;
   border:transparent;
 }
 .off-canvas-container{
-  background-image:linear-gradient(purple,blue);
+  background-image:linear-gradient(rgb(149,69,178),rgb(96,208,249));
   margin-left:25%;
 }
+
+
 .gallery-carousel-container{
 display:flex;
 justify-content:center;
@@ -274,7 +279,7 @@ object-fit:contain;
 .carousel-image{
   object-fit: contain;
   max-width:auto;
-  max-height:100rem;
+  max-height:65rem;
   width:100%;
   height:100%;
 }

@@ -87,7 +87,7 @@ export default function ViewUser() {
           </div>
         </div>
         {contentToggle === 0 ? (
-          <div className="user-images">
+          <div className={userpagestyle.UserImageDiv}>
             {images.map((image) => (
               <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
                 <img className={userpagestyle.UserPageImages} src={`${image.image_url}`} height="50%" width="50%" />

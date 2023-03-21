@@ -9,3 +9,38 @@
   height:40rem;
   overflow-y: auto;
 }
+.CommentFormDiv{
+  width:40%;
+}
+.CommentCard{
+width:70rem;
+background:rgb(5,1,26);
+color:white;
+border:solid 2px rgb(233,105,57);
+margin-bottom:2%;
+}
+.CommentCardBody{
+  color:white;
+}
+.CommentCardHeader{
+  color:white;
+}
+.CommentCardImage{
+  width:100%;
+}
+.CommentCardDeleteButton{
+  background:transparent;
+  border:solid 2px rgb(233,105,57);
+  margin-left:88%;
+}
+.CommentCardDeleteButton:hover{
+ background-color:rgb(233,105,57);
+ border:solid 2px rgb(233,105,57);
+}
+.CommentFormCommentTextWindow{
+  background-color:rgb(5,1,26);
+  color:white;
+}
+.CommentFormCommentTextWindow::placeholder{
+  color:white;
+}

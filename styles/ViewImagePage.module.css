@@ -12,4 +12,15 @@
 }
 .EditFormContainer{
     margin-top:10%;
+    display:flex;
+    justify-content:center;
+    flex-direction:row-reverse;
+    justify-content:space-evenly;
+
+}
+.EditImageImage{
+    width:40%;
+}
+.EditImageForm{
+    background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26))
 }

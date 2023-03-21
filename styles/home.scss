@@ -35,9 +35,11 @@ margin:0;
      }
     .outro_screen{
     height:100vh;
-    background-image:linear-gradient(blue,purple);
+    background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
     // background:transparent;
     @include align-center;
+    border:solid 3px rgb(233,105,57);
+    border-radius:25px;
      }
     .parallax_group{
     position:relative;
@@ -70,7 +72,6 @@ margin:0;
       background-image:url(/geobackground.jpg); 
       background-size:cover;
       background-position:center;
-      transform:translateZ(10)scale(1.2);
      }
 
      #group-2{
@@ -78,7 +79,9 @@ margin:0;
      }
 
      #group-2 >.mid_layer{
-      background-image:linear-gradient(purple,blue);
+      background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+      border:solid 3px rgb(233,105,57);
+      border-radius:25px;
      }
 
      #outro{

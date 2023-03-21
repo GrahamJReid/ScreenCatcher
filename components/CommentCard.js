@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import { deleteComment } from '../API/commentsData';
 import { useAuth } from '../utils/context/authContext';
 import { getSingleThread } from '../API/threadData';
+import viewthreadstyle from '../styles/Threads/viewThread.module.css';
 
 function CommentCard({ commentObj, onUpdate }) {
   const deleteThisComment = () => {
@@ -23,11 +24,11 @@ function CommentCard({ commentObj, onUpdate }) {
 
   return (
     <>
-      <Card className="comment-card" style={{ color: 'black' }}>
+      <Card className={viewthreadstyle.CommentCard} style={{ color: 'black' }}>
         <div className="comment-container">
-          <Card.Header>{commentObj.date_added}</Card.Header>
-          <Card.Body>
-            <img src={commentObj.comment_image} width="200px" />
+          <Card.Header className={viewthreadstyle.CommentCardHeader}>{commentObj.date_added}</Card.Header>
+          <Card.Body className={viewthreadstyle.CommentCardBody}>
+            <img className={viewthreadstyle.CommentCardImage} src={commentObj.comment_image} />
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
@@ -39,7 +40,7 @@ function CommentCard({ commentObj, onUpdate }) {
                 {commentObj.uid === user.uid || user.displayName === video.username
                   ? (
                     <Button
-                      className="red-btn comment-btn"
+                      className={viewthreadstyle.CommentCardDeleteButton}
                       onClick={deleteThisComment}
                     >
                       Delete

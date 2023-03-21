@@ -8,6 +8,12 @@
   flex-direction:column;
   margin-bottom:5%;
 }
+.UserImageDiv{
+  display:flex;
+  flex-direction:column;
+ justify-content: center;
+align-items:center;
+}
 .UserImage{
   border-radius:100px;
   width:40%;
@@ -39,7 +45,8 @@
 }
 .UserPageImages{
   border-radius:25px;
-  width:30%;
+  width:50%;
+  margin-bottom:2%;
 }
 .UserPageImages:hover{
   transform: scale(1.02); 
