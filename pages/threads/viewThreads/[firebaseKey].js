@@ -131,14 +131,18 @@ export default function ViewThread() {
   return (
     <div className={viewthreadstyle.ViewThreadContainer}>
       <h1>{thread.thread_title}</h1>
-      <img src={thread.thread_image} className="create-thread-image" />
-      {user.uid === thread.uid ? <Button onClick={handleDeleteThread}>Delete Thread</Button> : ''}
-      {btnToggle === 0 ? <Button onClick={handleFollow}>Follow</Button> : <Button onClick={handleUnfollow}>Unfollow</Button>}
-      <h2>{likes}</h2>
-      {buttonCount === 0 ? <Button onClick={handleLike}>LIKE</Button> : <Button onClick={handleUnlike}>UNLIKE</Button> }
       <h2>Category: {thread.category}</h2>
       <h3> Author: {thread.username}</h3>
       <h3>Description: {thread.description}</h3>
+      <img src={thread.thread_image} className="create-thread-image" />
+      <div className={viewthreadstyle.ViewThreadButtonContainer}>
+        {user.uid === thread.uid ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleDeleteThread}>Delete Thread</Button> : ''}
+        {btnToggle === 0 ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleFollow}>Follow</Button> : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnfollow}>Unfollow</Button>}
+        <div className={viewthreadstyle.LikesDiv}>
+          <h2>{likes}</h2>
+          {buttonCount === 0 ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleLike}>LIKE</Button> : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnlike}>UNLIKE</Button> }
+        </div>
+      </div>
       <div className={viewthreadstyle.CommentFormDiv}>
         <AddAComment threadFbKey={firebaseKey} onUpdate={displayComments} />
       </div>
