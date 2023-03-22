@@ -25,6 +25,7 @@ export default function PostMessageForm() {
   const { user } = useAuth();
   const [userImages, setUserImages] = useState([]);
   const [commentImage, setCommentImage] = useState('');
+  const [imageFirebaseKey, setImageFirebaseKey] = useState('');
   const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
   const router = useRouter();
   const { firebaseKey } = router.query;
@@ -42,6 +43,10 @@ export default function PostMessageForm() {
   };
   const handleCommentImage = (e) => {
     const { name, value } = e.target;
+    const Arr = value.split(',');
+    console.warn(Arr[1]);
+    setImageFirebaseKey(Arr[1]);
+    console.warn(name);
     setCommentImage(value);
     setCommentImageFormInput(name);
     setFormInput((prevState) => ({
@@ -59,6 +64,7 @@ export default function PostMessageForm() {
       sort_date: Date.now(),
       author: user.displayName,
       post_image: commentImageFormInput.comment_url,
+      image_firebaseKey: imageFirebaseKey,
       messages_id: firebaseKey,
     };
     createPostMessage(payload)
@@ -69,17 +75,12 @@ export default function PostMessageForm() {
         setCommentImage('');
         setCommentImageFormInput(commentImageInitialState);
       });
-    function updateScroll() {
-      const element = document.getElementById('messages');
-      element.scrollTop = element.scrollHeight;
-    }
-    updateScroll();
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <h4 className="mt-3 mb-3">Create Message</h4>
-      {commentImage === '' ? '' : <img src={commentImage} width="100px" />}
+      {commentImage === '' ? '' : <img src={`${commentImage}`} width="100px" />}
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewmessagesstyle.MessageFormInput}
@@ -90,12 +91,12 @@ export default function PostMessageForm() {
         >
           <option value="">Select an Image</option>
           {
-                  userImages.map((folder) => (
+                  userImages.map((image) => (
                     <option
-                      key={folder.firebaseKey}
-                      value={folder.image_url}
+                      key={image.firebaseKey}
+                      value={[image.image_url, image.firebaseKey]}
                     >
-                      {folder.image_title}
+                      {image.image_title}
                     </option>
                   ))
                 }
