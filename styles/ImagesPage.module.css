@@ -26,6 +26,43 @@ height:85%;
 margin-top:10%;
 position:relative;
 }
+.ImageFormInput{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+
+}
+.ImageFormInput:focus{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+}
+.ImageFormInput::placeholder{
+  color:white;
+}
+.ImageFormInput::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.ImageFormSubmitButton{
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(5,1,26);
+  margin-left:1%;
+}
+.ImageFormSubmitButton:hover{
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(233,105,57);
+}
+
+
+
+
+
+
+
 .ContainImagePageContent{
   display:flex;
   flex-direction:column;
@@ -72,4 +109,20 @@ position:relative;
     width:50%;
     border-radius:25px;
     padding:1%;
+}
+.SearchBar{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+
+}
+.SearchBar:focus{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+}
+.SearchBar::placeholder{
+  color:white;
 }

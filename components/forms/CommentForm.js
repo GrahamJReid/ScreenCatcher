@@ -76,11 +76,11 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       {commentImage === '' ? '' : <img src={commentImage} width="200px" />}
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
+          className={viewthreadstyle.CommentFormCommentTextWindow}
           aria-label="Folder"
           name="comment_image"
           onChange={handleCommentImage}
           value={commentImageFormInput.comment_url}
-          className="mb-3"
         >
           <option value="">Select an Image</option>
           {
@@ -96,7 +96,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
         </Form.Select>
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingTextArea" label="Type your comment here..." className="mb-3 text-black">
+      <FloatingLabel controlId="floatingTextArea" label="Type your comment here...">
         <Form.Control
           className={viewthreadstyle.CommentFormCommentTextWindow}
           type="textarea"
@@ -108,7 +108,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
         />
       </FloatingLabel>
 
-      <Button type="submit" className="blue-btn">Submit Comment</Button>
+      <Button className={viewthreadstyle.ViewThreadButton} type="submit">Submit Comment</Button>
     </Form>
   );
 }

@@ -138,8 +138,9 @@ export default function ImageForm({ obj }) {
 
       {/* IMAGE FILE */}
       {obj.firebaseKey ? '' : (
-        <FloatingLabel controlId="floatingInput1" label="" className="mb-3 text-black background-file-input">
+        <FloatingLabel controlId="floatingInput1" label="Click Here To Add File">
           <Form.Control
+            className={imagepagestyles.ImageFormInput}
             type="file"
             onInput={handleImage}
             required
@@ -150,8 +151,9 @@ export default function ImageForm({ obj }) {
       )}
 
       {/* IMAGE TITLE */}
-      <FloatingLabel controlId="floatingInput2" label="Image Title" className="mb-3 text-black">
+      <FloatingLabel controlId="floatingInput2" label="Image Title">
         <Form.Control
+          className={imagepagestyles.ImageFormInput}
           type="text"
           name="image_title"
           value={formInput.image_title}
@@ -161,8 +163,9 @@ export default function ImageForm({ obj }) {
       </FloatingLabel>
 
       {/* IMAGE DESCRIPTION TEXTAREA */}
-      <FloatingLabel controlId="floatingTextArea" label="Image Description" className="mb-3 text-black">
+      <FloatingLabel controlId="floatingTextArea" label="Image Description">
         <Form.Control
+          className={imagepagestyles.ImageFormInput}
           type="textarea"
           style={{ height: '100px' }}
           name="description"
@@ -171,8 +174,9 @@ export default function ImageForm({ obj }) {
           required
         />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Category" className="mb-3 text-black">
+      <FloatingLabel controlId="floatingInput3" label="Category">
         <Form.Control
+          className={imagepagestyles.ImageFormInput}
           type="text"
           name="category"
           value={formInput.category}
@@ -197,7 +201,7 @@ export default function ImageForm({ obj }) {
         }}
       />
       <Form.Check
-        className="mb-3"
+        className={imagepagestyles.ImageFormCheck}
         type="switch"
         id="gallery"
         name="gallery"
@@ -213,11 +217,11 @@ export default function ImageForm({ obj }) {
       {obj.firebaseKey ? '' : (
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
+            className={imagepagestyles.ImageFormInput}
             aria-label="Folder"
             name="folder_id"
             onChange={handleFolderImageChange}
             value={folderImageInput.folder_id}
-            className="mb-3"
           >
             <option value="">Select a Folder</option>
             {
@@ -236,7 +240,7 @@ export default function ImageForm({ obj }) {
 
       {/* SUBMIT BUTTON  */}
 
-      <Button type="submit" className="home-form-submit-btn">{obj.firebaseKey ? 'Update' : 'Add'} Image</Button>
+      <Button className={imagepagestyles.ImageFormSubmitButton} type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Image</Button>
 
     </Form>
   );
