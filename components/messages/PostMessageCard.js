@@ -45,7 +45,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
                 {postMessageObj.uid === user.uid || user.displayName === video.username
                   ? (
                     <Button
-                      className="red-btn comment-btn"
+                      className={viewmessagesstyle.DeleteButton}
                       onClick={deleteThisPostMessage}
                     >
                       Delete

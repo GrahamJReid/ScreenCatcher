@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
 import { getUserPublicImages } from '../../API/imageData';
 import { createPostMessage, updatePostMessage } from '../../API/postMessageData';
+import viewmessagesstyle from '../../styles/messages/ViewMessages.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -78,14 +79,14 @@ export default function PostMessageForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <h4 className="mt-3 mb-3">Create Message</h4>
-      {commentImage === '' ? '' : <img src={commentImage} width="200px" />}
+      {commentImage === '' ? '' : <img src={commentImage} width="100px" />}
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
+          className={viewmessagesstyle.MessageFormInput}
           aria-label="Folder"
           name="comment_image"
           onChange={handleCommentImage}
           value={commentImageFormInput.comment_url}
-          className="mb-3"
         >
           <option value="">Select an Image</option>
           {
@@ -101,10 +102,11 @@ export default function PostMessageForm() {
         </Form.Select>
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingTextArea" label="Type your message here..." className="mb-3 text-black">
+      <FloatingLabel controlId="floatingTextArea" label="Type your message here...">
         <Form.Control
+          className={viewmessagesstyle.MessageFormInput}
           type="textarea"
-          style={{ height: '100px' }}
+          style={{ height: '50px' }}
           name="text"
           value={formInput.text}
           onChange={handleChange}
@@ -112,7 +114,7 @@ export default function PostMessageForm() {
         />
       </FloatingLabel>
 
-      <Button type="submit" className="blue-btn">Submit Message</Button>
+      <Button type="submit" className={viewmessagesstyle.MessageFormSubmitButton}>Submit Message</Button>
     </Form>
   );
 }
