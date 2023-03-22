@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleImage } from '../../API/imageData';
 import ThreadForm from '../../components/forms/ThreadForm';
+import threadformstyles from '../../styles/Threads/ThreadForm.module.css';
 
 export default function CreateThread() {
   const router = useRouter();
@@ -15,9 +16,9 @@ export default function CreateThread() {
   }, [firebaseKey]);
 
   return (
-    <div>
-      <img src={image.image_url} className="create-thread-image" />
-      <div>
+    <div className={threadformstyles.ThreadFormContentWrapper}>
+      <img className={threadformstyles.ThreadFormImage} src={image.image_url} />
+      <div className={threadformstyles.ThreadFormDiv}>
         <ThreadForm img={image} />
       </div>
 

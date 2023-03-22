@@ -32,7 +32,7 @@ export default function PostMessagesPageContent() {
 
   return (
     <div>
-      <h1> {`${messages.user_1name}`} & {`${messages.user_2name}`}</h1>
+      <h1 className={viewmessagesstyle.NamesTitle}> {`${messages.user_1name}`} & {`${messages.user_2name}`}</h1>
       <div id="messages" className={viewmessagesstyle.PostsDiv}>{postMessages.map((comment) => (
         <PostMessageCard key={comment.firebaseKey} postMessageObj={comment} onUpdate={displayPostMessages} />
       ))}

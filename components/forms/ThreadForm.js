@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import { useAuth } from '../../utils/context/authContext';
 import { createThread, updateThread } from '../../API/threadData';
+import threadformstyles from '../../styles/Threads/ThreadForm.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -51,8 +52,9 @@ export default function ThreadForm({ img }) {
       <h1 className="mt-5 mb-3">Create Thread</h1>
 
       {/* FOLDER TITLE */}
-      <FloatingLabel controlId="floatingInput2" label="Thread Title" className="mb-3 text-black">
+      <FloatingLabel controlId="floatingInput2" label="Thread Title">
         <Form.Control
+          className={threadformstyles.ThreadFormInput}
           type="text"
           name="thread_title"
           value={formInput.thread_title}
@@ -62,8 +64,9 @@ export default function ThreadForm({ img }) {
       </FloatingLabel>
 
       {/* FOLDER DESCRIPTION TEXTAREA */}
-      <FloatingLabel controlId="floatingTextArea" label="Thread Description" className="mb-3 text-black">
+      <FloatingLabel controlId="floatingTextArea" label="Thread Description">
         <Form.Control
+          className={threadformstyles.ThreadFormInput}
           type="textarea"
           style={{ height: '100px' }}
           name="description"
@@ -72,8 +75,9 @@ export default function ThreadForm({ img }) {
           required
         />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Category" className="mb-3 text-black">
+      <FloatingLabel controlId="floatingInput3" label="Category">
         <Form.Control
+          className={threadformstyles.ThreadFormInput}
           type="text"
           name="category"
           value={formInput.category}
@@ -86,7 +90,7 @@ export default function ThreadForm({ img }) {
 
       {/* SUBMIT BUTTON  */}
 
-      <Button type="submit" className="home-form-submit-btn"> Create Thread</Button>
+      <Button type="submit" className={threadformstyles.ThreadFormSubmitButton}> Create Thread</Button>
 
     </Form>
   );

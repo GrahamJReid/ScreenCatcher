@@ -1,12 +1,12 @@
 .ViewMessagesPageWrapper{
-  margin-top:10%;
+  margin-top:20%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  height:100%;
+  height:60%;
   position:fixed;
-  margin-left:40%;
+  margin-left:33%;
   margin-right:60%;
   padding-bottom:10%;
   
@@ -16,21 +16,68 @@
   flex-direction:column-reverse;
   margin:4px, 4px;
   padding:4px;
-  background-color: transparent;
+  background-color: rgb(5,1,26);
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
   width: 500px;
-  height: 700px;
+  height: 450px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align:justify;
   position:relative ;
   overflow-anchor:none;
 }
+.NamesTitle{
+  font-size:2rem;
+}
 .PostFormDiv{
  margin-bottom:15%;
  width:100%;
+ height:80%;
 }
 .PostCard{
   background:transparent;
-  border:transparent;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
 
+}
+.MessageFormInput{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+
+}
+.MessageFormInput:focus{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+}
+.MessageFormInput::placeholder{
+  color:white;
+}
+.MessageFormSubmitButton{
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(5,1,26);
+  margin-left:1%;
+}
+.MessageFormSubmitButton:hover{
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(233,105,57);
+}
+
+.DeleteButton{
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(5,1,26);
+  margin-left:1%;
+  font-size:.7rem;
+}
+.DeleteButton:hover{
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(233,105,57);
 }

@@ -25,6 +25,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
   const { user } = useAuth();
   const [userImages, setUserImages] = useState([]);
   const [commentImage, setCommentImage] = useState('');
+  const [commentImageFirebaseKey, setCommentImageFirebaseKey] = useState('');
   const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
 
   useEffect(() => {
@@ -40,6 +41,9 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
   };
   const handleCommentImage = (e) => {
     const { name, value } = e.target;
+    const Arr = value.split(',');
+    console.warn(Arr[1]);
+    setCommentImageFirebaseKey(Arr[1]);
     setCommentImage(value);
     setCommentImageFormInput(name);
     setFormInput((prevState) => ({
@@ -58,6 +62,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       author: user.displayName,
       thread_id: threadFbKey,
       thread_image: commentImageFormInput.comment_url,
+      thread_comment_image_firebaseKey: commentImageFirebaseKey,
     };
     createComment(payload)
       .then(({ name }) => {
@@ -87,7 +92,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
                   userImages.map((folder) => (
                     <option
                       key={folder.firebaseKey}
-                      value={folder.image_url}
+                      value={[folder.image_url, folder.firebaseKey]}
                     >
                       {folder.image_title}
                     </option>
