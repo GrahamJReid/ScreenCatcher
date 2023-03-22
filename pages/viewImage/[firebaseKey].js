@@ -98,7 +98,7 @@ export default function ViewImage() {
               Delete
             </Button>
           ) : ''}
-          {imageDetails.uid === user.uid ? (
+          {imageDetails.uid === user.uid && imageDetails.public === true ? (
             <Button
               href={`/threads/${imageDetails.firebaseKey}`}
               className={styles.ViewImageButton}
