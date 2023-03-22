@@ -76,7 +76,7 @@
  justify-content:center;
  margin-bottom:5%;
  align-items:center;
- margin-right:28%;
+ margin-left:30%;
 }
 .MessagesPageSearchBar{
  width:40%;
@@ -84,6 +84,22 @@
  border-radius:25px;
  border:transparent;
  text-align:center;
+}
+.MessagesPageSearchBar{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+
+}
+.MessagesPageSearchBar:focus{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+}
+.MessagesPageSearchBar::placeholder{
+  color:white;
 }
 
 .MessagesPageUserCardsDiv{
@@ -99,11 +115,13 @@
 .MessagesPageInnerCardDiv{
   display:flex;
   flex-direction:column;
+  justify-content:center;
+  align-items:center;
   background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
   border:solid rgb(233,105,57) 2px;
   border-radius:25px;
   width:30%;
-  margin-left:21%;
+  margin-left:50%;
 
 }
 .MessagesPageUserCards{
@@ -118,7 +136,7 @@
 .MessagesPageMessagesCardsImage{
   border:solid rgb(233,105,57) 2px;
   border-radius:25px;
-  margin-left:15%;
+  width:50%;
 }
 .MessagesPageUserCardsBody{
   display:flex;
