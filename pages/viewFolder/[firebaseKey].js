@@ -63,18 +63,19 @@ export default function ViewFolderPage() {
         <h3>Category:{folder.category}</h3>
         {folder.uid === user.uid ? (
           <Button
+            className={viewfolderpagestyles.ViewFolderButton}
             href={`/viewFolder/edit/${folder.firebaseKey}`}
           >
             Edit
           </Button>
         ) : ''}
         {folder.uid === user.uid ? (
-          <Button onClick={deleteFolder}>
+          <Button className={viewfolderpagestyles.ViewFolderButton} onClick={deleteFolder}>
             Delete
           </Button>
         ) : ''}
         <div>
-          <div>{images.map((image) => (
+          <div className={viewfolderpagestyles.FolderImageDiv}>{images.map((image) => (
             <div key={image.firebaseKey}>
               <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
                 <img
@@ -93,7 +94,7 @@ export default function ViewFolderPage() {
                   onMouseOver={() => {
                     setMouseOver(2);
                   }}
-                  className={viewfolderpagestyles.RemoveButton}
+                  className={viewfolderpagestyles.ViewFolderButton}
                   onClick={() => {
                     getSingleFolderImageObj(folder.firebaseKey, image.firebaseKey).then((obj) => {
                       deleteFolderImageObj(obj.firebaseKey).then(getFolderImages);
