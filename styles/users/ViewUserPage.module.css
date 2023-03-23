@@ -22,26 +22,24 @@ align-items:center;
   font-size:3rem;
   margin:2%;
 }
-.FollowButton{
-  background-color:orange;
-  border:transparent;
-}
-.FollowButton:hover{
-  background-color:purple;
-}
 .ContentButtonDiv{
   margin:1%;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+
   
 }
 .ContentButton{
-  background-color:orange;
-  border:transparent;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(5,1,26);
+  margin-left:1%;
 }
 .ContentButton:hover{
-  background-color:purple;
-}
-.ContentButton:focus{
-  background-color:purple;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  background:rgb(233,105,57);
 }
 .UserPageImages{
   border-radius:25px;

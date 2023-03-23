@@ -80,7 +80,7 @@ export default function ViewUser() {
         <div className={userpagestyle.UserPageUserInfoDiv}>
           <img className={userpagestyle.UserImage} src={followableUser.photoURL} alt="user photo" />
           <h1 className={userpagestyle.UserName}>{followableUser.displayName}</h1>
-          {btnToggle === 0 ? <Button className={userpagestyle.FollowButton} onClick={handleFollow}>Follow</Button> : <Button className={userpagestyle.FollowButton} onClick={handleUnfollow}>Unfollow</Button>}
+          {btnToggle === 0 ? <Button className={userpagestyle.ContentButton} onClick={handleFollow}>Follow</Button> : <Button className={userpagestyle.ContentButton} onClick={handleUnfollow}>Unfollow</Button>}
           <div className={userpagestyle.ContentButtonDiv}>
             <Button className={userpagestyle.ContentButton} onClick={handleContentImages}>Images</Button>
             <Button className={userpagestyle.ContentButton} onClick={handleContentFolders}>Folders</Button>
