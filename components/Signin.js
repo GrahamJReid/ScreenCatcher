@@ -1,20 +1,15 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { signIn } from '../utils/auth';
+import signinpagestyles from '../styles/SignInPage.module.css';
 
 function Signin() {
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hi there!</h1>
-      <p>Click the button below to login!</p>
-      <button type="button" className="btn btn-primary btn-lg copy-btn" onClick={signIn}>
+    <div className={signinpagestyles.SignInPageContainer}>
+      <h1 className={signinpagestyles.Title}>ScreenCatcher</h1>
+      <img className={signinpagestyles.Image} src="/logo.png" />
+      <button type="button" className={signinpagestyles.Button} onClick={signIn}>
         Sign In
       </button>
     </div>
