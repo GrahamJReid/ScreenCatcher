@@ -34,11 +34,9 @@ export default function ImageEditor() {
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
-  // const changeRoute = () => {
-  //   if (push === 1) {
-  //     router.push(`/viewImage/edit/${editFbKey}`);
-  //   }
-  // };
+  const changeRoute = (name) => {
+    router.push(`/viewImage/edit/${name}`);
+  };
   useEffect(() => {
     getRandomInt();
   }, [imageUrl, user.displayName, user.uid]);
@@ -49,10 +47,17 @@ export default function ImageEditor() {
       };
       createImage(Payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        updateImage(patchPayload).then(setEditFbKey(name));
+        const prepRouting = async () => {
+          updateImage(patchPayload).then(setEditFbKey(name));
+          await changeRoute(name);
+        };
+        prepRouting();
       });
       setLoader(0);
-      setPush(1);
+      const prepRouting = () => {
+        changeRoute();
+      };
+      prepRouting();
     } else { didMount.current = true; }
   }, [imageUrl, user.displayName, user.uid]);
 
