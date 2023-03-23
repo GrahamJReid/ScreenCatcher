@@ -43,7 +43,7 @@ export default function UserProfileForm() {
   }, [user]);
   useEffect(() => {
     const userObj = {
-      photoURL: `${user.photoUrl}`,
+      comment_url: `${user.photoUrl}`,
     };
     setCommentImageFormInput(userObj);
   }, [user]);
@@ -110,6 +110,7 @@ export default function UserProfileForm() {
             onChange={handleCommentImage}
             value={commentImageFormInput.comment_url}
             className="mb-3"
+            required
           >
             <option value="">Change Profile Picture</option>
             {userImages.map((folder) => (

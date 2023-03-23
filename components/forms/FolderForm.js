@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createFolder, updateFolder } from '../../API/folderData';
+import folderpagestyles from '../../styles/FoldersPage.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -57,62 +58,69 @@ export default function FolderForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Folder</h1>
+    <div>
+      <div className={folderpagestyles.FolderFormDiv}>
+        <Form onSubmit={handleSubmit}>
+          <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Folder</h1>
 
-      {/* FOLDER TITLE */}
-      <FloatingLabel controlId="floatingInput2" label="Folder Title" className="mb-3 text-black">
-        <Form.Control
-          type="text"
-          name="folder_title"
-          value={formInput.folder_title}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+          {/* FOLDER TITLE */}
+          <FloatingLabel controlId="floatingInput2" label="Folder Title">
+            <Form.Control
+              className={folderpagestyles.FolderFormInput}
+              type="text"
+              name="folder_title"
+              value={formInput.folder_title}
+              onChange={handleChange}
+              required
+            />
+          </FloatingLabel>
 
-      {/* FOLDER DESCRIPTION TEXTAREA */}
-      <FloatingLabel controlId="floatingTextArea" label="Folder Description" className="mb-3 text-black">
-        <Form.Control
-          type="textarea"
-          style={{ height: '100px' }}
-          name="description"
-          value={formInput.description}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Category" className="mb-3 text-black">
-        <Form.Control
-          type="text"
-          name="category"
-          value={formInput.category}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
+          {/* FOLDER DESCRIPTION TEXTAREA */}
+          <FloatingLabel controlId="floatingTextArea" label="Folder Description">
+            <Form.Control
+              className={folderpagestyles.FolderFormInput}
+              type="textarea"
+              style={{ height: '100px' }}
+              name="description"
+              value={formInput.description}
+              onChange={handleChange}
+              required
+            />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput3" label="Category">
+            <Form.Control
+              className={folderpagestyles.FolderFormInput}
+              type="text"
+              name="category"
+              value={formInput.category}
+              onChange={handleChange}
+              required
+            />
+          </FloatingLabel>
 
-      {/* FOLDER DESCRIPTION TEXTAREA */}
-      <Form.Check
-        className="mb-3"
-        type="switch"
-        id="public"
-        name="public"
-        label="Make public?"
-        checked={formInput.public}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            public: e.target.checked,
-          }));
-        }}
-      />
+          {/* FOLDER DESCRIPTION TEXTAREA */}
+          <Form.Check
+            className="mb-3"
+            type="switch"
+            id="public"
+            name="public"
+            label="Make public?"
+            checked={formInput.public}
+            onChange={(e) => {
+              setFormInput((prevState) => ({
+                ...prevState,
+                public: e.target.checked,
+              }));
+            }}
+          />
 
-      {/* SUBMIT BUTTON  */}
+          {/* SUBMIT BUTTON  */}
 
-      <Button type="submit" className="home-form-submit-btn">{obj.firebaseKey ? 'Update' : 'Add'} Folder</Button>
+          <Button type="submit" className={folderpagestyles.FolderFormButton}>{obj.firebaseKey ? 'Update' : 'Add'} Folder</Button>
 
-    </Form>
+        </Form>
+      </div>
+    </div>
   );
 }
 
