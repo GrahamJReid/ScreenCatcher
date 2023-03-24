@@ -35,7 +35,7 @@ export default function ImagesPageContent({ arr }) {
         <title>Images</title>
       </Head>
       <div className={imagepagestyles.SearchBarDiv}>
-        <input className={imagepagestyles.SearchBar} type="text" placeholder="Search Your Images" onChange={(e) => setQuery(e.target.value)} />
+        <input className={imagepagestyles.SearchBar} type="text" placeholder="Search Your Images By Title or Category" onChange={(e) => setQuery(e.target.value)} />
       </div>
       <div className={imagepagestyles.ContainImagePageContent}>
         <div>

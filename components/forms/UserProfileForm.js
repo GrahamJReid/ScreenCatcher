@@ -7,6 +7,7 @@ import { getUserPublicImages } from '../../API/imageData';
 import { getUser, updateUser } from '../../API/userData';
 import { getUserThreads, updateThread } from '../../API/threadData';
 import { getPostMessagesByUID, updatePostMessage } from '../../API/postMessageData';
+import { getFollowUserObjectsByCurrentUserUid } from '../../API/followUserData';
 
 const commentImageInitialState = {
   comment_url: '',
@@ -27,6 +28,7 @@ export default function UserProfileForm() {
   const [pageReload, setPageReload] = useState(0);
   const [userDetails, setUserDetails] = useState([]);
   const [commentImage, setCommentImage] = useState('');
+  const [numberOfFollowers, setNumberOfFollowers] = useState(0);
   const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
 
   useEffect(() => {
@@ -46,6 +48,10 @@ export default function UserProfileForm() {
       comment_url: `${user.photoUrl}`,
     };
     setCommentImageFormInput(userObj);
+  }, [user]);
+  useEffect(() => {
+    getFollowUserObjectsByCurrentUserUid(user.uid)
+      .then((arr) => setNumberOfFollowers(arr.length));
   }, [user]);
 
   const handleCommentImage = (e) => {
@@ -98,7 +104,13 @@ export default function UserProfileForm() {
 
   return (
 
-    <><img src={userDetails.photoURL} />
+    <>
+      <div>
+        <h1>{userDetails.displayName}</h1>
+        <img src={userDetails.photoURL} width="30%" />
+        <p>Followers: {numberOfFollowers}</p>
+
+      </div>
 
       <Form onSubmit={handleSubmit}>
         <h4 className="mt-3 mb-3">Edit User Profile</h4>
@@ -116,7 +128,7 @@ export default function UserProfileForm() {
             {userImages.map((folder) => (
               <option
                 key={folder.firebaseKey}
-                value={folder.image_url}
+                value={[folder.image_url, folder.image_title]}
               >
                 {folder.image_title}
               </option>
