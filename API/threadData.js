@@ -55,6 +55,23 @@ const getUserThreads = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getThreadsByThreadImageFirebaseKey = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/threads.json?orderBy="thread_image_firebaseKey"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 const getThreads = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/threads.json`, {
     method: 'GET',
@@ -122,4 +139,5 @@ export {
   getAllThreads,
   deleteThread,
   updateUserThreads,
+  getThreadsByThreadImageFirebaseKey,
 };
