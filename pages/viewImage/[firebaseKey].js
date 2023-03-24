@@ -74,10 +74,12 @@ export default function ViewImage() {
 
         <img className={styles.ViewImageImage} src={imageDetails.image_url} />
 
-        <h6>Added by: {imageDetails.username} <br />
+        <p>
           {imageDetails.date_added}
-        </h6>
+        </p>
+
         <p>Description: {imageDetails.description}</p>
+        <p>category: {imageDetails.category}</p>
         {imageDetails.public === false ? (
           <h5> Private</h5>
         ) : <h5> Public</h5>}
@@ -108,7 +110,7 @@ export default function ViewImage() {
           ) : ''}
           {imageDetails.uid === user.uid ? (
             <FolderSelect imageObj={imageDetails} />
-          ) : <Button onClick={handleAdd}> Add To Your Images</Button>}
+          ) : <Button className={styles.ViewImageButton} onClick={handleAdd}> Add To Your Images</Button>}
         </div>
         <div>
           {/* <CommentForm></CommentForm> */}

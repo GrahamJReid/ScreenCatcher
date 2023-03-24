@@ -64,7 +64,7 @@ function OffCanvas({ name, ...props }) {
                 <Link passHref href="/ImageEditorPage">
 
                   <a className="NavLink">
-                    ImageEditor
+                    Image Editor
                   </a>
                 </Link>
               </li>

@@ -54,10 +54,6 @@ export default function ImageEditor() {
         prepRouting();
       });
       setLoader(0);
-      const prepRouting = () => {
-        changeRoute();
-      };
-      prepRouting();
     } else { didMount.current = true; }
   }, [imageUrl, user.displayName, user.uid]);
 
@@ -174,7 +170,7 @@ export default function ImageEditor() {
     <div className={imageEditorStyles.EditorContainer}>
       <h2>Image Editor</h2>
       <div className={imageEditorStyles.Wrapper}>
-        <div className="editor-panel">
+        <div className={imageEditorStyles.EditorControlsContainer}>
           <div id="filter" className={imageEditorStyles.FilterDiv}>
             <label className="title">Filters</label>
             <div className={imageEditorStyles.OptionsDiv}>
@@ -188,16 +184,16 @@ export default function ImageEditor() {
                 <p className="name">Brighteness</p>
                 <p className="value">100%</p>
               </div>
-              <input type="range" defaultValue="100" min="0" max="200" onChange={updateFilter} />
+              <input className={imageEditorStyles.Slider} type="range" defaultValue="100" min="0" max="200" onChange={updateFilter} />
             </div>
           </div>
           <div className="rotate">
             <label className="title">Rotate & Flip</label>
             <div className="options">
-              <button id="left"><i className="fa-solid fa-rotate-left" />flip left</button>
-              <button id="right"><i className="fa-solid fa-rotate-right" />flip right</button>
-              <button id="horizontal"><i className="bx bx-reflect-vertical" />flip horizontal</button>
-              <button id="vertical"><i className="bx bx-reflect-horizontal" />flip vertical</button>
+              <button id="left" className={imageEditorStyles.ImageEditorButton}>flip left</button>
+              <button id="right" className={imageEditorStyles.ImageEditorButton}>flip right</button>
+              <button id="horizontal" className={imageEditorStyles.ImageEditorButton}>flip horizontal</button>
+              <button id="vertical" className={imageEditorStyles.ImageEditorButton}>flip vertical</button>
             </div>
           </div>
           <div className={imageEditorStyles.Controls}>
@@ -220,8 +216,10 @@ export default function ImageEditor() {
             </div>
           </div>
         </div>
-        <div className="preview-img">
-          <img className={imageEditorStyles.EditorImage} src="https://static.thenounproject.com/png/52005-200.png" alt="preview-img" />
+        <div className={imageEditorStyles.EditorImageContainer}>
+          <div className="preview-img">
+            <img className={imageEditorStyles.EditorImage} src="/logo.png" alt="preview-img" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,10 +1,13 @@
 .EditorContainer{
-    background:grey;
-    border-radius:25px;
     margin-bottom:2%;
-    border:solid 2px orange;
+    background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+  border-radius:25px;
+  border:solid 3px rgb(233,105,57);
     height:100vh;
     object-fit: contain;
+    width:100%;
+    padding:2%;
+    position:fixed;
     
 }
 .Wrapper{
@@ -12,18 +15,29 @@
     flex-direction:row;
     object-fit: contain;
 }
+.EditorControlsContainer{
+    border-radius:25px;
+  border:double 5px rgb(233,105,57);
+    width:50%;
+    position:fixed;
+    padding:2%;
+}
+.EditorImageContainer{
+margin-left:60%;
+width:30%;
+position:fixed;
+}
 .EditorImage{
-    width:70%;
-    margin-left:25%;
-    height:65%;
+    width:100%;
+    height:50%;
     object-fit: contain;
+   
 }
 .FilterDiv{
     display:flex;
     flex-direction:column;
-    border:white solid 7px;
     justify-content:left;
-    background-color:red;
+   
 }
 .OptionsDiv{
     display:flex;
@@ -36,4 +50,9 @@
     flex-direction:column;
     align-items:center;
     margin-top:5%;
+
+}
+.Slider{
+    width:100%;
+    accent-color: rgb(233,105,57);
 }
