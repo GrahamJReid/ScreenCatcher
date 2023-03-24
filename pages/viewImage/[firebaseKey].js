@@ -14,7 +14,7 @@ import {
 import FolderSelect from '../../components/FolderSelect';
 import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
 import { storage } from '../../utils/client';
-import { getThreadsByThreadImageFirebaseKey } from '../../API/threadData';
+import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../API/threadData';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -29,10 +29,14 @@ export default function ViewImage() {
       deleteFolderImageObj(item.firebaseKey)
     ));
     getThreadsByThreadImageFirebaseKey(firebaseKey).then((arr) => {
-      arr.map((item) => (
-        console.warn(item)
+      arr.forEach((item) => {
+        const payload = {
+          thread_image: '',
+          firebaseKey: item.firebaseKey,
+        };
 
-      ));
+        updateThread(payload);
+      });
     });
     const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
     deleteImgFile.delete().then(() => {
