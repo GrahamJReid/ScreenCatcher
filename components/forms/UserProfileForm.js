@@ -45,7 +45,7 @@ export default function UserProfileForm() {
   }, [user]);
   useEffect(() => {
     const userObj = {
-      comment_url: `${user.photoUrl}`,
+      comment_url: `${user.photoURL}`,
     };
     setCommentImageFormInput(userObj);
   }, [user]);
@@ -58,6 +58,10 @@ export default function UserProfileForm() {
     const { name, value } = e.target;
     setCommentImage(value);
     setCommentImageFormInput(name);
+    setCommentImageFormInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +74,7 @@ export default function UserProfileForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-      photoURL: commentImage,
+      photoURL: commentImageFormInput.comment_url,
       firebaseKey: userDetails.firebaseKey,
       displayName: formInput.text,
     };
@@ -97,7 +101,6 @@ export default function UserProfileForm() {
         updatePostMessage(userPostMessagePayload);
       });
     });
-    setCommentImageFormInput(commentImageInitialState);
     setPageReload(1);
     window.location.reload(true);
   };
@@ -118,17 +121,16 @@ export default function UserProfileForm() {
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
             aria-label="Folder"
-            name="comment_image"
+            name="comment_url"
             onChange={handleCommentImage}
             value={commentImageFormInput.comment_url}
             className="mb-3"
-            required
           >
             <option value="">Change Profile Picture</option>
             {userImages.map((folder) => (
               <option
                 key={folder.firebaseKey}
-                value={[folder.image_url, folder.image_title]}
+                value={folder.image_url}
               >
                 {folder.image_title}
               </option>

@@ -15,6 +15,7 @@ import FolderSelect from '../../components/FolderSelect';
 import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
 import { storage } from '../../utils/client';
 import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../API/threadData';
+import { updateUser } from '../../API/userData';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -38,6 +39,14 @@ export default function ViewImage() {
         updateThread(payload);
       });
     });
+    if (user.photoURL === imageDetails.image_url) {
+      console.warn(user.displayName);
+      const payload = {
+        photoURL: '/logo.png',
+        firebaseKey: user.firebaseKey,
+      };
+      updateUser(payload);
+    }
     const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
     deleteImgFile.delete().then(() => {
 
