@@ -128,7 +128,7 @@ export default function UserProfileForm() {
             {userImages.map((folder) => (
               <option
                 key={folder.firebaseKey}
-                value={[folder.image_url, folder.image_title]}
+                value={folder.image_url}
               >
                 {folder.image_title}
               </option>
