@@ -101,7 +101,6 @@ export default function UserProfileForm() {
         updatePostMessage(userPostMessagePayload);
       });
     });
-    setCommentImageFormInput(commentImageInitialState);
     setPageReload(1);
     window.location.reload(true);
   };
