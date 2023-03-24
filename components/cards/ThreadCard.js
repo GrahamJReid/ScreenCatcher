@@ -16,7 +16,8 @@ export default function ThreadCard({ threadObj }) {
       </Link>
       <Card.Body className={threadcardstyle.ThreadCardBody}>
         <Card.Text className={threadcardstyle.AuthorInfoContainer}>
-          <img src={threadObj.user_image} width="50%" className={threadcardstyle.ThreadCardAuthorImage} />  <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
+          {threadObj.user_image === '' ? <img className={threadcardstyle.ThreadCardAuthorImage} src="/logo.png" width="10%" /> : <img src={threadObj.user_image} width="50%" className={threadcardstyle.ThreadCardAuthorImage} /> }
+          <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
         </Card.Text>
 
       </Card.Body>
