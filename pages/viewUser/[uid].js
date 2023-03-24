@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { getUserPublicFolders } from '../../API/folderData';
 import {
-  createFollowUserObj, deleteFollowUserObj, getSingleFollowUserObj, updateFollowUserObj,
+  createFollowUserObj, deleteFollowUserObj, getFollowUserObjectsByCurrentUserUid, getSingleFollowUserObj, updateFollowUserObj,
 } from '../../API/followUserData';
 import { getUserPublicImages } from '../../API/imageData';
 import { getUser } from '../../API/userData';
@@ -22,7 +22,10 @@ export default function ViewUser() {
   const [folders, setFolders] = useState([]);
   const { user } = useAuth();
   const [btnToggle, setBtnToggle] = useState(0);
+  const [numberOfFollowers, setNumberOfFollowers] = useState(0);
   const [contentToggle, setContentToggle] = useState(0);
+  const [updateUserFollows, setUpdateUserFollows] = useState(0);
+  const didMount = React.useRef(false);
 
   const handleFollow = () => {
     setBtnToggle(1);
@@ -33,14 +36,16 @@ export default function ViewUser() {
     // eslint-disable-next-line no-shadow
     createFollowUserObj(userFollowPayload).then(({ name }) => {
       const patchFollowUserPayload = { firebaseKey: name };
-      updateFollowUserObj(patchFollowUserPayload);
+      updateFollowUserObj(patchFollowUserPayload).then(() => setUpdateUserFollows(1));
     });
+    console.warn(numberOfFollowers);
   };
-  const handleUnfollow = () => {
+  const handleUnfollow = async () => {
     setBtnToggle(0);
     getSingleFollowUserObj(user.uid, uid).then((followUserObj) => {
       deleteFollowUserObj(followUserObj.firebaseKey);
     });
+    setUpdateUserFollows(2);
   };
   const handleContentImages = () => {
     setContentToggle(0);
@@ -73,6 +78,17 @@ export default function ViewUser() {
       setFolders(userFolders);
     });
   }, [uid]);
+  useEffect(() => {
+    getFollowUserObjectsByCurrentUserUid(uid)
+      .then((arr) => setNumberOfFollowers(arr.length));
+  }, [uid, user, updateUserFollows]);
+
+  useEffect(() => {
+    if (didMount.current) {
+      getFollowUserObjectsByCurrentUserUid(uid)
+        .then((arr) => setNumberOfFollowers(arr.length));
+    } else { didMount.current = true; }
+  }, [uid, user, updateUserFollows]);
 
   return (
     <div>
