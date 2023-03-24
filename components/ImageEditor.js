@@ -31,6 +31,7 @@ export default function ImageEditor() {
   const router = useRouter();
   const [push, setPush] = useState(0);
   const [editFbKey, setEditFbKey] = useState('');
+  const [imageFile, setImageFile] = useState('');
   function getRandomInt() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
@@ -43,7 +44,7 @@ export default function ImageEditor() {
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
-        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), sort_date: Date.now(), username: user.displayName, image_title: 'create a title', category: 'category', description: 'description', public: false, gallery: false,
+        image_url: `${imageUrl}`, uid: user.uid, date_added: new Date().toLocaleString(), sort_date: Date.now(), username: user.displayName, image_title: 'create a title', category: 'category', description: 'description', public: false, gallery: false, image_file: `${imageFile}`,
       };
       createImage(Payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
@@ -156,6 +157,7 @@ export default function ImageEditor() {
         const file = new File([blob], `${randomInt}`, { type: 'image/jpeg' });
         const uploadTask = async () => storage.ref(`images/${file.name}`).put(file);
         const delayFunction = async () => {
+          await setImageFile(file.name);
           // eslint-disable-next-line no-unused-vars
           const delayingUploadTask = await uploadTask();
           storage.ref('images').child(file.name).getDownloadURL().then((url) => {
