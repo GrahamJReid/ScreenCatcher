@@ -125,7 +125,6 @@ export default function UserProfileForm() {
             onChange={handleCommentImage}
             value={commentImageFormInput.comment_url}
             className="mb-3"
-            required
           >
             <option value="">Change Profile Picture</option>
             {userImages.map((folder) => (
