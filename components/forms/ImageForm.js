@@ -187,7 +187,7 @@ export default function ImageForm({ obj }) {
 
       {/* IMAGE DESCRIPTION TEXTAREA */}
       <Form.Check
-        className="mb-3"
+        className={imagepagestyles.ImageFormSwitchInput}
         type="switch"
         id="public"
         name="public"
@@ -201,7 +201,7 @@ export default function ImageForm({ obj }) {
         }}
       />
       <Form.Check
-        className={imagepagestyles.ImageFormCheck}
+        className={imagepagestyles.ImageFormSwitchInput}
         type="switch"
         id="gallery"
         name="gallery"
