@@ -71,10 +71,28 @@ const getPostMessagesByUID = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getPostMessagesImageByImageFirebaseKey = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/postMessages.json?orderBy="image_firebaseKey"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 export {
   updatePostMessage,
   createPostMessage,
   deletePostMessage,
   getPostMessagesByMessagesId,
   getPostMessagesByUID,
+  getPostMessagesImageByImageFirebaseKey,
 };
