@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
-import Link from 'next/link';
 import { deleteComment } from '../API/commentsData';
 import { useAuth } from '../utils/context/authContext';
 import { getSingleThread } from '../API/threadData';
@@ -29,9 +28,9 @@ function CommentCard({ commentObj, onUpdate }) {
         <div className="comment-container">
           <Card.Header className={viewthreadstyle.CommentCardHeader}>{commentObj.date_added}</Card.Header>
           <Card.Body className={viewthreadstyle.CommentCardBody}>
-            <Link passHref href={`/viewImage/${commentObj.thread_comment_image_firebaseKey}`}>
-              <img className={viewthreadstyle.CommentCardImage} src={commentObj.comment_image} />
-            </Link>
+
+            {commentObj.comment_image === '' ? <h1>User has Removed Image</h1> : <a href={`/viewImage/${commentObj.thread_comment_image_firebaseKey}`}> <img className={viewthreadstyle.CommentCardImage} src={commentObj.comment_image} /></a>}
+
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}
