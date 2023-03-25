@@ -17,6 +17,7 @@ import { storage } from '../../utils/client';
 import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../API/threadData';
 import { updateUser } from '../../API/userData';
 import { getPostMessagesImageByImageFirebaseKey, updatePostMessage } from '../../API/postMessageData';
+import { getCommentsImageByImageFirebaseKey, updateComment } from '../../API/commentsData';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -56,6 +57,17 @@ export default function ViewImage() {
         };
 
         updatePostMessage(payload);
+      });
+    });
+    getCommentsImageByImageFirebaseKey(firebaseKey).then((arr) => {
+      console.warn(arr);
+      arr.forEach((item) => {
+        const payload = {
+          comment_image: '',
+          firebaseKey: item.firebaseKey,
+        };
+
+        updateComment(payload);
       });
     });
 

@@ -67,6 +67,23 @@ const deleteThreadComments = (firebaseKey) => new Promise((resolve, reject) => {
   })
     .catch(reject);
 });
+const getCommentsImageByImageFirebaseKey = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/comments.json?orderBy="thread_comment_image_firebaseKey"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 
 export {
   getCommentsByThreadId,
@@ -74,4 +91,5 @@ export {
   updateComment,
   deleteComment,
   deleteThreadComments,
+  getCommentsImageByImageFirebaseKey,
 };
