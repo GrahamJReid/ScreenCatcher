@@ -7,10 +7,11 @@
 }
 
 .Title{
-    font-size:5rem;
+    font-size:10rem;
 }
 .Image{
-    width:40%;
+    width:30%;
+    margin-top:2.2%;
 }
 .Button{
     width:30%;

@@ -8,6 +8,8 @@ import { getUser, updateUser } from '../../API/userData';
 import { getUserThreads, updateThread } from '../../API/threadData';
 import { getPostMessagesByUID, updatePostMessage } from '../../API/postMessageData';
 import { getFollowUserObjectsByCurrentUserUid } from '../../API/followUserData';
+import { getUserMessages, getUserSecondaryMessages, updateMessages } from '../../API/messagesData';
+import userprofilepagestyles from '../../styles/users/UserProfilePage.module.css';
 
 const commentImageInitialState = {
   comment_url: '',
@@ -28,6 +30,7 @@ export default function UserProfileForm() {
   const [pageReload, setPageReload] = useState(0);
   const [userDetails, setUserDetails] = useState([]);
   const [commentImage, setCommentImage] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [numberOfFollowers, setNumberOfFollowers] = useState(0);
   const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
 
@@ -101,6 +104,26 @@ export default function UserProfileForm() {
         updatePostMessage(userPostMessagePayload);
       });
     });
+    await getUserMessages(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userThreadPayload = {
+          user_1name: formInput.text,
+          firebaseKey: item.firebaseKey,
+        };
+
+        updateMessages(userThreadPayload);
+      });
+    });
+    await getUserSecondaryMessages(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userThreadPayload = {
+          user_2name: formInput.text,
+          firebaseKey: item.firebaseKey,
+        };
+
+        updateMessages(userThreadPayload);
+      });
+    });
     setPageReload(1);
     window.location.reload(true);
   };
@@ -109,46 +132,51 @@ export default function UserProfileForm() {
 
     <>
       <div>
-        <h1>{userDetails.displayName}</h1>
-        <img src={userDetails.photoURL} width="30%" />
-        <p>Followers: {numberOfFollowers}</p>
+        <div className={userprofilepagestyles.Wrapper}>
+          <div className={userprofilepagestyles.UserInfoDiv}>
+            <h1>{userDetails.displayName}</h1>
+            <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />
 
+          </div>
+          <div>
+            <Form onSubmit={handleSubmit}>
+              <h4 className="mt-3 mb-3">Edit User Profile</h4>
+              {commentImage === '' ? '' : <img src={commentImage} width="200px" />}
+              <FloatingLabel controlId="floatingSelect">
+                <Form.Select
+                  aria-label="Folder"
+                  name="comment_url"
+                  onChange={handleCommentImage}
+                  value={commentImageFormInput.comment_url}
+                  className={userprofilepagestyles.UserProfileFormInput}
+                >
+                  <option value="">Change Profile Picture</option>
+                  {userImages.map((folder) => (
+                    <option
+                      key={folder.firebaseKey}
+                      value={folder.image_url}
+                    >
+                      {folder.image_title}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
+              <FloatingLabel controlId="floatingTextArea" label="Change UserName">
+                <Form.Control
+                  className={userprofilepagestyles.UserProfileFormInput}
+                  type="textarea"
+                  style={{ height: '100px' }}
+                  name="text"
+                  value={formInput.text}
+                  onChange={handleChange}
+                  required
+                />
+              </FloatingLabel>
+              <Button type="submit" className={userprofilepagestyles.UserProfileFormSubmitButton}>Submit Changes</Button>
+            </Form>
+          </div>
+        </div>
       </div>
-
-      <Form onSubmit={handleSubmit}>
-        <h4 className="mt-3 mb-3">Edit User Profile</h4>
-        {commentImage === '' ? '' : <img src={commentImage} width="200px" />}
-        <FloatingLabel controlId="floatingSelect">
-          <Form.Select
-            aria-label="Folder"
-            name="comment_url"
-            onChange={handleCommentImage}
-            value={commentImageFormInput.comment_url}
-            className="mb-3"
-          >
-            <option value="">Change Profile Picture</option>
-            {userImages.map((folder) => (
-              <option
-                key={folder.firebaseKey}
-                value={folder.image_url}
-              >
-                {folder.image_title}
-              </option>
-            ))}
-          </Form.Select>
-        </FloatingLabel>
-        <FloatingLabel controlId="floatingTextArea" label="Change UserName" className="mb-3 text-black">
-          <Form.Control
-            type="textarea"
-            style={{ height: '100px' }}
-            name="text"
-            value={formInput.text}
-            onChange={handleChange}
-            required
-          />
-        </FloatingLabel>
-        <Button type="submit" className="blue-btn">Submit Changes</Button>
-      </Form>
     </>
   );
 }
