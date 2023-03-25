@@ -45,6 +45,10 @@ position:relative;
 .ImageFormInput::-webkit-file-upload-button {
   visibility: hidden;
 }
+
+.ImageFormSwitchInput{
+  accent-color:rgb(233,105,57)
+}
 .ImageFormSubmitButton{
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
