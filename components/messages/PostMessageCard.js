@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
-import Link from 'next/link';
 import { useAuth } from '../../utils/context/authContext';
 import { getSingleMessages } from '../../API/messagesData';
 import { deletePostMessage } from '../../API/postMessageData';
@@ -34,10 +33,8 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
         <div className="comment-container">
           <Card.Header>{postMessageObj.date_added}</Card.Header>
           <Card.Body>
-            <Link passHref href={`/viewImage/${postMessageObj.image_firebaseKey}`}>
+            {postMessageObj.comment_image === '' ? <h1>User has removed Image</h1> : <a href={`/viewImage/${postMessageObj.image_firebaseKey}`}> <img src={postMessageObj.comment_image} width="200px" /> </a> }
 
-              <img src={postMessageObj.comment_image} width="200px" />
-            </Link>
             <blockquote className="blockquote mb-0">
               <p>
                 {' '}

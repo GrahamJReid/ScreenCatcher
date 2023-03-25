@@ -16,6 +16,7 @@ import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API
 import { storage } from '../../utils/client';
 import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../API/threadData';
 import { updateUser } from '../../API/userData';
+import { getPostMessagesImageByImageFirebaseKey, updatePostMessage } from '../../API/postMessageData';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -47,6 +48,17 @@ export default function ViewImage() {
       };
       updateUser(payload);
     }
+    getPostMessagesImageByImageFirebaseKey(firebaseKey).then((arr) => {
+      arr.forEach((item) => {
+        const payload = {
+          comment_image: '',
+          firebaseKey: item.firebaseKey,
+        };
+
+        updatePostMessage(payload);
+      });
+    });
+
     const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
     deleteImgFile.delete().then(() => {
 
