@@ -37,7 +37,7 @@ export default function FoldersPageContent() {
       </Head>
       <div className={folderspagestyles.FoldersPageContainer}>
         <div className={folderspagestyles.SearchBarContainer}>
-          <input className={folderspagestyles.SearchBar} type="text" placeholder="Search Folders" onChange={(e) => setQuery(e.target.value)} />
+          <input className={folderspagestyles.SearchBar} type="text" placeholder="Search Folders By Title and Category" onChange={(e) => setQuery(e.target.value)} />
         </div>
         <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
 
