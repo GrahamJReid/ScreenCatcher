@@ -84,6 +84,23 @@ const getCommentsImageByImageFirebaseKey = (firebaseKey) => new Promise((resolve
     })
     .catch(reject);
 });
+const getCommentsByUID = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/comments.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 
 export {
   getCommentsByThreadId,
@@ -92,4 +109,5 @@ export {
   deleteComment,
   deleteThreadComments,
   getCommentsImageByImageFirebaseKey,
+  getCommentsByUID,
 };

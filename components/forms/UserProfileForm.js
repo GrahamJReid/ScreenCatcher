@@ -10,6 +10,7 @@ import { getPostMessagesByUID, updatePostMessage } from '../../API/postMessageDa
 import { getFollowUserObjectsByCurrentUserUid } from '../../API/followUserData';
 import { getUserMessages, getUserSecondaryMessages, updateMessages } from '../../API/messagesData';
 import userprofilepagestyles from '../../styles/users/UserProfilePage.module.css';
+import { getCommentsByUID, updateComment } from '../../API/commentsData';
 
 const commentImageInitialState = {
   comment_url: '',
@@ -122,6 +123,16 @@ export default function UserProfileForm() {
         };
 
         updateMessages(userThreadPayload);
+      });
+    });
+    await getCommentsByUID(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userThreadPayload = {
+          author: formInput.text,
+          firebaseKey: item.firebaseKey,
+        };
+
+        updateComment(userThreadPayload);
       });
     });
     setPageReload(1);
