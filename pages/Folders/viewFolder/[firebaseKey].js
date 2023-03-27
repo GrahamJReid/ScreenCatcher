@@ -76,7 +76,7 @@ export default function ViewFolderPage() {
         <div>
           <div className={viewfolderpagestyles.FolderImageDiv}>{images.map((image) => (
             <div key={image.firebaseKey}>
-              <Link key={image.firebaseKey} passHref href={`/Images/viewImage/${image.firebaseKey}`}>
+              <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
                 <img
                   className={viewfolderpagestyles.FolderImage}
                   src={`${image.image_url}`}

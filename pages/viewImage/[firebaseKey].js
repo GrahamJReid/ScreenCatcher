@@ -5,19 +5,19 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
 import Head from 'next/head';
-import styles from '../../../styles/Images/ViewImagePage.module.css';
+import styles from '../../styles/Images/ViewImagePage.module.css';
 
-import { useAuth } from '../../../utils/context/authContext';
+import { useAuth } from '../../utils/context/authContext';
 import {
   createImage, deleteImage, getSingleImage, updateImage,
-} from '../../../API/imageData';
-import FolderSelect from '../../../components/FolderSelect';
-import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../../API/folderImageData';
-import { storage } from '../../../utils/client';
-import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../../API/threadData';
-import { updateUser } from '../../../API/userData';
-import { getPostMessagesImageByImageFirebaseKey, updatePostMessage } from '../../../API/postMessageData';
-import { getCommentsImageByImageFirebaseKey, updateComment } from '../../../API/commentsData';
+} from '../../API/imageData';
+import FolderSelect from '../../components/FolderSelect';
+import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
+import { storage } from '../../utils/client';
+import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../API/threadData';
+import { updateUser } from '../../API/userData';
+import { getPostMessagesImageByImageFirebaseKey, updatePostMessage } from '../../API/postMessageData';
+import { getCommentsImageByImageFirebaseKey, updateComment } from '../../API/commentsData';
 
 export default function ViewImage() {
   const [imageDetails, setImageDetails] = useState({});
@@ -131,7 +131,7 @@ export default function ViewImage() {
           {imageDetails.uid === user.uid ? (
             <Button
               className={styles.ViewImageButton}
-              href={`/Images/viewImage/edit/${imageDetails.firebaseKey}`}
+              href={`/viewImage/edit/${imageDetails.firebaseKey}`}
             >
               Edit
             </Button>

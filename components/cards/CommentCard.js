@@ -29,7 +29,7 @@ function CommentCard({ commentObj, onUpdate }) {
           <Card.Header className={viewthreadstyle.CommentCardHeader}>{commentObj.date_added}</Card.Header>
           <Card.Body className={viewthreadstyle.CommentCardBody}>
 
-            {commentObj.comment_image === '' ? <h1>User has Removed Image</h1> : <a href={`/Images/viewImage/${commentObj.thread_comment_image_firebaseKey}`}> <img className={viewthreadstyle.CommentCardImage} src={commentObj.comment_image} /></a>}
+            {commentObj.comment_image === '' ? <h1>User has Removed Image</h1> : <a href={`/viewImage/${commentObj.thread_comment_image_firebaseKey}`}> <img className={viewthreadstyle.CommentCardImage} src={commentObj.comment_image} /></a>}
 
             <blockquote className="blockquote mb-0">
               <p>
