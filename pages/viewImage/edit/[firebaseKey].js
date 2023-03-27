@@ -3,9 +3,9 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { getSingleImage } from '../../../../API/imageData';
-import ImageForm from '../../../../components/forms/ImageForm';
-import viewimagepagestyle from '../../../../styles/Images/ViewImagePage.module.css';
+import { getSingleImage } from '../../../API/imageData';
+import ImageForm from '../../../components/forms/ImageForm';
+import viewimagepagestyle from '../../../styles/Images/ViewImagePage.module.css';
 
 export default function EditImagePage() {
   const [editItem, setEditItem] = useState({});
