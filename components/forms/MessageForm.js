@@ -84,7 +84,7 @@ export default function PostMessageForm() {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewmessagesstyle.MessageFormInput}
-          aria-label="Folder"
+          aria-label="Image"
           name="comment_image"
           onChange={handleCommentImage}
           value={commentImageFormInput.comment_url}

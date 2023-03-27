@@ -39,6 +39,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       [name]: value,
     }));
   };
+
   const handleCommentImage = (e) => {
     const { name, value } = e.target;
     const Arr = value.split(',');
@@ -82,19 +83,19 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewthreadstyle.CommentFormCommentTextWindow}
-          aria-label="Folder"
+          aria-label="Image"
           name="comment_image"
           onChange={handleCommentImage}
           value={commentImageFormInput.comment_url}
         >
           <option value="">Select an Image</option>
           {
-                  userImages.map((folder) => (
+                  userImages.map((image) => (
                     <option
-                      key={folder.firebaseKey}
-                      value={[folder.image_url, folder.firebaseKey]}
+                      key={image.firebaseKey}
+                      value={[image.image_url, image.firebaseKey]}
                     >
-                      {folder.image_title}
+                      {image.image_title}
                     </option>
                   ))
                 }

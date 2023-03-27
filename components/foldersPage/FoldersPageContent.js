@@ -5,7 +5,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getUserFolders } from '../../API/folderData';
-
 import folderspagestyles from '../../styles/Folders/FoldersPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
@@ -16,6 +15,7 @@ export default function FoldersPageContent() {
     }
     return order.filter((folder) => folder.folder_title.toLowerCase().includes(query.toLowerCase()) || folder.category.toLowerCase().includes(query.toLowerCase()) || folder.date_added.includes(query.toLowerCase()) || folder.description.toLowerCase().includes(query.toLowerCase()));
   };
+
   const { user } = useAuth();
   const [order, setOrder] = useState([]);
   const [query, setQuery] = useState('');
@@ -40,7 +40,6 @@ export default function FoldersPageContent() {
           <input className={folderspagestyles.SearchBar} type="text" placeholder="Search Folders By Title and Category" onChange={(e) => setQuery(e.target.value)} />
         </div>
         <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
-
           <div key={folder.firebaseKey} className={folderspagestyles.FolderAndTitleDiv}>
             <Link passHref href={`/Folders/viewFolder/${folder.firebaseKey}`}>
               <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className={folderspagestyles.FolderPlaceholder} />

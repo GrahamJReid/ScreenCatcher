@@ -6,27 +6,26 @@ import { Carousel } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getUserGalleryImages } from '../../API/imageData';
 
-export default function UserActivityCarousel() {
+export default function GalleryCarousel() {
   const [images, setImages] = useState([]);
   const { user } = useAuth();
 
-  const getActivities = () => {
+  const getGalleryImages = () => {
     getUserGalleryImages(user.uid).then(setImages);
   };
 
   useEffect(() => {
-    getActivities();
+    getGalleryImages();
   }, [user]);
 
   return (
 
     <Carousel interval={null} className="gallery-carousel-container">
       {images.map((image) => (
-        <Carousel.Item>
+        <Carousel.Item key={image.firebaseKey}>
           <img src={`${image.image_url}`} className="carousel-image" />
         </Carousel.Item>
       ))}
-
     </Carousel>
   );
 }

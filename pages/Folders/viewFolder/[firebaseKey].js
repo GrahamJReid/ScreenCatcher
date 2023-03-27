@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
@@ -8,9 +9,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { getSingleFolder } from '../../../API/folderData';
-import {
-  deleteFolderData, deleteFolderImageObj, getFolderImageObjectsByFolderId, getSingleFolderImageObj,
-} from '../../../API/folderImageData';
+import { deleteFolderData, deleteFolderImageObj, getFolderImageObjectsByFolderId, getSingleFolderImageObj } from '../../../API/folderImageData';
 import { getImages } from '../../../API/imageData';
 import { useAuth } from '../../../utils/context/authContext';
 import viewfolderpagestyles from '../../../styles/Folders/ViewFolderPage.module.css';

@@ -40,6 +40,7 @@ export default function ViewUser() {
     });
     console.warn(numberOfFollowers);
   };
+
   const handleUnfollow = async () => {
     setBtnToggle(0);
     getSingleFollowUserObj(user.uid, uid).then((followUserObj) => {
@@ -47,12 +48,15 @@ export default function ViewUser() {
     });
     setUpdateUserFollows(2);
   };
+
   const handleContentImages = () => {
     setContentToggle(0);
   };
+
   const handleContentFolders = () => {
     setContentToggle(1);
   };
+
   useEffect(() => {
     getSingleFollowUserObj(user.uid, uid).then((item) => {
       if (item) {
@@ -68,16 +72,19 @@ export default function ViewUser() {
       setFollowableUser(userDetails);
     });
   }, [uid]);
+
   useEffect(() => {
     getUserPublicImages(uid).then((userImages) => {
       setImages(userImages);
     });
   }, [uid]);
+
   useEffect(() => {
     getUserPublicFolders(uid).then((userFolders) => {
       setFolders(userFolders);
     });
   }, [uid]);
+
   useEffect(() => {
     getFollowUserObjectsByCurrentUserUid(uid)
       .then((arr) => setNumberOfFollowers(arr.length));
@@ -96,7 +103,9 @@ export default function ViewUser() {
         <div className={userpagestyle.UserPageUserInfoDiv}>
           <img className={userpagestyle.UserImage} src={followableUser.photoURL} alt="user photo" />
           <h1 className={userpagestyle.UserName}>{followableUser.displayName}</h1>
-          {btnToggle === 0 ? <Button className={userpagestyle.ContentButton} onClick={handleFollow}>Follow</Button> : <Button className={userpagestyle.ContentButton} onClick={handleUnfollow}>Unfollow</Button>}
+          {btnToggle === 0
+            ? <Button className={userpagestyle.ContentButton} onClick={handleFollow}>Follow</Button>
+            : <Button className={userpagestyle.ContentButton} onClick={handleUnfollow}>Unfollow</Button>}
           <div className={userpagestyle.ContentButtonDiv}>
             <Button className={userpagestyle.ContentButton} onClick={handleContentImages}>Images</Button>
             <Button className={userpagestyle.ContentButton} onClick={handleContentFolders}>Folders</Button>

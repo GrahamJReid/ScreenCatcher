@@ -21,6 +21,14 @@ export default function FolderSelect({ imageObj }) {
     getUserFolders(user.uid).then(setFolders);
   }, [user]);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formInput.folder_id) {
@@ -38,13 +46,6 @@ export default function FolderSelect({ imageObj }) {
     } else {
       window.alert('You must select a valid folder');
     }
-  };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
   };
 
   return (

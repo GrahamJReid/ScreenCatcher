@@ -18,9 +18,7 @@ function Home() {
 
         <div className="parallax_group" id="group-1">
           <div className="parallax_layer base_layer">
-            {/* <video autoPlay muted loop id="myVideo">
-              <source src="/background.mp4" type="video/mp4" />
-            </video> */}
+            <></>
           </div>
           <div className="parallax_layer mid_layer">
 
