@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { getSingleFolder } from '../../../API/folderData';
-import FolderForm from '../../../components/forms/FolderForm';
+import { getSingleFolder } from '../../../../API/folderData';
+import FolderForm from '../../../../components/forms/FolderForm';
 
 export default function EditFolder() {
   const [folder, setFolder] = useState({});

@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
-import { getThreads, getUserThreads } from '../API/threadData';
-import ThreadCard from '../components/cards/ThreadCard';
-import { useAuth } from '../utils/context/authContext';
-import threadspagestyles from '../styles/Threads/ThreadsPage.module.css';
+import { getThreads, getUserThreads } from '../../API/threadData';
+import ThreadCard from '../../components/cards/ThreadCard';
+import { useAuth } from '../../utils/context/authContext';
+import threadspagestyles from '../../styles/Threads/ThreadsPage.module.css';
 
 export default function ThreadsPage() {
   const { user } = useAuth();

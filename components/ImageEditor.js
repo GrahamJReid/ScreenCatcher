@@ -36,7 +36,7 @@ export default function ImageEditor() {
     return setRandomInt(Math.floor(Math.random() * 10000));
   }
   const changeRoute = (name) => {
-    router.push(`/viewImage/edit/${name}`);
+    router.push(`/Images/viewImage/edit/${name}`);
   };
   useEffect(() => {
     getRandomInt();

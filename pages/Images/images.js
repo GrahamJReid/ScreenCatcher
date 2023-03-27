@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
-import { getUserImages } from '../API/imageData';
-import ImageForm from '../components/forms/ImageForm';
-import ImagesPageContent from '../components/imagesPage/ImagesPageContent';
-import imagepagestyles from '../styles/ImagesPage.module.css';
-import { useAuth } from '../utils/context/authContext';
+import { getUserImages } from '../../API/imageData';
+import ImageForm from '../../components/forms/ImageForm';
+import ImagesPageContent from '../../components/imagesPage/ImagesPageContent';
+import imagepagestyles from '../../styles/Images/ImagesPage.module.css';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function Images() {
   const [updateImages, setUpdateImages] = useState([]);

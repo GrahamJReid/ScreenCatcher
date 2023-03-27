@@ -42,7 +42,7 @@ export default function ThreadForm({ img }) {
         const patchPayload = { firebaseKey: name };
         updateThread(patchPayload)
           .then(() => {
-            router.push('/ThreadsPage');
+            router.push('/Threads/ThreadsPage');
           });
       });
   };

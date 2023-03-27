@@ -33,7 +33,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
         <div className="comment-container">
           <Card.Header>{postMessageObj.date_added}</Card.Header>
           <Card.Body>
-            {postMessageObj.comment_image === '' ? <h1>User has removed Image</h1> : <a href={`/viewImage/${postMessageObj.image_firebaseKey}`}> <img src={postMessageObj.comment_image} width="200px" /> </a> }
+            {postMessageObj.comment_image === '' ? <h1>User has removed Image</h1> : <a href={`/Images/viewImage/${postMessageObj.image_firebaseKey}`}> <img src={postMessageObj.comment_image} width="200px" /> </a> }
 
             <blockquote className="blockquote mb-0">
               <p>

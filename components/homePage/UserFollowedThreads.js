@@ -20,7 +20,7 @@ export default function UserFollowedThreads() {
       });
     }, [user.uid]);
   });
-  // console.warn(followedThreads);
+
   return (
     <div>
 

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createFolder, updateFolder } from '../../API/folderData';
-import folderpagestyles from '../../styles/FoldersPage.module.css';
+import folderpagestyles from '../../styles/Folders/FoldersPage.module.css';
 
 const initialState = {
   firebaseKey: '',
@@ -39,7 +39,7 @@ export default function FolderForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateFolder(formInput)
-        .then(() => router.push(`/viewFolder/${obj.firebaseKey}`));
+        .then(() => router.push(`/Folders/viewFolder/${obj.firebaseKey}`));
     } else {
       const payload = {
         ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, sort_date: Date.now(),
@@ -51,7 +51,7 @@ export default function FolderForm({ obj }) {
             .then(() => {
               setFormInput(initialState);
               window.location.reload(true);
-              router.push('/folders');
+              router.push('/Folders/foldersPage');
             });
         });
     }

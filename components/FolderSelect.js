@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { getUserFolders } from '../API/folderData';
 import { createFolderImageObj, updateFolderImageObj } from '../API/folderImageData';
 import { useAuth } from '../utils/context/authContext';
-import viewimagepagestyles from '../styles/ViewImagePage.module.css';
+import viewimagepagestyles from '../styles/Images/ViewImagePage.module.css';
 
 const initialState = {
   firebaseKey: '',
