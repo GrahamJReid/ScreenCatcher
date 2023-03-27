@@ -11,7 +11,7 @@ export default function ThreadCard({ threadObj }) {
   return (
     <Card style={{ width: '25rem', color: 'black' }} key={threadObj.firebaseKey} className={threadcardstyle.ThreadCardContainer}>
       <Card.Title className={threadcardstyle.ThreadTitle}>{threadObj.thread_title}</Card.Title>
-      <Link href={`/Threads/viewThreads/${threadObj.firebaseKey}`} passHref>
+      <Link href={`/viewThreads/${threadObj.firebaseKey}`} passHref>
         {threadObj.thread_image === '' ? <img src="/logo.png" width="50%" /> : <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} /> }
       </Link>
       <Card.Body className={threadcardstyle.ThreadCardBody}>
