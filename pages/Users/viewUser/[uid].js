@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { getUserPublicFolders } from '../../API/folderData';
+import { getUserPublicFolders } from '../../../API/folderData';
 import {
   createFollowUserObj, deleteFollowUserObj, getFollowUserObjectsByCurrentUserUid, getSingleFollowUserObj, updateFollowUserObj,
-} from '../../API/followUserData';
-import { getUserPublicImages } from '../../API/imageData';
-import { getUser } from '../../API/userData';
-import { useAuth } from '../../utils/context/authContext';
-import userpagestyle from '../../styles/users/ViewUserPage.module.css';
+} from '../../../API/followUserData';
+import { getUserPublicImages } from '../../../API/imageData';
+import { getUser } from '../../../API/userData';
+import { useAuth } from '../../../utils/context/authContext';
+import userpagestyle from '../../../styles/users/ViewUserPage.module.css';
 
 export default function ViewUser() {
   const router = useRouter();
@@ -105,7 +105,7 @@ export default function ViewUser() {
         {contentToggle === 0 ? (
           <div className={userpagestyle.UserImageDiv}>
             {images.map((image) => (
-              <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+              <Link key={image.firebaseKey} passHref href={`/Images/viewImage/${image.firebaseKey}`}>
                 <img className={userpagestyle.UserPageImages} src={`${image.image_url}`} height="50%" width="50%" />
               </Link>
             ))}
@@ -114,7 +114,7 @@ export default function ViewUser() {
           <div className={userpagestyle.FoldersDiv}>{folders.map((folder) => (
 
             <div key={folder.firebaseKey}>
-              <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
+              <Link passHref href={`/Folders/viewFolder/${folder.firebaseKey}`}>
                 <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className={userpagestyle.FolderPlaceholder} />
               </Link>
               <h1>{folder.folder_title}</h1>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { getUserFolders } from '../../API/folderData';
 
-import folderspagestyles from '../../styles/FoldersPage.module.css';
+import folderspagestyles from '../../styles/Folders/FoldersPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
 export default function FoldersPageContent() {
@@ -42,7 +42,7 @@ export default function FoldersPageContent() {
         <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
 
           <div key={folder.firebaseKey} className={folderspagestyles.FolderAndTitleDiv}>
-            <Link passHref href={`/viewFolder/${folder.firebaseKey}`}>
+            <Link passHref href={`/Folders/viewFolder/${folder.firebaseKey}`}>
               <img src="https://img.icons8.com/color/512/mac-folder.png" height="50%" width="50%" className={folderspagestyles.FolderPlaceholder} />
             </Link>
             <h1>{folder.folder_title}</h1>

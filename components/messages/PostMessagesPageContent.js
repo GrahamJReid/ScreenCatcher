@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getPostMessagesByMessagesId } from '../../API/postMessageData';
 import { getSingleMessages } from '../../API/messagesData';
-import PostMessageCard from './PostMessageCard';
+import PostMessageCard from '../cards/PostMessageCard';
 import viewmessagesstyle from '../../styles/messages/ViewMessages.module.css';
 
 export default function PostMessagesPageContent() {

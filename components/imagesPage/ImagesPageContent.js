@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getUserImages } from '../../API/imageData';
-import imagepagestyles from '../../styles/ImagesPage.module.css';
+import imagepagestyles from '../../styles/Images/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
 export default function ImagesPageContent({ arr }) {
@@ -40,7 +40,7 @@ export default function ImagesPageContent({ arr }) {
       <div className={imagepagestyles.ContainImagePageContent}>
         <div>
           {filteredItems.map((image) => (
-            <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+            <Link key={image.firebaseKey} passHref href={`/Images/viewImage/${image.firebaseKey}`}>
               <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
             </Link>
           ))}

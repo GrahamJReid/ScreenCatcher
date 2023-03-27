@@ -47,7 +47,7 @@ export default function UsersPageContent() {
                 <Card.Img variant="top" src={user.photoURL} />
                 <Card.Body className={userspagestyle.UsersPageUserCardBody}>
                   <Card.Title>{user.displayName}</Card.Title>
-                  <Link href={`/viewUser/${user.uid}`} passHref>
+                  <Link href={`/Users/viewUser/${user.uid}`} passHref>
                     <button type="button" className={userspagestyle.ViewProfileButton}>View Profile</button>
                   </Link>
                 </Card.Body>

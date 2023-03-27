@@ -7,18 +7,17 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { getSingleFolder } from '../../API/folderData';
+import { getSingleFolder } from '../../../API/folderData';
 import {
   deleteFolderData, deleteFolderImageObj, getFolderImageObjectsByFolderId, getSingleFolderImageObj,
-} from '../../API/folderImageData';
-import { getImages } from '../../API/imageData';
-import { useAuth } from '../../utils/context/authContext';
-import viewfolderpagestyles from '../../styles/ViewFolderPage.module.css';
+} from '../../../API/folderImageData';
+import { getImages } from '../../../API/imageData';
+import { useAuth } from '../../../utils/context/authContext';
+import viewfolderpagestyles from '../../../styles/Folders/ViewFolderPage.module.css';
 
 export default function ViewFolderPage() {
   const [folder, setFolder] = useState({});
   const [images, setImages] = useState([]);
-  const [mouseOver, setMouseOver] = useState(0);
   const { user } = useAuth();
   const router = useRouter();
   const { firebaseKey } = router.query;
@@ -48,7 +47,7 @@ export default function ViewFolderPage() {
   const deleteFolder = () => {
     if (window.confirm(`Delete ${folder.folder_title}?`)) {
       deleteFolderData(folder.firebaseKey).then(() => {
-        router.push('/folders');
+        router.push('/Folders/foldersPage');
       });
     }
   };
@@ -64,7 +63,7 @@ export default function ViewFolderPage() {
         {folder.uid === user.uid ? (
           <Button
             className={viewfolderpagestyles.ViewFolderButton}
-            href={`/viewFolder/edit/${folder.firebaseKey}`}
+            href={`/Folders/viewFolder/edit/${folder.firebaseKey}`}
           >
             Edit
           </Button>
@@ -77,28 +76,21 @@ export default function ViewFolderPage() {
         <div>
           <div className={viewfolderpagestyles.FolderImageDiv}>{images.map((image) => (
             <div key={image.firebaseKey}>
-              <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+              <Link key={image.firebaseKey} passHref href={`/Images/viewImage/${image.firebaseKey}`}>
                 <img
                   className={viewfolderpagestyles.FolderImage}
                   src={`${image.image_url}`}
                   height="50%"
                   width="50%"
-                  onMouseOver={() => {
-                    setMouseOver(2);
-                  }}
                 />
               </Link>
 
-              {folder.uid === user.uid && mouseOver === (2) ? (
+              {folder.uid === user.uid ? (
                 <Button
-                  onMouseOver={() => {
-                    setMouseOver(2);
-                  }}
                   className={viewfolderpagestyles.ViewFolderButton}
                   onClick={() => {
                     getSingleFolderImageObj(folder.firebaseKey, image.firebaseKey).then((obj) => {
-                      deleteFolderImageObj(obj.firebaseKey).then(getFolderImages);
-                      setMouseOver(0);
+                      deleteFolderImageObj(obj.firebaseKey).then(getFolderImages).then(window.location.reload(true));
                     });
                   }}
                 >Remove

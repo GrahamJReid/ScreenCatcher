@@ -11,7 +11,7 @@ import {
   createLike, deleteLike, getLikesByThreadId, getLikesByThreadIdandUid, updateLike,
 } from '../../../API/likeData';
 import { getSingleThread } from '../../../API/threadData';
-import CommentCard from '../../../components/CommentCard';
+import CommentCard from '../../../components/cards/CommentCard';
 import AddAComment from '../../../components/forms/CommentForm';
 import viewthreadstyle from '../../../styles/Threads/viewThread.module.css';
 import { useAuth } from '../../../utils/context/authContext';
@@ -90,7 +90,7 @@ export default function ViewThread() {
           deleteFollowThreadObj(followThread.firebaseKey);
         });
       })).then(
-        deleteThreadComments(thread.firebaseKey).then(() => router.push('/ThreadsPage')),
+        deleteThreadComments(thread.firebaseKey).then(() => router.push('/Threads/ThreadsPage')),
       );
     }
   };
