@@ -14,6 +14,7 @@ export default function ThreadsPage() {
   useEffect(() => {
     getUserThreads(user.uid).then(setUserThreads);
   }, [user.uid]);
+
   useEffect(() => {
     getThreads(user.uid).then(setNonUserThreads);
   }, [user.uid]);
@@ -34,7 +35,6 @@ export default function ThreadsPage() {
             <div className={threadspagestyles.InnerUsersThreadsDiv}>
               <ThreadCard threadObj={thread} key={thread.firebaseKey} />
             </div>
-
           ))}
         </div>
       </div>

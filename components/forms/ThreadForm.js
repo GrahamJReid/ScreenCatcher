@@ -2,9 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import {
-  Button, FloatingLabel, Form,
-} from 'react-bootstrap';
+import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useAuth } from '../../utils/context/authContext';
 import { createThread, updateThread } from '../../API/threadData';

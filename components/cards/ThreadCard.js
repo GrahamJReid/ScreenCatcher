@@ -10,16 +10,22 @@ import threadcardstyle from '../../styles/Threads/ThreadCard.module.css';
 export default function ThreadCard({ threadObj }) {
   return (
     <Card style={{ width: '25rem', color: 'black' }} key={threadObj.firebaseKey} className={threadcardstyle.ThreadCardContainer}>
-      <Card.Title className={threadcardstyle.ThreadTitle}>{threadObj.thread_title}</Card.Title>
-      <Link href={`/viewThreads/${threadObj.firebaseKey}`} passHref>
-        {threadObj.thread_image === '' ? <img src="/logo.png" width="50%" /> : <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} /> }
-      </Link>
-      <Card.Body className={threadcardstyle.ThreadCardBody}>
-        <Card.Text className={threadcardstyle.AuthorInfoContainer}>
-          {threadObj.user_image === '' ? <img className={threadcardstyle.ThreadCardAuthorImage} src="/logo.png" width="10%" /> : <img src={threadObj.user_image} width="50%" className={threadcardstyle.ThreadCardAuthorImage} /> }
-          <h2 className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</h2>
-        </Card.Text>
 
+      <Card.Title className={threadcardstyle.ThreadTitle}>{threadObj.thread_title}</Card.Title>
+
+      <Link href={`/viewThreads/${threadObj.firebaseKey}`} passHref>
+        {threadObj.thread_image === ''
+          ? <img src="/logo.png" width="50%" />
+          : <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} /> }
+      </Link>
+
+      <Card.Body className={threadcardstyle.ThreadCardBody}>
+        <div className={threadcardstyle.AuthorInfoContainer}>
+          {threadObj.user_image === ''
+            ? <img className={threadcardstyle.ThreadCardAuthorImage} src="/logo.png" width="10%" />
+            : <img src={threadObj.user_image} width="50%" className={threadcardstyle.ThreadCardAuthorImage} /> }
+          <div className={threadcardstyle.ThreadAuthorUsername}>{threadObj.username}</div>
+        </div>
       </Card.Body>
     </Card>
   );

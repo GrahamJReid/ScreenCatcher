@@ -14,7 +14,7 @@ export default function ImageEditorPage() {
   return (
     <>
       <Head>
-        <title>Add Image</title>
+        <title>Image Editor</title>
       </Head>
       <div>
         <div className="image-editor-page">

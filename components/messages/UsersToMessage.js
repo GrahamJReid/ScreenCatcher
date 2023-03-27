@@ -1,12 +1,11 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import {
-  createMessages, getUserMessages, getUserSecondaryMessages, updateMessages,
-} from '../../API/messagesData';
+import { createMessages, getUserMessages, getUserSecondaryMessages, updateMessages } from '../../API/messagesData';
 import { getAllUsersExcludeCurrentUser } from '../../API/userData';
 import { useAuth } from '../../utils/context/authContext';
 import userstomessagesstyle from '../../styles/messages/UsersToMessagePage.module.css';

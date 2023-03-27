@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -38,6 +39,7 @@ function OffCanvas({ name, ...props }) {
 
           <nav onClick={handleClose}>
             <ul className="navbar-nav me-auto">
+
               <li className="NavLink">
                 <Link passHref href="/">
                   <a className="NavLink">
@@ -45,14 +47,15 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/ImageEditorPage">
-
                   <a className="NavLink">
                     Image Editor
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/Images/images">
                   <a className="NavLink">
@@ -60,6 +63,7 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/Folders/foldersPage">
 
@@ -68,6 +72,7 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/Threads/ThreadsPage">
 
@@ -76,6 +81,7 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/Messages/messagesPage">
 
@@ -84,6 +90,7 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/Users/UsersPage">
 
@@ -92,6 +99,7 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+
               <li className="NavLink">
                 <Link passHref href="/userProfile">
 
@@ -100,6 +108,7 @@ function OffCanvas({ name, ...props }) {
                   </a>
                 </Link>
               </li>
+              
               <button
                 type="button"
                 className="btn navbar-signout-btn SignOutButton"
@@ -118,15 +127,6 @@ function OffCanvas({ name, ...props }) {
   );
 }
 
-// function Example() {
-//   return (
-//     <>
-//       {['start', 'end', 'top', 'bottom'].map((placement, idx) => (
-//         <OffCanvasExample key={idx} placement={placement} name={placement} />
-//       ))}
-//     </>
-//   );
-// }
 export default OffCanvas;
 
 OffCanvas.propTypes = {

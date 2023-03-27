@@ -16,6 +16,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
       deletePostMessage(postMessageObj.firebaseKey).then(() => onUpdate());
     }
   };
+
   const { user } = useAuth();
   const [video, setVideo] = useState({});
   const [authorObj, setAuthorObj] = useState({});
@@ -23,6 +24,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
   useEffect(() => {
     getSingleMessages(postMessageObj.messages_id).then(setVideo);
   }, [postMessageObj.messages_id]);
+
   useEffect(() => {
     getUser(postMessageObj.uid).then(setAuthorObj);
   }, [postMessageObj.uid]);
@@ -33,7 +35,13 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
         <div className="comment-container">
           <Card.Header>{postMessageObj.date_added}</Card.Header>
           <Card.Body>
-            {postMessageObj.comment_image === '' ? <h1>User has removed Image</h1> : <a href={`/viewImage/${postMessageObj.image_firebaseKey}`}> <img src={postMessageObj.comment_image} width="200px" /> </a> }
+            {postMessageObj.comment_image === ''
+              ? <h1>User has removed Image</h1>
+              : (
+                <a href={`/viewImage/${postMessageObj.image_firebaseKey}`}>
+                  <img src={postMessageObj.comment_image} width="200px" />
+                </a>
+              ) }
 
             <blockquote className="blockquote mb-0">
               <p>
@@ -54,7 +62,6 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
                   ) : ''}
               </footer>
             </blockquote>
-
           </Card.Body>
         </div>
       </Card>

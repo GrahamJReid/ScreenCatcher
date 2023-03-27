@@ -53,10 +53,12 @@ export default function ImageForm({ obj }) {
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
+
   useEffect(() => {
     getUserFolders(user.uid).then(setFolders);
     handleUpdateArr();
   }, [obj, user]);
+
   useEffect(() => {
     if (didMount.current) {
       const uploadTask = async () => storage.ref(`images/${image.name}`).put(image);
@@ -102,7 +104,13 @@ export default function ImageForm({ obj }) {
         .then(() => router.push(`/viewImage/${obj.firebaseKey}`));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName, image_url: `${imageUrl}`, image_file: `${imagefile}`, sort_date: Date.now(),
+        ...formInput,
+        uid: user.uid,
+        date_added: new Date().toLocaleString(),
+        username: user.displayName,
+        image_url: `${imageUrl}`,
+        image_file: `${imagefile}`,
+        sort_date: Date.now(),
       };
       createImage(payload)
         .then(({ name }) => {
@@ -126,7 +134,6 @@ export default function ImageForm({ obj }) {
               setFolderImageInput(folderImageInitialState);
               console.warn(updateImages);
                 <ImagesPageContent arr={updateImages} />;
-              // window.location.reload(true);
             });
         });
     }

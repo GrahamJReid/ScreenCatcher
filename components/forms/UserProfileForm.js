@@ -38,21 +38,25 @@ export default function UserProfileForm() {
   useEffect(() => {
     getUserPublicImages(user.uid).then(setUserImages);
   }, [user]);
+
   useEffect(() => {
     getUser(user.uid).then(setUserDetails);
   }, [user, pageReload]);
+
   useEffect(() => {
     const userObj = {
       text: `${user.displayName}`,
     };
     setFormInput(userObj);
   }, [user]);
+
   useEffect(() => {
     const userObj = {
       comment_url: `${user.photoURL}`,
     };
     setCommentImageFormInput(userObj);
   }, [user]);
+
   useEffect(() => {
     getFollowUserObjectsByCurrentUserUid(user.uid)
       .then((arr) => setNumberOfFollowers(arr.length));
@@ -92,7 +96,7 @@ export default function UserProfileForm() {
           username: formInput.text,
         };
 
-        updateThread(userThreadPayload).then((itemzzz) => console.warn(itemzzz));
+        updateThread(userThreadPayload);
       });
     });
     await getPostMessagesByUID(user.uid).then((threadArr) => {
@@ -111,7 +115,6 @@ export default function UserProfileForm() {
           user_1name: formInput.text,
           firebaseKey: item.firebaseKey,
         };
-
         updateMessages(userThreadPayload);
       });
     });
@@ -121,7 +124,6 @@ export default function UserProfileForm() {
           user_2name: formInput.text,
           firebaseKey: item.firebaseKey,
         };
-
         updateMessages(userThreadPayload);
       });
     });
@@ -131,7 +133,6 @@ export default function UserProfileForm() {
           author: formInput.text,
           firebaseKey: item.firebaseKey,
         };
-
         updateComment(userThreadPayload);
       });
     });
@@ -147,7 +148,6 @@ export default function UserProfileForm() {
           <div className={userprofilepagestyles.UserInfoDiv}>
             <h1>{userDetails.displayName}</h1>
             <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />
-
           </div>
           <div>
             <Form onSubmit={handleSubmit}>

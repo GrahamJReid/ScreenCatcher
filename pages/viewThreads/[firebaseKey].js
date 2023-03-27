@@ -29,6 +29,7 @@ export default function ViewThread() {
   const displayComments = () => {
     getCommentsByThreadId(firebaseKey).then(setComments);
   };
+
   useEffect(() => {
     getCommentsByThreadId(firebaseKey).then(setComments);
     getLikesByThreadIdandUid(firebaseKey, user.uid).then((item) => {
@@ -52,7 +53,6 @@ export default function ViewThread() {
       uid: user.uid,
       thread_id: firebaseKey,
     };
-
     const createLikeFunc = async () => {
       createLike(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
@@ -67,6 +67,7 @@ export default function ViewThread() {
     };
     createLikeFunc();
   };
+
   const handleUnlike = async () => {
     getLikesByThreadIdandUid(firebaseKey, user.uid).then((deleteItem) => {
       console.warn(deleteItem);
@@ -79,6 +80,7 @@ export default function ViewThread() {
       setLikes(setting);
     });
   };
+
   const handleDeleteThread = () => {
     if (window.confirm(`Delete ${thread.thread_title}?`)) {
       getLikesByThreadId(thread.firebaseKey).then((itemarr) => {
@@ -118,6 +120,7 @@ export default function ViewThread() {
   useEffect(() => {
     getSingleThread(firebaseKey).then(setThread);
   }, [firebaseKey]);
+
   useEffect(() => {
     getSingleFollowThreadObj(user.uid, thread.firebaseKey).then((item) => {
       if (item) {
@@ -134,13 +137,25 @@ export default function ViewThread() {
       <h2>Category: {thread.category}</h2>
       <h3> Author: {thread.username}</h3>
       <h3>Description: {thread.description}</h3>
-      {thread.thread_image === '' ? <img src="/logo.png" width="50%" /> : <img src={thread.thread_image} className="create-thread-image" />}
+      {thread.thread_image === ''
+        ? <img src="/logo.png" width="50%" />
+        : <img src={thread.thread_image} className="create-thread-image" />}
+
       <div className={viewthreadstyle.ViewThreadButtonContainer}>
         {user.uid === thread.uid ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleDeleteThread}>Delete Thread</Button> : ''}
-        {btnToggle === 0 ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleFollow}>Follow</Button> : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnfollow}>Unfollow</Button>}
+
+        {btnToggle === 0
+          ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleFollow}>Follow</Button>
+          : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnfollow}>Unfollow</Button>}
+
         <div className={viewthreadstyle.LikesDiv}>
+
           <h2>{likes}</h2>
-          {buttonCount === 0 ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleLike}>LIKE</Button> : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnlike}>UNLIKE</Button> }
+
+          {buttonCount === 0
+            ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleLike}>LIKE</Button>
+            : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnlike}>UNLIKE</Button> }
+
         </div>
       </div>
       <div className={viewthreadstyle.CommentFormDiv}>

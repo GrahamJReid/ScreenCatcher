@@ -32,15 +32,16 @@ export default function ImageEditor() {
   const [push, setPush] = useState(0);
   const [editFbKey, setEditFbKey] = useState('');
   const [imageFile, setImageFile] = useState('');
-  function getRandomInt() {
-    return setRandomInt(Math.floor(Math.random() * 10000));
-  }
+
+  const getRandomInt = () => setRandomInt(Math.floor(Math.random() * 10000));
   const changeRoute = (name) => {
     router.push(`/viewImage/edit/${name}`);
   };
+
   useEffect(() => {
     getRandomInt();
   }, [imageUrl, user.displayName, user.uid]);
+
   useEffect(() => {
     if (didMount.current) {
       const Payload = {
@@ -62,6 +63,7 @@ export default function ImageEditor() {
     grayscale = '0';
   let rotate = 0; let flipHorizontal = 1; let
     flipVertical = 1;
+
   const loadImage = () => {
     setPush(0);
     const file = fileInput.files[0];
@@ -72,10 +74,12 @@ export default function ImageEditor() {
       document.querySelector('.container').classList.remove('disable');
     });
   };
+
   const applyFilter = () => {
     previewImg.style.transform = `rotate(${rotate}deg) scale(${flipHorizontal}, ${flipVertical})`;
     previewImg.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`;
   };
+
   filterOptions.forEach((option) => {
     option.addEventListener('click', () => {
       document.querySelector('.active').classList.remove('active');
@@ -100,6 +104,7 @@ export default function ImageEditor() {
       }
     });
   });
+
   const updateFilter = () => {
     filterValue.innerText = `${filterSlider.value}%`;
     const selectedFilter = document.querySelector('#filter .active');
@@ -114,6 +119,7 @@ export default function ImageEditor() {
     }
     applyFilter();
   };
+
   rotateOptions.forEach((option) => {
     option.addEventListener('click', () => {
       if (option.id === 'left') {
@@ -128,12 +134,14 @@ export default function ImageEditor() {
       applyFilter();
     });
   });
+
   const resetFilter = () => {
     brightness = '100'; saturation = '100'; inversion = '0'; grayscale = '0';
     rotate = 0; flipHorizontal = 1; flipVertical = 1;
     filterOptions[0].click();
     applyFilter();
   };
+
   const saveImage = () => {
     setLoader(1);
     const canvas = document.createElement('canvas');
@@ -168,6 +176,7 @@ export default function ImageEditor() {
       });
     console.warn(imageUrl);
   };
+
   return (
     <div className={imageEditorStyles.EditorContainer}>
       <h2>Image Editor</h2>

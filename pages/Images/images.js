@@ -10,15 +10,18 @@ import { useAuth } from '../../utils/context/authContext';
 export default function Images() {
   const [updateImages, setUpdateImages] = useState([]);
   const { user } = useAuth();
+
   const handleUpdateArr = () => {
     getUserImages(user.uid).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.date_added.localeCompare(b.date_added));
       setUpdateImages(sortedImageOrder);
     });
   };
+
   useEffect(() => {
     handleUpdateArr();
   });
+
   return (
 
     <div className={imagepagestyles.ImagePageWrapper}>

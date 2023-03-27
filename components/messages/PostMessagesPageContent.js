@@ -12,18 +12,21 @@ export default function PostMessagesPageContent() {
   const [messages, setMessages] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
+
   useEffect(() => {
     getPostMessagesByMessagesId(firebaseKey).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.sort_date - (b.sort_date));
       setPostMessages(sortedImageOrder);
     });
   }, [firebaseKey, postMessages]);
+
   const displayPostMessages = () => {
     getPostMessagesByMessagesId(firebaseKey).then((item) => {
       const sortedImageOrder = item.sort((b, a) => a.sort_date - (b.sort_date));
       setPostMessages(sortedImageOrder);
     });
   };
+
   useEffect(() => {
     getSingleMessages(firebaseKey).then((item) => {
       setMessages(item);
