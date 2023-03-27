@@ -3,18 +3,18 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { deleteThreadComments, getCommentsByThreadId } from '../../../API/commentsData';
+import { deleteThreadComments, getCommentsByThreadId } from '../../API/commentsData';
 import {
   createFollowThreadObj, deleteFollowThreadObj, getAllFollowThreadObjbyThreadID, getSingleFollowThreadObj, updateFollowThreadObj,
-} from '../../../API/followThreadData';
+} from '../../API/followThreadData';
 import {
   createLike, deleteLike, getLikesByThreadId, getLikesByThreadIdandUid, updateLike,
-} from '../../../API/likeData';
-import { getSingleThread } from '../../../API/threadData';
-import CommentCard from '../../../components/cards/CommentCard';
-import AddAComment from '../../../components/forms/CommentForm';
-import viewthreadstyle from '../../../styles/Threads/viewThread.module.css';
-import { useAuth } from '../../../utils/context/authContext';
+} from '../../API/likeData';
+import { getSingleThread } from '../../API/threadData';
+import CommentCard from '../../components/cards/CommentCard';
+import AddAComment from '../../components/forms/CommentForm';
+import viewthreadstyle from '../../styles/Threads/viewThread.module.css';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ViewThread() {
   const router = useRouter();
