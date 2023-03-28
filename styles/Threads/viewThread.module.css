@@ -10,6 +10,9 @@
   height:70rem;
   overflow-y: auto;
 }
+.PostContainer::-webkit-scrollbar {
+  display: none;
+}
 .ViewThreadButtonContainer{
   display:flex;
   flex-direction:row;
