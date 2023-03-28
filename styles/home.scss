@@ -16,7 +16,9 @@ background: center center fixed;
 background-size:cover;
 margin:0;
 
-
+.parallax_wrapper::-webkit-scrollbar {
+  display: none;
+}
   .parallax_wrapper{
   height:100vh;
   overflow-x:hidden;
@@ -24,11 +26,6 @@ margin:0;
   perspective:300px;
     .intro_screen{
       height:100vh;
-      // background:linear-gradient(
-      //   217deg,
-      //   blue,
-      //  purple 70.71%
-      // );
       background-image:url(/geobackground.jpg);
       background-position: center;
       @include align-center;

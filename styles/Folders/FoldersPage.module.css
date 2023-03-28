@@ -11,6 +11,9 @@
     margin-top:10%;
     
 }
+.FoldersPageContentContainer::-webkit-scrollbar {
+  display: none;
+}
 .SearchBarContainer{
     
     display:flex;
