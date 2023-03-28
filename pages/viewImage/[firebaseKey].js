@@ -14,7 +14,7 @@ import {
 import FolderSelect from '../../components/FolderSelect';
 import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
 import { storage } from '../../utils/client';
-import { getThreadsByThreadImageFirebaseKey, updateThread } from '../../API/threadData';
+import { getThreadsByThreadImageFirebaseKey, getUserThreads, updateThread } from '../../API/threadData';
 import { updateUser } from '../../API/userData';
 import { getPostMessagesImageByImageFirebaseKey, updatePostMessage } from '../../API/postMessageData';
 import { getCommentsImageByImageFirebaseKey, updateComment } from '../../API/commentsData';
@@ -31,16 +31,17 @@ export default function ViewImage() {
     folderImage.map((item) => (
       deleteFolderImageObj(item.firebaseKey)
     ));
+
     getThreadsByThreadImageFirebaseKey(firebaseKey).then((arr) => {
       arr.forEach((item) => {
         const payload = {
           thread_image: '',
           firebaseKey: item.firebaseKey,
         };
-
         updateThread(payload);
       });
     });
+
     if (user.photoURL === imageDetails.image_url) {
       console.warn(user.displayName);
       const payload = {
@@ -49,16 +50,29 @@ export default function ViewImage() {
       };
       updateUser(payload);
     }
+
+    if (user.photoURL === imageDetails.image_url) {
+      getUserThreads(user.uid).then((arr) => {
+        arr.forEach((item) => {
+          const payload = {
+            user_image: '',
+            firebaseKey: item.firebaseKey,
+          };
+          updateThread(payload);
+        });
+      });
+    }
+
     getPostMessagesImageByImageFirebaseKey(firebaseKey).then((arr) => {
       arr.forEach((item) => {
         const payload = {
           comment_image: '',
           firebaseKey: item.firebaseKey,
         };
-
         updatePostMessage(payload);
       });
     });
+
     getCommentsImageByImageFirebaseKey(firebaseKey).then((arr) => {
       console.warn(arr);
       arr.forEach((item) => {
@@ -66,7 +80,6 @@ export default function ViewImage() {
           comment_image: '',
           firebaseKey: item.firebaseKey,
         };
-
         updateComment(payload);
       });
     });
