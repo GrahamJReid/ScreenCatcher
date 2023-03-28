@@ -159,7 +159,7 @@ export default function ViewImage() {
           ) : ''}
           {imageDetails.uid === user.uid && imageDetails.public === true ? (
             <Button
-              href={`/Threads/${imageDetails.firebaseKey}`}
+              href={`/threads/${imageDetails.firebaseKey}`}
               className={styles.ViewImageButton}
             >
               Create Thread
