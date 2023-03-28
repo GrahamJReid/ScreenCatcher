@@ -82,7 +82,7 @@ export default function UsersToMessage() {
 
                   <Button
                     className={userstomessagesstyle.MessagesPageMessagesCardsButton}
-                    href={`/messages/${otherUser.firebaseKey}`}
+                    href={`/Messages/viewMessages/${otherUser.firebaseKey}`}
                   >
                     View Messages
                   </Button>
