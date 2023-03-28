@@ -25,6 +25,15 @@ export default function ViewImage() {
   const router = useRouter();
   const { firebaseKey } = router.query;
   const { user } = useAuth();
+  const urlNeededArr = [];
+
+  getImages().then((arr) => {
+    arr.forEach((item) => {
+      if (item.image_url === imageDetails.image_url) {
+        urlNeededArr.push(item);
+      }
+    });
+  });
 
   const deleteThisImage = () => {
     console.warn(folderImage);
@@ -84,24 +93,17 @@ export default function ViewImage() {
       });
     });
 
-    getImages().then((arr) => {
-      const urlNeededArr = [];
-      arr.forEach((item) => {
-        if (item.image_url === imageDetails.image_url) {
-          urlNeededArr.push(item);
-        }
+    if (urlNeededArr.length === 1) {
+      console.warn(urlNeededArr);
+      const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
+      deleteImgFile.delete().then(() => {
+
+      }).catch(() => {
+
       });
-      if (urlNeededArr.length === 1) {
-        const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
-        deleteImgFile.delete().then(() => {
-
-        }).catch(() => {
-
-        });
-      } else {
-        console.warn('Url still needed');
-      }
-    });
+    } else {
+      console.warn('Url still needed');
+    }
 
     deleteImage(imageDetails.firebaseKey).then(() => router.push('/Images/images'));
   };
