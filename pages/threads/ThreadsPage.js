@@ -25,15 +25,15 @@ export default function ThreadsPage() {
         <div className={threadspagestyles.UsersThreadsDiv}>
 
           {userThreads.map((thread) => (
-            <div className={threadspagestyles.InnerUsersThreadsDiv}>
-              <ThreadCard threadObj={thread} key={thread.firebaseKey} />
+            <div className={threadspagestyles.InnerUsersThreadsDiv} key={thread.firebaseKey}>
+              <ThreadCard threadObj={thread} />
             </div>
           ))}
         </div>
         <div className={threadspagestyles.UsersThreadsDiv}>
           {nonUserThreads.map((thread) => (
-            <div className={threadspagestyles.InnerUsersThreadsDiv}>
-              <ThreadCard threadObj={thread} key={thread.firebaseKey} />
+            <div className={threadspagestyles.InnerUsersThreadsDiv} key={thread.firebaseKey}>
+              <ThreadCard threadObj={thread} />
             </div>
           ))}
         </div>
