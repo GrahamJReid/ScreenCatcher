@@ -79,6 +79,9 @@ position:relative;
   position:sticky;
   padding:2%;
 }
+.ContainImagePageContent::-webkit-scrollbar {
+  display: none;
+}
 .ImagesForm{
   background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
   border-radius:25px;

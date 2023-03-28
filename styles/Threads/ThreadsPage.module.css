@@ -1,8 +1,11 @@
 .UsersThreadsDiv{
   white-space: nowrap;
   position: relative;
-  overflow-x:scroll;
+  overflow-x:auto;
   overflow-y:hidden;
+}
+.UsersThreadsDiv::-webkit-scrollbar {
+  display: none;
 }
 .InnerUsersThreadsDiv {
   width: 24.5%;

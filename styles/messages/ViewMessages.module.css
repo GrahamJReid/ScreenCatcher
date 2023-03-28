@@ -27,6 +27,9 @@
   position:relative ;
   overflow-anchor:none;
 }
+.PostsDiv::-webkit-scrollbar {
+  display: none;
+}
 .NamesTitle{
   font-size:2rem;
 }

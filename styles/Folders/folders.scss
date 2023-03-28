@@ -4,7 +4,9 @@
   align-items: center;
   }
   
- 
+  .foldersparallax_wrapper::-webkit-scrollbar {
+    display: none;
+  }
   
     .foldersparallax_wrapper{
     height:100vh;
