@@ -9,7 +9,7 @@ import styles from '../../styles/Images/ViewImagePage.module.css';
 
 import { useAuth } from '../../utils/context/authContext';
 import {
-  createImage, deleteImage, getSingleImage, updateImage,
+  createImage, deleteImage, getImages, getSingleImage, updateImage,
 } from '../../API/imageData';
 import FolderSelect from '../../components/FolderSelect';
 import { deleteFolderImageObj, getFolderImageObjBasedOnImageId } from '../../API/folderImageData';
@@ -71,12 +71,25 @@ export default function ViewImage() {
       });
     });
 
-    const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
-    deleteImgFile.delete().then(() => {
+    getImages().then((arr) => {
+      const urlNeededArr = [];
+      arr.forEach((item) => {
+        if (item.image_url === imageDetails.image_url) {
+          urlNeededArr.push(item);
+        }
+      });
+      if (urlNeededArr.length === 1) {
+        const deleteImgFile = storage.ref(`images/${imageDetails.image_file}`);
+        deleteImgFile.delete().then(() => {
 
-    }).catch(() => {
+        }).catch(() => {
 
+        });
+      } else {
+        console.warn('Url still needed');
+      }
     });
+
     deleteImage(imageDetails.firebaseKey).then(() => router.push('/Images/images'));
   };
 
