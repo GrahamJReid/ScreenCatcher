@@ -91,7 +91,7 @@ export default function UserProfileForm() {
     await getUserThreads(user.uid).then((threadArr) => {
       threadArr.forEach((item) => {
         const userThreadPayload = {
-          user_image: commentImage,
+          user_image: commentImageFormInput.comment_url,
           firebaseKey: item.firebaseKey,
           username: formInput.text,
         };
