@@ -150,20 +150,21 @@ export default function UserProfileForm() {
             <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />
           </div>
           <div>
-            <Form onSubmit={handleSubmit}>
-              <h4 className="mt-3 mb-3">Edit User Profile</h4>
-              {commentImage === '' ? '' : <img src={commentImage} width="200px" />}
+            <Form className={userprofilepagestyles.ProfileFormDiv} onSubmit={handleSubmit}>
+              <h4 className={userprofilepagestyles.FormTitle}>Edit User Profile</h4>
+              {commentImage === '' ? '' : <img className={userprofilepagestyles.ImagePreview} src={commentImage} width="200px" />}
               <FloatingLabel controlId="floatingSelect">
                 <Form.Select
                   aria-label="Folder"
                   name="comment_url"
                   onChange={handleCommentImage}
                   value={commentImageFormInput.comment_url}
-                  className={userprofilepagestyles.UserProfileFormInput}
+                  className={userprofilepagestyles.UserProfileFormInputSelect}
                 >
-                  <option value="">Change Profile Picture</option>
+                  <option className={userprofilepagestyles.SelectText} value="">Change Profile Picture</option>
                   {userImages.map((folder) => (
                     <option
+                      className={userprofilepagestyles.SelectText}
                       key={folder.firebaseKey}
                       value={folder.image_url}
                     >
