@@ -3,6 +3,8 @@
   justify-content:center;
   align-items:center;
   flex-direction:column;
+  margin-top:5%;
+  margin-bottom:5%;
   
 }
 .UserInfoDiv{
@@ -13,12 +15,29 @@
 }
 .UserProfileImage{
   width:50%;
+  border-radius:25px;
+  border:solid 5px rgb(233,105,57);
+}
+.ImagePreview{
+  border:2px solid rgb(233,105,57);
+  border-radius:25px;
+  margin:1%;
+}
+.FormTitle{
+  font-size:2rem;
+}
+.ProfileFormDiv{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 .UserProfileFormSubmitButton{
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   background:rgb(5,1,26);
   margin-left:1%;
+  font-size:1.5rem;
 }
 .UserProfileFormSubmitButton:hover{
   border:solid 2px rgb(233,105,57);
@@ -30,14 +49,41 @@
   color:white;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
-
+  font-size:2em;
+  width:30rem;
 }
 .UserProfileFormInput:focus{
   background-color:rgb(5,1,26);
   color:white;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
+  font-size:2em;
 }
 .UserProfileFormInput::placeholder{
   color:white;
+}
+
+.UserProfileFormInputSelect{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  width:30rem;
+  padding:5%;
+  margin-bottom:1%;
+
+}
+.UserProfileFormInputSelect:focus{
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+}
+.UserProfileFormInputSelect::placeholder{
+  color:white;
+  margin-bottom:25%;
+}
+.SelectText{
+  font-size:5em;
+  
 }
