@@ -2,7 +2,7 @@
 .ImagePageWrapper{
   display:flex;
   flex-direction:row;
-  margin-top:10%;
+  margin-top:8%;
   height:100vh;
   width:100%;
   position:fixed;
@@ -10,9 +10,10 @@
   
 }
 .ImageFormContainer{
-  width:30%;
+  width:40%;
   margin-left:10%;
  height:70%;
+ margin-bottom:5%;
 }
 .ImagesPageContentContainer{
   width:80%;
@@ -22,7 +23,7 @@
     color:white;
 }
 .ImagesFormTitle{
-  font-size:5rem;
+  font-size:3em;
   font-weight:900;
 }
 .FormContainer{
@@ -38,7 +39,7 @@ position:relative;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   margin-bottom:5%;
-  font-size:2rem;
+  font-size:1.7rem;
 }
 .ImageFormInput:focus{
   background-color:rgb(5,1,26);
@@ -47,7 +48,7 @@ position:relative;
   border-radius:25px;
 }
 .ImageFormInputLabel{
-  font-size:2rem;
+  font-size:1.2em;
 }
 .ImageFormInput::-webkit-file-upload-button {
   visibility: hidden;
@@ -55,7 +56,7 @@ position:relative;
 
 .ImageFormSwitchInput{
   accent-color:rgb(233,105,57);
-  font-size:2rem;
+  font-size:1.2em;
   margin:2%;
 }
 .ImageFormSubmitButton{
@@ -63,7 +64,7 @@ position:relative;
   border-radius:25px;
   background:rgb(5,1,26);
   margin-left:1%;
-  font-size:2rem;
+  font-size:1.5em;
 }
 .ImageFormSubmitButton:hover{
   border:solid 2px rgb(233,105,57);
@@ -123,7 +124,7 @@ position:relative;
   
 }
 .SearchBar{
-    width:50%;
+    width:65%;
     border-radius:25px;
     padding:1%;
 }
@@ -132,7 +133,7 @@ position:relative;
   color:white;
   border:solid 5px rgb(233,105,57);
   border-radius:25px;
-  font-size:2rem;
+  font-size:1.5em;
   padding:2%;
 
 }

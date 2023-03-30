@@ -48,7 +48,7 @@ a {
 }
 
 body {
-  background-image:url(/geobackground.jpg);
+  background-image:url(/sun2background.jpg);
 }
 .container{
   max-width:none;
@@ -301,7 +301,7 @@ width: 24.5%;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  font-size:2rem;
+  font-size:1rem;
   
 }
 .off-canvas-show-button:hover{
