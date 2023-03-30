@@ -2,7 +2,14 @@
   margin:0;
   padding:0;
 }
-
+@keyframes bg-animation {
+  0%{
+    background-position:left;
+  }
+  100%{
+    background-position:right;
+  }
+}
 @mixin align-center{
 display:flex;
 justify-content: center;
@@ -25,11 +32,46 @@ margin:0;
   overflow-y:auto;
   perspective:300px;
     .intro_screen{
-      height:100vh;
-      background-image:url(/geobackground.jpg);
-      background-position: center;
-      @include align-center;
+     
+  .intro-div-background-container{
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+    width:100vw;
+    height:100vh;
+    position:relative;
+  
+      .intro-div-left{
+        background-image:url(/geobackground.jpg);
+        background-size:200%;
+        animation: bg-animation 20s linear infinite alternate;
+        width:50%;
+        z-index:-5;
+
+      }
+      .intro-div-right{
+        background-image:url(/geobackgroundreverse.jpeg);
+        background-size:200%;
+        animation: bg-animation 20s linear infinite alternate-reverse;
+        width:50%;
+        z-index:-5;
+      }
+     
+      .intro-title{
+        font-size:12rem;
+        font-weight:900;
+        z-index: 2;
+        position:absolute;
+        margin-top:35%;
+      }
+      .home-logo{
+        margin-top:10%;
+        padding:1%;
+        width:30%;
+        position:absolute;
+      }
      }
+    }
     .outro_screen{
     height:100vh;
     background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));

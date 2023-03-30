@@ -146,20 +146,21 @@ export default function UserProfileForm() {
       <div>
         <div className={userprofilepagestyles.Wrapper}>
           <div className={userprofilepagestyles.UserInfoDiv}>
-            <h1>{userDetails.displayName}</h1>
+            <h1 className={userprofilepagestyles.UserProfileName}>{userDetails.displayName}</h1>
             <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />
           </div>
           <div>
             <Form className={userprofilepagestyles.ProfileFormDiv} onSubmit={handleSubmit}>
-              <h4 className={userprofilepagestyles.FormTitle}>Edit User Profile</h4>
-              {commentImage === '' ? '' : <img className={userprofilepagestyles.ImagePreview} src={commentImage} width="200px" />}
-              <FloatingLabel controlId="floatingSelect">
+              {/* <h4 className={userprofilepagestyles.FormTitle}></h4> */}
+              {commentImage === '' ? '' : <img className={userprofilepagestyles.ImagePreview} src={commentImage} width="20%" />}
+              <FloatingLabel className={userprofilepagestyles.InputLabel} controlId="floatingSelect" label="Choose Profile Picture">
                 <Form.Select
                   aria-label="Folder"
                   name="comment_url"
                   onChange={handleCommentImage}
                   value={commentImageFormInput.comment_url}
                   className={userprofilepagestyles.UserProfileFormInputSelect}
+                  style={{ height: '125px' }}
                 >
                   <option className={userprofilepagestyles.SelectText} value="">Change Profile Picture</option>
                   {userImages.map((folder) => (
@@ -173,11 +174,11 @@ export default function UserProfileForm() {
                   ))}
                 </Form.Select>
               </FloatingLabel>
-              <FloatingLabel controlId="floatingTextArea" label="Change UserName">
+              <FloatingLabel className={userprofilepagestyles.InputLabel} controlId="floatingTextArea" label="Change UserName">
                 <Form.Control
                   className={userprofilepagestyles.UserProfileFormInput}
                   type="textarea"
-                  style={{ height: '100px' }}
+                  style={{ height: '125px' }}
                   name="text"
                   value={formInput.text}
                   onChange={handleChange}
