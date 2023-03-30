@@ -32,7 +32,7 @@ function Home() {
             <></>
           </div>
           <div className="parallax_layer top_layer">
-            <div>
+            <div className="followed-threads-container">
               <h1 className="followed-threads-title">Followed Threads</h1>
               <UserFollowedThreads />
             </div>
