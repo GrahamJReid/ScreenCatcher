@@ -43,7 +43,7 @@ margin:0;
   
       .intro-div-left{
         background-image:url(/geobackground.jpg);
-        background-size:150%;
+        background-size:200%;
         animation: bg-animation 15s linear infinite alternate;
         width:50%;
         z-index:-5;
@@ -51,11 +51,12 @@ margin:0;
       }
       .intro-div-right{
         background-image:url(/geobackgroundreverse.jpeg);
-        background-size:150%;
+        background-size:200%;
         animation: bg-animation 15s linear infinite alternate-reverse;
         width:50%;
         z-index:-5;
       }
+     
       .intro-title{
         font-size:12rem;
         font-weight:900;
