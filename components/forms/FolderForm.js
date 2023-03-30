@@ -61,13 +61,14 @@ export default function FolderForm({ obj }) {
     <div>
       <div className={folderpagestyles.FolderFormDiv}>
         <Form onSubmit={handleSubmit}>
-          <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Folder</h1>
+          <h1 className={folderpagestyles.FolderFormTitle}>{obj.firebaseKey ? 'Update' : 'Add'} Folder</h1>
 
           {/* FOLDER TITLE */}
-          <FloatingLabel controlId="floatingInput2" label="Folder Title">
+          <FloatingLabel className={folderpagestyles.FolderFormInputLabel} controlId="floatingInput2" label="Folder Title">
             <Form.Control
               className={folderpagestyles.FolderFormInput}
               type="text"
+              style={{ height: '100px' }}
               name="folder_title"
               value={formInput.folder_title}
               onChange={handleChange}
@@ -76,20 +77,21 @@ export default function FolderForm({ obj }) {
           </FloatingLabel>
 
           {/* FOLDER DESCRIPTION TEXTAREA */}
-          <FloatingLabel controlId="floatingTextArea" label="Folder Description">
+          <FloatingLabel className={folderpagestyles.FolderFormInputLabel} controlId="floatingTextArea" label="Folder Description">
             <Form.Control
               className={folderpagestyles.FolderFormInput}
               type="textarea"
-              style={{ height: '100px' }}
+              style={{ height: '150px' }}
               name="description"
               value={formInput.description}
               onChange={handleChange}
               required
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingInput3" label="Category">
+          <FloatingLabel className={folderpagestyles.FolderFormInputLabel} controlId="floatingInput3" label="Category">
             <Form.Control
               className={folderpagestyles.FolderFormInput}
+              style={{ height: '100px' }}
               type="text"
               name="category"
               value={formInput.category}
@@ -100,7 +102,7 @@ export default function FolderForm({ obj }) {
 
           {/* FOLDER DESCRIPTION TEXTAREA */}
           <Form.Check
-            className="mb-3"
+            className={folderpagestyles.FolderFormInputCheck}
             type="switch"
             id="public"
             name="public"

@@ -141,13 +141,14 @@ export default function ImageForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit} className={imagepagestyles.ImagesForm}>
-      <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Image</h1>
+      <h1 className={imagepagestyles.ImagesFormTitle}>{obj.firebaseKey ? 'Update' : 'Add'} Image</h1>
 
       {/* IMAGE FILE */}
       {obj.firebaseKey ? '' : (
-        <FloatingLabel controlId="floatingInput1" label="Click Here To Add File">
+        <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput1" label="Add File">
           <Form.Control
             className={imagepagestyles.ImageFormInput}
+            style={{ height: '100px' }}
             type="file"
             onInput={handleImage}
             required
@@ -158,9 +159,10 @@ export default function ImageForm({ obj }) {
       )}
 
       {/* IMAGE TITLE */}
-      <FloatingLabel controlId="floatingInput2" label="Image Title">
+      <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput2" label="Image Title">
         <Form.Control
           className={imagepagestyles.ImageFormInput}
+          style={{ height: '100px' }}
           type="text"
           name="image_title"
           value={formInput.image_title}
@@ -170,7 +172,7 @@ export default function ImageForm({ obj }) {
       </FloatingLabel>
 
       {/* IMAGE DESCRIPTION TEXTAREA */}
-      <FloatingLabel controlId="floatingTextArea" label="Image Description">
+      <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingTextArea" label="Image Description">
         <Form.Control
           className={imagepagestyles.ImageFormInput}
           type="textarea"
@@ -181,9 +183,10 @@ export default function ImageForm({ obj }) {
           required
         />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Category">
+      <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput3" label="Category">
         <Form.Control
           className={imagepagestyles.ImageFormInput}
+          style={{ height: '100px' }}
           type="text"
           name="category"
           value={formInput.category}
@@ -198,7 +201,7 @@ export default function ImageForm({ obj }) {
         type="switch"
         id="public"
         name="public"
-        label="Make public?"
+        label="Make public"
         checked={formInput.public}
         onChange={(e) => {
           setFormInput((prevState) => ({
@@ -212,7 +215,7 @@ export default function ImageForm({ obj }) {
         type="switch"
         id="gallery"
         name="gallery"
-        label="Add to Gallery?"
+        label="Add to Gallery"
         checked={formInput.gallery}
         onChange={(e) => {
           setFormInput((prevState) => ({
@@ -225,6 +228,7 @@ export default function ImageForm({ obj }) {
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
             className={imagepagestyles.ImageFormInput}
+            style={{ height: '100px' }}
             aria-label="Folder"
             name="folder_id"
             onChange={handleFolderImageChange}
