@@ -179,7 +179,7 @@ export default function ImageEditor() {
 
   return (
     <div className={imageEditorStyles.EditorContainer}>
-      <h2>Image Editor</h2>
+      <h2 className={imageEditorStyles.ImageEditorTitle}>Image Editor</h2>
       <div className={imageEditorStyles.Wrapper}>
         <div className={imageEditorStyles.EditorControlsContainer}>
           <div id="filter" className={imageEditorStyles.FilterDiv}>

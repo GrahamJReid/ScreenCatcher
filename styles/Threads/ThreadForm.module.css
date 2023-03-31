@@ -5,7 +5,7 @@
     justify-content:center;
     align-items:center;
     margin-top:15%;
-    margin-right:25%
+
 }
 
 .ThreadFormDiv{
@@ -27,6 +27,7 @@
     width:50%;
     margin-bottom:10%;
     border-radius:25px;
+    margin-right:5%;
 }
 .ThreadFormTitle{
   font-size:4em;
