@@ -93,7 +93,7 @@ margin:0;
         transform:translateZ(-300px)scale(2);
       }
       .mid_layer{
-      transform:translateZ(210px)scale(.22);
+      transform:translateZ(210px)scale(.25);
       }
       .top_layer{
         transform: translateZ(210px)scale(.3);
@@ -111,7 +111,7 @@ margin:0;
       background-image:url(/sunbackground.jpg); 
       background-size:cover;
       background-position:center;
-      transform:translateZ(50)scale(1.1);
+      transform:translateZ(50)scale(1);
      }
 
      #group-2{
@@ -128,7 +128,7 @@ margin:0;
 
      #outro{
       color:white;
-      transform:translateZ(0)scale(.8);
+      transform:translateZ(0)scale(.83);
      }
 
   }
