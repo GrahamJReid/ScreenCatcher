@@ -44,7 +44,7 @@ margin:0;
       .intro-div-left{
         background-image:url(/geobackground.jpg);
         background-size:200%;
-        animation: bg-animation 25s linear infinite alternate;
+        animation: bg-animation 20s linear infinite alternate;
         width:50%;
         z-index:-5;
 
@@ -52,7 +52,7 @@ margin:0;
       .intro-div-right{
         background-image:url(/geobackgroundreverse.jpeg);
         background-size:200%;
-        animation: bg-animation 25s linear infinite alternate-reverse;
+        animation: bg-animation 20s linear infinite alternate-reverse;
         width:50%;
         z-index:-5;
       }
@@ -122,6 +122,7 @@ margin:0;
       background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
       border:solid 3px rgb(233,105,57);
       border-radius:25px;
+      width:100%;
       
      }
 
