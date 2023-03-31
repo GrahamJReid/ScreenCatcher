@@ -49,11 +49,12 @@ export default function FolderSelect({ imageObj }) {
   };
 
   return (
-    <div>
+    <div className={viewimagepagestyles.FolderSelectDiv}>
       <Form>
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
             className={viewimagepagestyles.FolderSelect}
+            style={{ height: '2.5em' }}
             aria-label="Folder"
             name="folder_id"
             onChange={handleChange}

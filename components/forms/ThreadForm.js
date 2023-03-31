@@ -46,13 +46,14 @@ export default function ThreadForm({ img }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <h1 className="mt-5 mb-3">Create Thread</h1>
+    <Form className={threadformstyles.ThreadFormContainer} onSubmit={handleSubmit}>
+      <h1 className={threadformstyles.ThreadFormTitle}>Create Thread</h1>
 
       {/* FOLDER TITLE */}
-      <FloatingLabel controlId="floatingInput2" label="Thread Title">
+      <FloatingLabel className={threadformstyles.ThreadFormLabel} controlId="floatingInput2" label="Thread Title">
         <Form.Control
           className={threadformstyles.ThreadFormInput}
+          style={{ height: '2.7em' }}
           type="text"
           name="thread_title"
           value={formInput.thread_title}
@@ -62,20 +63,21 @@ export default function ThreadForm({ img }) {
       </FloatingLabel>
 
       {/* FOLDER DESCRIPTION TEXTAREA */}
-      <FloatingLabel controlId="floatingTextArea" label="Thread Description">
+      <FloatingLabel className={threadformstyles.ThreadFormLabel} controlId="floatingTextArea" label="Thread Description">
         <Form.Control
           className={threadformstyles.ThreadFormInput}
           type="textarea"
-          style={{ height: '100px' }}
+          style={{ height: '2.7em' }}
           name="description"
           value={formInput.description}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Category">
+      <FloatingLabel className={threadformstyles.ThreadFormLabel} controlId="floatingInput3" label="Category">
         <Form.Control
           className={threadformstyles.ThreadFormInput}
+          style={{ height: '2.7em' }}
           type="text"
           name="category"
           value={formInput.category}

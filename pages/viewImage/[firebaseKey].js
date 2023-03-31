@@ -142,19 +142,19 @@ export default function ViewImage() {
       </Head>
       <div className={styles.ViewImageContainer}>
 
-        <h2>{imageDetails.image_title}</h2>
-
-        <img className={styles.ViewImageImage} src={imageDetails.image_url} />
-
-        <p>
+        <h2 className={styles.ImageTitle}>{imageDetails.image_title}</h2>
+        <p className={styles.AboutImageText}>
           {imageDetails.date_added}
         </p>
 
-        <p>Description: {imageDetails.description}</p>
-        <p>category: {imageDetails.category}</p>
+        <p className={styles.AboutImageText}>Description: {imageDetails.description}</p>
+        <p className={styles.AboutImageText}>category: {imageDetails.category}</p>
         {imageDetails.public === false ? (
-          <h5> Private</h5>
-        ) : <h5> Public</h5>}
+          <h5 className={styles.AboutImageText}> Private</h5>
+        ) : <h5 className={styles.AboutImageText}> Public</h5>}
+
+        <img className={styles.ViewImageImage} src={imageDetails.image_url} />
+
         <div className={styles.ViewImageButtonDiv}>
           {imageDetails.uid === user.uid ? (
             <Button
@@ -181,7 +181,7 @@ export default function ViewImage() {
             </Button>
           ) : ''}
           {imageDetails.uid === user.uid ? (
-            <FolderSelect imageObj={imageDetails} />
+            <FolderSelect className={styles.FolderSelect} imageObj={imageDetails} />
           ) : <Button className={styles.ViewImageButton} onClick={handleAdd}> Add To Your Images</Button>}
         </div>
         <div>
