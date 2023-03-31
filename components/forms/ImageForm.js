@@ -148,7 +148,7 @@ export default function ImageForm({ obj }) {
         <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput1" label="Add File">
           <Form.Control
             className={imagepagestyles.ImageFormInput}
-            style={{ height: '100px' }}
+            style={{ height: '2.5em' }}
             type="file"
             onInput={handleImage}
             required
@@ -162,7 +162,7 @@ export default function ImageForm({ obj }) {
       <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput2" label="Image Title">
         <Form.Control
           className={imagepagestyles.ImageFormInput}
-          style={{ height: '100px' }}
+          style={{ height: '2.5em' }}
           type="text"
           name="image_title"
           value={formInput.image_title}
@@ -176,7 +176,7 @@ export default function ImageForm({ obj }) {
         <Form.Control
           className={imagepagestyles.ImageFormInput}
           type="textarea"
-          style={{ height: '100px' }}
+          style={{ height: '2.5em' }}
           name="description"
           value={formInput.description}
           onChange={handleChange}
@@ -186,7 +186,7 @@ export default function ImageForm({ obj }) {
       <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput3" label="Category">
         <Form.Control
           className={imagepagestyles.ImageFormInput}
-          style={{ height: '100px' }}
+          style={{ height: '2.5em' }}
           type="text"
           name="category"
           value={formInput.category}
@@ -228,7 +228,7 @@ export default function ImageForm({ obj }) {
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
             className={imagepagestyles.ImageFormInput}
-            style={{ height: '100px' }}
+            style={{ height: '2.5em' }}
             aria-label="Folder"
             name="folder_id"
             onChange={handleFolderImageChange}

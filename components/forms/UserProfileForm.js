@@ -160,7 +160,7 @@ export default function UserProfileForm() {
                   onChange={handleCommentImage}
                   value={commentImageFormInput.comment_url}
                   className={userprofilepagestyles.UserProfileFormInputSelect}
-                  style={{ height: '125px' }}
+                  style={{ height: '2.5em' }}
                 >
                   <option className={userprofilepagestyles.SelectText} value="">Change Profile Picture</option>
                   {userImages.map((folder) => (
@@ -178,7 +178,7 @@ export default function UserProfileForm() {
                 <Form.Control
                   className={userprofilepagestyles.UserProfileFormInput}
                   type="textarea"
-                  style={{ height: '125px' }}
+                  style={{ height: '2.5em' }}
                   name="text"
                   value={formInput.text}
                   onChange={handleChange}
