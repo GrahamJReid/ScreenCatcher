@@ -13,21 +13,38 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-bottom:15%;
+    margin-bottom:10%;
     flex-direction:row;
+}
+.ThreadFormContainer{
+  background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+  border-radius:25px;
+  border:solid 3px rgb(233,105,57);
+  padding:5%;
+  margin-left:2%;
 }
 .ThreadFormImage{
     width:50%;
     margin-bottom:10%;
     border-radius:25px;
 }
+.ThreadFormTitle{
+  font-size:4em;
+  font-weight:900;
+}
+
+.ThreadFormLabel{
+  font-size:1.4em;
+}
 
 
 .ThreadFormInput{
-    background-color:rgb(5,1,26);
-    color:white;
-    border:solid 2px rgb(233,105,57);
-    border-radius:25px;
+  background-color:rgb(5,1,26);
+  color:white;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  margin-bottom:5%;
+  font-size:2rem;
   
   }
   .ThreadFormInput:focus{
@@ -43,9 +60,10 @@
 
   .ThreadFormSubmitButton{
     border:solid 2px rgb(233,105,57);
-    border-radius:25px;
-    background:rgb(5,1,26);
-    margin-left:1%;
+  border-radius:25px;
+  background:rgb(5,1,26);
+  margin-left:1%;
+  font-size:1.5em;
   }
   .ThreadFormSubmitButton:hover{
     border:solid 2px rgb(233,105,57);
