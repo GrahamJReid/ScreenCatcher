@@ -44,7 +44,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
               ) }
 
             <blockquote className="blockquote mb-0">
-              <p>
+              <p className={viewmessagesstyle.MessageText}>
                 {' '}
                 {postMessageObj.text}
                 {' '}

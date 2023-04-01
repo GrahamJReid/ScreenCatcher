@@ -6,7 +6,7 @@ import viewmessagesstyle from '../../../styles/messages/ViewMessages.module.css'
 export default function viewMessages() {
   return (
     <>
-      <div>
+      <div className={viewmessagesstyle.ViewMessagesPageWrapperContainer}>
         <div className={viewmessagesstyle.ViewMessagesPageWrapper}>
           <div>
             <PostMessagesPageContent />

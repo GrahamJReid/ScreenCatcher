@@ -30,33 +30,32 @@ function CommentCard({ commentObj, onUpdate }) {
           <Card.Header className={viewthreadstyle.CommentCardHeader}>{commentObj.date_added}</Card.Header>
           <Card.Body className={viewthreadstyle.CommentCardBody}>
             {commentObj.comment_image === ''
-              ? <h1>User has Removed Image</h1>
+              ? <h3>User has Removed Image</h3>
               : (
                 <a href={`/viewImage/${commentObj.thread_comment_image_firebaseKey}`}>
                   <img className={viewthreadstyle.CommentCardImage} src={commentObj.comment_image} />
                 </a>
               )}
 
-            <blockquote className="blockquote mb-0">
-              <p>
-                {' '}
-                {commentObj.text}
-                {' '}
-              </p>
-              <footer className="blockquote-footer">
-                {commentObj.author}
+            <p>
+              {' '}
+              {commentObj.text}
+              {' '}
+            </p>
+            <footer className="blockquote-footer">
+              {commentObj.author}
 
-                {commentObj.uid === user.uid || user.displayName === video.username
-                  ? (
-                    <Button
-                      className={viewthreadstyle.CommentCardDeleteButton}
-                      onClick={deleteThisComment}
-                    >
-                      Delete
-                    </Button>
-                  ) : ''}
-              </footer>
-            </blockquote>
+              {commentObj.uid === user.uid || user.displayName === video.username
+                ? (
+                  <Button
+                    className={viewthreadstyle.CommentCardDeleteButton}
+                    onClick={deleteThisComment}
+                  >
+                    Delete
+                  </Button>
+                ) : ''}
+            </footer>
+
           </Card.Body>
         </div>
       </Card>
