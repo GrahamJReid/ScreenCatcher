@@ -70,9 +70,15 @@
     justify-content:center;
     flex-direction:column;
     align-items:center;
+    background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+  border-radius:25px;
+  border:solid 3px rgb(233,105,57);
+  padding:5%;
+  width:40em;
+  margin-bottom:10%;
 }
 .FolderFormTitle{
-  font-size:5rem;
+  font-size:3em;
   font-weight:900;
 }
 .FolderFormInputLabel{
@@ -84,7 +90,8 @@
     border:solid 2px rgb(233,105,57);
     border-radius:25px;
     margin-bottom:2%;
-    font-size:1.7vw;
+    font-size:1.5em;
+    width:10em;
   }
   .FolderFormInput:focus{
     background-color:rgb(5,1,26);

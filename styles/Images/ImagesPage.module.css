@@ -12,7 +12,7 @@
 .ImageFormContainer{
   width:40%;
   margin-left:10%;
- height:70%;
+ height:60%;
  margin-bottom:5%;
 }
 .ImagesPageContentContainer{
@@ -29,9 +29,9 @@
 .FormContainer{
     border:solid orange 3px;
     background-color:#FF8811; 
-height:85%;
+height:80%;
 margin-top:10%;
-position:relative;
+
 }
 
 .ImageFormInput{
@@ -39,7 +39,7 @@ position:relative;
   color:white;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
-  margin-bottom:5%;
+  margin-bottom:1%;
   font-size:1.7rem;
 }
 .ImageFormInput:focus{
@@ -57,7 +57,7 @@ position:relative;
 
 .ImageFormSwitchInput{
   accent-color:rgb(233,105,57);
-  font-size:1.2em;
+  font-size:1.3em;
   margin:2%;
 }
 .ImageFormSubmitButton{
@@ -74,17 +74,12 @@ position:relative;
 }
 
 
-
-
-
-
-
 .ContainImagePageContent{
   display:flex;
   flex-direction:column;
   background-color:transparent; 
   width:80%;
-  height:auto;
+  height:100%;
   margin-left:20%;
   overflow-y: auto; 
   height:80%;
