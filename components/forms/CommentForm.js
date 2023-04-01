@@ -83,6 +83,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewthreadstyle.CommentFormCommentTextWindow}
+          style={{ height: '3em' }}
           aria-label="Image"
           name="comment_image"
           onChange={handleCommentImage}
@@ -102,11 +103,11 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
         </Form.Select>
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingTextArea" label="Type your comment here...">
+      <FloatingLabel className={viewthreadstyle.CommentFormCommentTextWindowLabel} controlId="floatingTextArea" label="Type your comment here...">
         <Form.Control
           className={viewthreadstyle.CommentFormCommentTextWindow}
-          type="textarea"
           style={{ height: '100px' }}
+          type="textarea"
           name="text"
           value={formInput.text}
           onChange={handleChange}

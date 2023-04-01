@@ -41,6 +41,7 @@ border-radius:25px;
 }
 .CommentCardBody{
   color:white;
+  font-size:2em;
 }
 .CommentCardHeader{
   color:white;
@@ -53,16 +54,21 @@ border-radius:25px;
   background:transparent;
   border:solid 2px rgb(233,105,57);
   margin-left:88%;
+  font-size:.7em;
 }
 .CommentCardDeleteButton:hover{
  background-color:rgb(233,105,57);
  border:solid 2px rgb(233,105,57);
+}
+.CommentFormCommentTextWindowLabel{
+  font-size:1.5em;
 }
 .CommentFormCommentTextWindow{
   background-color:rgb(5,1,26);
   color:white;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
+  font-size:1.5em;
 }
 .CommentFormCommentTextWindow:focus{
   background-color:rgb(5,1,26);
@@ -79,6 +85,7 @@ border-radius:25px;
   border-radius:25px;
   background:rgb(5,1,26);
   margin-left:1%;
+  font-size:1.5em;
 }
 .ViewThreadButton:hover{
   border:solid 2px rgb(233,105,57);

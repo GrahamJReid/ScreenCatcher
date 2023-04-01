@@ -6,6 +6,14 @@
   margin-left: 0px;
   width: 100%;
 }
+@keyframes slideInRight {
+  from{
+    transform:translateX(500px);
+  }
+  to{
+    transform:translateX(0);
+  }
+}
 html,
 body {
   scroll-behavior: smooth;
@@ -56,7 +64,7 @@ color:white;
 }
 .NavLinkList{
   display:flex;
-  flex-direction:row;
+  flex-direction:column;
   margin-right:5%;
 }
 .navbar-title{
@@ -66,16 +74,13 @@ color:white;
 .NavLink{
   margin-left:5%;
   font-size:3rem;
+  animation:slideInRight  .4s linear;
+ 
 }
 .NavLink:hover{
   color:rgb(233,105,57);
 }
-.navbar-signout-btn{
-  margin-left:5%;
-  margin-right:5%;
-  font-size:1rem;
-  margin-top:10%;
-}
+
 .intro-div-container{
   display:flex;
   flex-direction:column;
@@ -91,13 +96,22 @@ color:white;
   border-radius:25px;
   width:100%;
   border:solid 2px rgb(233,105,57);
+  animation:slideInRight  .3s linear;
   
 }
 .OffCanvas-username{
   font-size:2.5rem;
   margin-bottom:5%;
   text-align:center;
+  animation:slideInRight  .4s linear;
 
+}
+.navbar-signout-btn{
+  margin-left:5%;
+  margin-right:5%;
+  font-size:1rem;
+  margin-top:10%;
+  animation:slideInRight  .5s linear;
 }
 .SignOutButton{
   font-size:2rem;

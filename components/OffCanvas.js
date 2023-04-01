@@ -41,76 +41,76 @@ function OffCanvas({ name, ...props }) {
 
           <nav onClick={handleClose}>
             <ul className="navbar-nav me-auto">
+              <div className="NavLinkList">
+                <li className="NavLink">
+                  <Link passHref href="/">
+                    <a className="NavLink">
+                      Home
+                    </a>
+                  </Link>
+                </li>
 
-              <li className="NavLink">
-                <Link passHref href="/">
-                  <a className="NavLink">
-                    Home
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/ImageEditorPage">
+                    <a className="NavLink">
+                      Image Editor
+                    </a>
+                  </Link>
+                </li>
 
-              <li className="NavLink">
-                <Link passHref href="/ImageEditorPage">
-                  <a className="NavLink">
-                    Image Editor
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/Images/images">
+                    <a className="NavLink">
+                      Images
+                    </a>
+                  </Link>
+                </li>
 
-              <li className="NavLink">
-                <Link passHref href="/Images/images">
-                  <a className="NavLink">
-                    Images
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/Folders/foldersPage">
 
-              <li className="NavLink">
-                <Link passHref href="/Folders/foldersPage">
+                    <a className="NavLink">
+                      Folders
+                    </a>
+                  </Link>
+                </li>
 
-                  <a className="NavLink">
-                    Folders
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/threads/ThreadsPage">
 
-              <li className="NavLink">
-                <Link passHref href="/threads/ThreadsPage">
+                    <a className="NavLink">
+                      Threads
+                    </a>
+                  </Link>
+                </li>
 
-                  <a className="NavLink">
-                    Threads
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/Messages/messagesPage">
 
-              <li className="NavLink">
-                <Link passHref href="/Messages/messagesPage">
+                    <a className="NavLink">
+                      Messages
+                    </a>
+                  </Link>
+                </li>
 
-                  <a className="NavLink">
-                    Messages
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/Users/UsersPage">
 
-              <li className="NavLink">
-                <Link passHref href="/Users/UsersPage">
+                    <a className="NavLink">
+                      Users
+                    </a>
+                  </Link>
+                </li>
 
-                  <a className="NavLink">
-                    Users
-                  </a>
-                </Link>
-              </li>
+                <li className="NavLink">
+                  <Link passHref href="/userProfile">
 
-              <li className="NavLink">
-                <Link passHref href="/userProfile">
-
-                  <a className="NavLink">
-                    UserProfile
-                  </a>
-                </Link>
-              </li>
-              
+                    <a className="NavLink">
+                      UserProfile
+                    </a>
+                  </Link>
+                </li>
+              </div>
               <button
                 type="button"
                 className="btn navbar-signout-btn SignOutButton"
