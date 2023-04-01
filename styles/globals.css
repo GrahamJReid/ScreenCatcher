@@ -14,6 +14,14 @@
     transform:translateX(0);
   }
 }
+@keyframes slideInBottom {
+  from{
+    transform:translateY(1500px);
+  }
+  to{
+    transform:translateY(0);
+  }
+}
 html,
 body {
   scroll-behavior: smooth;

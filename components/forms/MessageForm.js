@@ -80,10 +80,11 @@ export default function PostMessageForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <h4 className="mt-3 mb-3">Create Message</h4>
-      {commentImage === '' ? '' : <img src={`${commentImage}`} width="100px" />}
+      {commentImage === '' ? '' : <img src={`${commentImage}`} width="200em" />}
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewmessagesstyle.MessageFormInput}
+          style={{ height: '3em' }}
           aria-label="Image"
           name="comment_image"
           onChange={handleCommentImage}
@@ -107,7 +108,7 @@ export default function PostMessageForm() {
         <Form.Control
           className={viewmessagesstyle.MessageFormInput}
           type="textarea"
-          style={{ height: '50px' }}
+          style={{ height: '3em' }}
           name="text"
           value={formInput.text}
           onChange={handleChange}
