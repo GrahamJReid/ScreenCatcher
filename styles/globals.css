@@ -6,6 +6,14 @@
   margin-left: 0px;
   width: 100%;
 }
+@keyframes slideInTop {
+  from{
+    transform:translateY(-1000px);
+  }
+  to{
+    transform:translateY(0);
+  }
+}
 @keyframes slideInRight {
   from{
     transform:translateX(500px);
@@ -16,7 +24,7 @@
 }
 @keyframes slideInBottom {
   from{
-    transform:translateY(1500px);
+    transform:translateY(500px);
   }
   to{
     transform:translateY(0);
@@ -234,7 +242,7 @@ width: 24.5%;
    text-align:center;
   align-items:center;
   margin-bottom:5%;
-  font-size:9rem;
+  font-size:7rem;
   font-weight:900;
 }
 .user-followed-image{

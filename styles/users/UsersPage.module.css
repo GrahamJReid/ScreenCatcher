@@ -24,7 +24,12 @@ text-align:center;
 border-radius:25px;
 width:20rem;
 height:3rem;
-border:transparent;
+background-color:rgb(5,1,26);
+color:white;
+border:solid 5px rgb(233,105,57);
+border-radius:25px;
+font-size:1.5em;
+padding:2%;
 
 }
 
@@ -49,7 +54,7 @@ border:transparent;
 display:flex;
 justify-content:center;
 align-items:center;
-background:transparent;
+background:rgb(5,1,26);
 border:solid 2px rgb(233,105,57)
 }
 .UsersPageUserCardBody{

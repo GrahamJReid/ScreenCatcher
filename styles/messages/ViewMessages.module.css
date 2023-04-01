@@ -4,7 +4,7 @@
   justify-content:center;
   align-items:center;
   width:100%;
-  margin-top:35%;
+  margin-top:28%;
 }
 
 .ViewMessagesPageWrapper{
@@ -28,7 +28,7 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   width: 50em;
-  height: 600px;
+  height: 500px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align:justify;
@@ -50,10 +50,28 @@
   background:transparent;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
+  height:22em;
 
 }
 .MessageText{
-  font-size:1.5em;
+  font-size:1.2em;
+}
+.PreviewImage{
+  max-height:200px;
+  max-width:200px;
+  object-fit:contain;
+  height:140px;
+  overflow-y:hidden;
+}
+.PostMessageImage{
+  position:absolute;
+  right:1%;
+  top:10%;
+  object-fit:contain;
+  height:140px;
+  overflow-y:hidden;
+  max-height:200px;
+  max-width:200px;
 }
 .MessageFormInput{
   background-color:rgb(5,1,26);
@@ -61,6 +79,7 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   font-size:1.5em;
+  position:relative;
 
 }
 .MessageFormInput:focus{
@@ -76,8 +95,10 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   background:rgb(5,1,26);
-  margin-left:1%;
   font-size:1.5em;
+  position:absolute;
+  top:84%;
+  right:1%;
 }
 .MessageFormSubmitButton:hover{
   border:solid 2px rgb(233,105,57);

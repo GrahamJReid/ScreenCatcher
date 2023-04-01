@@ -79,8 +79,7 @@ export default function PostMessageForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h4 className="mt-3 mb-3">Create Message</h4>
-      {commentImage === '' ? '' : <img src={`${commentImage}`} width="200em" />}
+      {commentImage === '' ? '' : <img className={viewmessagesstyle.PreviewImage} src={`${commentImage}`} />}
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewmessagesstyle.MessageFormInput}
@@ -114,6 +113,7 @@ export default function PostMessageForm() {
           onChange={handleChange}
           required
         />
+
       </FloatingLabel>
 
       <Button type="submit" className={viewmessagesstyle.MessageFormSubmitButton}>Submit Message</Button>

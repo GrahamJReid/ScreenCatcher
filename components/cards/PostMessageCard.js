@@ -18,11 +18,11 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
   };
 
   const { user } = useAuth();
-  const [video, setVideo] = useState({});
+  const [messages, setMessages] = useState({});
   const [authorObj, setAuthorObj] = useState({});
 
   useEffect(() => {
-    getSingleMessages(postMessageObj.messages_id).then(setVideo);
+    getSingleMessages(postMessageObj.messages_id).then(setMessages);
   }, [postMessageObj.messages_id]);
 
   useEffect(() => {
@@ -36,22 +36,22 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
           <Card.Header>{postMessageObj.date_added}</Card.Header>
           <Card.Body>
             {postMessageObj.comment_image === ''
-              ? <h1>User has removed Image</h1>
+              ? <h4>User has removed Image</h4>
               : (
-                <a href={`/viewImage/${postMessageObj.image_firebaseKey}`}>
+                <a className={viewmessagesstyle.PostMessageImage} href={`/viewImage/${postMessageObj.image_firebaseKey}`}>
                   <img src={postMessageObj.comment_image} width="200px" />
                 </a>
               ) }
 
             <blockquote className="blockquote mb-0">
               <p className={viewmessagesstyle.MessageText}>
-                {' '}
+
                 {postMessageObj.text}
-                {' '}
+
               </p>
               <footer className="blockquote-footer">
                 {postMessageObj.uid === user.uid ? user.displayName : authorObj.displayName}
-                {postMessageObj.uid === user.uid || user.displayName === video.username
+                {postMessageObj.uid === user.uid || user.displayName === messages.username
                   ? (
                     <Button
                       className={viewmessagesstyle.DeleteButton}
