@@ -5,10 +5,11 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { createMessages, getUserMessages, getUserSecondaryMessages, updateMessages } from '../../API/messagesData';
+import { getUserMessages, getUserSecondaryMessages } from '../../API/messagesData';
 import { getAllUsersExcludeCurrentUser } from '../../API/userData';
 import { useAuth } from '../../utils/context/authContext';
 import userstomessagesstyle from '../../styles/messages/UsersToMessagePage.module.css';
+import CreateMessagesModal from './CreateMessagesModal';
 
 export default function UsersToMessage() {
   const getFilteredItems = (query, order) => {
@@ -51,8 +52,8 @@ export default function UsersToMessage() {
               <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
                 <Card.Img variant="top" src={otherUser.photoURL} />
                 <Card.Body className={userstomessagesstyle.MessagesPageMessagesCardsBody}>
-                  <Card.Title>{otherUser.displayName}</Card.Title>
-                  <Card.Text>
+                  <Card.Title>{otherUser.messages_title}</Card.Title>
+                  <Card.Text className={userstomessagesstyle.MessagesPageMessagesCardsText}>
                     {user.displayName}&
                     {otherUser.user_2name}
                   </Card.Text>
@@ -74,8 +75,8 @@ export default function UsersToMessage() {
               <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
                 <Card.Img variant="top" src={otherUser.photoURL} />
                 <Card.Body className={userstomessagesstyle.MessagesPageMessagesCardsBody}>
-                  <Card.Title>{otherUser.displayName}</Card.Title>
-                  <Card.Text>
+                  <Card.Title>{otherUser.messages_title}</Card.Title>
+                  <Card.Text className={userstomessagesstyle.MessagesPageMessagesCardsText}>
                     {otherUser.user_1name}&
                     {user.displayName}
                   </Card.Text>
@@ -105,7 +106,7 @@ export default function UsersToMessage() {
                 <Card.Body className={userstomessagesstyle.MessagesPageUserCardsBody}>
                   <Card.Title>{otherUser.displayName}</Card.Title>
 
-                  <button
+                  <CreateMessagesModal otherUser={otherUser} /> {/* <button
                     className={userstomessagesstyle.MessagesPageUserCardsButton}
                     type="button"
                     onClick={() => {
@@ -126,7 +127,7 @@ export default function UsersToMessage() {
                       });
                     }}
                   >create messages
-                  </button>
+                  </button> */}
 
                 </Card.Body>
               </Card>

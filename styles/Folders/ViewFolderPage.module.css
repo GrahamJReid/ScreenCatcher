@@ -28,6 +28,7 @@
   border-radius:25px;
   background:rgb(5,1,26);
   margin-left:1%;
+  font-size:1.5em;
 }
 .ViewFolderButton:hover{
   border:solid 2px rgb(233,105,57);
