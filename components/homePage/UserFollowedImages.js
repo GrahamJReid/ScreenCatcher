@@ -20,10 +20,14 @@ export default function UserFollowedImages() {
     }, [user.uid]);
   });
 
+  const pushedArray1 = [];
+  for (let i = 1; i < images.length; i += 3) {
+    pushedArray1.push(images[i]);
+  }
   return (
     <div>
 
-      <div className="public-image-page-container">{images.map((image) => (
+      <div className="public-image-page-container">{pushedArray1.map((image) => (
         <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`} className="follow-user-image-link">
           <img src={`${image.image_url}`} height="25%" width="25%" className="user-followed-image" />
         </Link>
