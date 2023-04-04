@@ -222,7 +222,7 @@ width: 24.5%;
   height:80%;
   position:sticky;
   padding:2%;
-  margin-left:9%;
+  margin-left:0%;
   
 }
 .followed-image-div-container::-webkit-scrollbar {
@@ -235,7 +235,7 @@ width: 24.5%;
 .public-image-page-column{
  display:flex;
   flex-direction:column;
-  width:30%;
+  width:40%;
 
 }
 
