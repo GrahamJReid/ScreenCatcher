@@ -29,6 +29,15 @@ export default function ImagesPageContent({ arr }) {
     });
   }, [user.uid, arr]);
 
+  const pushedArray1 = [];
+  for (let i = 0; i < order.length; i += 2) {
+    pushedArray1.push(order[i]);
+  }
+  const pushedArray2 = [];
+  for (let i = 1; i < order.length; i += 2) {
+    pushedArray2.push(order[i]);
+  }
+
   return (
     <>
       <Head>
@@ -38,8 +47,15 @@ export default function ImagesPageContent({ arr }) {
         <input className={imagepagestyles.SearchBar} type="text" placeholder="Search Images By Title or Category" onChange={(e) => setQuery(e.target.value)} />
       </div>
       <div className={imagepagestyles.ContainImagePageContent}>
-        <div>
-          {filteredItems.map((image) => (
+        <div className={imagepagestyles.ContainImagePageContentColumn}>
+          {pushedArray1.map((image) => (
+            <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
+              <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
+            </Link>
+          ))}
+        </div>
+        <div className={imagepagestyles.ContainImagePageContentColumn}>
+          {pushedArray2.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
               <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
             </Link>

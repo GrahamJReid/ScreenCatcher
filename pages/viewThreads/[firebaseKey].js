@@ -92,7 +92,7 @@ export default function ViewThread() {
           deleteFollowThreadObj(followThread.firebaseKey);
         });
       })).then(
-        deleteThreadComments(thread.firebaseKey).then(() => router.push('/Threads/ThreadsPage')),
+        deleteThreadComments(thread.firebaseKey).then(() => router.push('/threads/ThreadsPage')),
       );
     }
   };
