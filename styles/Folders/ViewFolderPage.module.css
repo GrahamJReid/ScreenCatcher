@@ -15,6 +15,15 @@
   border-radius:25px;
   margin-bottom:2%;
 }
+.FolderImage:hover{
+  transform: scale(1.02); 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+  box-shadow:black 0px 0px 15px 2px;
+  border:transparent;
+}
 .FolderImageDiv{
   display:flex;
   flex-direction:column;

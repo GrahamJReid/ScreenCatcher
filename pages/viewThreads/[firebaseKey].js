@@ -139,7 +139,7 @@ export default function ViewThread() {
       <h3>Description: {thread.description}</h3>
       {thread.thread_image === ''
         ? <img src="/logo.png" width="50%" />
-        : <img src={thread.thread_image} className="create-thread-image" />}
+        : <img src={thread.thread_image} className={viewthreadstyle.ViewThreadImage} />}
 
       <div className={viewthreadstyle.ViewThreadButtonContainer}>
         {user.uid === thread.uid ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleDeleteThread}>Delete Thread</Button> : ''}
@@ -150,11 +150,11 @@ export default function ViewThread() {
 
         <div className={viewthreadstyle.LikesDiv}>
 
-          <h2>{likes}</h2>
+          <h2 className={viewthreadstyle.ViewThreadLikes}>{likes}</h2>
 
           {buttonCount === 0
-            ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleLike}>LIKE</Button>
-            : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnlike}>UNLIKE</Button> }
+            ? <Button className={viewthreadstyle.ViewThreadButton} onClick={handleLike}>Like</Button>
+            : <Button className={viewthreadstyle.ViewThreadButton} onClick={handleUnlike}>Unlike</Button> }
 
         </div>
       </div>

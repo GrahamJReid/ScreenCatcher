@@ -156,33 +156,37 @@ export default function ViewImage() {
         <img className={styles.ViewImageImage} src={imageDetails.image_url} />
 
         <div className={styles.ViewImageButtonDiv}>
-          {imageDetails.uid === user.uid ? (
-            <Button
-              className={styles.ViewImageButton}
-              href={`/viewImage/edit/${imageDetails.firebaseKey}`}
-            >
-              Edit
-            </Button>
-          ) : ''}
-          {imageDetails.uid === user.uid ? (
-            <Button
-              onClick={deleteThisImage}
-              className={styles.ViewImageButton}
-            >
-              Delete
-            </Button>
-          ) : ''}
-          {imageDetails.uid === user.uid && imageDetails.public === true ? (
-            <Button
-              href={`/threads/${imageDetails.firebaseKey}`}
-              className={styles.ViewImageButton}
-            >
-              Create Thread
-            </Button>
-          ) : ''}
-          {imageDetails.uid === user.uid ? (
-            <FolderSelect className={styles.FolderSelect} imageObj={imageDetails} />
-          ) : <Button className={styles.ViewImageButton} onClick={handleAdd}> Add To Your Images</Button>}
+          <div className={styles.ViewImageButtonNonSelectDiv}>
+            {imageDetails.uid === user.uid ? (
+              <Button
+                className={styles.ViewImageButton}
+                href={`/viewImage/edit/${imageDetails.firebaseKey}`}
+              >
+                Edit
+              </Button>
+            ) : ''}
+            {imageDetails.uid === user.uid ? (
+              <Button
+                onClick={deleteThisImage}
+                className={styles.ViewImageButton}
+              >
+                Delete
+              </Button>
+            ) : ''}
+            {imageDetails.uid === user.uid && imageDetails.public === true ? (
+              <Button
+                href={`/threads/${imageDetails.firebaseKey}`}
+                className={styles.ViewImageCreateThreadButton}
+              >
+                Create Thread
+              </Button>
+            ) : ''}
+          </div>
+          <div>
+            {imageDetails.uid === user.uid ? (
+              <FolderSelect className={styles.FolderSelect} imageObj={imageDetails} />
+            ) : <Button className={styles.ViewImageButton} onClick={handleAdd}> Add To Your Images</Button>}
+          </div>
         </div>
         <div>
           {/* <CommentForm></CommentForm> */}

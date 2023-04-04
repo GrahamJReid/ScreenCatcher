@@ -411,3 +411,9 @@ button:focus{
 .value{
   font-size:1.3em;
 }
+.reset-filter{
+  margin-bottom:2%;
+}
+.choose-img{
+  margin-bottom:4%;
+}

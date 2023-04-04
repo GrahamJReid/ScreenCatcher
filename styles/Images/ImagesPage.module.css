@@ -80,7 +80,7 @@ margin-top:10%;
   background-color:transparent; 
   width:80%;
   height:100%;
-  margin-left:20%;
+  margin-left:18%;
   overflow-y: auto; 
   height:80%;
   position:sticky;
@@ -112,7 +112,7 @@ margin-top:10%;
   border:transparent;
 }
 .SearchBarDiv{
-  margin-left:25%;
+  margin-left:22%;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -123,6 +123,7 @@ margin-top:10%;
     width:65%;
     border-radius:25px;
     padding:1%;
+
 }
 .SearchBar{
   background-color:rgb(5,1,26);

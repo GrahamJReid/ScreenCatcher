@@ -54,7 +54,7 @@ export default function FolderSelect({ imageObj }) {
         <FloatingLabel controlId="floatingSelect">
           <Form.Select
             className={viewimagepagestyles.FolderSelect}
-            style={{ height: '2.5em' }}
+            style={{ height: '2.7em', width: '13em' }}
             aria-label="Folder"
             name="folder_id"
             onChange={handleChange}
