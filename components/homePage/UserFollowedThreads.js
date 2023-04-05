@@ -25,13 +25,14 @@ export default function UserFollowedThreads() {
     <div>
 
       <div className="followed-threads-outer-div">
+
         {followedThreads.map((thread) => (
           <div className="followed-threads-inner-div" key={thread.firebaseKey}>
             <ThreadCard threadObj={thread} />
           </div>
         ))}
       </div>
-
     </div>
+
   );
 }

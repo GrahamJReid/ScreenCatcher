@@ -4,18 +4,16 @@
   justify-content:center;
   align-items:center;
   width:100%;
-  margin-top:28%;
 }
 
 .ViewMessagesPageWrapper{
-  margin-top:20%;
+  margin-top:3%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   height:60%;
   width:60%;
-  position:fixed;
   padding-bottom:10%;
   
 }
@@ -85,7 +83,6 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   font-size:1.5em;
-  position:relative;
   width:50rem;
 
 }

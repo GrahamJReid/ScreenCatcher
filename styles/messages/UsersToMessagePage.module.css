@@ -24,7 +24,7 @@
   border-radius:25px;
   padding:4%;
   margin-left:15%;
-  height:670px;
+  height:80%;
 }
 .MessagesPageMessagesInnerContainer{
   overflow-y:scroll;
@@ -119,7 +119,9 @@
   margin-left:50%;
   overflow-y:scroll;
   position:sticky;
-  height:550px;
+  height:37.5%;
+  min-height:26em;
+  padding-top:5%;
 }
 .MessagesPageInnerCardDiv::-webkit-scrollbar {
   display: none;

@@ -1,13 +1,22 @@
-.UsersThreadsDiv{
+/* .UsersThreadsDiv{
   white-space: nowrap;
   position: relative;
   overflow-x:auto;
   overflow-y:hidden;
+} */
+.UsersThreadsDiv{
+  display:flex;
+  flex-direction:row;
+  overflow-x:auto;
+  overflow-y:hidden;
+  justify-content: flex-start;
+  margin-left:.5%;
+  justify-content:space-evenly;
 }
 .UsersThreadsDiv::-webkit-scrollbar {
   display: none;
 }
-.InnerUsersThreadsDiv {
+/* .InnerUsersThreadsDiv {
   width: 24.5%;
   background-color: transparent;
   float: none;
@@ -16,6 +25,9 @@
   display: inline-block;
   zoom: 1;
   margin-left:7%;
+} */
+.InnerUsersThreadsDiv{
+  margin-left:5%;
 }
 .PageWrapper{
   margin-top:10%;
