@@ -49,19 +49,19 @@
  justify-content:center;
 }
 .PostCard{
-  background:transparent;
+  background:linear-gradient(rgb(233,105,57),rgb(5,1,26));
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   height:22em;
-  align-items:end;
+  margin-left:50%;
 
 }
 .PostCardOther{
-  background:transparent;
+  background:linear-gradient(rgb(149,69,178),rgb(5,1,26)) ;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   height:22em;
-  align-items:start;
+  margin-right:50%;
 }
 .MessageText{
   font-size:1.2em;
@@ -117,7 +117,7 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   background:rgb(5,1,26);
-  margin-left:1%;
+  margin-left:37%;
   font-size:1rem;
 }
 .DeleteButton:hover{

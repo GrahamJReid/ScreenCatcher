@@ -49,18 +49,18 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
                 {postMessageObj.text}
 
               </p>
-              <footer className="blockquote-footer">
-                {postMessageObj.uid === user.uid ? user.displayName : authorObj.displayName}
-                {postMessageObj.uid === user.uid || user.displayName === messages.username
-                  ? (
-                    <Button
-                      className={viewmessagesstyle.DeleteButton}
-                      onClick={deleteThisPostMessage}
-                    >
-                      Delete
-                    </Button>
-                  ) : ''}
-              </footer>
+              {postMessageObj.uid === user.uid ? user.displayName : authorObj.displayName}
+
+              {postMessageObj.uid === user.uid || user.displayName === messages.username
+                ? (
+                  <Button
+                    className={viewmessagesstyle.DeleteButton}
+                    onClick={deleteThisPostMessage}
+                  >
+                    Delete
+                  </Button>
+                ) : ''}
+
             </blockquote>
           </Card.Body>
         </div>
