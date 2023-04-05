@@ -36,7 +36,7 @@ function OffCanvas({ name, ...props }) {
         </Offcanvas.Header>
         <Offcanvas.Body>
 
-          <img src={user.photoURL} width="200px" className="OffCanvas-user-image" />
+          {user.photoURL === '' ? <img src="/logo.png" width="315px" /> : <img src={user.photoURL} width="200px" className="OffCanvas-user-image" />} 
           <h1 className="OffCanvas-username">{user.displayName}</h1>
 
           <nav onClick={handleClose}>
