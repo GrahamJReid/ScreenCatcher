@@ -90,7 +90,7 @@ color:white;
 .NavLink{
   margin-left:5%;
   font-size:3rem;
-  animation:slideInRight  .4s linear;
+  animation:slideInRight  .47s linear;
  
 }
 .NavLink:hover{
@@ -112,14 +112,15 @@ color:white;
   border-radius:25px;
   width:100%;
   border:solid 2px rgb(233,105,57);
-  animation:slideInRight  .3s linear;
+  animation:slideInRight  .4s linear;
+  margin-bottom:5%;
   
 }
 .OffCanvas-username{
   font-size:2.5rem;
   margin-bottom:5%;
   text-align:center;
-  animation:slideInRight  .4s linear;
+  animation:slideInRight  .45s linear;
 
 }
 .navbar-signout-btn{
@@ -141,20 +142,14 @@ color:white;
    background-color:rgb(233,105,57);
    border:solid 4px rgb(233,105,57);
    border-radius:25px;
-
 }
-
-
-
 .gallery-div-container{
   display:flex;
   justify-content:center;
   text-align:center;
   height:100%;
   width:100%;
-
 }
-
 .gallery-container{
   height:100vh;
  text-align:center;
@@ -208,34 +203,36 @@ width: 24.5%;
   zoom: 1;
   margin-left:15%;
 }
-.followed-image-div-container{
+.public-image-section-container{
 
+  border: orange 9px solid;
+}
+.followed-image-div-container{
   display:flex;
   flex-direction:column;
   background-color:transparent; 
-  width:80%;
+  width:100%;
   height:auto;
   overflow-y: auto; 
   height:80%;
   position:sticky;
   padding:2%;
+  margin-right:2%;
+  
 }
 .followed-image-div-container::-webkit-scrollbar {
   display: none;
 }
-.public-image-page-container{
+.public-image-page-column-container{
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:flex-start;
-  flex-grow:1;
-  gap:0px;
-  object-fit:cover;
-  overflow-y: auto; 
-  height:80%;
-  position:sticky;
-  height:auto;
-  
+  flex-direction:row;
+}
+.public-image-page-column{
+ display:flex;
+  flex-direction:column;
+  width:40%;
+  margin-left:2%;
+
 }
 
 .followed-images-title{
@@ -246,10 +243,14 @@ width: 24.5%;
   font-weight:900;
 }
 .user-followed-image{
-  margin:1%;
-  width:25%;
+ object-fit:cover;
+    max-width:auto;
+    max-height:auto;
+    width:100%;
+    height:100%;
+    flex-grow:1;
   border-radius:25px;
-  object-fit:cover;
+  margin:3%;
 }
 .user-followed-image:hover{
   transform: scale(1.02); 
@@ -367,9 +368,7 @@ object-fit:contain;
   border:solid 2px white;
   width:6rem;
   height:6rem;
-
 }
-
 
 .carousel-control-next-icon{
   background-color:rgb(149,69,178);
@@ -410,4 +409,10 @@ button:focus{
 }
 .value{
   font-size:1.3em;
+}
+.reset-filter{
+  margin-bottom:2%;
+}
+.choose-img{
+  margin-bottom:4%;
 }

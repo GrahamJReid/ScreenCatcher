@@ -35,6 +35,10 @@ export default function UserProfileForm() {
   const [numberOfFollowers, setNumberOfFollowers] = useState(0);
   const [commentImageFormInput, setCommentImageFormInput] = useState(commentImageInitialState);
 
+  const refresh = () => {
+    window.location.reload(true);
+  };
+
   useEffect(() => {
     getUserPublicImages(user.uid).then(setUserImages);
   }, [user]);
@@ -109,6 +113,15 @@ export default function UserProfileForm() {
         updatePostMessage(userPostMessagePayload);
       });
     });
+    await getCommentsByUID(user.uid).then((threadArr) => {
+      threadArr.forEach((item) => {
+        const userThreadPayload = {
+          author: formInput.text,
+          firebaseKey: item.firebaseKey,
+        };
+        updateComment(userThreadPayload);
+      });
+    });
     await getUserMessages(user.uid).then((threadArr) => {
       threadArr.forEach((item) => {
         const userThreadPayload = {
@@ -127,17 +140,9 @@ export default function UserProfileForm() {
         updateMessages(userThreadPayload);
       });
     });
-    await getCommentsByUID(user.uid).then((threadArr) => {
-      threadArr.forEach((item) => {
-        const userThreadPayload = {
-          author: formInput.text,
-          firebaseKey: item.firebaseKey,
-        };
-        updateComment(userThreadPayload);
-      });
-    });
     setPageReload(1);
-    window.location.reload(true);
+    refresh();
+    // window.location.reload(true);
   };
 
   return (

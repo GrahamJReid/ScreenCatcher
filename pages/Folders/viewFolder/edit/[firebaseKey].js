@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleFolder } from '../../../../API/folderData';
 import FolderForm from '../../../../components/forms/FolderForm';
+import editfolderpagestyles from '../../../../styles/Folders/EditFolderPage.module.css';
 
 export default function EditFolder() {
   const [folder, setFolder] = useState({});
@@ -12,6 +13,8 @@ export default function EditFolder() {
     getSingleFolder(firebaseKey).then(setFolder);
   }, [firebaseKey]);
   return (
-    <FolderForm obj={folder} />
+    <div className={editfolderpagestyles.EditFolderFormDiv}>
+      <FolderForm obj={folder} />
+    </div>
   );
 }

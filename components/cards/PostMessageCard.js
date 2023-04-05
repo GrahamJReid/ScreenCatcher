@@ -38,8 +38,8 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
             {postMessageObj.comment_image === ''
               ? <h4>User has removed Image</h4>
               : (
-                <a className={viewmessagesstyle.PostMessageImage} href={`/viewImage/${postMessageObj.image_firebaseKey}`}>
-                  <img src={postMessageObj.comment_image} width="200px" />
+                <a href={`/viewImage/${postMessageObj.image_firebaseKey}`}>
+                  {postMessageObj.comment_image ? <img className={viewmessagesstyle.PostMessageImage} src={postMessageObj.comment_image} /> : ''}
                 </a>
               ) }
 

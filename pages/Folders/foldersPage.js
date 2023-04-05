@@ -18,7 +18,7 @@ export default function Folders() {
         </div>
 
         <div className="foldersparallax_group outro_screen" id="outro">
-          <div className={folderspagestyles.FoldersPageContentContainer}>
+          <div className={folderspagestyles.Wrapper}>
             <FoldersPageContent />
           </div>
         </div>

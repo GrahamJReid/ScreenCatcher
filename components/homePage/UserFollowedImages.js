@@ -20,16 +20,40 @@ export default function UserFollowedImages() {
     }, [user.uid]);
   });
 
+  const pushedArray1 = [];
+  for (let i = 0; i < images.length; i += 3) {
+    pushedArray1.push(images[i]);
+  }
+  const pushedArray2 = [];
+  for (let i = 1; i < images.length; i += 3) {
+    pushedArray2.push(images[i]);
+  }
+  const pushedArray3 = [];
+  for (let i = 2; i < images.length; i += 3) {
+    pushedArray3.push(images[i]);
+  }
   return (
-    <div>
-
-      <div className="public-image-page-container">{images.map((image) => (
-        <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`} className="follow-user-image-link">
-          <img src={`${image.image_url}`} height="25%" width="25%" className="user-followed-image" />
-        </Link>
-      ))}
+    <>
+      <div className="public-image-page-column-container">
+        <div className="public-image-page-column">{pushedArray1.map((image) => (
+          <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`} className="follow-user-image-link">
+            <img src={`${image.image_url}`} className="user-followed-image" />
+          </Link>
+        ))}
+        </div>
+        <div className="public-image-page-column">{pushedArray2.map((image) => (
+          <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`} className="follow-user-image-link">
+            <img src={`${image.image_url}`} className="user-followed-image" />
+          </Link>
+        ))}
+        </div>
+        <div className="public-image-page-column">{pushedArray3.map((image) => (
+          <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`} className="follow-user-image-link">
+            <img src={`${image.image_url}`} className="user-followed-image" />
+          </Link>
+        ))}
+        </div>
       </div>
-
-    </div>
+    </>
   );
 }

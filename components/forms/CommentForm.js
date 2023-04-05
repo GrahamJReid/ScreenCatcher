@@ -79,7 +79,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
   return (
     <Form onSubmit={handleSubmit}>
       <h4 className="mt-3 mb-3">Add A Comment</h4>
-      {commentImage === '' ? '' : <img src={commentImage} width="200px" />}
+      {commentImage === '' ? '' : <img className={viewthreadstyle.CommentFormPreviewImage} src={commentImage} width="200px" />}
       <FloatingLabel controlId="floatingSelect">
         <Form.Select
           className={viewthreadstyle.CommentFormCommentTextWindow}
@@ -115,7 +115,7 @@ export default function AddAComment({ threadFbKey, onUpdate }) {
         />
       </FloatingLabel>
 
-      <Button className={viewthreadstyle.ViewThreadButton} type="submit">Submit Comment</Button>
+      <Button className={viewthreadstyle.ViewThreadSubmitButton} type="submit">Submit Comment</Button>
     </Form>
   );
 }

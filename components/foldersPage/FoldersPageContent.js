@@ -35,11 +35,12 @@ export default function FoldersPageContent() {
       <Head>
         <title>Folders</title>
       </Head>
-      <div className={folderspagestyles.FoldersPageContainer}>
+
+      <div className={folderspagestyles.FoldersPageContentContainer}>
         <div className={folderspagestyles.SearchBarContainer}>
           <input className={folderspagestyles.SearchBar} type="text" placeholder="Search Folders By Title and Category" onChange={(e) => setQuery(e.target.value)} />
         </div>
-        <div className={folderspagestyles.FoldersPageContentContainer}>{filteredItems.map((folder) => (
+        <div className={folderspagestyles.FoldersContainer}>{filteredItems.map((folder) => (
           <div key={folder.firebaseKey} className={folderspagestyles.FolderAndTitleDiv}>
             <Link passHref href={`/Folders/viewFolder/${folder.firebaseKey}`}>
               <img src="https://img.icons8.com/color/512/mac-folder.png" height="70%" width="70%" className={folderspagestyles.FolderPlaceholder} />
