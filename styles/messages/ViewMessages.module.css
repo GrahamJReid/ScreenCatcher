@@ -1,4 +1,33 @@
-
+@keyframes slideInBottom {
+  from{
+    transform:translateY(500px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+@keyframes slideInRight {
+  from{
+    transform:translateX(500px);
+    opacity:0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+@keyframes slideInLeft {
+  from{
+    transform:translateX(-500px);
+    opacity:0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
 .ViewMessagesPageWrapperContainer{
   display:flex;
   justify-content:center;
@@ -54,6 +83,7 @@
   border-radius:25px;
   height:22em;
   margin-left:50%;
+  animation:slideInRight  .47s linear;
 
 }
 .PostCardOther{
@@ -62,6 +92,7 @@
   border-radius:25px;
   height:22em;
   margin-right:50%;
+  animation:slideInLeft  .47s linear;
 }
 .MessageText{
   font-size:1.2em;
