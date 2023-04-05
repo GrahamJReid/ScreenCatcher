@@ -47,51 +47,53 @@ export default function UsersToMessage() {
       <div className={userstomessagesstyle.MessagesPageWrapper}>
         <div className={userstomessagesstyle.MessagesPageMessagesCardsDiv}>
           <h1 className={userstomessagesstyle.MessagesPageMessagesTitle}>Messages</h1>
-          <div>
-            {messagesArr.map((otherUser) => (
-              <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
-                <Card.Img variant="top" src={otherUser.photoURL} />
-                <Card.Body className={userstomessagesstyle.MessagesPageMessagesCardsBody}>
-                  <Card.Title>{otherUser.messages_title}</Card.Title>
-                  <Card.Text className={userstomessagesstyle.MessagesPageMessagesCardsText}>
-                    {user.displayName}&
-                    {otherUser.user_2name}
-                  </Card.Text>
+          <div className={userstomessagesstyle.MessagesPageMessagesInnerContainer}>
+            <div>
+              {messagesArr.map((otherUser) => (
+                <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
+                  <Card.Img variant="top" src={otherUser.photoURL} />
+                  <Card.Body className={userstomessagesstyle.MessagesPageMessagesCardsBody}>
+                    <Card.Title>{otherUser.messages_title}</Card.Title>
+                    <Card.Text className={userstomessagesstyle.MessagesPageMessagesCardsText}>
+                      {user.displayName}&
+                      {otherUser.user_2name}
+                    </Card.Text>
 
-                  <Button
-                    className={userstomessagesstyle.MessagesPageMessagesCardsButton}
-                    href={`/Messages/viewMessages/${otherUser.firebaseKey}`}
-                  >
-                    View Messages
-                  </Button>
+                    <Button
+                      className={userstomessagesstyle.MessagesPageMessagesCardsButton}
+                      href={`/Messages/viewMessages/${otherUser.firebaseKey}`}
+                    >
+                      View Messages
+                    </Button>
 
-                </Card.Body>
-              </Card>
+                  </Card.Body>
+                </Card>
 
-            ))}
-          </div>
-          <div>
-            {secondaryMessagesArr.map((otherUser) => (
-              <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
-                <Card.Img variant="top" src={otherUser.photoURL} />
-                <Card.Body className={userstomessagesstyle.MessagesPageMessagesCardsBody}>
-                  <Card.Title>{otherUser.messages_title}</Card.Title>
-                  <Card.Text className={userstomessagesstyle.MessagesPageMessagesCardsText}>
-                    {otherUser.user_1name}&
-                    {user.displayName}
-                  </Card.Text>
+              ))}
+            </div>
+            <div>
+              {secondaryMessagesArr.map((otherUser) => (
+                <Card className={userstomessagesstyle.MessagesPageMessagesCards} style={{ width: '18rem', color: 'black' }} key={otherUser.firebaseKey}>
+                  <Card.Img variant="top" src={otherUser.photoURL} />
+                  <Card.Body className={userstomessagesstyle.MessagesPageMessagesCardsBody}>
+                    <Card.Title>{otherUser.messages_title}</Card.Title>
+                    <Card.Text className={userstomessagesstyle.MessagesPageMessagesCardsText}>
+                      {otherUser.user_1name}&
+                      {user.displayName}
+                    </Card.Text>
 
-                  <Button
-                    className={userstomessagesstyle.MessagesPageMessagesCardsButton}
-                    href={`/Messages/viewMessages/${otherUser.firebaseKey}`}
-                  >
-                    View Messages
-                  </Button>
+                    <Button
+                      className={userstomessagesstyle.MessagesPageMessagesCardsButton}
+                      href={`/Messages/viewMessages/${otherUser.firebaseKey}`}
+                    >
+                      View Messages
+                    </Button>
 
-                </Card.Body>
-              </Card>
+                  </Card.Body>
+                </Card>
 
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -106,28 +108,7 @@ export default function UsersToMessage() {
                 <Card.Body className={userstomessagesstyle.MessagesPageUserCardsBody}>
                   <Card.Title>{otherUser.displayName}</Card.Title>
 
-                  <CreateMessagesModal otherUser={otherUser} /> {/* <button
-                    className={userstomessagesstyle.MessagesPageUserCardsButton}
-                    type="button"
-                    onClick={() => {
-                      const payload = {
-                        user_1: user.uid,
-                        user_2: otherUser.uid,
-                        user_1name: user.displayName,
-                        user_2name: otherUser.displayName,
-                        date_added: new Date().toLocaleString(),
-                        author: user.displayName,
-                      };
-                      createMessages(payload).then(({ name }) => {
-                        const patchPayload = { firebaseKey: name };
-                        updateMessages(patchPayload)
-                          .then(() => {
-                            getUserMessages(user.uid).then(setMessagesArr);
-                          });
-                      });
-                    }}
-                  >create messages
-                  </button> */}
+                  <CreateMessagesModal otherUser={otherUser} />
 
                 </Card.Body>
               </Card>

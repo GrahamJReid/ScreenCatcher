@@ -44,7 +44,7 @@ export default function UsersPageContent() {
           <div className={userspagestyle.UsersPageUserCardContainer}>
             {filteredItems.map((user) => (
               <Card className={userspagestyle.UsersPageUserCard} style={{ width: '18rem', color: 'black' }} key={user.uid}>
-                <Card.Img variant="top" src={user.photoURL} />
+                <Card.Img className={userspagestyle.UsersPageUserCardImage} variant="top" src={user.photoURL} />
                 <Card.Body className={userspagestyle.UsersPageUserCardBody}>
                   <Card.Title>{user.displayName}</Card.Title>
                   <Link href={`/Users/viewUser/${user.uid}`} passHref>

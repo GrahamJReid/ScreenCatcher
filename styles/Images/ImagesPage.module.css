@@ -129,13 +129,11 @@ margin-top:10%;
   justify-content:center;
   align-items:center;
   margin-bottom:2%;
-  
 }
 .SearchBar{
     width:65%;
     border-radius:25px;
     padding:1%;
-
 }
 .SearchBar{
   background-color:rgb(5,1,26);
@@ -144,7 +142,6 @@ margin-top:10%;
   border-radius:25px;
   font-size:1.5em;
   padding:2%;
-
 }
 .SearchBar:focus{
   background-color:rgb(5,1,26);

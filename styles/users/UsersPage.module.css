@@ -57,6 +57,15 @@ align-items:center;
 background:rgb(5,1,26);
 border:solid 2px rgb(233,105,57)
 }
+.UsersPageUserCardImage{
+  width:200px;
+  height:200px;
+  max-height:50%;
+  object-fit:cover;
+  border-radius:25px;
+  border:rgb(233,105,57) solid 2px;
+  margin-top:5%;
+}
 .UsersPageUserCardBody{
   color:white;
 }

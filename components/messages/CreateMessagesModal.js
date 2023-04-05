@@ -59,9 +59,10 @@ export default function CreateMessagesModal({ otherUser }) {
         </Modal.Header>
         <Modal.Body className={userstomessagesstyle.Modal}>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Messages Title</Form.Label>
               <Form.Control
+                className={userstomessagesstyle.MessagesTitleInput}
                 onChange={handleChange}
                 type="text"
                 value={formInput.messages_title}

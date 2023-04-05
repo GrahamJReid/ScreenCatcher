@@ -90,7 +90,7 @@ color:white;
 .NavLink{
   margin-left:5%;
   font-size:3rem;
-  animation:slideInRight  .4s linear;
+  animation:slideInRight  .46s linear;
  
 }
 .NavLink:hover{
@@ -112,14 +112,15 @@ color:white;
   border-radius:25px;
   width:100%;
   border:solid 2px rgb(233,105,57);
-  animation:slideInRight  .3s linear;
+  animation:slideInRight  .4s linear;
+  margin-bottom:5%;
   
 }
 .OffCanvas-username{
   font-size:2.5rem;
   margin-bottom:5%;
   text-align:center;
-  animation:slideInRight  .4s linear;
+  animation:slideInRight  .45s linear;
 
 }
 .navbar-signout-btn{
@@ -141,20 +142,14 @@ color:white;
    background-color:rgb(233,105,57);
    border:solid 4px rgb(233,105,57);
    border-radius:25px;
-
 }
-
-
-
 .gallery-div-container{
   display:flex;
   justify-content:center;
   text-align:center;
   height:100%;
   width:100%;
-
 }
-
 .gallery-container{
   height:100vh;
  text-align:center;
