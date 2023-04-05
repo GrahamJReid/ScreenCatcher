@@ -53,7 +53,15 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   height:22em;
+  align-items:end;
 
+}
+.PostCardOther{
+  background:transparent;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  height:22em;
+  align-items:start;
 }
 .MessageText{
   font-size:1.2em;
@@ -66,16 +74,12 @@
   overflow-y:hidden;
 }
 .PostMessageImage{
- position:absolute;
- right:10%;
- top:1%;
   object-fit:contain;
-  height:auto;
-  width:auto;
-  max-height:150px;
-  max-width:175px;
+  height:100%;
+  width:100%;
+  max-height:12em;
+  max-width:15em;
   border-radius:15px;
-  border:rgb(233,105,57) solid 2px;
 }
 .MessageFormInput{
   background-color:rgb(5,1,26);

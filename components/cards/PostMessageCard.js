@@ -31,7 +31,7 @@ function PostMessageCard({ postMessageObj, onUpdate }) {
 
   return (
     <>
-      <Card className={viewmessagesstyle.PostCard}>
+      <Card className={(postMessageObj.uid) === (user.uid) ? viewmessagesstyle.PostCard : viewmessagesstyle.PostCardOther}>
         <div className="comment-container">
           <Card.Header>{postMessageObj.date_added}</Card.Header>
           <Card.Body>
