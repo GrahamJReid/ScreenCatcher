@@ -15,7 +15,7 @@ export default function ThreadCard({ threadObj }) {
 
       <Link href={`/viewThreads/${threadObj.firebaseKey}`} passHref>
         {threadObj.thread_image === ''
-          ? <img src="/logo.png" width="50%" />
+          ? <div className={threadcardstyle.ThreadCardImagePlaceholderDiv}><img className={threadcardstyle.ThreadCardImagePlaceholder} src="/logo.png" width="100%" /></div>
           : <Card.Img variant="top" src={threadObj.thread_image} className={threadcardstyle.ThreadCardImage} /> }
       </Link>
 

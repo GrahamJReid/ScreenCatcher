@@ -24,6 +24,7 @@
   border-radius:25px;
   padding:4%;
   margin-left:15%;
+  height:80%;
 }
 .MessagesPageMessagesInnerContainer{
   overflow-y:scroll;
@@ -118,7 +119,9 @@
   margin-left:50%;
   overflow-y:scroll;
   position:sticky;
-  height:48%;
+  height:37.5%;
+  min-height:26em;
+  padding-top:5%;
 }
 .MessagesPageInnerCardDiv::-webkit-scrollbar {
   display: none;
@@ -134,9 +137,11 @@
   margin-top:10%;
 }
 .MessagesPageMessagesCardsImage{
-  border:solid rgb(233,105,57) 2px;
+  width:200px;
+  height:200px;
+  object-fit:cover;
   border-radius:25px;
-  width:50%;
+  border:rgb(233,105,57) solid 2px;
 }
 .MessagesPageUserCardsBody{
   display:flex;

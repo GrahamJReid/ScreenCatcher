@@ -1,21 +1,48 @@
-
+@keyframes slideInBottom {
+  from{
+    transform:translateY(500px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+@keyframes slideInRight {
+  from{
+    transform:translateX(500px);
+    opacity:0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+@keyframes slideInLeft {
+  from{
+    transform:translateX(-500px);
+    opacity:0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
 .ViewMessagesPageWrapperContainer{
   display:flex;
   justify-content:center;
   align-items:center;
   width:100%;
-  margin-top:28%;
 }
 
 .ViewMessagesPageWrapper{
-  margin-top:20%;
+  margin-top:3%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   height:60%;
   width:60%;
-  position:fixed;
   padding-bottom:10%;
   
 }
@@ -51,11 +78,21 @@
  justify-content:center;
 }
 .PostCard{
-  background:transparent;
+  background:linear-gradient(rgb(233,105,57),rgb(5,1,26));
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   height:22em;
+  margin-left:50%;
+  animation:slideInRight  .47s linear;
 
+}
+.PostCardOther{
+  background:linear-gradient(rgb(149,69,178),rgb(5,1,26)) ;
+  border:solid 2px rgb(233,105,57);
+  border-radius:25px;
+  height:22em;
+  margin-right:50%;
+  animation:slideInLeft  .47s linear;
 }
 .MessageText{
   font-size:1.2em;
@@ -68,16 +105,12 @@
   overflow-y:hidden;
 }
 .PostMessageImage{
- position:absolute;
- right:10%;
- top:1%;
   object-fit:contain;
-  height:auto;
-  width:auto;
-  max-height:150px;
-  max-width:175px;
+  height:100%;
+  width:100%;
+  max-height:12em;
+  max-width:15em;
   border-radius:15px;
-  border:rgb(233,105,57) solid 2px;
 }
 .MessageFormInput{
   background-color:rgb(5,1,26);
@@ -85,7 +118,6 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   font-size:1.5em;
-  position:relative;
   width:50rem;
 
 }
@@ -116,7 +148,7 @@
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   background:rgb(5,1,26);
-  margin-left:1%;
+  margin-left:37%;
   font-size:1rem;
 }
 .DeleteButton:hover{
