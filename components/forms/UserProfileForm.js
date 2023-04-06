@@ -152,7 +152,7 @@ export default function UserProfileForm() {
         <div className={userprofilepagestyles.Wrapper}>
           <div className={userprofilepagestyles.UserInfoDiv}>
             <h1 className={userprofilepagestyles.UserProfileName}>{userDetails.displayName}</h1>
-            <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />
+            {userDetails.photoURL === '' ? <img className={userprofilepagestyles.UserProfileImage} src="/logo.png" /> : <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />}
           </div>
           <div>
             <Form className={userprofilepagestyles.ProfileFormDiv} onSubmit={handleSubmit}>
@@ -183,6 +183,7 @@ export default function UserProfileForm() {
                 <Form.Control
                   className={userprofilepagestyles.UserProfileFormInput}
                   type="textarea"
+                  maxlength="15"
                   style={{ height: '2.5em' }}
                   name="text"
                   value={formInput.text}
