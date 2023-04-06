@@ -7,11 +7,10 @@
 .UsersThreadsDiv{
   display:flex;
   flex-direction:row;
-  overflow-x:auto;
+  overflow-x:scroll;
   overflow-y:hidden;
-  justify-content: flex-start;
-  margin-left:.5%;
-  justify-content:space-evenly;
+  width:99%;
+ 
 }
 .UsersThreadsDiv::-webkit-scrollbar {
   display: none;
@@ -27,7 +26,9 @@
   margin-left:7%;
 } */
 .InnerUsersThreadsDiv{
-  margin-left:5%;
+  margin-left:-5%;
+  margin-right:15%;
+  padding:0px;
 }
 .PageWrapper{
   margin-top:10%;
