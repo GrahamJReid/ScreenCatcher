@@ -22,6 +22,7 @@ export default function ThreadsPage() {
   return (
     <>
       <div className={threadspagestyles.PageWrapper}>
+        <h1 className={threadspagestyles.ThreadsPageTitle}>Threads</h1>
         <div className={threadspagestyles.UsersThreadsDiv}>
 
           {userThreads.map((thread) => (

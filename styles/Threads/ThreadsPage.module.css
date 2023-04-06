@@ -1,33 +1,24 @@
-/* .UsersThreadsDiv{
-  white-space: nowrap;
-  position: relative;
-  overflow-x:auto;
-  overflow-y:hidden;
-} */
+
+.ThreadsPageTitle{
+  text-align:center;
+  margin-bottom:3%;
+  font-size:7em;
+  font-weight:900;
+}
 .UsersThreadsDiv{
   display:flex;
   flex-direction:row;
-  overflow-x:auto;
+  overflow-x:scroll;
   overflow-y:hidden;
-  justify-content: flex-start;
-  margin-left:.5%;
-  justify-content:space-evenly;
+  width:99%;
 }
 .UsersThreadsDiv::-webkit-scrollbar {
   display: none;
 }
-/* .InnerUsersThreadsDiv {
-  width: 24.5%;
-  background-color: transparent;
-  float: none;
-  height: 90%;
-  margin: 0 0.25%;
-  display: inline-block;
-  zoom: 1;
-  margin-left:7%;
-} */
 .InnerUsersThreadsDiv{
-  margin-left:5%;
+  margin-left:-5%;
+  margin-right:15%;
+  padding:0px;
 }
 .PageWrapper{
   margin-top:10%;

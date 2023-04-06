@@ -71,24 +71,19 @@
     background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
    height:95vh;
    width:95vw;
-  
-  
-   
 
 }
 .FoldersContainer{
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
-  width:70%;
+  width:60%;
   overflow-y:scroll;
   overflow-x:visible;
   height:38em;
-  margin-left:20%;
+  justify-content:center;
   position:sticky;
   align-items:center;
-
-
 }
 
 .FolderFormDiv{

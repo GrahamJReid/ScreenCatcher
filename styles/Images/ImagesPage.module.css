@@ -12,8 +12,9 @@
 .ImageFormContainer{
   width:40%;
   margin-left:10%;
- height:60%;
+ height:80%;
  margin-bottom:5%;
+ margin-top:5.5%;
 }
 .ImagesPageContentContainer{
   width:80%;
@@ -31,7 +32,6 @@
     background-color:#FF8811; 
 height:80%;
 margin-top:10%;
-
 }
 
 .ImageFormInput{
@@ -82,7 +82,7 @@ margin-top:10%;
   height:100%;
   margin-left:10%;
   overflow-y: auto; 
-  height:63%;
+  height:68%;
   position:sticky;
   padding:2%;
   background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
@@ -104,6 +104,7 @@ margin-top:10%;
   border:solid 3px rgb(233,105,57);
   padding:5%;
   margin-left:2%;
+  height:85%;
 }
 .ImagesPageImage{
   object-fit:cover;
