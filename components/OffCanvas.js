@@ -42,7 +42,7 @@ function OffCanvas({ name, ...props }) {
           <nav onClick={handleClose}>
             <ul className="navbar-nav me-auto">
               <div className="NavLinkList">
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink1">
                   <Link passHref href="/">
                     <a className="NavLink">
                       Home
@@ -50,7 +50,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink2">
                   <Link passHref href="/ImageEditorPage">
                     <a className="NavLink">
                       Image Editor
@@ -58,7 +58,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink3">
                   <Link passHref href="/Images/images">
                     <a className="NavLink">
                       Images
@@ -66,7 +66,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink4">
                   <Link passHref href="/Folders/foldersPage">
 
                     <a className="NavLink">
@@ -75,7 +75,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink5">
                   <Link passHref href="/threads/ThreadsPage">
 
                     <a className="NavLink">
@@ -84,7 +84,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink6">
                   <Link passHref href="/Messages/messagesPage">
 
                     <a className="NavLink">
@@ -93,7 +93,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink7">
                   <Link passHref href="/Users/UsersPage">
 
                     <a className="NavLink">
@@ -102,7 +102,7 @@ function OffCanvas({ name, ...props }) {
                   </Link>
                 </li>
 
-                <li className="NavLink">
+                <li className="NavLink" id="NavLink8">
                   <Link passHref href="/userProfile">
 
                     <a className="NavLink">
