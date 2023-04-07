@@ -1,6 +1,4 @@
-.Wrapper{
-  position:relative;
-}
+
 
 .ContentTitle{
     color:orange;
@@ -8,10 +6,8 @@
 
 .FoldersPageContentContainer{
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content:center;
-    flex-wrap:wrap;
-    overflow-y:scroll;
     height:80%;
     
 }
@@ -65,7 +61,6 @@
 .FoldersPageContentContainer{
     display:flex;
     flex-direction:column;
-    flex-wrap:wrap;
     justify-content:center;
     align-items:center;
     background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
