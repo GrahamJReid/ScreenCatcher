@@ -2,21 +2,22 @@
 .ImagePageWrapper{
   display:flex;
   flex-direction:row;
+  justify-content: center;
+  align-items:stretch;
   margin-top:8%;
   height:100vh;
-  width:100%;
+  width:100vw;
   background:transparent;
   
 }
 .ImageFormContainer{
   width:40%;
   margin-left:10%;
- height:80%;
- margin-bottom:5%;
- margin-top:5.5%;
+
 }
 .ImagesPageContentContainer{
   width:80%;
+  height:100%;
 }
 
 .ContentTitle{
@@ -27,19 +28,14 @@
   font-weight:900;
   white-space: nowrap;
 }
-.FormContainer{
-    border:solid orange 3px;
-    background-color:#FF8811; 
-height:80%;
-margin-top:10%;
-}
+
 
 .ImageFormInput{
   background-color:rgb(5,1,26);
   color:white;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
-  margin-bottom:1%;
+  margin-bottom:5%;
   font-size:1.5rem;
 }
 .ImageFormInput:focus{
@@ -72,14 +68,10 @@ margin-top:10%;
   border-radius:25px;
   background:rgb(233,105,57);
 }
-
-
 .ContainImagePageContent{
   display:flex;
   flex-direction:row;
-  background-color:transparent; 
   width:80%;
-  height:100%;
   margin-left:10%;
   overflow-y: auto; 
   height:73%;
@@ -98,13 +90,15 @@ margin-top:10%;
 .ContainImagePageContent::-webkit-scrollbar {
   display: none;
 }
+.ImagesFormDiv{
+margin-top:21%;
+
+}
 .ImagesForm{
   background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
   border-radius:25px;
   border:solid 3px rgb(233,105,57);
   padding:5%;
-  margin-left:2%;
-  height:95%;
 }
 .ImagesPageImage{
   object-fit:contain;
@@ -151,4 +145,7 @@ margin-top:10%;
 }
 .SearchBar::placeholder{
   color:white;
+}
+.EditImageForm{
+  width:100%
 }

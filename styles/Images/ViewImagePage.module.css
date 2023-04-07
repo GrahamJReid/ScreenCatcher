@@ -28,7 +28,8 @@
     width:50%;
 }
 .EditImageForm{
-    background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26))
+    background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
+  
 }
 .FolderSelectAddButton{
     border:solid 2px rgb(233,105,57);

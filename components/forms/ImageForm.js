@@ -140,102 +140,103 @@ export default function ImageForm({ obj }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className={imagepagestyles.ImagesForm}>
-      <h1 className={imagepagestyles.ImagesFormTitle}>{obj.firebaseKey ? 'Update' : 'Add'} Image</h1>
+    <div className={imagepagestyles.ImagesFormDiv}>
+      <Form onSubmit={handleSubmit} className={imagepagestyles.ImagesForm}>
+        <h1 className={imagepagestyles.ImagesFormTitle}>{obj.firebaseKey ? 'Update' : 'Add'} Image</h1>
 
-      {/* IMAGE FILE */}
-      {obj.firebaseKey ? '' : (
-        <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput1" label="Add File">
+        {/* IMAGE FILE */}
+        {obj.firebaseKey ? '' : (
+          <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput1" label="Add File">
+            <Form.Control
+              className={imagepagestyles.ImageFormInput}
+              style={{ height: '55%' }}
+              type="file"
+              onInput={handleImage}
+              required
+              name="image_placeholder"
+              value={formInput.image_placeholder}
+            />
+          </FloatingLabel>
+        )}
+
+        {/* IMAGE TITLE */}
+        <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput2" label="Image Title">
           <Form.Control
             className={imagepagestyles.ImageFormInput}
-            style={{ height: '3.7rem' }}
-            type="file"
-            onInput={handleImage}
+            style={{ height: '55%' }}
+            type="text"
+            name="image_title"
+            value={formInput.image_title}
+            onChange={handleChange}
             required
-            name="image_placeholder"
-            value={formInput.image_placeholder}
           />
         </FloatingLabel>
-      )}
 
-      {/* IMAGE TITLE */}
-      <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput2" label="Image Title">
-        <Form.Control
-          className={imagepagestyles.ImageFormInput}
-          style={{ height: '3.7rem' }}
-          type="text"
-          name="image_title"
-          value={formInput.image_title}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* IMAGE DESCRIPTION TEXTAREA */}
-      <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingTextArea" label="Image Description">
-        <Form.Control
-          className={imagepagestyles.ImageFormInput}
-          type="textarea"
-          style={{ height: '3.7rem' }}
-          name="description"
-          value={formInput.description}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-      <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput3" label="Category">
-        <Form.Control
-          className={imagepagestyles.ImageFormInput}
-          style={{ height: '3.7rem' }}
-          type="text"
-          name="category"
-          value={formInput.category}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* IMAGE DESCRIPTION TEXTAREA */}
-      <Form.Check
-        className={imagepagestyles.ImageFormSwitchInput}
-        type="switch"
-        id="public"
-        name="public"
-        label="Make public"
-        checked={formInput.public}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            public: e.target.checked,
-          }));
-        }}
-      />
-      <Form.Check
-        className={imagepagestyles.ImageFormSwitchInput}
-        type="switch"
-        id="gallery"
-        name="gallery"
-        label="Add to Gallery"
-        checked={formInput.gallery}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            gallery: e.target.checked,
-          }));
-        }}
-      />
-      {obj.firebaseKey ? '' : (
-        <FloatingLabel controlId="floatingSelect">
-          <Form.Select
+        {/* IMAGE DESCRIPTION TEXTAREA */}
+        <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingTextArea" label="Image Description">
+          <Form.Control
             className={imagepagestyles.ImageFormInput}
-            style={{ height: '4rem' }}
-            aria-label="Folder"
-            name="folder_id"
-            onChange={handleFolderImageChange}
-            value={folderImageInput.folder_id}
-          >
-            <option value="">Select a Folder</option>
-            {
+            type="textarea"
+            style={{ height: '55%' }}
+            name="description"
+            value={formInput.description}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+        <FloatingLabel className={imagepagestyles.ImageFormInputLabel} controlId="floatingInput3" label="Category">
+          <Form.Control
+            className={imagepagestyles.ImageFormInput}
+            style={{ height: '55%' }}
+            type="text"
+            name="category"
+            value={formInput.category}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
+        {/* IMAGE DESCRIPTION TEXTAREA */}
+        <Form.Check
+          className={imagepagestyles.ImageFormSwitchInput}
+          type="switch"
+          id="public"
+          name="public"
+          label="Make public"
+          checked={formInput.public}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              public: e.target.checked,
+            }));
+          }}
+        />
+        <Form.Check
+          className={imagepagestyles.ImageFormSwitchInput}
+          type="switch"
+          id="gallery"
+          name="gallery"
+          label="Add to Gallery"
+          checked={formInput.gallery}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              gallery: e.target.checked,
+            }));
+          }}
+        />
+        {obj.firebaseKey ? '' : (
+          <FloatingLabel controlId="floatingSelect">
+            <Form.Select
+              className={imagepagestyles.ImageFormInput}
+              style={{ height: '55%' }}
+              aria-label="Folder"
+              name="folder_id"
+              onChange={handleFolderImageChange}
+              value={folderImageInput.folder_id}
+            >
+              <option value="">Select a Folder</option>
+              {
                   folders.map((folder) => (
                     <option
                       key={folder.firebaseKey}
@@ -245,15 +246,16 @@ export default function ImageForm({ obj }) {
                     </option>
                   ))
                 }
-          </Form.Select>
-        </FloatingLabel>
-      )}
+            </Form.Select>
+          </FloatingLabel>
+        )}
 
-      {/* SUBMIT BUTTON  */}
+        {/* SUBMIT BUTTON  */}
 
-      <Button className={imagepagestyles.ImageFormSubmitButton} type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Image</Button>
+        <Button className={imagepagestyles.ImageFormSubmitButton} type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Image</Button>
 
-    </Form>
+      </Form>
+    </div>
   );
 }
 
