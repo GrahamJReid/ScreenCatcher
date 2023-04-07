@@ -5,7 +5,6 @@
   margin-top:8%;
   height:100vh;
   width:100%;
-  position:fixed;
   background:transparent;
   
 }
@@ -24,8 +23,9 @@
     color:white;
 }
 .ImagesFormTitle{
-  font-size:3em;
+  font-size:2.5rem;
   font-weight:900;
+  white-space: nowrap;
 }
 .FormContainer{
     border:solid orange 3px;
@@ -40,7 +40,7 @@ margin-top:10%;
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   margin-bottom:1%;
-  font-size:1.7rem;
+  font-size:1.5rem;
 }
 .ImageFormInput:focus{
   background-color:rgb(5,1,26);
@@ -65,7 +65,7 @@ margin-top:10%;
   border-radius:25px;
   background:rgb(5,1,26);
   margin-left:1%;
-  font-size:1.5em;
+  font-size:1.3rem;
 }
 .ImageFormSubmitButton:hover{
   border:solid 2px rgb(233,105,57);
@@ -82,7 +82,7 @@ margin-top:10%;
   height:100%;
   margin-left:10%;
   overflow-y: auto; 
-  height:68%;
+  height:73%;
   position:sticky;
   padding:2%;
   background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
@@ -104,15 +104,14 @@ margin-top:10%;
   border:solid 3px rgb(233,105,57);
   padding:5%;
   margin-left:2%;
-  height:85%;
+  height:95%;
 }
 .ImagesPageImage{
-  object-fit:cover;
-    max-width:auto;
-    max-height:auto;
+  object-fit:contain;
+    max-width:100%;
+    max-height:100%;
     width:100%;
     height:100%;
-    flex-grow:1;
     border-radius:15px;
     margin-bottom:1.5%;
 }
