@@ -10,33 +10,43 @@ import imagepagestyles from '../../styles/Images/ImagesPage.module.css';
 import { useAuth } from '../../utils/context/authContext';
 
 export default function ImagesPageContent({ arr }) {
-  const getFilteredItems = (query, order) => {
+  const getFilteredItems = (query, columnArray1) => {
     if (!query) {
-      return order;
+      return columnArray1;
     }
-    return order.filter((image) => image.image_title.toLowerCase().includes(query.toLowerCase()) || image.category.toLowerCase().includes(query.toLowerCase()) || image.date_added.includes(query.toLowerCase()) || image.description.toLowerCase().includes(query.toLowerCase()));
+    return columnArray1.filter((image) => image.image_title.toLowerCase().includes(query.toLowerCase()) || image.category.toLowerCase().includes(query.toLowerCase()) || image.date_added.includes(query.toLowerCase()) || image.description.toLowerCase().includes(query.toLowerCase()));
+  };
+  const getFilteredItems2 = (query, columnArray2) => {
+    if (!query) {
+      return columnArray2;
+    }
+    return columnArray2.filter((image) => image.image_title.toLowerCase().includes(query.toLowerCase()) || image.category.toLowerCase().includes(query.toLowerCase()) || image.date_added.includes(query.toLowerCase()) || image.description.toLowerCase().includes(query.toLowerCase()));
   };
 
   const { user } = useAuth();
   const [order, setOrder] = useState([]);
   const [query, setQuery] = useState('');
-  const filteredItems = getFilteredItems(query, order);
+  const pushedArray1 = [];
+  const pushedArray2 = [];
+  const [columnArray1, setColumnArray1] = useState([]);
+  const [columnArray2, setColumnArray2] = useState([]);
+  const filteredItems1 = getFilteredItems(query, columnArray1);
+  const filteredItems2 = getFilteredItems(query, columnArray2);
 
   useEffect(() => {
     getUserImages(user.uid).then((item) => {
       const sortedImageOrder = item.sort((a, b) => b.sort_date - (a.sort_date));
       setOrder(sortedImageOrder);
+      for (let i = 0; i < sortedImageOrder.length; i += 2) {
+        pushedArray1.push(sortedImageOrder[i]);
+      }
+      for (let i = 1; i < sortedImageOrder.length; i += 2) {
+        pushedArray2.push(sortedImageOrder[i]);
+      }
+      setColumnArray1(pushedArray1);
+      setColumnArray2(pushedArray2);
     });
   }, [user.uid, arr]);
-
-  const pushedArray1 = [];
-  for (let i = 0; i < order.length; i += 2) {
-    pushedArray1.push(order[i]);
-  }
-  const pushedArray2 = [];
-  for (let i = 1; i < order.length; i += 2) {
-    pushedArray2.push(order[i]);
-  }
 
   return (
     <>
@@ -48,14 +58,14 @@ export default function ImagesPageContent({ arr }) {
       </div>
       <div className={imagepagestyles.ContainImagePageContent}>
         <div className={imagepagestyles.ContainImagePageContentColumn}>
-          {pushedArray1.map((image) => (
+          {filteredItems1.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
               <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
             </Link>
           ))}
         </div>
         <div className={imagepagestyles.ContainImagePageContentColumn}>
-          {pushedArray2.map((image) => (
+          {filteredItems2.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
               <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
             </Link>
