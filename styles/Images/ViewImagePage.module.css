@@ -25,7 +25,10 @@
 
 }
 .EditImageImage{
-    width:50%;
+    width:40%;
+}
+.EditImageFormContainer{
+  width:30%;
 }
 .EditImageForm{
     background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
