@@ -11,7 +11,7 @@
   margin-bottom:2%;
 }
 .PostContainer{
-  height:35rem;
+  height:45rem;
   overflow-y: auto;
 }
 .PostContainer::-webkit-scrollbar {
@@ -60,7 +60,7 @@ border-radius:25px;
   color:white;
 }
 .CommentCardImage{
-  width:60%;
+  width:45%;
   margin-left:20%;
 }
 .CommentCardDeleteButton{
