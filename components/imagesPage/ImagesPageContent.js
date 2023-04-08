@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
@@ -53,6 +54,7 @@ export default function ImagesPageContent({ arr }) {
       <Head>
         <title>Images</title>
       </Head>
+
       <div className={imagepagestyles.SearchBarDiv}>
         <input className={imagepagestyles.SearchBar} type="text" placeholder="Search Images By Title or Category" onChange={(e) => setQuery(e.target.value)} />
       </div>

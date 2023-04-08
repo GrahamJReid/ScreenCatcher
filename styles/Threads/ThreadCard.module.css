@@ -16,22 +16,26 @@ border:solid 2px rgb(233,105,57);
 border-radius:25px;
 max-height:14rem;
 object-fit:cover;
+transform:scale(1.1);
+margin-top:2%;
 }
 .ThreadCardImagePlaceholderDiv{
   border:solid 2px rgb(233,105,57);
   border-radius:25px;
   background:linear-gradient(rgb(5,1,26));
   padding-top:5%;
+  transform:scale(1.08);
 }
 .ThreadCardImagePlaceholder{
   margin-top:5%;
   width:51%;
   margin-left:25%;
   max-height:14rem;
+  
 
 }
 .ThreadCardImage:hover{
-  transform: scale(1.02); 
+  transform: scale(1.12); 
   cursor: pointer; 
   transition-property: all; 
   transition-duration: 0.3s; 
@@ -45,19 +49,20 @@ object-fit:cover;
   width:20%;
   height:20%;
   position:absolute;
-  top:45px;
-  left:10px;
+  top:48px;
+  left:-8px;
+  transform:scale(1.2);
 }
 .ThreadTitle{
   color:white;
   text-align:center;
-  font-size:1.5em;
+  font-size:1.7em;
   font-weight:900;
 }
 .ThreadAuthorUsername{
   position:absolute;
-  top:40px;
-  right:10px;
+  top:42px;
+  right:-5px;
   font-size:1.2em;
   background:linear-gradient(rgb(149,69,178),rgb(5,1,26));
   border:solid 2px rgb(233,105,57);
@@ -66,7 +71,7 @@ padding:1%;
 }
 .ThreadCardDescription{
   position:absolute;
-  top:170px;
+  top:175px;
   color:white;
 }
 .AuthorInfoContainer{

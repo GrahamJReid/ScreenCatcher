@@ -17,7 +17,6 @@ function Home() {
               <h1 className="intro-title">ScreenCatcher</h1>
               <div className="intro-div-right" />
               <div className="intro-div-right-right" />
-
             </div>
           </div>
         </div>

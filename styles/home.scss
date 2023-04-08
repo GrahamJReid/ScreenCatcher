@@ -10,6 +10,10 @@
     background-position:right;
   }
 }
+@keyframes rotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
 @mixin align-center{
 display:flex;
 justify-content: center;
@@ -40,21 +44,25 @@ margin:0;
     width:100vw;
     height:100vh;
     position:relative;
-  
+    z-index:-5;
+    background-image:url(/geobackground.jpg);
+
       .intro-div-left{
         background-image:url(/geobackground.jpg);
         background-size:200%;
         animation: bg-animation 20s linear infinite alternate;
-        width:50%;
+        width:100%;
         z-index:-5;
+        
 
       }
       .intro-div-right{
         background-image:url(/geobackgroundreverse.jpeg);
         background-size:200%;
         animation: bg-animation 20s linear infinite alternate-reverse;
-        width:50%;
+        width:100%;
         z-index:-5;
+      
       }
      
       .intro-title{
