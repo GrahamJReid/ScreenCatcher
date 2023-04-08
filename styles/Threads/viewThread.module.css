@@ -11,7 +11,7 @@
   margin-bottom:2%;
 }
 .PostContainer{
-  height:45rem;
+  height:64rem;
   overflow-y: auto;
 }
 .PostContainer::-webkit-scrollbar {
