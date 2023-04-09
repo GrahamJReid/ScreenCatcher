@@ -88,14 +88,14 @@ export default function ViewUser() {
   useEffect(() => {
     getFollowUserObjectsByCurrentUserUid(uid)
       .then((arr) => setNumberOfFollowers(arr.length));
-  }, [uid, user, updateUserFollows]);
+  }, [uid, user, updateUserFollows, numberOfFollowers]);
 
   useEffect(() => {
     if (didMount.current) {
       getFollowUserObjectsByCurrentUserUid(uid)
         .then((arr) => setNumberOfFollowers(arr.length));
     } else { didMount.current = true; }
-  }, [uid, user, updateUserFollows]);
+  }, [uid, user, updateUserFollows, numberOfFollowers]);
 
   return (
     <div>
@@ -103,6 +103,7 @@ export default function ViewUser() {
         <div className={userpagestyle.UserPageUserInfoDiv}>
           <img className={userpagestyle.UserImage} src={followableUser.photoURL} alt="user photo" />
           <h1 className={userpagestyle.UserName}>{followableUser.displayName}</h1>
+          <h2>Followers:{numberOfFollowers}</h2>
           {btnToggle === 0
             ? <Button className={userpagestyle.ContentButton} onClick={handleFollow}>Follow</Button>
             : <Button className={userpagestyle.ContentButton} onClick={handleUnfollow}>Unfollow</Button>}
