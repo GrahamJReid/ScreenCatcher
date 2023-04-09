@@ -152,6 +152,7 @@ export default function UserProfileForm() {
         <div className={userprofilepagestyles.Wrapper}>
           <div className={userprofilepagestyles.UserInfoDiv}>
             <h1 className={userprofilepagestyles.UserProfileName}>{userDetails.displayName}</h1>
+            <h2> Followers:{numberOfFollowers} </h2>
             {userDetails.photoURL === '' ? <img className={userprofilepagestyles.UserProfileImage} src="/logo.png" /> : <img className={userprofilepagestyles.UserProfileImage} src={userDetails.photoURL} />}
           </div>
           <div>
