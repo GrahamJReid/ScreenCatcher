@@ -1,4 +1,23 @@
-
+@keyframes slideInRight {
+  from{
+    transform:translateX(500px);
+    opacity:-5;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+@keyframes slideInBottom {
+  from{
+    transform:translateY(500px);
+    opacity:-5;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
 .ThreadsPageTitle{
   text-align:center;
   margin-bottom:3%;
@@ -11,6 +30,7 @@
   overflow-x:scroll;
   overflow-y:hidden;
   width:99%;
+  animation:slideInBottom  .6s ease-in; 
 }
 .UsersThreadsDiv::-webkit-scrollbar {
   display: none;

@@ -66,12 +66,14 @@ border-radius:25px;
 .CommentCardDeleteButton{
   background:transparent;
   border:solid 2px rgb(233,105,57);
+  border-radius:10px;
   margin-left:88%;
   font-size:.7em;
 }
 .CommentCardDeleteButton:hover{
  background-color:rgb(233,105,57);
  border:solid 2px rgb(233,105,57);
+ border-radius:10px;
 }
 .CommentFormCommentTextWindowLabel{
   font-size:1.5em;

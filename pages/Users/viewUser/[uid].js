@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { getUserPublicFolders } from '../../../API/folderData';
 import {
-  createFollowUserObj, deleteFollowUserObj, getFollowUserObjectsByCurrentUserUid, getSingleFollowUserObj, updateFollowUserObj,
+  createFollowUserObj, deleteFollowUserObj, getFollowUserObjectsByFollowedUserUid, getSingleFollowUserObj, updateFollowUserObj,
 } from '../../../API/followUserData';
 import { getUserPublicImages } from '../../../API/imageData';
 import { getUser } from '../../../API/userData';
@@ -38,15 +38,18 @@ export default function ViewUser() {
       const patchFollowUserPayload = { firebaseKey: name };
       updateFollowUserObj(patchFollowUserPayload).then(() => setUpdateUserFollows(1));
     });
-    console.warn(numberOfFollowers);
+    getFollowUserObjectsByFollowedUserUid(uid)
+      .then((arr) => setNumberOfFollowers(arr.length));
   };
 
   const handleUnfollow = async () => {
     setBtnToggle(0);
     getSingleFollowUserObj(user.uid, uid).then((followUserObj) => {
       deleteFollowUserObj(followUserObj.firebaseKey);
+      setUpdateUserFollows(2);
     });
-    setUpdateUserFollows(2);
+    getFollowUserObjectsByFollowedUserUid(uid)
+      .then((arr) => setNumberOfFollowers(arr.length));
   };
 
   const handleContentImages = () => {
@@ -86,13 +89,13 @@ export default function ViewUser() {
   }, [uid]);
 
   useEffect(() => {
-    getFollowUserObjectsByCurrentUserUid(uid)
+    getFollowUserObjectsByFollowedUserUid(uid)
       .then((arr) => setNumberOfFollowers(arr.length));
   }, [uid, user, updateUserFollows, numberOfFollowers]);
 
   useEffect(() => {
     if (didMount.current) {
-      getFollowUserObjectsByCurrentUserUid(uid)
+      getFollowUserObjectsByFollowedUserUid(uid)
         .then((arr) => setNumberOfFollowers(arr.length));
     } else { didMount.current = true; }
   }, [uid, user, updateUserFollows, numberOfFollowers]);

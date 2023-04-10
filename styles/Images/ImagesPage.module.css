@@ -1,4 +1,23 @@
-
+@keyframes slideInRight {
+  from{
+    transform:translateX(500px);
+    opacity:-5;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+@keyframes slideInLeft {
+  from{
+    transform:translateX(-500px);
+    opacity:-5;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
 .ImagePageWrapper{
   display:flex;
   flex-direction:row;
@@ -110,8 +129,28 @@ margin-top:21%;
     height:100%;
     border-radius:15px;
     margin-bottom:1.5%;
+    animation:slideInLeft  .5s ease-in; 
 }
 .ImagesPageImage:hover{
+  transform: scale(1.02); 
+  cursor: pointer; 
+  transition-property: all; 
+  transition-duration: 0.3s; 
+  transition-timing-function: ease; 
+  box-shadow:black 0px 0px 15px 2px;
+  border:transparent;
+}
+.ImagesPageImage2{
+  object-fit:contain;
+    max-width:100%;
+    max-height:100%;
+    width:100%;
+    height:100%;
+    border-radius:15px;
+    margin-bottom:1.5%;
+    animation:slideInRight  .5s ease-in; 
+}
+.ImagesPageImage2:hover{
   transform: scale(1.02); 
   cursor: pointer; 
   transition-property: all; 

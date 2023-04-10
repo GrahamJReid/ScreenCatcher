@@ -69,7 +69,7 @@ export default function ImagesPageContent({ arr }) {
         <div className={imagepagestyles.ContainImagePageContentColumn}>
           {filteredItems2.map((image) => (
             <Link key={image.firebaseKey} passHref href={`/viewImage/${image.firebaseKey}`}>
-              <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage} />
+              <img src={`${image.image_url}`} height="50%" width="50%" className={imagepagestyles.ImagesPageImage2} />
             </Link>
           ))}
         </div>

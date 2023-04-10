@@ -27,11 +27,17 @@ export default function ViewThread() {
   const [buttonCount, setButtonCount] = useState(0);
 
   const displayComments = () => {
-    getCommentsByThreadId(firebaseKey).then(setComments);
+    getCommentsByThreadId(firebaseKey).then((item) => {
+      const sortedImageOrder = item.sort((a, b) => a.sort_date - (b.sort_date));
+      setComments(sortedImageOrder);
+    });
   };
 
   useEffect(() => {
-    getCommentsByThreadId(firebaseKey).then(setComments);
+    getCommentsByThreadId(firebaseKey).then((item) => {
+      const sortedImageOrder = item.sort((a, b) => a.sort_date - (b.sort_date));
+      setComments(sortedImageOrder);
+    });
     getLikesByThreadIdandUid(firebaseKey, user.uid).then((item) => {
       if (item.length === 0) {
         console.warn('user hasnt liked thread before');
