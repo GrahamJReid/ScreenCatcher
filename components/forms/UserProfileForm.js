@@ -7,7 +7,7 @@ import { getUserPublicImages } from '../../API/imageData';
 import { getUser, updateUser } from '../../API/userData';
 import { getUserThreads, updateThread } from '../../API/threadData';
 import { getPostMessagesByUID, updatePostMessage } from '../../API/postMessageData';
-import { getFollowUserObjectsByCurrentUserUid } from '../../API/followUserData';
+import { getFollowUserObjectsByFollowedUserUid } from '../../API/followUserData';
 import { getUserMessages, getUserSecondaryMessages, updateMessages } from '../../API/messagesData';
 import userprofilepagestyles from '../../styles/users/UserProfilePage.module.css';
 import { getCommentsByUID, updateComment } from '../../API/commentsData';
@@ -62,7 +62,7 @@ export default function UserProfileForm() {
   }, [user]);
 
   useEffect(() => {
-    getFollowUserObjectsByCurrentUserUid(user.uid)
+    getFollowUserObjectsByFollowedUserUid(user.uid)
       .then((arr) => setNumberOfFollowers(arr.length));
   }, [user]);
 
