@@ -15,7 +15,8 @@ export default function UserFollowedImages() {
       const imageKeys = followUserArr.map((item) => item.followed_user);
       getImages().then((imagesArr) => {
         const imagesArray = imagesArr.filter((image) => imageKeys.includes(image.uid) && image.public === true);
-        setImages(imagesArray);
+        const sortedImageOrder = imagesArray.sort((a, b) => b.sort_date - (a.sort_date));
+        setImages(sortedImageOrder);
       });
     }, [user.uid]);
   });
