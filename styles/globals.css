@@ -355,7 +355,12 @@ border-radius:25px;
   background-image:linear-gradient(rgb(149,69,178),rgb(5,1,26));
   margin-left:25%;
 }
-
+.off-canvas-container::-webkit-scrollbar {
+  display: none;
+}
+.offcanvas-body::-webkit-scrollbar {
+  display: none;
+}
 
 .gallery-carousel-container{
 display:flex;
