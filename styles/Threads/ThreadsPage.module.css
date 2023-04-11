@@ -11,7 +11,7 @@
 @keyframes slideInBottom {
   from{
     transform:translateY(500px);
-    opacity:-5;
+    opacity:-10;
   }
   to{
     transform:translateY(0);
@@ -30,7 +30,7 @@
   overflow-x:scroll;
   overflow-y:hidden;
   width:99%;
-  animation:slideInBottom  .6s ease-in; 
+  animation:slideInBottom  .8s ease-in; 
 }
 .UsersThreadsDiv::-webkit-scrollbar {
   display: none;

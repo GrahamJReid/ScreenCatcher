@@ -80,6 +80,9 @@
   position:sticky;
   align-items:center;
 }
+.FoldersContainer::-webkit-scrollbar {
+  display: none;
+}
 
 .FolderFormDiv{
     margin-top:10%;

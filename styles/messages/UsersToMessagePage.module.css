@@ -30,6 +30,9 @@
   overflow-y:scroll;
   height:50rem;
 }
+.MessagesPageMessagesInnerContainer::-webkit-scrollbar {
+  display: none;
+}
 .MessagesPageMessagesCardsDiv::-webkit-scrollbar {
   display: none;
 }
@@ -115,6 +118,9 @@
   margin-right:15%;
   margin-left:50%;
   height:80%;
+}
+.MessagesPageUserCardsDiv::-webkit-scrollbar {
+  display: none;
 }
 .MessagesPageInnerCardDiv{
   overflow-y:scroll;
