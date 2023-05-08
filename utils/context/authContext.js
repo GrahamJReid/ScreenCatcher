@@ -35,7 +35,7 @@ const AuthProvider = (props) => {
           } else {
             createUser(fbUser).then(({ name }) => {
               const patchPayload = { firebaseKey: name };
-              updateUser(patchPayload);
+              updateUser(patchPayload).then(window.location.reload(true));
             });
           }
         });
