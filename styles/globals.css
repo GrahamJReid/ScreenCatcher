@@ -130,6 +130,7 @@ color:white;
 
 .OffCanvas-title{
   font-size:3rem;
+  color:white;
 }
 
 .OffCanvas-user-image{
@@ -145,6 +146,7 @@ color:white;
   margin-bottom:5%;
   text-align:center;
   animation:slideInRight  .45s ease-in;
+  color: white;
 
 }
 .navbar-signout-btn{

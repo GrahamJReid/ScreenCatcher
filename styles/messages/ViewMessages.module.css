@@ -85,6 +85,7 @@
   height:22em;
   margin-left:50%;
   animation:slideInRight  .47s linear;
+  color:white;
 
 }
 .PostCardOther{
@@ -94,6 +95,7 @@
   height:22em;
   margin-right:50%;
   animation:slideInLeft  .47s linear;
+  color:white;
 }
 .MessageText{
   font-size:1.2em;
